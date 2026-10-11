@@ -16,11 +16,13 @@ var services = new ServiceCollection().AddResearchSite(new CatalogueSettings
 await using var provider = services.BuildServiceProvider();
 var snapshot = await provider.GetRequiredService<RegistryBuilder>().BuildRegistry(CancellationToken.None);
 Directory.CreateDirectory(output);
-foreach (var file in Directory.EnumerateFiles(Path.Combine(AppContext.BaseDirectory, "Assets")))
-{
-    File.Copy(file, Path.Combine(output, Path.GetFileName(file)), true);
-}
-
+var assets = Path.Combine(AppContext.BaseDirectory, "Assets");
+var template = await File.ReadAllTextAsync(Path.Combine(assets, "index.html"));
+var styles = await File.ReadAllTextAsync(Path.Combine(assets, "styles.css"));
+var script = await File.ReadAllTextAsync(Path.Combine(assets, "app.js"));
 var json = JsonSerializer.Serialize(snapshot, JsonSerializerOptions.Web);
-await File.WriteAllTextAsync(Path.Combine(output, "registry.js"), "window.researchRegistry = " + json + ";\n");
+var html = template.Replace("/* SITE_STYLES */", styles, StringComparison.Ordinal)
+    .Replace("/* SITE_SCRIPT */", script, StringComparison.Ordinal)
+    .Replace("REGISTRY_DATA", json, StringComparison.Ordinal);
+await File.WriteAllTextAsync(Path.Combine(output, "index.html"), html);
 Console.WriteLine($"Built {snapshot.Tokens.Count} contract entries with {snapshot.Studies.Count} case studies into {output}");

@@ -1,5 +1,5 @@
 'use strict';
-const registry = window.researchRegistry;
+const registry = JSON.parse(document.querySelector('#registry-data').textContent);
 const detail = document.querySelector('#detail');
 const list = document.querySelector('#token-list');
 const search = document.querySelector('#token-search');

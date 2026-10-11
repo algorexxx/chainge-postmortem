@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Independent evidence registry for Fusion token representations, candidate custody addresses and traced asset movements.">
   <title>Chainge Postmortem · Asset registry</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="registry.js" defer></script>
-  <script src="app.js" defer></script>
+  <style>/* SITE_STYLES */</style>
 </head>
 <body>
   <a class="skip" href="#detail">Skip to token details</a>
@@ -25,8 +23,10 @@
       <div id="token-list" class="token-list"></div><button id="load-more" class="load-more">Show more tokens</button>
       <footer class="catalogue-footer">Catalogue captured 11 Oct 2026<br><a href="https://docs.google.com/spreadsheets/d/1pyQlI4oGOgaRx-5UWA68meb85KtsnZ98BZrYDrHsqhk/edit?gid=1161132641#gid=1161132641">Public source spreadsheet ↗</a></footer>
     </aside>
-    <main id="detail" tabindex="-1"><noscript>This registry needs JavaScript for token selection. All findings remain available in the <a href="https://github.com/algorexxx/chainge-postmortem/tree/main/research">research reports</a>.</noscript><p class="loading">Loading the evidence registry…</p></main>
+    <main id="detail" tabindex="-1"><p class="loading">The interactive registry has not started. If this message remains, open this generated index.html in a browser that permits JavaScript. Some file previews disable scripts. Findings are also available in the <a href="https://github.com/algorexxx/chainge-postmortem/tree/main/research">research reports</a>.</p></main>
   </div>
   <footer class="site-footer"><span>Public evidence. Explicit uncertainty.</span><span>Transfers do not establish ownership, purpose or loss.</span></footer>
+  <script id="registry-data" type="application/json">REGISTRY_DATA</script>
+  <script>/* SITE_SCRIPT */</script>
 </body>
 </html>

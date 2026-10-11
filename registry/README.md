@@ -12,9 +12,9 @@ dotnet test --solution Chainge.Postmortem.slnx --no-build --coverage --coverage-
 dotnet run --project Chainge.Postmortem.Site --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
 ```
 
-Open `dist/index.html` in a browser, or serve `dist/` using a local static HTTP server. All runtime assets are local; no RPC connection, API key, analytics or remote font is required. Evidence links open public source reports and explorers. Only the generated `dist/` directory is intended for static hosting. It contains no archive files.
+Open `dist/index.html` in a browser, or serve `dist/` using a local static HTTP server. The generated HTML embeds its styles, JavaScript and registry data and needs no companion files. If a file preview does not run scripts, open the file directly in your browser instead. All runtime assets are embedded; no RPC connection, API key, analytics or remote font is required. Evidence links open public source reports and explorers. Only the generated `dist/` directory is intended for static hosting. It contains no archive files.
 
-The output uses relative asset paths and hash-based token selection, so it can be served under a GitHub Pages repository subdirectory without a server-side route fallback. Publication and remote Git pushes remain with the maintainer. No deployment workflow or automatic refresh is enabled.
+The output uses embedded assets and hash-based token selection, so it can be served under a GitHub Pages repository subdirectory without a server-side route fallback. Publication and remote Git pushes remain with the maintainer. No deployment workflow or automatic refresh is enabled.
 
 ## Sources and interpretation
 
@@ -34,3 +34,5 @@ The Domain project holds the source token record. Application groups catalogue e
 Application tests cover duplicate-address grouping, source-row/alias retention, reviewed-first ordering and rejection of studies pointing outside the catalogue. The builder reached 100% line coverage; DI registration is excluded. Build completed with zero warnings. Manual data validation checked exact mint-minus-burn arithmetic, case ordering, transaction hashes and amounts against the cited reports.
 
 Browser checks covered symbol search, no-result state, unassessed-token selection, investigation-only filtering, tabs and keyboard navigation, vault dust precision, outflow filtering and path selection. Overview and movements were checked at a 390-pixel viewport with no page-level horizontal overflow. No browser warnings or errors were observed. The UI does not test completeness of the underlying investigation.
+
+The standalone-output regression check served only the generated index.html from an otherwise empty directory. The full catalogue, BUSD overview, movements and token search loaded without companion files or browser errors. This verifies HTTP browser execution; the Codex file preview may impose separate script restrictions.
