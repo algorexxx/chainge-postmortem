@@ -4,6 +4,8 @@ Independent, evidence-based research into Chainge-related tokens, contract admin
 
 The work does not presume intent, responsibility or the cause of service disruption. Reports distinguish observations, attributed statements, inferences and hypotheses. Addresses have chain-specific, time-dependent roles; a transfer or matching address alone does not establish ownership or custody.
 
+The required result for every asset is a complete ledger comparing outstanding Fusion tokens with balances at its verified source-chain vault addresses at a common cutoff. Gross token balances, accounting adjustments, individual vault holdings and unresolved gaps must remain visible. See the [completion standard](PLAN.md#required-outcome-for-every-asset).
+
 ## Start here
 
 - [BUSD case assessment and remaining questions](research/busd-case-assessment.md)
@@ -23,7 +25,7 @@ The work does not presume intent, responsibility or the cause of service disrupt
 
 ## Current coverage
 
-The initial investigation covers a small Fusion token sample and a BUSD pilot. Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. An Avalanche router's configured liquidity-address role and two subsequent changes are verified; segregated reserves and complete source-chain custody remain unconfirmed. A public site and repeatable collector are planned, not implemented.
+The initial investigation covers a small Fusion token sample and a BUSD pilot. **BUSD is incomplete: the outstanding-token/vault reconciliation has not yet been delivered.** Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. An Avalanche router's configured liquidity-address role and two subsequent changes are verified; segregated reserves and complete source-chain custody remain unconfirmed. A public site and repeatable collector are planned, not implemented.
 
 Reviewed query evidence is stored under `evidence/`, with request/response pairs, capture metadata and integrity manifests where available. Some source-inventory entries refer to local archives that are not distributed in this repository. A clone therefore does not contain the complete preservation archive.
 

@@ -1,12 +1,26 @@
 # Chainge assets and custody research plan
 
-Created: 2026-10-11. Status: initial preservation and Fusion factory/mint-permission findings recorded; source-chain custody attribution pending.
+Created: 2026-10-11. Status: BUSD supporting ledgers and custody findings recorded; complete per-asset outstanding-token/vault reconciliation remains pending.
 
 ## Purpose
 
 Preserve evidence and document Chainge-related assets, candidate custody addresses, service history and subsequent on-chain activity. Produce a reproducible, strictly informational public record. Conclusions must follow evidence, with assumptions and unresolved questions clearly marked.
 
 The project does not presume a cause for service disruption, address ownership, intent or responsibility. Use neutral language in documentation, data labels, site text, issues and commit messages.
+
+## Required outcome for every asset
+
+The deliverable is a complete, reproducible ledger of outstanding Fusion tokens versus balances at the source-chain vault addresses for that asset. Transaction tracing and narrative reports support this reconciliation; they do not establish completion by themselves. BUSD remains incomplete under this standard.
+
+Each asset must have:
+
+1. **Fusion outstanding-token ledger.** Inventory all current and historical representations, issuance, burns and holder balances. Reconcile event-derived balances to pinned state and supply where the deployed accounting model permits. Show gross balances separately from any adjusted outstanding total. Document the treatment of migrations, blocked holdings, address-one positions and time slices; do not silently remove balances or count overlapping representations twice. Unproven adjustments remain unresolved.
+2. **Vault inventory and balance ledgers.** Identify each relevant source-chain token and vault address, its role and validity period, including predecessor and successor addresses. Preserve attribution evidence separately from balance evidence. For each address/token, reconcile opening balance plus inflows minus outflows, with any documented token-specific adjustments, to closing state. Keep candidates separate from verified custody positions and document the search coverage for undiscovered vaults.
+3. **Comparable snapshots.** Choose a common UTC cutoff and record each chain's canonical block number, hash, timestamp and distance from that cutoff, using the latest available block at or before it. Do not compare different dates as if contemporaneous. Where newer Fusion state is unavailable, produce the historical matched reconciliation first and show subsequent source-chain movements and balances separately.
+4. **Per-asset comparison.** Publish the gross Fusion amount, evidence-backed adjustments, adjusted outstanding amount, each verified vault balance, eligible vault total, difference (vault total minus outstanding) and coverage ratio (vault total divided by outstanding, undefined when outstanding is zero). Only combine demonstrably equivalent asset units. Separate wrapped assets, other tokens received in swaps and unverified exchange credits; avoid counting both bridge collateral and its wrapped representation as separate backing.
+5. **Evidence and completeness status.** Link every position, adjustment and movement to reproducible evidence, including collection ranges and gaps. A swap, exchange deposit or bridge transfer does not itself extinguish Fusion tokens. Unknown custody coverage or outstanding amounts must remain unknown, never zero. Partial observed totals may be published with explicit scope, but cannot establish an overall surplus or shortfall.
+
+An asset is complete only when the representation inventory, outstanding-token accounting, vault inventory, movement coverage and matched balances are supported and reconciled. Any material unresolved component keeps its status incomplete, with the missing evidence and next action stated. Record gross on-chain tokens separately from any interpretation of customer entitlement.
 
 ## Agreed boundaries
 
@@ -80,7 +94,7 @@ Completion: a sourced preliminary timeline, token classification method and a do
 6. Establish opening observations and follow candidate balances and movements through relevant timeline milestones. Follow counterparties only as evidence warrants, documenting where attribution stops.
 7. Reconcile observed movements against balance changes where feasible. Include native assets and internal transfers when accessible; disclose missing trace coverage, token-specific behavior and unobserved chains.
 
-Completion: reproducible case studies with supported and unresolved relationships, plus a method that can be applied to further assets. Do not force a vault attribution to meet a numerical target.
+Completion: each pilot asset meets the required outstanding-token/vault reconciliation above, with reproducible ledgers and a method applicable to further assets. Publish partial case studies as progress, retaining incomplete status for unresolved assets. Do not force a vault attribution to meet a numerical target.
 
 ## Phase 4: Build a public registry and static site
 
@@ -88,6 +102,7 @@ The first site should provide:
 
 - A neutral overview, methodology, publication policy and sourced timeline.
 - Searchable token and chain-qualified address records, including proposed roles, validity periods and evidence status.
+- Per-asset outstanding-token/vault ledgers, individual vault balances, explicit adjustments, matched cutoffs, comparison totals and completeness status.
 - Transaction histories with explorer links, timestamps, raw amounts and correctly interpreted decimals.
 - Evidence references and a clear separation between official statements, chain observations and research interpretations.
 - Per-chain indexed block ranges, last successful refresh, missing history and collection failures.
@@ -121,6 +136,10 @@ Define exact schemas after inspecting the first real sources:
 | Address | Chain and address; roles held in separate evidence-backed assertions |
 | Relationship assertion | Related records, proposed relationship, evidence, status, validity period, alternatives |
 | Chain event | Chain, block number/hash, transaction hash, event/trace index when applicable, time, asset, raw amount, participants |
+| Reconciliation cutoff | Common UTC cutoff; per-chain block number, hash, timestamp, lag and coverage |
+| Representation adjustment | Gross position, proposed adjustment, reason, evidence, status and effect on outstanding total |
+| Vault position | Chain-qualified token and address, role evidence, opening balance, movements, closing balance and cutoff |
+| Asset reconciliation | Representation and vault inventories, gross and adjusted outstanding amounts, eligible holdings, comparison, evidence and unresolved gaps |
 | Timeline entry | Event time or interval, publication time, evidence type, supported description |
 | Collection run | Tool version, source parameters excluding secrets, range, completion status, gaps and checkpoint |
 
@@ -155,10 +174,13 @@ During the initial planning review, Fusionite and GitHub pages were accessible t
 - [x] Examine the earliest BUSD mint's migration context and reconcile the equal-amount burn/mint addresses; see [balance-flow findings](research/busd-migration-and-balance-flow.md).
 - [x] Trace the funding address to its newer-BUSD mint and verify the legacy parent/full-time-child event structure; see [legacy findings](research/legacy-busd-and-funding-origin.md). Returned legacy child ledgers have subsequently reconciled; the earlier representation still lacks a validated replay model.
 - [x] Verify the legacy ownership/controller event sequence, reconcile one original address's full-time-child balance and distinguish a slice conversion from external issuance; see [slice accounting](research/legacy-authority-and-slice-accounting.md).
-- [x] Select BUSD as the tracing pilot and preserve reviewed findings with raw query evidence. The [case assessment](research/busd-case-assessment.md) records the completed investigation pass, limits and reopening criteria; public site/collector implementation is still pending.
+- [x] Preserve BUSD supporting findings with raw query evidence. The [case assessment](research/busd-case-assessment.md) records partial coverage and remaining reconciliation work; BUSD completion and public site/collector implementation are still pending.
 - [x] Reconcile returned newer and legacy full-time BUSD Transfer ledgers against all observed address balances; classify all newer issuance receipts. See [ledger reconciliation](research/busd-ledger-reconciliation.md). The subsequent [slice-coverage report](research/busd-time-slice-coverage.md) reconciles all four other returned legacy children. The earlier representation still lacks a validated historical replay model; source-chain reserve attribution remains separate.
 
 - [x] Reconcile the identified BSC, Ethereum and Avalanche BUSD controller ledgers, investigate material branches, and verify Avalanche liquidity-address configuration changes. See [source-chain flows](research/busd-source-chain-flows.md). Cross-chain message linkage, off-chain accounting and a service-disruption timeline remain unresolved.
+- [ ] Complete the BUSD representation inventory and validate the outstanding-token denominator, with gross balances and proposed adjustments shown separately.
+- [ ] Complete the BUSD vault inventory and asset mapping, with role evidence and explicit treatment of successor addresses, swaps and pooled holdings.
+- [ ] Produce BUSD vault balance ledgers at a common cutoff with Fusion, then separately track later source-chain movements. Publish the resulting per-asset comparison with evidence and coverage status; retain incomplete status while material gaps remain.
 
 Repository: [algorexxx/chainge-postmortem](https://github.com/algorexxx/chainge-postmortem), maintained as independent research under a personal account. Local Git history starts with the reviewed baseline. Continue committing coherent research steps locally; the maintainer handles all pushes. See [README.md](README.md) for the history and correction policy.
 

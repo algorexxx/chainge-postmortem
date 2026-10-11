@@ -1,6 +1,17 @@
 # BUSD case assessment
 
-Assessment date: **2026-10-11**. This closes the current investigation pass over the identified BUSD representations and material source-chain leads. It is not a complete reserve audit or a finding about intent, responsibility or recoverability. The remaining questions below require different evidence, rather than more interpretation of the same transfers.
+Assessment date: **2026-10-11**. **Status: incomplete.** The required ledger comparing outstanding Fusion BUSD tokens with verified source-chain vault balances has not yet been delivered. This report records supporting research, not completion of the BUSD investigation or a finding about intent, responsibility or recoverability. See the [per-asset completion standard](../PLAN.md#required-outcome-for-every-asset).
+
+Correction: the earlier description of this report as closing the investigation pass was too broad. Reconciled controller histories do not establish total outstanding tokens, a complete vault inventory or matched backing.
+
+## Work required to complete BUSD
+
+1. Finish the Fusion representation inventory and validate the earlier representation's accounting model. Publish all gross holder balances and evidence-backed adjustments separately, including the unresolved relationship between the large legacy and newer positions, address-one holdings and time slices.
+2. Complete the chain-qualified BUSD vault inventory, separating verified custody roles from candidates and ordinary counterparties. Establish which underlying tokens and holdings can be included without double-counting wrapped assets, pooled reserves or successor transfers.
+3. Reconstruct each vault's opening balance, inflows, outflows and closing balance at a common cutoff with Fusion. The retained Fusion head is dated **2025-10-07 08:43:50 UTC**; the October 2026 source-chain snapshots cannot serve as contemporaneous backing for it. Record the corresponding source-chain blocks and evidence, or explicit gaps where historical balances cannot be established.
+4. Publish the outstanding-token versus vault-balance ledger, with individual vault rows, adjustments, totals and coverage. Calculate an overall difference and coverage ratio only when the outstanding amount, asset equivalence and custody scope are established. Show later source-chain movements separately until a later Fusion snapshot can be justified.
+
+These are continuing investigation tasks. Unknown balances or missing vaults are not zero balances, and partial observed holdings do not establish an overall deficit.
 
 ## What the evidence establishes
 
@@ -32,7 +43,7 @@ Additional reviewed branches include the original large Fusion holder's BSC hist
 | Chain / asset | Address | Pinned balance | Interpretation limit |
 | --- | --- | ---: | --- |
 | Fusion newer BUSD | `0xf11b4db13148d56e2a10ad701ad0ff338c62c52c` | 859506.153699140493846300 | Representation balance at retained 2025-10-07 state |
-| Fusion legacy full-time child | `0x7bc4db49e8bc78c20fbc9f76ec3eb2d552c6695e` | 859506.1537 | Blocked legacy position; cannot be added to newer amount as an independent claim |
+| Fusion legacy full-time child | `0x7bc4db49e8bc78c20fbc9f76ec3eb2d552c6695e` | 859506.1537 | Blocked legacy position; independence from or replacement by the newer amount is unresolved |
 | Ethereum BUSD | `0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1` | 23.724135682808759163 | Observed balance; beneficiary and entitlement unverified |
 | BSC Binance-Peg BUSD | `0x8a4aa176007196d48d39c89402d3753c39ae64c1` | 0.080222660182393847 | Separate token and chain from Ethereum BUSD |
 | BSC Binance-Peg BUSD | `0xda832772b9fa5610223d41b7c0f09eff9d21ca2c` | 0.007998 | No personal ownership assertion |
@@ -61,7 +72,7 @@ The service-disruption timeline is **not established**. No row above is labelled
 
 ## Questions that remain open and what would resolve them
 
-| Question | Why current evidence is insufficient | Evidence needed to reopen |
+| Question | Why current evidence is insufficient | Evidence needed to resolve |
 | --- | --- | --- |
 | Did the large newer Fusion issuance replace a particular legacy position? | Amount/route similarities are not a common migration identifier; both representations remain visible | Verified migration records, transaction payload decoding or authenticated implementation documentation |
 | What were total customer BUSD claims and total backing? | Token supply, duplicate representations, time slices, swaps and pooled funds do not identify liabilities or reserves | A complete asset/chain inventory and authenticated accounting records, with an independently justified reconciliation model |
@@ -73,4 +84,4 @@ The service-disruption timeline is **not established**. No row above is labelled
 | When did service restrictions begin, and what did official communications claim? | Chain activity alone cannot date a service outage or validate an announcement | Reviewed official announcements and staff communications with timestamps and public provenance |
 | Are other chains or vaults relevant to BUSD? | The discovered addresses and selected tokens are not a global census | Additional documented deployments, token-list mappings or independently sourced transaction leads |
 
-No conclusion here requires an allegation. Failed queries, contradicted discovery results and rejected accounting models are preserved alongside positive findings. The next project stage can use this dossier as the BUSD pilot for a public site and repeatable collector; neither is implemented by this research pass.
+No conclusion here requires an allegation. Failed queries, contradicted discovery results and rejected accounting models are preserved alongside positive findings. The next BUSD deliverable is the outstanding-token/vault reconciliation above. A public site and repeatable collector must expose its completeness status; neither is implemented by this research pass.
