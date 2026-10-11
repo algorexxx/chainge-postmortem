@@ -4,6 +4,7 @@ namespace Chainge.Postmortem.Persistence.Json.Models;
 
 public sealed record EvidenceSettings
 {
+    public IReadOnlyList<EvidenceSelection> DiscoverySources { get; init; } = [];
     public required string Asset { get; init; }
     public required MatchPolicy Policy { get; init; }
     public required IReadOnlyList<EvidenceSelection> Sources { get; init; }

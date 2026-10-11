@@ -73,6 +73,11 @@
     },
     "contractCallPurposes": {
       "0x9851034eca59466ec346425a4674f93ef14d261f:0x85a6a020": "liquidity-migration-call-candidate"
+    },
+    "fusionInventoryAccounts": {
+      "0x8f8c247a300312b805692a3bc49414e35dec64ce": [
+        "0x456325f2ac7067234dd71e01bebe032b0255e039"
+      ]
     }
   },
   "sources": [
@@ -217,6 +222,27 @@
     "Ethereum deposit-fee candidates require both source and Fusion mint receipts, same holder, delay 0 to 300 seconds, a positive deposit-minus-mint difference no greater than 0.05 BUSD and 1% of the source deposit. This bounded-deposit-fee rule is an explicit hypothesis, not an authenticated fee schedule.",
     "Fusion receipt-slice-conversion exclusions require an equal-amount opposite mint/burn for the same holder in a successful receipt, using the configured sibling contracts (all 18 decimals) whose common parent is documented in research/busd-time-slice-coverage.md. Interval supplies are not added together. This is a transaction-purpose classification, not proof of external backing.",
     "Delayed review widens bounded variable/deposit-fee and source-chain hypotheses to 24 hours, without changing normal classifications, counts or unpaired Fusion IDs. New edges are exported separately with competition. Existing exact-fee searches already use 24 hours; absolute-fee fallback remains 60 seconds.",
-    "Direct-mint-call and direct-burn-call require successful receipt context, a top-level call to the token or configured parent, the standard mint(address,uint256)/burn(address,uint256) selector, canonical holder and exact amount agreeing with the event. Selectors do not authenticate deployed source. The 12 liquidity-migration-call-candidate mints are a configured target/selector interpretation documented in research/busd-ledger-reconciliation.md and remain eligible for external matching. No direct call or migration-path label establishes external backing."
+    "Direct-mint-call and direct-burn-call require successful receipt context, a top-level call to the token or configured parent, the standard mint(address,uint256)/burn(address,uint256) selector, canonical holder and exact amount agreeing with the event. Selectors do not authenticate deployed source. The 12 liquidity-migration-call-candidate mints are a configured target/selector interpretation documented in research/busd-ledger-reconciliation.md and remain eligible for external matching. No direct call or migration-path label establishes external backing.",
+    "Controller inventory reviews reconstruct the configured Fusion account/token ledger from retained full-time events with a zero opening balance. A successful burn that clears a nonnegative reconstructed balance is labelled controller-observed-balance-clearing; its preceding inventory events are retained. This is not a settlement match, does not prove economic purpose and does not remove it from unpaired totals.",
+    "Payout-address discovery searches unpaired, receipt-verified holder burns against retained source-token transfers and separately labelled explorer-only observations, using existing exact-fee and widened bounded-fee rules. Configured Fusion inventory accounts are routed to their separate review. Unknown senders are candidates only; no operating address is automatically added. Explorer rows have synthetic IDs and no asserted log index, remain outside the ledger and require node corroboration before promotion.",
+    "Ethereum and Avalanche discovery retained 74 holder lookups per chain. Uncapped or empty explorer responses do not establish completeness. Bulk BSC discovery remains unavailable from the tested free APIs; one browser inspection does not establish holder-wide coverage."
+  ],
+  "discoverySources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-11-busd-payout-discovery",
+      "pattern": "ethereum-holder-*.response.json",
+      "tokenDecimals": {
+        "0x4fabb145d64652a948d72533023f6e7a623c7c53": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-11-busd-payout-discovery",
+      "pattern": "avaxe-holder-*.response.json",
+      "tokenDecimals": {
+        "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98": 18
+      }
+    }
   ]
 }

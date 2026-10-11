@@ -2,6 +2,7 @@ namespace Chainge.Postmortem.Application.Reconciliation.Models;
 
 public sealed record MatchPolicy
 {
+    public IReadOnlyDictionary<string, string[]> FusionInventoryAccounts { get; init; } = new Dictionary<string, string[]>();
     public IReadOnlyDictionary<string, string[]> IssuanceCallTargets { get; init; } = new Dictionary<string, string[]>();
     public IReadOnlyDictionary<string, string> ContractCallPurposes { get; init; } = new Dictionary<string, string>();
     public TimeSpan DelayedReviewMaximumDelay { get; init; }

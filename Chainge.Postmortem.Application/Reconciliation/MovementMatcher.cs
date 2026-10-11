@@ -36,33 +36,7 @@ public static class MovementMatcher
         var outgoing = addresses.Contains(e.From);
         var internalTransfer = outgoing && addresses.Contains(e.To);
         var classification = e.RawAmount == "0" ? "zero-value" : internalTransfer ? "operating-address-transfer" : e.Timestamp is null ? "missing-timestamp" : "unmatched";
-        var candidates = new List<PairCandidate>();
-        if (classification == "unmatched")
-        {
-            foreach (var f in index[outgoing ? e.To : e.From].Where(f => f.Timestamp is not null && (outgoing ? f.To == Zero : f.From == Zero)))
-            {
-                var delay = outgoing ? e.Timestamp!.Value - f.Timestamp!.Value : f.Timestamp!.Value - e.Timestamp!.Value;
-                var fee = f.GetComparableUnits() - e.GetComparableUnits();
-                var feeScale = BigInteger.Pow(10, 255 - policy.Decimals);
-                var acceptedFee = outgoing ? policy.RedemptionFeeRawHypotheses.Any(h => BigInteger.Parse(h, CultureInfo.InvariantCulture) * feeScale == fee) : fee.IsZero;
-                if (acceptedFee && delay >= -policy.ClockTolerance && delay <= policy.MaximumDelay)
-                {
-                    candidates.Add(new PairCandidate { FusionEventId = f.Id, FeeRawHypothesis = (fee / feeScale).ToString(CultureInfo.InvariantCulture), Delay = delay, Competing = false });
-                }
-            }
-        }
-        if (classification == "unmatched" && candidates.Count == 0 && outgoing && policy.VariableFeeRules.TryGetValue(e.Chain, out var rule))
-        {
-            candidates = FindVariableFeeCandidates(e, index[e.To], policy, rule, false, true);
-            if (candidates.Count == 0 && e.ReceiptVerified && rule.AbsoluteFeeMaximumDelay > TimeSpan.Zero)
-            {
-                candidates = FindVariableFeeCandidates(e, index[e.To], policy, rule, true, true);
-            }
-        }
-        if (classification == "unmatched" && candidates.Count == 0 && !outgoing && e.ReceiptVerified && policy.DepositFeeRules.TryGetValue(e.Chain, out var depositRule))
-        {
-            candidates = FindVariableFeeCandidates(e, index[e.From], policy, depositRule, false, false);
-        }
+        var candidates = classification == "unmatched" ? FusionCandidateFinder.FindCandidates(e, index[outgoing ? e.To : e.From], policy, outgoing) : [];
         if (classification == "unmatched" && candidates.Count == 0 && HasCounterAsset(e, outgoing)) { classification = "possible-asset-exchange"; }
         var exchanges = FindReportedExchanges(e, outgoing);
         exchanges.AddRange(PoolExchangeMatcher.FindExchanges(e, outgoing));
@@ -70,23 +44,6 @@ public static class MovementMatcher
         if (classification == "unmatched" && candidates.Count == 0 && exchanges.Count > 0) { classification = "reported-asset-exchange"; }
         return new MovementReview { ExchangeEvidence = exchanges, SourceEventId = e.Id, Direction = internalTransfer ? "internal" : outgoing ? "outgoing" : "incoming", Classification = candidates.Count == 0 ? classification : outgoing ? "possible-redemption" : "possible-deposit", Candidates = candidates.OrderBy(c => c.FusionEventId, StringComparer.Ordinal).ToList() };
     }
-    private static List<PairCandidate> FindVariableFeeCandidates(ChainEvent e, IEnumerable<ChainEvent> issuance, MatchPolicy policy, VariableFeeRule rule, bool absoluteOnly, bool outgoing)
-    {
-        var result = new List<PairCandidate>();
-        var scale = BigInteger.Pow(10, 255 - policy.Decimals);
-        var maximumFee = BigInteger.Parse(rule.MaximumFeeRaw, CultureInfo.InvariantCulture) * scale;
-        foreach (var f in issuance.Where(f => (outgoing ? f.To == Zero : f.From == Zero && f.ReceiptVerified) && f.Timestamp is not null))
-        {
-            var delay = outgoing ? e.Timestamp!.Value - f.Timestamp!.Value : f.Timestamp!.Value - e.Timestamp!.Value;
-            var fee = outgoing ? f.GetComparableUnits() - e.GetComparableUnits() : e.GetComparableUnits() - f.GetComparableUnits();
-            var maximumDelay = absoluteOnly ? rule.AbsoluteFeeMaximumDelay : rule.MaximumDelay;
-            var relativeFeeAccepted = absoluteOnly ? f.ReceiptVerified : fee * 10000 <= e.GetComparableUnits() * rule.MaximumFeeBasisPoints;
-            if (delay < TimeSpan.Zero || delay > maximumDelay || fee <= 0 || fee > maximumFee || !relativeFeeAccepted || fee % scale != 0) { continue; }
-            result.Add(new PairCandidate { FusionEventId = f.Id, FeeRawHypothesis = (fee / scale).ToString(CultureInfo.InvariantCulture), Delay = delay, Competing = false, Rule = !outgoing ? "bounded-deposit-fee" : absoluteOnly ? "short-delay-absolute-fee" : "bounded-variable-fee" });
-        }
-        return result;
-    }
-
     private static List<ReceiptExchange> FindReportedExchanges(ChainEvent e, bool outgoing)
     {
         if (!e.ReceiptVerified || !e.ReceiptContextCaptured) { return []; }

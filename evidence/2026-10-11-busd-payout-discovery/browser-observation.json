@@ -1,0 +1,13 @@
+{
+  "sourceUrl": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x7694de7d509905b3d0d65cef37781e994cb0527a",
+  "observedDate": "2026-10-11",
+  "method": "Public browser-rendered token holder table; manual observation, not raw node evidence",
+  "reportedTransactions": 12,
+  "reportedPagination": "Page 1 of 1",
+  "observations": [
+    "Holder-specific token table was accessible in the browser despite HTTP capture receiving a 403 challenge.",
+    "The initial /tokentxns URL ignored contractaddress and displayed all tokens; the token/contract?a=holder page applied the BUSD filter.",
+    "No bulk BSC holder capture was completed. The page-data download attempt timed out."
+  ],
+  "coverage": "One holder inspection only; no API-wide or other-holder absence claim."
+}

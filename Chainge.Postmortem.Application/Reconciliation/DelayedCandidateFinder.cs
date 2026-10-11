@@ -1,3 +1,4 @@
+using Chainge.Postmortem.Application.Reconciliation.Models.Extensions;
 using Chainge.Postmortem.Application.Reconciliation.Models;
 
 namespace Chainge.Postmortem.Application.Reconciliation;
@@ -7,12 +8,7 @@ public static class DelayedCandidateFinder
     public static IReadOnlyList<MovementReview> FindCandidates(IReadOnlyList<ChainEvent> events, MatchPolicy policy, ReconciliationResult baseline)
     {
         if (policy.DelayedReviewMaximumDelay <= TimeSpan.Zero) { return []; }
-        var wider = policy with
-        {
-            VariableFeeRules = policy.VariableFeeRules.ToDictionary(p => p.Key, p => p.Value with { MaximumDelay = MaxDelay(p.Value.MaximumDelay, policy.DelayedReviewMaximumDelay) }),
-            DepositFeeRules = policy.DepositFeeRules.ToDictionary(p => p.Key, p => p.Value with { MaximumDelay = MaxDelay(p.Value.MaximumDelay, policy.DelayedReviewMaximumDelay) }),
-            SourceChainRule = policy.SourceChainRule is null ? null : policy.SourceChainRule with { MaximumDelay = MaxDelay(policy.SourceChainRule.MaximumDelay, policy.DelayedReviewMaximumDelay) }
-        };
+        var wider = policy.ExpandReviewWindow();
         var expanded = MovementMatcher.MatchMovements(events, wider);
         var previous = baseline.Movements.ToDictionary(m => m.SourceEventId);
         var all = baseline.Movements.Concat(expanded.Movements).ToList();
@@ -26,8 +22,4 @@ public static class DelayedCandidateFinder
         }).Where(m => m.Candidates.Count > 0 || m.SourceCandidates.Count > 0).ToList();
     }
 
-    private static TimeSpan MaxDelay(TimeSpan current, TimeSpan proposed)
-    {
-        return current > proposed ? current : proposed;
-    }
 }

@@ -146,3 +146,31 @@ The known 154485.229260173438889446 merge in transaction `0x4a46f2f5cbb23a69c6f8
 Thus 13 of the 224 unmatched outflows and 3 of the 430 inflows have a wider-window hypothesis, leaving **211 outflows and 427 inflows without even that hypothesis**. These are supplementary review counts, not promoted matches. Ten of the unpaired Fusion burns acquire delayed candidates; the standard queue stays at 447 burns. Candidate numbers can increase while the unresolved queue shrinks because a broader window introduces ambiguity.
 
 The December 2021 1.1M and 100k payments and January 2024 204567.658073647823395109 payment remain unmatched and have no delayed candidates. All 47,808 retained event IDs and 5,710 movement IDs are unchanged. No candidates are automatically published as reviewed cases.
+
+
+## Sixth pass: payout discovery and controller inventory
+
+**The 447 unpaired burns are now separated into 363 controller inventory-clearing reviews and 84 other holder-burn reviews.** These are review categories, not 363 accepted redemptions. The standard unpaired count remains 447 and unmatched source movements remain 224 outflows / 430 inflows.
+
+The 363 burns all debit the configured Fusion account `0x456325f2ac7067234dd71e01bebe032b0255e039` in legacy full-time token `0x8f8c247a300312b805692a3bc49414e35dec64ce`. Each successful burn removes exactly the account's reconstructed balance, leaving zero. No negative running balance occurred in this retained account/token history. The burns run from 2022-07-12 15:29:39 UTC through 2024-01-04 02:32:02 UTC and total **4629208.319048064094486956 BUSD units** of gross historical burns, not missing assets or outstanding claims.
+
+Their preceding inventory cycles contain **1,426 incoming transfers from 329 distinct sending addresses plus one mint**. Those addresses are on-chain counterparties, not identified people. The transfer histories and their evidence are linked, but the economic purpose and external settlement of those incoming transfers remain unresolved. The inventory replay uses the same full-time-child ledger previously reconciled in [the ledger report](../research/busd-ledger-reconciliation.md); it does not apply this accounting to the earlier time-aware representation.
+
+`burn-inventory.csv` and JSON `burnInventory` preserve every unpaired burn, its category, reconstructed before/after balance and event IDs since the preceding burn. The rule is enabled only for explicit `fusionInventoryAccounts` token/address pairs. It requires a nonzero, receipt-verified burn, zero resulting balance and no negative balance in the preceding retained replay. Partial burns, unverified burns and inconsistent histories stay `controller-burn-unresolved`. Zero opening balance and retained-history coverage are assumptions; the category does not authenticate off-chain settlement. No burn is removed from liabilities or unpaired totals on this basis.
+
+### Payout-address search
+
+The remaining 84 burns involve 73 other holders. The [new evidence package](../evidence/2026-10-11-busd-payout-discovery/) preserves 148 Ethereum/Avalanche lookups for all 74 original holder addresses, including the controller. Its 473 returned rows are kept separately from node-verified events. The offline pipeline now loads those captures through `discoverySources`, records per-file coverage and SHA-256, and searches for source-token payments to unpaired burn holders from senders outside the configured operating-address scope. The existing exact-fee and widened bounded-fee rules are reused rather than introducing a looser amount-only rule. Existing source classifications and all competing candidate edges remain visible.
+
+Configured Fusion inventory accounts are routed to inventory review rather than ordinary holder-payout discovery. This avoids treating routine source-chain inflows into a controller as newly discovered vault payouts merely because an amount happens to match one of its inventory burns.
+
+**No new qualifying payout-address candidate was found in the captured scope.** The new explorer hits satisfying the holder/time/amount rules outside the controller inventory queue were already known delayed-payment leads from the configured operators. This is a limited search result, not proof that no other vault or payer exists. Ethereum explorer omissions are known; BSC free API probes failed and only one browser holder inspection was completed. Further source chains, alternative destination addresses, split amounts and different timing remain outside this pass.
+
+Outputs:
+
+- `burn-inventory.csv`: 447 burn reviews, including all 363 observed balance-clearing cases and their inventory events.
+- `payout-address-candidates.csv`: candidate source event, sender, holder, burn, rule, delay, fee hypothesis, competition, verification status and any existing movement classification. Header only in this run.
+- `discovery-coverage.csv`: 148 lookup statuses and row counts. Returned rows, including an empty array, never assert completeness.
+- JSON `discovery`: original-file hashes, coverage and separate unverified observations. Explorer IDs begin `explorer:` and have log index -1, explicitly not an on-chain event ID. They do not affect source balances, normal classifications or the ledger event count.
+
+All prior 47,808 ledger events and 5,710 operating-address movements remain. The December 2021 1.1M/100k and January 2024 204567.658073647823395109 payments remain unmatched. No new address role or UI case is automatically published.

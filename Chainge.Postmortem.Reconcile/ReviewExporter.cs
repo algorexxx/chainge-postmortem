@@ -54,6 +54,28 @@ public static class ReviewExporter
         await File.WriteAllTextAsync(Path.Combine(output, "fusion-purposes.csv"), rows.ToString(), Encoding.UTF8, cancellationToken);
     }
 
+    public static async Task WriteDiscoveryFiles(string output, IReadOnlyList<ChainEvent> events, IReadOnlyList<BurnInventoryReview> inventory, IReadOnlyList<PayoutAddressCandidate> candidates, IReadOnlyList<DiscoveryCoverage> coverage, CancellationToken cancellationToken)
+    {
+        var byId = events.ToDictionary(e => e.Id, StringComparer.Ordinal);
+        var burns = new StringBuilder("burn_event_id,holder,token,utc,amount,classification,balance_before_raw,balance_after_raw,inventory_event_ids,evidence\n");
+        foreach (var review in inventory)
+        {
+            var e = byId[review.BurnEventId];
+            AppendRow(burns, [e.Id, e.From, e.Token, e.Timestamp?.ToString("O", CultureInfo.InvariantCulture) ?? "", FormatAmount(e), review.Classification, review.ObservedBalanceBeforeRaw ?? "", review.ObservedBalanceAfterRaw ?? "", string.Join(";", review.InventoryEventIds), string.Join(";", e.Evidence)]);
+        }
+        var payouts = new StringBuilder("source_event_id,chain,token,candidate_sender,holder,fusion_burn_id,amount,rule,delay,fee_raw,competing,receipt_verified,existing_classification,evidence\n");
+        foreach (var candidate in candidates)
+        {
+            var e = byId[candidate.SourceEventId];
+            AppendRow(payouts, [e.Id, e.Chain, e.Token, e.From, e.To, candidate.Pair.FusionEventId, FormatAmount(e), candidate.Pair.Rule, candidate.Pair.Delay.ToString(), candidate.Pair.FeeRawHypothesis, candidate.Pair.Competing.ToString(), e.ReceiptVerified.ToString(), candidate.ExistingMovementClassification, string.Join(";", e.Evidence)]);
+        }
+        var captures = new StringBuilder("source,chain,status,returned_rows\n");
+        foreach (var capture in coverage) { AppendRow(captures, [capture.Source, capture.Chain, capture.Status, capture.ReturnedRows.ToString(CultureInfo.InvariantCulture)]); }
+        await File.WriteAllTextAsync(Path.Combine(output, "burn-inventory.csv"), burns.ToString(), Encoding.UTF8, cancellationToken);
+        await File.WriteAllTextAsync(Path.Combine(output, "payout-address-candidates.csv"), payouts.ToString(), Encoding.UTF8, cancellationToken);
+        await File.WriteAllTextAsync(Path.Combine(output, "discovery-coverage.csv"), captures.ToString(), Encoding.UTF8, cancellationToken);
+    }
+
     private static void AppendRow(StringBuilder target, string[] fields)
     {
         target.AppendLine(string.Join(",", fields.Select(field => "\"" + field.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"")));
