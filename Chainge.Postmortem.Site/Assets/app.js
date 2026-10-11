@@ -15,6 +15,8 @@ let tabName = 'overview';
 let visibleCount = 50;
 let flowId = 'jan-204k';
 let flowFilter = 'hide-redemptions';
+let flowSort = 'review';
+let flowMinimum = '0';
 
 function renderCatalogue() {
   const query = search.value.trim().toLowerCase();
@@ -55,10 +57,20 @@ function renderVaults(study) {
 
 function renderMovements(study) {
   const flows = study.flows.filter(flow => flowFilter === 'all' || (flowFilter === 'hide-redemptions' ? flow.status !== 'Possible redemption' : flow.status === flowFilter))
-    .sort((a, b) => tokenUnits(a.amount) > tokenUnits(b.amount) ? -1 : tokenUnits(a.amount) < tokenUnits(b.amount) ? 1 : 0);
+    .filter(flow => tokenUnits(flow.amount) >= tokenUnits(flowMinimum))
+    .sort(compareFlows);
   const current = flows.find(flow => flow.id === flowId) || flows[0];
   if (current) flowId = current.id;
-  return `<div class="section-title"><h2>Reviewed movement cases</h2><a href="${repo}research/busd-source-chain-flows.md">Full investigation ↗</a></div><p class="muted">Largest first within these ${study.flows.length} reviewed cases. Showing ${flows.length}; ${study.flows.filter(flow => flow.status === 'Possible redemption').length} are possible redemptions, hidden by default. This is not an exhaustive outflow ranking. “Unmatched” means no verified Fusion burn link; it does not establish a loss.</p><div class="filters"><label for="flow-filter">Explanation</label><select id="flow-filter">${['hide-redemptions','all','Unmatched','Possible redemption','Possible rebalancing'].map(value=>`<option value="${value}" ${flowFilter === value ? 'selected' : ''}>${value === 'hide-redemptions' ? 'Hide possible redemptions' : value === 'all' ? 'All reviewed cases' : value}</option>`).join('')}</select><span class="muted">Solid path: observed transfers · Dashed: inferred relationship</span></div><div class="flow-layout"><div>${flows.map(flow=>`<button class="flow-choice" data-flow="${flow.id}" aria-pressed="${current?.id === flow.id}"><span><strong>${escape(flow.title)}</strong><small>${escape(flow.date)} · ${escape(flow.chain)}</small><p class="flow-description">Last traced destination: ${escape(flow.endpoint)}</p><span class="status ${flow.status === 'Unmatched' ? '' : 'neutral'}">${escape(flow.status)}</span></span><span class="flow-value">${amount(flow.amount)}<small style="display:block">BUSD</small></span></button>`).join('')}</div>${current ? renderTrace(current) : '<div class="empty">No cases match this filter.</div>'}</div>`;
+  return `<div class="section-title"><h2>Reviewed movement cases</h2><a href="${repo}research/busd-source-chain-flows.md">Full investigation ↗</a></div><p class="muted">Showing ${flows.length} of ${study.flows.length} reviewed cases; ${study.flows.length - flows.length} hidden by the current filters. Amounts are token units, not current USD values. Date ordering uses the latest date for grouped cases; ${study.flows.filter(flow => flow.status === 'Possible redemption').length} are possible redemptions, hidden by default. Default order: unmatched first, then newest, then largest. This is a review priority, not evidence of wrongdoing or an exhaustive outflow ranking. “Unmatched” means no verified Fusion burn link; it does not establish a loss.</p><div class="filters"><label for="flow-filter">Explanation</label><select id="flow-filter">${['hide-redemptions','all','Unmatched','Possible redemption','Possible rebalancing'].map(value=>`<option value="${value}" ${flowFilter === value ? 'selected' : ''}>${value === 'hide-redemptions' ? 'Hide possible redemptions' : value === 'all' ? 'All reviewed cases' : value}</option>`).join('')}</select><label for="flow-sort">Sort</label><select id="flow-sort">${[['review','Unmatched first · newest'],['newest','Newest first'],['largest','Largest first']].map(([value,label])=>`<option value="${value}" ${flowSort === value ? 'selected' : ''}>${label}</option>`).join('')}</select><label for="flow-minimum">Minimum (token units)</label><select id="flow-minimum">${['0','100','1000','10000','100000','1000000'].map(value=>`<option value="${value}" ${flowMinimum === value ? 'selected' : ''}>${value === '0' ? 'No minimum' : format(value)}</option>`).join('')}</select><button class="reset-filters" data-reset-flows="true">Reset filters</button><span class="muted">Solid path: observed transfers · Dashed: inferred relationship</span></div><div class="flow-layout"><div>${flows.map(flow=>`<button class="flow-choice" data-flow="${flow.id}" aria-pressed="${current?.id === flow.id}"><span><strong>${escape(flow.title)}</strong><small>${escape(flow.date)} · ${escape(flow.chain)}</small><p class="flow-description">Last traced destination: ${escape(flow.endpoint)}</p><span class="status ${flow.status === 'Unmatched' ? '' : 'neutral'}">${escape(flow.status)}</span></span><span class="flow-value">${amount(flow.amount)}<small style="display:block">BUSD</small></span></button>`).join('')}</div>${current ? renderTrace(current) : '<div class="empty">No cases match this filter.</div>'}</div>`;
+}
+
+function compareFlows(a, b) {
+  const priority = flowSort === 'review' ? Number(b.status === 'Unmatched') - Number(a.status === 'Unmatched') : 0;
+  const dateA = (a.date.match(/\d{4}-\d{2}-\d{2}/g) || []).sort().at(-1) || '';
+  const dateB = (b.date.match(/\d{4}-\d{2}-\d{2}/g) || []).sort().at(-1) || '';
+  const byDate = dateB.localeCompare(dateA);
+  const byAmount = tokenUnits(a.amount) > tokenUnits(b.amount) ? -1 : tokenUnits(a.amount) < tokenUnits(b.amount) ? 1 : 0;
+  return priority || (flowSort === 'largest' ? byAmount || byDate : byDate || byAmount) || a.id.localeCompare(b.id);
 }
 
 function tokenUnits(value) {
@@ -79,10 +91,20 @@ detail.addEventListener('click', async event => {
   if (!button) return;
   if (button.dataset.tab) { tabName = button.dataset.tab; renderSelection(); document.querySelector(`#tab-${tabName}`).focus(); }
   if (button.dataset.flow) { flowId = button.dataset.flow; renderSelection(); document.querySelector(`[data-flow="${flowId}"]`).focus(); }
-  if (button.dataset.openFlow) { flowId = button.dataset.openFlow; flowFilter = 'all'; tabName = 'movements'; renderSelection(); document.querySelector('#tab-movements').focus(); }
+  if (button.dataset.openFlow) { flowId = button.dataset.openFlow; flowFilter = 'all'; flowMinimum = '0'; tabName = 'movements'; renderSelection(); document.querySelector('#tab-movements').focus(); }
+  if (button.dataset.resetFlows) { flowFilter = 'hide-redemptions'; flowSort = 'review'; flowMinimum = '0'; flowId = ''; renderSelection(); document.querySelector('#flow-filter').focus(); }
   if (button.dataset.copy) { try { await navigator.clipboard.writeText(button.dataset.copy); button.textContent = 'Copied'; } catch { button.textContent = 'Select address to copy'; } }
 });
-detail.addEventListener('change', event => { if (event.target.id === 'flow-filter') { flowFilter = event.target.value; renderSelection(); document.querySelector('#flow-filter').focus(); } });
+detail.addEventListener('change', event => {
+  const id = event.target.id;
+  if (!['flow-filter', 'flow-sort', 'flow-minimum'].includes(id)) return;
+  if (id === 'flow-filter') flowFilter = event.target.value;
+  if (id === 'flow-sort') flowSort = event.target.value;
+  if (id === 'flow-minimum') flowMinimum = event.target.value;
+  flowId = '';
+  renderSelection();
+  document.getElementById(id).focus();
+});
 detail.addEventListener('keydown', event => {
   if (event.target.getAttribute('role') !== 'tab' || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
   event.preventDefault();
