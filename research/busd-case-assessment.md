@@ -27,6 +27,8 @@ Follow-up: the January 1, 2024 Ethereum controller outflow of **204567.658073647
 
 ## Coverage achieved
 
+The [FDUSD follow-up](busd-fdusd-followup.md) found no matching Ethereum/BSC FDUSD explorer transfers for 20 candidate addresses and zero observed balances on Ethereum, BSC and opBNB for the tested contracts. This does not resolve the exchange-internal outcome or establish absence of reserves elsewhere. No FDUSD is added to verified BUSD backing.
+
 | Chain / token | Address | Returned Transfer events verified | Reconstructed final balance |
 | --- | --- | ---: | ---: |
 | BSC Binance-Peg BUSD | `0x874d...e290` | 1543 | 0 |

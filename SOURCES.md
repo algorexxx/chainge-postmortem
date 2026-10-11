@@ -78,4 +78,6 @@ The first contract review and bounded node probes are recorded in [initial contr
 
 ## BUSD source-chain investigation pass (2026-10-11)
 
+The [FDUSD follow-up](research/busd-fdusd-followup.md) adds 20-address checks on Ethereum, BSC and opBNB, Ethereum/BSC explorer observations, and attributed Binance conversion-source notes. Reviewed requests, responses, observations and hashes are distributed in `evidence/2026-10-11-fdusd-review/`. Explorer negatives and present balances do not establish complete history or exclude unknown custody.
+
 The [case assessment](research/busd-case-assessment.md) consolidates Fusion accounting and the [source-chain investigation](research/busd-source-chain-flows.md). Reviewed public RPC receipts, state, headers, Routescan responses and explorer discovery observations are distributed in `evidence/2026-10-11-busd-source-review/`. Raw unrelated block-receipt discovery dumps remain in the ignored local archive. The package records coverage failures, including a demonstrably partial Ethereum index, and distinguishes verified Avalanche liquidity configuration from unverified reserve attribution.

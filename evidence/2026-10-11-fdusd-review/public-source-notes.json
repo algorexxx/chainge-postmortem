@@ -1,0 +1,22 @@
+{
+  "observation_date_utc": "2026-10-11",
+  "method": "Researcher paraphrases and link observations from public pages read through web tools. Not raw source captures or historical archived versions.",
+  "sources": [
+    {
+      "url": "https://www.binance.com/en/support/announcement/detail/065a0d561cc147ffaa74554360b9a042",
+      "displayed_publication_date": "2023-07-26",
+      "summary": "Listing announcement identifies FDUSD availability on Ethereum and BNB Chain. Ethereum and BSC contract links both target 0xc5f0f7b66764f6ec8c8dff7ba683102295e16409."
+    },
+    {
+      "url": "https://www.binance.com/en/support/announcement/detail/1c98ce7bb464422dbbaeda7066ae445b",
+      "displayed_publication_date": "2023-11-29",
+      "summary": "Updated notice sets January 2, 2024 at 03:00 UTC for BUSD withdrawal suspension and automatic 1:1 conversion of remaining eligible Spot and Funding balances to FDUSD. Late or unprocessed deposits would remain credited as BUSD with later conversion available. This is an exchange policy, not expiration of the on-chain token."
+    },
+    {
+      "url": "https://www.binance.com/en/support/announcement/detail/b7d1cd119211458eb676a9a324edf314",
+      "displayed_publication_date": "2024-01-05",
+      "summary": "Reports eligible BUSD balances converted to FDUSD at 1:1. Currently served article links ERC20, BEP20 and opBNB FDUSD contracts; opBNB target is 0x50c5725949a6f0c72e6c4a641f24049a917db0cb. The live link does not independently establish January 2024 opBNB withdrawal availability."
+    }
+  ],
+  "limitation": "These sources describe exchange policy and do not identify the account credited by the traced BUSD deposit or prove its eligibility, conversion, retained balance or withdrawal."
+}

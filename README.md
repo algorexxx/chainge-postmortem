@@ -10,6 +10,7 @@ The required result for every asset is a complete ledger comparing outstanding F
 
 - [BUSD case assessment and remaining questions](research/busd-case-assessment.md)
 - [January 2024 BUSD transfer to a Binance-labelled address](research/busd-204k-exchange-path.md)
+- [FDUSD replacement-reserve follow-up and search limits](research/busd-fdusd-followup.md)
 - [BUSD source-chain flows and liquidity addresses](research/busd-source-chain-flows.md)
 - [Research plan and evidence policy](PLAN.md)
 - [Source inventory and preservation coverage](SOURCES.md)

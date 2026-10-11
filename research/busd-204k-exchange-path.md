@@ -53,4 +53,6 @@ The BSC and Ethereum checks filter the previously preserved receipt logs by toke
 
 ## Evidence and remaining question
 
+The subsequent [FDUSD follow-up](busd-fdusd-followup.md) records the Binance conversion timetable and tests known candidate addresses for a replacement-asset return. No such return was identified within its stated coverage; conversion inside the exchange remains unverified.
+
 The [evidence package](../evidence/2026-10-11-busd-204k-trace/README.md) preserves discovery responses, direct requests and receipts, headers, pinned balances, archive-query failures and the explorer-label observation with an integrity manifest. The previous report's unresolved destination for this specific 204567.658073647823395109 BUSD transfer is now resolved to an exchange-labelled address. Its economic purpose and exchange-internal outcome remain unresolved; the [overall BUSD reconciliation](busd-case-assessment.md) remains incomplete.
