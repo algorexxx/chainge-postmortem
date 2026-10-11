@@ -1053,3 +1053,14 @@ main {
 .ledger-filters select,.ledger-filters input {
   max-width:100%
 }
+
+.terminal-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:12px;
+  margin-bottom:20px
+}
+.terminal-choice { grid-template-columns:1fr }
+.terminal-choice small { display:block }
+.terminal-label { margin-top:14px }
+#terminal-history { scroll-margin-top:20px }

@@ -17,7 +17,9 @@ let flowId = 'jan-204k';
 let flowFilter = 'hide-redemptions';
 let flowSort = 'review';
 let flowMinimum = '0';
-let movementView = 'ledger';
+let movementView = 'terminal';
+let terminalKey = '';
+let terminalEventId = '';
 let ledgerDirection = 'outgoing';
 let ledgerClassification = 'hide-redemptions';
 let ledgerChain = 'all';
@@ -64,8 +66,8 @@ function renderVaults(study) {
 }
 
 function renderMovements(study) {
-  const switcher = study.automatedMovements ? `<div class="filters"><label for="movement-view">View</label><select id="movement-view"><option value="ledger" ${movementView === 'ledger' ? 'selected' : ''}>Automated ledger · ${study.automatedMovements.cases.length} movements</option><option value="reviewed" ${movementView === 'reviewed' ? 'selected' : ''}>Traced cases · ${study.flows.length}</option></select></div>` : '';
-  return switcher + (study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
+  const switcher = study.automatedMovements ? `<div class="filters"><label for="movement-view">View</label><select id="movement-view"><option value="terminal" ${movementView === 'terminal' ? 'selected' : ''}>Terminal outflow review</option><option value="ledger" ${movementView === 'ledger' ? 'selected' : ''}>Automated ledger · ${study.automatedMovements.cases.length} movements</option><option value="reviewed" ${movementView === 'reviewed' ? 'selected' : ''}>Traced cases · ${study.flows.length}</option></select></div>` : '';
+  return switcher + (study.automatedMovements && movementView === 'terminal' ? renderTerminalReview(study.automatedMovements) : study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
 }
 
 function renderReviewedMovements(study) {
@@ -105,6 +107,8 @@ detail.addEventListener('click', async event => {
   if (button.dataset.tab) { tabName = button.dataset.tab; renderSelection(); document.querySelector(`#tab-${tabName}`).focus(); }
   if (button.dataset.flow) { flowId = button.dataset.flow; renderSelection(); document.querySelector(`[data-flow="${flowId}"]`).focus(); }
   if (button.dataset.openFlow) { movementView = 'reviewed'; flowId = button.dataset.openFlow; flowFilter = 'all'; flowMinimum = '0'; tabName = 'movements'; renderSelection(); document.querySelector('#tab-movements').focus(); }
+  if (button.dataset.terminalKey) { terminalKey = button.dataset.terminalKey; terminalEventId = ''; renderSelection(); document.querySelector('#terminal-history').scrollIntoView({block:'start'}); }
+  if (button.dataset.terminalEvent) { terminalEventId = button.dataset.terminalEvent; renderSelection(); document.querySelector('.ledger-detail').scrollIntoView({block:'nearest'}); }
   if (button.dataset.ledgerId) { ledgerId = button.dataset.ledgerId; renderSelection(); document.querySelector('.ledger-detail').scrollIntoView({block:'nearest'}); }
   if (button.dataset.ledgerMore) { ledgerCount += 50; renderSelection(); document.querySelector('[data-ledger-more]')?.focus(); }
   if (button.dataset.destination) { ledgerDestination = button.dataset.destination; ledgerChain = button.dataset.chain; ledgerToken = button.dataset.token; ledgerDirection = 'outgoing'; ledgerClassification = 'all'; flowMinimum = '0'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#ledger-destination').focus(); }
@@ -226,4 +230,36 @@ function renderLedgerDetail(c, destination, report) {
     <h3>Additional delayed-review candidates</h3><p>${delayed?.candidates.length ?? 0} Fusion candidates · ${delayed?.sourceCandidates.length ?? 0} source-chain candidates. Wider-window hypotheses are kept separate and do not change the normal classification.</p>${delayed ? `<pre class="json-evidence">${escape(JSON.stringify({fusion:delayed.candidates,sourceChain:delayed.sourceCandidates},null,2))}</pre>` : ''}
     <details><summary>Receipt exchange evidence (${c.review.exchangeEvidence.length})</summary><pre class="json-evidence">${escape(JSON.stringify(c.review.exchangeEvidence,null,2))}</pre></details>
     <h3>Retained evidence</h3>${c.evidence.map(path=>`<a class="evidence-link address-text" href="${repo}${path.split('/').map(encodeURIComponent).join('/')}">${escape(path)} ↗</a>`).join('')}<details><summary>Report provenance and limitations</summary><p>Configuration SHA-256: <code class="address-text">${escape(report.configurationSha256)}</code></p><pre class="json-evidence">${escape(JSON.stringify(report.limitations,null,2))}</pre></details></section>`;
+}
+
+function terminalIdentity(summary) { return destinationKey(summary.chain, summary.token, summary.address); }
+
+function terminalPayment(id, byId, asset) {
+  const c = byId.get(id);
+  return c ? `<strong>${amount(rawUnits(c.rawAmount,c.decimals))} ${escape(asset)}</strong><small>${escape(c.timestamp ?? 'Unknown date')}<br>${escape(classificationLabel(c.review.classification))} · ${escape(c.review.direction)}</small>` : '<strong>None observed</strong>';
+}
+
+function renderTerminalReview(report) {
+  const byId = new Map(report.cases.map(c=>[c.id,c]));
+  const summaries = (report.terminal ?? []).slice().sort((a,b)=>(byId.get(b.lastEventId)?.timestamp ?? '').localeCompare(byId.get(a.lastEventId)?.timestamp ?? '') || terminalIdentity(a).localeCompare(terminalIdentity(b)));
+  const current = summaries.find(s=>terminalIdentity(s) === terminalKey) || summaries[0];
+  if (current) terminalKey = terminalIdentity(current);
+  return `<div class="section-title"><h2>Terminal outflow review</h2><span class="status neutral">${summaries.length} observed address/token histories</span></div><p class="muted">A shortlist per configured operating address, not a finding of wrongdoing. “Final” means last in retained evidence, not proof that activity ended. Substantial means at least ${amount(rawUnits(report.terminalPolicy.largeOutflowRaw,report.terminalPolicy.decimals))} ${escape(report.asset)} under the current script policy. Small final payments, possible redemptions and internal transfers remain visible.</p><div class="terminal-grid">${summaries.map(s=>`<button class="flow-choice terminal-choice" data-terminal-key="${escape(terminalIdentity(s))}" aria-pressed="${terminalIdentity(current) === terminalIdentity(s)}"><span><strong>${escape(s.chain)} · ${escape(short(s.address))}</strong><code class="address-text">Token: ${escape(short(s.token))}</code><small>Last substantial withdrawal</small>${terminalPayment(s.lastSubstantialOutflowId,byId,report.asset)}<small class="terminal-label">Final positive outflow</small>${terminalPayment(s.finalOutflowId,byId,report.asset)}</span></button>`).join('')}</div>${renderTerminalConvergence(report,byId)}${current ? renderTerminalHistory(current,report,byId) : '<div class="empty">No operating-address histories available in this report.</div>'}`;
+}
+
+function renderTerminalConvergence(report, byId) {
+  return `<details class="panel"><summary>Recipient convergence · ${report.sharedTerminalDestinations?.length ?? 0} same-chain groups / ${report.crossChainTerminalRecipients?.length ?? 0} cross-chain address groups</summary><p>Only recipients shared by distinct source addresses on the same chain and token are grouped. This tests direct transfers in the selected sequences; it does not trace later hops or establish who controls an address.</p>${(report.sharedTerminalDestinations ?? []).map(d=>`<h3>${escape(d.chain)} · ${escape(d.address)}</h3><code class="address-text">Token: ${escape(d.token)}</code><p>Sources: ${d.sourceAddresses.map(escape).join(', ')}</p>${d.eventIds.map(id=>`<p><code class="address-text">${escape(id)}</code>${terminalPayment(id,byId,report.asset)}</p>`).join('')}`).join('') || '<p>No shared immediate recipients found within this comparison scope. Later intermediary convergence is not ruled out.</p>'}<h3>Same recipient address across chains</h3><p>Identical address bytes are a lead, not proof of common control. Amounts and transfers stay separate by chain.</p>${(report.crossChainTerminalRecipients ?? []).map(d=>`<code class="address-text">${escape(d.address)}</code>${d.eventIds.map(id=>`<p>${escape(byId.get(id).chain)} · ${escape(short(byId.get(id).from))}<br>${terminalPayment(id,byId,report.asset)}</p>`).join('')}`).join('') || '<p>No cross-chain recipient-address reuse found in these sequences.</p>'}</details>`;
+}
+
+function renderTerminalHistory(summary, report, byId) {
+  const ids = [...new Set([...(summary.lastSubstantialOutflowId ? [summary.lastSubstantialOutflowId] : []),...summary.lastOutflowIds,...summary.sequenceEventIds])];
+  const current = ids.includes(terminalEventId) ? byId.get(terminalEventId) : byId.get(summary.lastSubstantialOutflowId ?? summary.finalOutflowId);
+  if (current) terminalEventId = current.id;
+  const destination = current ? report.destinations.find(d=>d.chain === current.chain && d.token === current.token && d.address === current.to) : null;
+  const rows = eventIds => eventIds.map(id=>{
+    const c = byId.get(id);
+    return `<tr><td>${escape(c.timestamp ?? 'Unknown date')}</td><td>${escape(c.from === c.to ? 'self' : c.from === summary.address ? 'outflow' : 'inflow')}<br>${escape(classificationLabel(c.review.classification))}</td><td class="numeric">${amount(rawUnits(c.rawAmount,c.decimals))}</td><td><code>${escape(short(c.from === summary.address ? c.to : c.from))}</code><br><button class="copy" data-terminal-event="${escape(id)}">Inspect evidence →</button></td></tr>`;
+  }).join('');
+  const table = eventIds => `<div class="table-wrap"><table><thead><tr><th>UTC</th><th>Direction / classification</th><th class="numeric">Amount (token units)</th><th>Counterparty / evidence</th></tr></thead><tbody>${rows(eventIds)}</tbody></table></div>`;
+  return `<section id="terminal-history" class="panel"><h2>${escape(summary.chain)} · selected operating address</h2><code class="address-text">${escape(summary.address)}<br>Token: ${escape(summary.token)}</code><p>Observed event span: ${escape(byId.get(summary.firstEventId)?.timestamp ?? 'Unknown start')} → ${escape(byId.get(summary.lastEventId)?.timestamp ?? 'Unknown end')}. This is the span of retained activity, not a completeness guarantee.</p><div class="notice"><strong>Reconstruction assumes zero opening balance.</strong>${summary.nonnegativeHistory ? 'No negative balance encountered in retained history.' : 'Negative reconstructed balances occurred: coverage is inconsistent and the reduction percentage is unavailable.'} ${summary.allReceiptsVerified ? 'All retained events have verified receipts.' : 'Some retained events lack receipt verification.'} A final zero does not establish a complete vault inventory.</div><div class="ledger"><div><small>Sequence opening (token units)</small><strong>${summary.sequenceOpeningBalanceRaw === null ? 'Unavailable' : amount(rawUnits(summary.sequenceOpeningBalanceRaw,summary.decimals))}</strong></div><div><small>Last reconstructed balance (token units)</small><strong>${amount(rawUnits(summary.closingBalanceRaw,summary.decimals))}</strong></div><div><small>Net sequence reduction</small><strong>${depletionLabel(summary.netReductionBasisPoints)}</strong><small>${summary.netReductionBasisPoints !== null && summary.netReductionBasisPoints >= report.terminalPolicy.depletionBasisPoints ? 'Meets configured balance-reduction threshold' : 'No qualifying reduction established'}</small></div></div><p>Sequence receipts: ${amount(rawUnits(summary.sequenceInflowRaw,summary.decimals))} token units in ${summary.sequenceInflowCount} positive inflows. Sequence payments: ${amount(rawUnits(summary.sequenceOutflowRaw,summary.decimals))} token units. Gross payments may exceed the opening balance when replenishment occurs.</p></section><div class="flow-layout"><div><section class="panel"><h3>Last ${summary.lastOutflowIds.length} positive outflows</h3><p>Newest first, including internal transfers and possible settlements. Zero-value and self-transfers do not displace the last positive payment.</p>${table(summary.lastOutflowIds.slice().reverse())}</section><section class="panel"><h3>Final sequence and replenishment</h3><p>${summary.lastSubstantialOutflowId ? 'Starts at the last substantial withdrawal.' : 'No substantial withdrawal observed; starts at the oldest of the last ten positive outflows.'} Runs through the final retained event, including subsequent inflows, self-transfers and zero-value events. Oldest first.</p>${table(summary.sequenceEventIds)}</section></div>${current ? renderLedgerDetail(current,destination,report) : '<div class="empty">No positive outflow observed for this address.</div>'}</div>`;
 }
