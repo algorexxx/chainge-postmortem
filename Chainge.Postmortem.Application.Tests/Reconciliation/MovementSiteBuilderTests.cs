@@ -55,6 +55,20 @@ public sealed class MovementSiteBuilderTests
         Assert.Equivalent(expected, actual, strict: true);
     }
 
+    [Theory]
+    [InlineData("inconsistent-balance-history")]
+    [InlineData("negative-reconstructed-balance")]
+    public void BuildReport_InconsistentHistoryFlag_ShouldWithholdOtherwisePlausibleDepletion(string flag)
+    {
+        var events = new[] { Event("a", "BSC", "token", "100") };
+        var result = Result([Review("a") with { Flags = [flag] }]);
+        int? expected = null;
+
+        var actual = MovementSiteBuilder.BuildReport(events, result).Cases[0].DepletionBasisPoints;
+
+        Assert.Equivalent(expected, actual);
+    }
+
     private static ChainEvent Event(string id, string chain, string token, string raw)
     {
         return new ChainEvent { Id = id, Chain = chain, Token = token, Transaction = id, BlockHash = "block", Block = 1, LogIndex = 0, From = "vault", To = "recipient", RawAmount = raw, Decimals = 0, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["public.json"] };

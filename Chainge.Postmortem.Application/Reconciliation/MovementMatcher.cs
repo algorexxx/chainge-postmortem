@@ -37,11 +37,11 @@ public static class MovementMatcher
         var internalTransfer = outgoing && addresses.Contains(e.To);
         var classification = e.RawAmount == "0" ? "zero-value" : internalTransfer ? "operating-address-transfer" : e.Timestamp is null ? "missing-timestamp" : "unmatched";
         var candidates = classification == "unmatched" ? FusionCandidateFinder.FindCandidates(e, index[outgoing ? e.To : e.From], policy, outgoing) : [];
-        if (classification == "unmatched" && candidates.Count == 0 && HasCounterAsset(e, outgoing)) { classification = "possible-asset-exchange"; }
         var exchanges = FindReportedExchanges(e, outgoing);
         exchanges.AddRange(PoolExchangeMatcher.FindExchanges(e, outgoing));
         exchanges.AddRange(RelayExchangeMatcher.FindExchanges(e, transaction, outgoing));
         if (classification == "unmatched" && candidates.Count == 0 && exchanges.Count > 0) { classification = "reported-asset-exchange"; }
+        if (classification == "unmatched" && candidates.Count == 0 && HasCounterAsset(e, outgoing)) { classification = "possible-asset-exchange"; }
         return new MovementReview { ExchangeEvidence = exchanges, SourceEventId = e.Id, Direction = internalTransfer ? "internal" : outgoing ? "outgoing" : "incoming", Classification = candidates.Count == 0 ? classification : outgoing ? "possible-redemption" : "possible-deposit", Candidates = candidates.OrderBy(c => c.FusionEventId, StringComparer.Ordinal).ToList() };
     }
     private static List<ReceiptExchange> FindReportedExchanges(ChainEvent e, bool outgoing)

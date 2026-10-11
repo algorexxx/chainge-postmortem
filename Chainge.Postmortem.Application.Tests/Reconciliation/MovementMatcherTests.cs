@@ -229,6 +229,20 @@ public sealed class MovementMatcherTests
         Assert.Equivalent(expected, actual);
     }
 
+    [Theory]
+    [InlineData(true)]
+    [InlineData(false)]
+    public void MatchMovements_ReportedSwapAndCounterAsset_ShouldPreferExplicitEvidence(bool outgoing)
+    {
+        var swap = new ReceiptExchange { Emitter = "router", LogIndex = 3, Sender = "vault", SourceToken = outgoing ? "token" : "counter", DestinationToken = outgoing ? "counter" : "token", Recipient = "vault", SpentRaw = "100", ReturnedRaw = "100" };
+        var events = new[] { Event("pay", "BSC", outgoing ? "vault" : "pool", outgoing ? "pool" : "vault", "100") with { ReceiptContextCaptured = true, ReportedExchanges = [swap], RelatedTransfers = [new() { Token = "counter", From = outgoing ? "pool" : "vault", To = outgoing ? "vault" : "pool", RawAmount = "100", LogIndex = 2 }] } };
+        var expected = new MovementReview { SourceEventId = "pay", Direction = outgoing ? "outgoing" : "incoming", Classification = "reported-asset-exchange", Candidates = [], ExchangeEvidence = [swap] };
+
+        var actual = MovementMatcher.MatchMovements(events, Policy()).Movements.Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
     private static ChainEvent Event(string id, string chain, string from, string to, string amount)
     {
         return new ChainEvent { Id = id, Chain = chain, Token = "token", Transaction = id, BlockHash = "block", Block = 1, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 18, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

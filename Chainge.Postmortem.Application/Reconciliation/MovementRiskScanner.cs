@@ -12,6 +12,7 @@ public static class MovementRiskScanner
         ArgumentOutOfRangeException.ThrowIfLessThan(policy.DepletionBasisPoints, 1);
         ArgumentOutOfRangeException.ThrowIfGreaterThan(policy.DepletionBasisPoints, 10000);
         var balances = new Dictionary<string, BigInteger>(StringComparer.Ordinal);
+        var inconsistent = new HashSet<string>(StringComparer.Ordinal);
         var reviews = movements.ToDictionary(m => m.SourceEventId, StringComparer.Ordinal);
         var output = new List<MovementReview>();
         var threshold = BigInteger.Parse(policy.LargeOutflowRaw, CultureInfo.InvariantCulture) * BigInteger.Pow(10, 255 - policy.Decimals);
@@ -23,6 +24,8 @@ public static class MovementRiskScanner
             var value = BigInteger.Parse(e.RawAmount, CultureInfo.InvariantCulture);
             balances[from] = before - value;
             balances[to] = balances.GetValueOrDefault(to) + value;
+            if (balances[from] < 0) { inconsistent.Add(from); }
+            if (balances[to] < 0) { inconsistent.Add(to); }
             if (!reviews.TryGetValue(e.Id, out var review)) { continue; }
             var outgoing = review.Direction == "outgoing";
             var flags = new List<string>();
@@ -32,7 +35,7 @@ public static class MovementRiskScanner
                 if (outgoing && e.GetComparableUnits() >= threshold) { flags.Add("large-asset-exchange-outflow"); }
             }
             if (review.Classification == "unmatched" && outgoing && e.GetComparableUnits() >= threshold) { flags.Add("large-unmatched-outflow"); }
-            if (outgoing && before > 0 && value * 10000 >= before * policy.DepletionBasisPoints) { flags.Add("large-balance-reduction"); }
+            if (outgoing && !inconsistent.Contains(from) && before > 0 && value * 10000 >= before * policy.DepletionBasisPoints) { flags.Add("large-balance-reduction"); }
             if (review.Classification == "possible-source-chain-transfer") { flags.Add("backing-disposition-unresolved"); }
             if (review.SourceCandidates.Any(c => c.Competing)) { flags.Add("competing-source-matches"); }
             if (review.Candidates.Any(c => c.Rule == "short-delay-absolute-fee")) { flags.Add("fee-exceeds-relative-bound"); }
@@ -41,6 +44,7 @@ public static class MovementRiskScanner
             var tracked = review.Direction == "incoming" ? to : from;
             var after = balances[tracked];
             if (after < 0) { flags.Add("negative-reconstructed-balance"); }
+            if (after >= 0 && inconsistent.Contains(tracked)) { flags.Add("inconsistent-balance-history"); }
             output.Add(review with { ReconstructedBalanceBeforeRaw = (review.Direction == "incoming" ? after - value : before).ToString(CultureInfo.InvariantCulture), ReconstructedBalanceAfterRaw = after.ToString(CultureInfo.InvariantCulture), Flags = flags });
         }
         return output;

@@ -34,7 +34,7 @@ public static class MovementSiteBuilder
 
     private static int? GetDepletion(ChainEvent e, MovementReview review)
     {
-        if (review.Direction != "outgoing" || review.ReconstructedBalanceBeforeRaw is null) { return null; }
+        if (review.Direction != "outgoing" || review.ReconstructedBalanceBeforeRaw is null || review.Flags.Contains("inconsistent-balance-history") || review.Flags.Contains("negative-reconstructed-balance")) { return null; }
         var before = BigInteger.Parse(review.ReconstructedBalanceBeforeRaw, CultureInfo.InvariantCulture);
         var value = BigInteger.Parse(e.RawAmount, CultureInfo.InvariantCulture);
         if (before <= 0 || value < 0 || value > before) { return null; }

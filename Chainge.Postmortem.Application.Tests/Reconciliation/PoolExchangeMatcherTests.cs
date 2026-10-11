@@ -38,6 +38,45 @@ public sealed class PoolExchangeMatcherTests
         Assert.Equivalent(expected, actual, strict: true);
     }
 
+    [Theory]
+    [InlineData(true, 1, 3)]
+    [InlineData(true, 4, 6)]
+    [InlineData(false, 1, 3)]
+    [InlineData(false, 4, 6)]
+    public void FindExchanges_RepeatedSamePoolAmounts_ShouldUseOnlyCurrentOperation(bool outgoing, long eventIndex, long swapIndex)
+    {
+        var fixture = CreateEvent(outgoing, true);
+        var input = fixture with { LogIndex = eventIndex, PoolSwaps = [fixture.PoolSwaps[0] with { LogIndex = 6 }, fixture.PoolSwaps[0]], RelatedTransfers = [fixture.RelatedTransfers[0], fixture.RelatedTransfers[0] with { LogIndex = 5 }] };
+        var expected = new ReceiptExchange { Rule = "pool-swap-with-transfer-legs", Emitter = "pool", LogIndex = swapIndex, Sender = outgoing ? "vault" : "other", Recipient = outgoing ? "other" : "vault", SourceToken = outgoing ? "token" : "counter", DestinationToken = outgoing ? "counter" : "token", SpentRaw = outgoing ? "100" : "7", ReturnedRaw = outgoing ? "7" : "100" };
+
+        var actual = PoolExchangeMatcher.FindExchanges(input, outgoing);
+
+        Assert.Equivalent(new[] { expected }, actual, strict: true);
+    }
+
+    [Fact]
+    public void FindExchanges_CompetingTransferLegs_ShouldWithholdAttribution()
+    {
+        var fixture = CreateEvent(true, true);
+        var input = fixture with { RelatedTransfers = [fixture.RelatedTransfers[0], fixture.RelatedTransfers[0] with { Token = "another", LogIndex = 0 }] };
+        ReceiptExchange[] expected = [];
+
+        var actual = PoolExchangeMatcher.FindExchanges(input, true);
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public void FindExchanges_EventAfterFinalSwap_ShouldRemainUnmatched()
+    {
+        var input = CreateEvent(true, true) with { LogIndex = 4 };
+        ReceiptExchange[] expected = [];
+
+        var actual = PoolExchangeMatcher.FindExchanges(input, true);
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
     private static ChainEvent CreateEvent(bool outgoing, bool firstToken)
     {
         var input = outgoing ? "100" : "7";

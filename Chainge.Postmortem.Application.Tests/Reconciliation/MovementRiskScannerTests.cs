@@ -80,6 +80,18 @@ public sealed class MovementRiskScannerTests
         Assert.Equivalent(expected, actual, strict: true);
     }
 
+    [Fact]
+    public void FlagMovements_RecoveredNegativeHistory_ShouldKeepWarningAndSuppressDepletion()
+    {
+        var events = new[] { Event("early", "vault", "holder", "100", 1), Event("refill", "holder", "vault", "200", 2), Event("pay", "vault", "holder", "100", 3), Event("other", "holder", "second", "200", 4), Event("valid", "second", "holder", "200", 5) };
+        var movements = new[] { Review("refill", "incoming"), Review("pay", "outgoing"), Review("valid", "outgoing") };
+        var expected = new[] { movements[0] with { ReconstructedBalanceBeforeRaw = "-100", ReconstructedBalanceAfterRaw = "100", Flags = ["inconsistent-balance-history"] }, movements[1] with { ReconstructedBalanceBeforeRaw = "100", ReconstructedBalanceAfterRaw = "0", Flags = ["large-unmatched-outflow", "inconsistent-balance-history"] }, movements[2] with { ReconstructedBalanceBeforeRaw = "200", ReconstructedBalanceAfterRaw = "0", Flags = ["large-unmatched-outflow", "large-balance-reduction"] } };
+
+        var actual = MovementRiskScanner.FlagMovements(events, movements, Policy());
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
     private static ChainEvent Event(string id, string from, string to, string amount, int block)
     {
         return new ChainEvent { Id = id, Chain = "BSC", Token = "token", Transaction = id, BlockHash = "block", Block = block, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 0, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };
