@@ -54,10 +54,28 @@ function renderVaults(study) {
 }
 
 function renderMovements(study) {
-  const flows = study.flows.filter(flow => flowFilter === 'all' || flow.status === flowFilter);
+  const redemptions = study.flows.filter(flow => flow.status === 'Possible redemption');
+  const entries = study.flows.filter(flow => flow.status !== 'Possible redemption');
+  if (redemptions.length) entries.push({ id: 'possible-redemptions', title: 'Possible redemptions', amount: sumTokenAmounts(redemptions.map(flow => flow.amount)), chain: 'Reviewed source-chain payments', date: `${redemptions.length} candidate burn/payment pairs`, status: 'Possible redemption', endpoint: 'See individual payments and burn evidence', members: redemptions });
+  entries.sort((a, b) => tokenUnits(a.amount) > tokenUnits(b.amount) ? -1 : tokenUnits(a.amount) < tokenUnits(b.amount) ? 1 : 0);
+  const flows = entries.filter(flow => flowFilter === 'all' || flow.status === flowFilter);
   const current = flows.find(flow => flow.id === flowId) || flows[0];
   if (current) flowId = current.id;
-  return `<div class="section-title"><h2>Follow selected outflows</h2><a href="${repo}research/busd-source-chain-flows.md">Full investigation ↗</a></div><p class="muted">Largest first within these ${study.flows.length} reviewed cases. This is not an exhaustive outflow ranking. “Unmatched” means no verified Fusion burn link; it does not establish a loss.</p><div class="filters"><label for="flow-filter">Explanation</label><select id="flow-filter">${['all','Unmatched','Possible redemption','Possible rebalancing'].map(value=>`<option value="${value}" ${flowFilter === value ? 'selected' : ''}>${value === 'all' ? 'All reviewed cases' : value}</option>`).join('')}</select><span class="muted">Solid path: observed transfers · Dashed: inferred relationship</span></div><div class="flow-layout"><div>${flows.map(flow=>`<button class="flow-choice" data-flow="${flow.id}" aria-pressed="${current?.id === flow.id}"><span><strong>${escape(flow.title)}</strong><small>${escape(flow.date)} · ${escape(flow.chain)}</small><p class="flow-description">Last traced destination: ${escape(flow.endpoint)}</p><span class="status ${flow.status === 'Unmatched' ? '' : 'neutral'}">${escape(flow.status)}</span></span><span class="flow-value">${amount(flow.amount)}<small style="display:block">BUSD</small></span></button>`).join('')}</div>${current ? renderTrace(current) : '<div class="empty">No cases match this filter.</div>'}</div>`;
+  return `<div class="section-title"><h2>Follow selected outflows</h2><a href="${repo}research/busd-source-chain-flows.md">Full investigation ↗</a></div><p class="muted">Largest first within these ${study.flows.length} reviewed cases, with possible redemptions grouped by source-chain payment amount. This is not an exhaustive outflow ranking. “Unmatched” means no verified Fusion burn link; it does not establish a loss.</p><div class="filters"><label for="flow-filter">Explanation</label><select id="flow-filter">${['all','Unmatched','Possible redemption','Possible rebalancing'].map(value=>`<option value="${value}" ${flowFilter === value ? 'selected' : ''}>${value === 'all' ? 'All reviewed cases' : value}</option>`).join('')}</select><span class="muted">Solid path: observed transfers · Dashed: inferred relationship</span></div><div class="flow-layout"><div>${flows.map(flow=>`<button class="flow-choice" data-flow="${flow.id}" aria-pressed="${current?.id === flow.id}"><span><strong>${escape(flow.title)}</strong><small>${escape(flow.date)} · ${escape(flow.chain)}</small><p class="flow-description">Last traced destination: ${escape(flow.endpoint)}</p><span class="status ${flow.status === 'Unmatched' ? '' : 'neutral'}">${escape(flow.status)}</span></span><span class="flow-value">${amount(flow.amount)}<small style="display:block">BUSD</small></span></button>`).join('')}</div>${current ? (current.members ? renderRedemptions(current) : renderTrace(current)) : '<div class="empty">No cases match this filter.</div>'}</div>`;
+}
+
+function tokenUnits(value) {
+  const [whole, fraction = ''] = value.split('.');
+  return BigInt(whole) * 10n ** 18n + BigInt(fraction.padEnd(18, '0'));
+}
+
+function sumTokenAmounts(values) {
+  const total = values.reduce((sum, value) => sum + tokenUnits(value), 0n);
+  return `${total / 10n ** 18n}.${(total % 10n ** 18n).toString().padStart(18, '0')}`;
+}
+
+function renderRedemptions(group) {
+  return `<section aria-label="Possible redemptions"><div class="panel"><h3>Possible redemptions</h3><p class="big">${amount(group.amount)} <small>BUSD paid</small></p><div class="amount-exact">${escape(group.amount)} BUSD</div><p>${group.members.length} reviewed candidate burn/payment pairs. Total counts each source-chain payment once; burns and onward transfers are not added.</p><div class="notice"><strong>Partial coverage, not all redemptions.</strong>Only individually reviewed pairings are included. Other payments remain unclassified until reviewed. Each cross-chain relationship is inferred.</div></div>${group.members.map(flow => `<details class="panel"><summary>${escape(flow.date)} · ${amount(flow.amount)} BUSD · View burn/payment evidence</summary>${renderTrace(flow)}</details>`).join('')}</section>`;
 }
 
 function renderTrace(flow) {

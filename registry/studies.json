@@ -335,6 +335,39 @@
             "kind": "verified"
           }
         ]
+      },
+      {
+        "id": "redemption-300k",
+        "title": "January 11 payment with a candidate Fusion burn match",
+        "amount": "300000",
+        "chain": "BSC",
+        "date": "2022-01-11",
+        "status": "Possible redemption",
+        "endpoint": "Same holder as the Fusion burn",
+        "explanation": "A 300,000.5 Fusion burn precedes a 300,000 BUSD payment to the same holder by 29 seconds. The 0.5 difference is consistent with a fee, but the fee rule and shared bridge identifier remain unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md",
+        "steps": [
+          {
+            "label": "Fusion burn",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "chain": "Fusion",
+            "amount": "300000.5",
+            "time": "2022-01-11 09:03:50 UTC",
+            "transaction": "https://fsnex.net/transaction/0xbf1d587aa11f50dec81c547d39de0e472ee366a60cd53f2f29e258031d625c0d",
+            "note": "Earlier Fusion BUSD representation.",
+            "kind": "verified"
+          },
+          {
+            "label": "BSC payment to the same holder",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "chain": "BSC",
+            "amount": "300000",
+            "time": "2022-01-11 09:04:19 UTC",
+            "transaction": "https://bscscan.com/tx/0x7365f0385ecd84d954b60ffe6a1124dccf01c6ce64454abd2dec9cd91aeaadef",
+            "note": "Paid by controller 0x874de5761900ee526950d707d8cbd4b93092e290. Transfer verified; relationship to burn inferred.",
+            "kind": "inferred"
+          }
+        ]
       }
     ],
     "activity": [
