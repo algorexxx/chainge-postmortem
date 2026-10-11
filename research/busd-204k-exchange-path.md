@@ -35,6 +35,22 @@ Routescan discovery returned four BUSD events for the first intermediary and thr
 
 The [Binance 14 label](https://etherscan.io/address/0x28c6c06298d514db089934071355e5743bf21d60?amt=1-10) was independently captured from Etherscan. It is an attributed explorer label. The second intermediary's sweep pattern is consistent with an exchange deposit address, but its ownership and credited customer account have not been independently verified. Tracing unrelated outflows from the pooled exchange address would not establish where this particular customer's credit went.
 
+## Comparison with the earlier cross-chain movement
+
+Internal rebalancing remains a possible explanation. A transfer to an exchange-labelled wallet establishes the on-chain destination, not the ultimate economic destination. Funds could remain as exchange credit or leave as a different asset, on another chain, or to an address not yet attributed. A customer redemption is another unresolved explanation; none is established by this path alone.
+
+The November 2023 example has additional evidence: **187290.327160557405335843 BUSD** reaches a Binance-labelled BSC address, and **187285.72716055 BUSD** subsequently arrives at the same controller address on Ethereum through the same intermediary address string. That return reaches the controller **25 minutes 31 seconds** after the exchange-labelled receipt. This supports a rebalancing inference, although the exchange-internal link is not proven. The January path uses different intermediaries and currently lacks an identified corresponding return leg. Different intermediaries alone do not distinguish legitimate rebalancing from another purpose.
+
+A bounded check of the preserved histories covers **2023-12-31 00:00:00 through 2024-01-15 00:00:00 UTC (end exclusive)** at controller `0x456325f2ac7067234dd71e01bebe032b0255e039`:
+
+| Chain / token checked | Returned incoming transfers in that window |
+| --- | --- |
+| BSC Binance-Peg BUSD | None |
+| Ethereum BUSD | One: **2989.24318158**, from `0xda832772b9fa5610223d41b7c0f09eff9d21ca2c`, on January 1 at 16:36:35 UTC; transaction `0x3e00c45d9ac11fc01690032cbcf50f8fcddf91737c0199390b8fb4a852c75804` |
+| Avalanche BUSD.e | None; last returned event is November 2, 2023 |
+
+The BSC and Ethereum checks filter the previously preserved receipt logs by token, recipient and block timestamp; the Avalanche check filters the receipt-verified discovery rows in the [source-chain evidence package](../evidence/2026-10-11-busd-source-review/README.md). This finds no comparable BUSD return into that controller during the stated window. It does **not** search all assets, all vaults, all chains, earlier prefunding or later returns, and retains the existing discovery-coverage limits. Rebalancing through another vault is therefore neither established nor excluded. Resolving it requires a receipt into an independently attributed custody address, with an evidenced asset conversion and amount/timing relationship, or authenticated exchange records.
+
 ## Evidence and remaining question
 
 The [evidence package](../evidence/2026-10-11-busd-204k-trace/README.md) preserves discovery responses, direct requests and receipts, headers, pinned balances, archive-query failures and the explorer-label observation with an integrity manifest. The previous report's unresolved destination for this specific 204567.658073647823395109 BUSD transfer is now resolved to an exchange-labelled address. Its economic purpose and exchange-internal outcome remain unresolved; the [overall BUSD reconciliation](busd-case-assessment.md) remains incomplete.
