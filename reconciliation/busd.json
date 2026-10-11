@@ -56,6 +56,23 @@
         "maximumFeeRaw": "50000000000000000",
         "maximumFeeBasisPoints": 100
       }
+    },
+    "delayedReviewMaximumDelay": "1.00:00:00",
+    "sliceCounterparts": {
+      "0x8f8c247a300312b805692a3bc49414e35dec64ce": [
+        "0xba212492dd4b1d89e86fd97faadca3b519629618",
+        "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
+        "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
+        "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725"
+      ]
+    },
+    "issuanceCallTargets": {
+      "0x8f8c247a300312b805692a3bc49414e35dec64ce": [
+        "0xd169bfa08ae2c9bea4123a8760ba058afd647ed2"
+      ]
+    },
+    "contractCallPurposes": {
+      "0x9851034eca59466ec346425a4674f93ef14d261f:0x85a6a020": "liquidity-migration-call-candidate"
     }
   },
   "sources": [
@@ -170,6 +187,16 @@
         "0x8f8c247a300312b805692a3bc49414e35dec64ce": 18,
         "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": 18
       }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-11-busd-fusion-purpose-review",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xcb02f42d8790738a78d47b4f67d242cce48f1de6": 18,
+        "0x8f8c247a300312b805692a3bc49414e35dec64ce": 18,
+        "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": 18
+      }
     }
   ],
   "limitations": [
@@ -187,6 +214,9 @@
     "reported-asset-exchange requires a same-receipt Swapped event with exact token, participant and amount, or a V2-style Swap event corroborated by both token-transfer legs and its recipient. Event emitters and reported recipients are preserved; this does not authenticate protocol code, independently trace native delivery, link a Fusion burn or establish reserve backing. All exchange classifications retain backing-disposition-unresolved.",
     "A single-relay pool-swap rule follows an equal-amount asset transfer through one intermediate address in the same successful receipt. Exactly two nonzero transfers of that asset may touch the relay, both receipt-verified and correctly ordered; both event IDs are retained. Split, merged or longer routes are not inferred.",
     "An opt-in source-chain pairing hypothesis links still-unmatched, receipt-verified incoming/outgoing asset movements for the same wallet on different chains, with delay 0 to 300 seconds and a nonnegative difference no greater than 50 BUSD and 5% of the deposit. All links and competition remain visible; there is no common bridge identifier and no implication of a Fusion burn or reserve coverage.",
-    "Ethereum deposit-fee candidates require both source and Fusion mint receipts, same holder, delay 0 to 300 seconds, a positive deposit-minus-mint difference no greater than 0.05 BUSD and 1% of the source deposit. This bounded-deposit-fee rule is an explicit hypothesis, not an authenticated fee schedule."
+    "Ethereum deposit-fee candidates require both source and Fusion mint receipts, same holder, delay 0 to 300 seconds, a positive deposit-minus-mint difference no greater than 0.05 BUSD and 1% of the source deposit. This bounded-deposit-fee rule is an explicit hypothesis, not an authenticated fee schedule.",
+    "Fusion receipt-slice-conversion exclusions require an equal-amount opposite mint/burn for the same holder in a successful receipt, using the configured sibling contracts (all 18 decimals) whose common parent is documented in research/busd-time-slice-coverage.md. Interval supplies are not added together. This is a transaction-purpose classification, not proof of external backing.",
+    "Delayed review widens bounded variable/deposit-fee and source-chain hypotheses to 24 hours, without changing normal classifications, counts or unpaired Fusion IDs. New edges are exported separately with competition. Existing exact-fee searches already use 24 hours; absolute-fee fallback remains 60 seconds.",
+    "Direct-mint-call and direct-burn-call require successful receipt context, a top-level call to the token or configured parent, the standard mint(address,uint256)/burn(address,uint256) selector, canonical holder and exact amount agreeing with the event. Selectors do not authenticate deployed source. The 12 liquidity-migration-call-candidate mints are a configured target/selector interpretation documented in research/busd-ledger-reconciliation.md and remain eligible for external matching. No direct call or migration-path label establishes external backing."
   ]
 }

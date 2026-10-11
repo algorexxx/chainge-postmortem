@@ -195,3 +195,8 @@ Publication, automated refresh, completed reconciliations and extension to addit
 ## Asset-by-asset reconciliation pipeline
 
 Publish one asset at a time after reviewing its stated coverage. The offline pipeline now normalizes retained evidence, preserves provenance, proposes exact holder/amount/time matches, excludes conversion candidates and prioritizes large unresolved outflows. See `reconciliation/README.md` for the first BUSD run and remaining limitations. Candidate pairs are not automatically promoted to reviewed findings. UI movement cards represent individual reviewed cases; possible redemptions are hidden by default. Next: review competing links and largest unresolved outflows, expand earlier-token/slice and custody coverage, and validate claims versus backing at common cutoffs before calling an asset reconciliation complete.
+
+
+## Fusion purpose classification and delayed candidates (2026-10-11)
+
+Receipt and call data now cover all 5,249 retained Fusion issuance transactions. The reusable classifier separates slice conversions, cross-representation mint/burn pairs, inventory-transfer hypotheses, direct issuance calls and unresolved purposes before external matching. A distinct 24-hour review exports additional candidates without silently promoting them. See [the fifth reconciliation checkpoint](reconciliation/README.md#fifth-pass-fusion-purposes-and-delayed-review). Remaining work includes reviewing the 1,434 unpaired mints and 447 burns against broader custody and routing evidence; those event counts are not outstanding supply or missing backing.

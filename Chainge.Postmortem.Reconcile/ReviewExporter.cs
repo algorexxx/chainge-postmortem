@@ -9,6 +9,7 @@ public static class ReviewExporter
 {
     public static async Task WriteReviewFiles(string output, IReadOnlyList<ChainEvent> events, ReconciliationResult result, CancellationToken cancellationToken)
     {
+        Directory.CreateDirectory(output);
         var byId = events.ToDictionary(e => e.Id, StringComparer.Ordinal);
         var movements = new StringBuilder("event_id,chain,token,decimals,utc,from,to,direction,amount,raw_amount,classification,candidate_count,source_candidate_count,flags,balance_before_raw,balance_after_raw,receipt_verified,evidence\n");
         var exchanges = new StringBuilder("source_event_id,chain,transaction,rule,emitter,swap_log_index,sender,source_token,destination_token,recipient,spent_raw,returned_raw,route_event_ids,evidence\n");
@@ -39,6 +40,18 @@ public static class ReviewExporter
         await File.WriteAllTextAsync(Path.Combine(output, "exchange-evidence.csv"), exchanges.ToString(), Encoding.UTF8, cancellationToken);
         await File.WriteAllTextAsync(Path.Combine(output, "source-chain-pairs.csv"), sourcePairs.ToString(), Encoding.UTF8, cancellationToken);
         await File.WriteAllTextAsync(Path.Combine(output, "candidate-pairs.csv"), pairs.ToString(), Encoding.UTF8, cancellationToken);
+    }
+
+    public static async Task WritePurposeFile(string output, IReadOnlyList<ChainEvent> events, IReadOnlyList<FusionPurpose> purposes, ReconciliationResult result, CancellationToken cancellationToken)
+    {
+        var byId = events.ToDictionary(e => e.Id, StringComparer.Ordinal);
+        var rows = new StringBuilder("event_id,token,utc,direction,amount,purpose,excluded_from_external_matching,unpaired,counterpart_event_ids,receipt_target,transaction_sender,transaction_input,receipt_verified,evidence\n");
+        foreach (var purpose in purposes)
+        {
+            var e = byId[purpose.EventId];
+            AppendRow(rows, [e.Id, e.Token, e.Timestamp?.ToString("O", CultureInfo.InvariantCulture) ?? "", e.From == "0x0000000000000000000000000000000000000000" ? "mint" : "burn", FormatAmount(e), purpose.Classification, purpose.ExcludeFromExternalMatching.ToString(), result.UnpairedFusionEventIds.Contains(e.Id).ToString(), string.Join(";", purpose.CounterpartEventIds), e.ReceiptTarget, e.TransactionSender, e.TransactionInput, e.ReceiptVerified.ToString(), string.Join(";", e.Evidence)]);
+        }
+        await File.WriteAllTextAsync(Path.Combine(output, "fusion-purposes.csv"), rows.ToString(), Encoding.UTF8, cancellationToken);
     }
 
     private static void AppendRow(StringBuilder target, string[] fields)

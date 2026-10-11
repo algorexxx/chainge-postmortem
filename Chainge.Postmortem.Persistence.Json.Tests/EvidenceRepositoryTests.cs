@@ -1,3 +1,4 @@
+using Chainge.Postmortem.Application.Reconciliation.Models;
 using System.Text.Json;
 using Chainge.Postmortem.Persistence.Json.Models;
 using Chainge.Postmortem.Persistence.Json.Repositories;
@@ -128,6 +129,65 @@ public sealed class EvidenceRepositoryTests
         var actual = await Record.ExceptionAsync(() => reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken));
 
         Assert.IsType<InvalidDataException>(actual);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_TransactionCall_ShouldJoinByChainHashAndRetainProvenance()
+    {
+        var receipt = System.Text.Json.Nodes.JsonNode.Parse(Receipt("0x1", "0x64"))!;
+        receipt[0]!["result"]!["to"] = "token";
+        var transaction = """{"result":{"hash":"tx","blockHash":"block","to":"token","from":"sender","input":"0x40c10f19","r":"0x1","s":"0x2"}}""";
+        var root = await CreateFixture(receipt.ToJsonString(), transaction);
+        var expected = new { ReceiptTarget = "token", TransactionSender = "sender", TransactionInput = "0x40c10f19", Evidence = new[] { "a.json", "b.json" } };
+
+        var snapshot = await CreateReader().ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = snapshot.Events.Select(e => new { e.ReceiptTarget, e.TransactionSender, e.TransactionInput, e.Evidence }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Theory]
+    [InlineData("different-block", "token")]
+    [InlineData("block", "different-target")]
+    public async Task ReadEvidenceAsync_TransactionReceiptDisagreement_ShouldReject(string blockHash, string target)
+    {
+        var receipt = System.Text.Json.Nodes.JsonNode.Parse(Receipt("0x1", "0x64"))!;
+        receipt[0]!["result"]!["to"] = "token";
+        var transaction = JsonSerializer.Serialize(new { result = new { hash = "tx", blockHash, to = target, from = "sender", input = "0x00", r = "0x1", s = "0x2" } });
+        var root = await CreateFixture(receipt.ToJsonString(), transaction);
+
+        var actual = await Record.ExceptionAsync(() => CreateReader().ReadEvidenceAsync(root, TestContext.Current.CancellationToken));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_ExplorerTransferInputPlaceholder_ShouldNotBecomeTransaction()
+    {
+        var explorer = """[{"hash":"tx","input":"deprecated","to":"a"},{"hash":"tx","input":"deprecated","to":"b"}]""";
+        var root = await CreateFixture(Receipt("0x1", "0x64"), explorer);
+        var expected = string.Empty;
+
+        var snapshot = await CreateReader().ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = snapshot.Events.Single().TransactionInput;
+
+        Assert.Equivalent(expected, actual);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_TimedLog_ShouldAttachReceiptContext()
+    {
+        var receipt = System.Text.Json.Nodes.JsonNode.Parse(MixedReceipt(100))!;
+        var log = receipt[0]!["result"]!["logs"]![0]!;
+        log["topics"]![0] = "0xc817d75deaa278e988c41cf549ef38fe195ab65e0e64cd67ba47f0d185690d58";
+        log["data"] = log["data"]!.GetValue<string>() + new string('0', 64) + new string('0', 48) + new string('f', 16);
+        var root = await CreateFixture(receipt.ToJsonString(), "[]");
+        var expected = new ReceiptTransfer { Token = "other-token", From = "0x" + new string('0', 40), To = "0x" + new string('1', 40), RawAmount = "100", LogIndex = 1 };
+
+        var snapshot = await CreateReader().ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = snapshot.Events.Single().RelatedTransfers;
+
+        Assert.Equivalent(new[] { expected }, actual, strict: true);
     }
 
     private static string SwapReceipt(bool pool)

@@ -111,3 +111,38 @@ Remaining unmatched outflows are BSC 207, Ethereum 10 and Avalanche 7; inflows a
 This does not authenticate a fee schedule or prove the economic relationship. The candidate rule is explicitly `bounded-deposit-fee`; the precise mint event IDs and supporting files remain in `candidate-pairs.csv`.
 
 **Coverage limits discovered.** Before this pass, none of the 232 unmatched outflows had a full-time, non-conversion Fusion burn within the preceding five minutes whose amount exceeded the payment by no more than the configured chain fee cap, even without requiring the same holder. Further reductions cannot responsibly be obtained just by ignoring holder identity. Other-token funding is a useful unresolved lead, but bounded historical BSC log probes were rejected by the tested PublicNode, BNB dataseed and [dRPC public endpoint](https://drpc.org/chainlist/bsc-mainnet-rpc). Exact request/response pairs are preserved in `evidence/2026-10-11-busd-routing-review/`; provider errors are not zero activity. No paid service was used. Broader other-token history, changed-recipient instructions, split payments and exchange records remain separate evidence needs.
+
+
+## Fifth pass: Fusion purposes and delayed review
+
+All 5,249 transactions containing the retained Fusion mint/burn events now have successful receipts and top-level transaction inputs archived in [the purpose evidence directory](../evidence/2026-10-11-busd-fusion-purpose-review/). Its SHA-256 manifest covers the requests, responses and capture metadata; connection details are omitted. This extends receipt verification within the retained event history, not historical range coverage or the vault inventory.
+
+`fusion-purposes.csv` lists every Fusion mint/burn event, its purpose classification, holder/amount call evidence, counterpart event IDs, receipt target, caller, calldata and provenance. `fusionPurposes` contains the same review in the JSON. Purpose classification runs before external matching:
+
+- **receipt-slice-conversion:** a successful receipt contains an equal-amount opposite mint/burn for the same holder in a configured dated sibling. Sibling identity and matching 18-decimal precision are supported by [the parent/slice observations](../research/busd-time-slice-coverage.md). The configuration requires equal precision; do not configure differently scaled siblings. Dated supplies are never added to full-time liabilities. This adds 175 exclusions: 87 mints and 88 burns.
+- **cross-representation-mint-burn:** 206 issuance events have a same-transaction, equal normalized amount counterpart for the same holder. Both events must be receipt-verified. These are 103 previously identified migration pairs.
+- **cross-representation-inventory-transfer:** 64 issuance events have a corresponding transfer involving the holder in another selected representation, rather than an opposite zero-address event. This remains an inventory-conversion hypothesis; the ordinary transfer's ID is retained.
+- **direct-mint-call / direct-burn-call:** successful receipt, top-level target equal to the token or configured parent, standard method selector, canonical address argument and amount exactly agreeing with the event. This describes the call and does not prove an external deposit/redemption or authenticate deployed source.
+- **liquidity-migration-call-candidate:** the configured target/selector for 12 newer-token mints documented in [the ledger report](../research/busd-ledger-reconciliation.md). No corresponding legacy full-time burn has been established; they stay in the external matching queue.
+- Dated-interval events and unknown contract purposes remain explicitly labelled. An unknown purpose is not automatically excluded from external matching.
+
+| Queue | Fourth pass | Fifth pass |
+| --- | ---: | ---: |
+| Unpaired Fusion mints | 1,521 | 1,434 |
+| Unpaired Fusion burns | 535 | 447 |
+| Unmatched source-chain outflows | 224 | 224 |
+| Unmatched source-chain inflows | 430 | 430 |
+
+The remaining Fusion queue consists of **1,422 direct-call mints, 447 direct-call burns and 12 liquidity-path mint candidates**. All have receipt and transaction evidence. Missing external counterparts can reflect the configured custody scope, different recipients, amount/timing assumptions, internal issuance or other unresolved activity. Counts do not measure backing or loss. Full-time flags on the earlier representation also retain the replay limitation documented in the slice report.
+
+The known 154485.229260173438889446 merge in transaction `0x4a46f2f5cbb23a69c6f86981038113247e339e3ee0ec7f0809acf9ef2e06ef8e` is now classified automatically: full-time mint log 62 is linked to dated-slice burn log 61. It is no longer treated as an unexplained external mint.
+
+### Separate 24-hour candidate tier
+
+`delayedReviewMaximumDelay` enables a second analysis that widens bounded variable/deposit-fee and source-chain searches. Zero disables it. It never shortens an existing window, never widens the 60-second absolute-fee fallback, and does not change the normal classifications or `unpairedFusionEventIds`. The exact-fee pass already uses 24 hours. Existing rule precedence still applies: this is a wider fallback search, not exhaustive enumeration of every possible pairing.
+
+`delayed-review/candidate-pairs.csv` contains **81 additional Fusion edges across 47 payments**: 10 previously unmatched payments acquire a candidate, while 37 already-classified payments acquire alternatives. Competition considers normal and wider links together. There are no new deposit/mint edges. `delayed-review/source-chain-pairs.csv` contains **3 additional pairs**, covering three other outflows and three inflows. JSON `delayedReview` links source-chain pairs in both directions; do not count those twice.
+
+Thus 13 of the 224 unmatched outflows and 3 of the 430 inflows have a wider-window hypothesis, leaving **211 outflows and 427 inflows without even that hypothesis**. These are supplementary review counts, not promoted matches. Ten of the unpaired Fusion burns acquire delayed candidates; the standard queue stays at 447 burns. Candidate numbers can increase while the unresolved queue shrinks because a broader window introduces ambiguity.
+
+The December 2021 1.1M and 100k payments and January 2024 204567.658073647823395109 payment remain unmatched and have no delayed candidates. All 47,808 retained event IDs and 5,710 movement IDs are unchanged. No candidates are automatically published as reviewed cases.

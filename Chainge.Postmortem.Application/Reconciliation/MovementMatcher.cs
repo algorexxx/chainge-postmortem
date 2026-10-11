@@ -14,7 +14,7 @@ public static class MovementMatcher
         ArgumentOutOfRangeException.ThrowIfLessThan(policy.Decimals, 0);
         ArgumentOutOfRangeException.ThrowIfGreaterThan(policy.Decimals, 255);
         var fusion = events.Where(e => e.Chain == policy.FusionChain).ToList();
-        var conversions = FindConversions(fusion);
+        var conversions = FusionPurposeClassifier.ClassifyEvents(events, policy).Where(p => p.ExcludeFromExternalMatching).Select(p => p.EventId).ToHashSet(StringComparer.Ordinal);
         var issuance = fusion.Where(e => e.FullTime && e.RawAmount != "0" && (e.From == Zero || e.To == Zero) && !conversions.Contains(e.Id)).ToList();
         var index = issuance.ToLookup(e => e.From == Zero ? e.To : e.From);
         var transactions = events.ToLookup(e => e.Chain + ":" + e.Transaction);
@@ -28,23 +28,6 @@ public static class MovementMatcher
             ConversionEventIds = conversions.Order(StringComparer.Ordinal).ToList(),
             UnpairedFusionEventIds = issuance.Where(e => !usage.ContainsKey(e.Id)).Select(e => e.Id).Order(StringComparer.Ordinal).ToList()
         };
-    }
-
-    private static HashSet<string> FindConversions(List<ChainEvent> fusion)
-    {
-        var conversions = new HashSet<string>(StringComparer.Ordinal);
-        foreach (var transaction in fusion.GroupBy(e => e.Transaction))
-        {
-            foreach (var e in transaction.Where(e => e.From == Zero || e.To == Zero))
-            {
-                var holder = e.From == Zero ? e.To : e.From;
-                if (transaction.Any(other => other.Token != e.Token && other.GetComparableUnits() == e.GetComparableUnits() && other.FullTime && e.FullTime && (e.From == Zero ? other.From == holder : other.To == holder)))
-                {
-                    conversions.Add(e.Id);
-                }
-            }
-        }
-        return conversions;
     }
 
     private static MovementReview MatchMovement(ChainEvent e, ILookup<string, ChainEvent> index, IReadOnlyList<ChainEvent> transaction, MatchPolicy policy)

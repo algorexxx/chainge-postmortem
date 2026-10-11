@@ -21,6 +21,7 @@ public sealed class EvidenceRepository
     public async Task<EvidenceSnapshot> ReadEvidenceAsync(string root, CancellationToken cancellationToken)
     {
         var events = new Dictionary<string, ChainEvent>(StringComparer.Ordinal);
+        var calls = new Dictionary<string, TransactionCall>(StringComparer.Ordinal);
         var hashes = new SortedDictionary<string, string>(StringComparer.Ordinal);
         var diagnostics = new List<string>();
         var timestamps = new Dictionary<string, TimestampObservation>(StringComparer.Ordinal);
@@ -40,23 +41,23 @@ public sealed class EvidenceRepository
                     continue;
                 }
                 using var document = JsonDocument.Parse(text);
-                ReadElement(document.RootElement, selection, source, false, events, timestamps, diagnostics);
+                ReadElement(document.RootElement, selection, source, false, events, timestamps, calls, diagnostics);
             }
         }
         return new EvidenceSnapshot
         {
-            Events = events.Values.Select(e => timestamps.TryGetValue(e.Chain + ":" + e.BlockHash, out var timestamp) ? e with { Timestamp = timestamp.Value, TimestampSource = timestamp.Source } : e)
+            Events = events.Values.Select(e => AttachTransaction(e, calls)).Select(e => timestamps.TryGetValue(e.Chain + ":" + e.BlockHash, out var timestamp) ? e with { Timestamp = timestamp.Value, TimestampSource = timestamp.Source } : e)
                 .OrderBy(e => e.Chain, StringComparer.Ordinal).ThenBy(e => e.Block).ThenBy(e => e.LogIndex).ToList(),
             InputHashes = hashes,
             Diagnostics = diagnostics
         };
     }
 
-    private static void ReadElement(JsonElement element, EvidenceSelection selection, string source, bool verified, Dictionary<string, ChainEvent> events, Dictionary<string, TimestampObservation> timestamps, List<string> diagnostics)
+    private static void ReadElement(JsonElement element, EvidenceSelection selection, string source, bool verified, Dictionary<string, ChainEvent> events, Dictionary<string, TimestampObservation> timestamps, Dictionary<string, TransactionCall> calls, List<string> diagnostics)
     {
         if (element.ValueKind == JsonValueKind.Array)
         {
-            foreach (var child in element.EnumerateArray()) { ReadElement(child, selection, source, verified, events, timestamps, diagnostics); }
+            foreach (var child in element.EnumerateArray()) { ReadElement(child, selection, source, verified, events, timestamps, calls, diagnostics); }
             return;
         }
         if (element.ValueKind != JsonValueKind.Object) { return; }
@@ -70,6 +71,7 @@ public sealed class EvidenceRepository
             diagnostics.Add($"{source}: unsuccessful receipt {GetText(element, "transactionHash")}");
             return;
         }
+        ReadTransaction(element, selection.Chain, source, calls);
         ReadTimestamp(element, selection.Chain, source, verified, timestamps, diagnostics);
         if (element.TryGetProperty("topics", out _) && selection.TokenDecimals.ContainsKey(GetText(element, "address")))
         {
@@ -77,12 +79,28 @@ public sealed class EvidenceRepository
         }
         foreach (var property in element.EnumerateObject())
         {
-            if (property.Name is "result" or "logs") { ReadElement(property.Value, selection, source, property.Name == "logs" || verified, events, timestamps, diagnostics); }
+            if (property.Name is "result" or "logs") { ReadElement(property.Value, selection, source, property.Name == "logs" || verified, events, timestamps, calls, diagnostics); }
         }
-        if (element.TryGetProperty("logs", out var logs)) { AttachReceiptContext(logs, selection.Chain, events); }
+        if (element.TryGetProperty("logs", out var logs)) { AttachReceiptContext(logs, selection.Chain, GetText(element, "to"), events); }
     }
 
-    private static void AttachReceiptContext(JsonElement logs, string chain, Dictionary<string, ChainEvent> events)
+    private static void ReadTransaction(JsonElement element, string chain, string source, Dictionary<string, TransactionCall> calls)
+    {
+        if (!element.TryGetProperty("input", out _) || !element.TryGetProperty("hash", out _) || !element.TryGetProperty("r", out _) || !element.TryGetProperty("s", out _)) { return; }
+        var key = chain + ":" + GetText(element, "hash");
+        var call = new TransactionCall { Target = GetText(element, "to"), Sender = GetText(element, "from"), Input = GetText(element, "input"), BlockHash = GetText(element, "blockHash"), Evidence = source };
+        if (calls.TryGetValue(key, out var previous) && previous with { Evidence = source } != call) { throw new InvalidDataException($"Conflicting transaction: {key}"); }
+        calls[key] = call;
+    }
+
+    private static ChainEvent AttachTransaction(ChainEvent e, Dictionary<string, TransactionCall> calls)
+    {
+        if (!calls.TryGetValue(e.Chain + ":" + e.Transaction, out var call)) { return e; }
+        if (call.BlockHash != e.BlockHash || e.ReceiptContextCaptured && call.Target != e.ReceiptTarget) { throw new InvalidDataException($"Transaction/receipt disagreement: {e.Id}"); }
+        return e with { TransactionInput = call.Input, TransactionSender = call.Sender, Evidence = e.Evidence.Append(call.Evidence).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList() };
+    }
+
+    private static void AttachReceiptContext(JsonElement logs, string chain, string target, Dictionary<string, ChainEvent> events)
     {
         var exchanges = ReadReportedExchanges(logs);
         var swaps = ReadPoolSwaps(logs);
@@ -92,6 +110,7 @@ public sealed class EvidenceRepository
         {
             var topics = log.GetProperty("topics").EnumerateArray().Select(t => t.GetString()!.ToLowerInvariant()).ToList();
             var data = GetText(log, "data");
+            if (topics.Count == 3 && topics[0] == TimedTransfer) { ids.Add($"{chain}:{GetText(log, "transactionHash")}:{(long)ReadInteger(GetText(log, "logIndex"))}"); }
             if (topics.Count != 3 || topics[0] != Transfer || data.Length != 66) { continue; }
             if (log.TryGetProperty("removed", out var removed) && removed.GetBoolean()) { throw new InvalidDataException("Removed receipt-context log"); }
             var index = (long)ReadInteger(GetText(log, "logIndex"));
@@ -102,8 +121,8 @@ public sealed class EvidenceRepository
         {
             var e = events[id];
             var related = transfers.Where(t => t.Token != e.Token).OrderBy(t => t.LogIndex).ToList();
-            if (e.ReceiptContextCaptured && (!e.RelatedTransfers.SequenceEqual(related) || !e.ReportedExchanges.SequenceEqual(exchanges) || !e.PoolSwaps.SequenceEqual(swaps))) { throw new InvalidDataException($"Conflicting receipt context: {id}"); }
-            events[id] = e with { RelatedTransfers = related, ReportedExchanges = exchanges, PoolSwaps = swaps, ReceiptContextCaptured = true };
+            if (e.ReceiptContextCaptured && (e.ReceiptTarget != target || !e.RelatedTransfers.SequenceEqual(related) || !e.ReportedExchanges.SequenceEqual(exchanges) || !e.PoolSwaps.SequenceEqual(swaps))) { throw new InvalidDataException($"Conflicting receipt context: {id}"); }
+            events[id] = e with { ReceiptTarget = target, RelatedTransfers = related, ReportedExchanges = exchanges, PoolSwaps = swaps, ReceiptContextCaptured = true };
         }
     }
 
@@ -186,7 +205,7 @@ public sealed class EvidenceRepository
         {
             if (previous.Decimals != e.Decimals || previous.Token != e.Token || previous.BlockHash != e.BlockHash || previous.Block != e.Block || previous.From != e.From || previous.To != e.To || previous.RawAmount != e.RawAmount || previous.FullTime != e.FullTime)
             { throw new InvalidDataException($"Conflicting duplicate event: {e.Id}"); }
-            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified, RelatedTransfers = previous.RelatedTransfers, ReportedExchanges = previous.ReportedExchanges, PoolSwaps = previous.PoolSwaps, ReceiptContextCaptured = previous.ReceiptContextCaptured };
+            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified, ReceiptTarget = previous.ReceiptTarget, RelatedTransfers = previous.RelatedTransfers, ReportedExchanges = previous.ReportedExchanges, PoolSwaps = previous.PoolSwaps, ReceiptContextCaptured = previous.ReceiptContextCaptured };
         }
         events[e.Id] = e;
     }
