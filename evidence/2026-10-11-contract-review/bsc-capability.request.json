@@ -1,0 +1,1 @@
+[{"method":"eth_chainId","jsonrpc":"2.0","id":"chain","params":[]},{"method":"eth_blockNumber","jsonrpc":"2.0","id":"head","params":[]},{"method":"eth_getBlockByNumber","jsonrpc":"2.0","id":"historical-block-1","params":["0x1",false]},{"method":"eth_getLogs","jsonrpc":"2.0","id":"logs-block-1","params":[{"toBlock":"0x1","fromBlock":"0x1"}]}]

@@ -1,0 +1,11 @@
+/archives/
+**/ChatExport*/
+**/DataExport*/
+**/result.json
+**/messages.html
+**/messages[0-9]*.html
+.env
+.env.*
+!.env.example
+**/bin/
+**/obj/
