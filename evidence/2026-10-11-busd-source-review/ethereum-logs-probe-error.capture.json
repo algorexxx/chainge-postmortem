@@ -1,0 +1,7 @@
+{
+  "http_status": 403,
+  "endpoint": "https://ethereum.publicnode.com",
+  "note": "Original probe saved an empty response after an HTTP error; this retry preserves the error body.",
+  "retrieved_utc": "2026-10-11T15:48:30.1547855+00:00",
+  "request": "ethereum-logs-probe.request.json"
+}

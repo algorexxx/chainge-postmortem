@@ -22,9 +22,9 @@ The explorer's public network-status endpoint reports `indexedFromBlock: 0`, `in
 
 The two finite intervals ended before the retained block, yet their child contracts still report positive raw balances. Expiration of a time interval and destruction of a token balance are different operations. Summing full-time, expired and later-starting child balances would double-count representations and ignore the time dimension.
 
-The `0xcb637Ã¢â‚¬Â¦aa08d` child has a large address-one position: **958841470.311324212309837958 units** at `0x0000000000000000000000000000000000000001`. As with the full-time child's address-one balance, this is not a zero-address burn or evidence of customer claims or recoverable reserves.
+The `0xcb637...aa08d` child has a large address-one position: **958841470.311324212309837958 units** at `0x0000000000000000000000000000000000000001`. As with the full-time child's address-one balance, this is not a zero-address burn or evidence of customer claims or recoverable reserves.
 
-The later-starting `0xd253Ã¢â‚¬Â¦e5b3` child has **68976.505917013336106034** units across 34 positive addresses. The largest is **66192.1719379491064** at `0xb114f2f2ea31ba83881e059d10a0329ff7d63be9`. This is a retained representation balance, not a conclusion about ownership, backing, transferability or entitlement. No recovery transaction was attempted.
+The later-starting `0xd253...e5b3` child has **68976.505917013336106034** units across 34 positive addresses. The largest is **66192.1719379491064** at `0xb114f2f2ea31ba83881e059d10a0329ff7d63be9`. This is a retained representation balance, not a conclusion about ownership, backing, transferability or entitlement. No recovery transaction was attempted.
 
 ## Earlier time-aware BUSD
 

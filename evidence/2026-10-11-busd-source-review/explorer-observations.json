@@ -1,0 +1,119 @@
+{
+  "observed_date_utc": "2026-10-11",
+  "method": "Manual transcription of rendered public explorer tables; labels are explorer assertions, counts are discovery coverage, not proof of ownership or index completeness. Session URLs and unrelated page content omitted.",
+  "tables": [
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "nonzero_event_count": 3423,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x456325f2ac7067234dd71e01bebe032b0255e039"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "nonzero_event_count": 1543,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x874de5761900ee526950d707d8cbd4b93092e290"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+      "nonzero_event_count": 75,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0xda832772b9fa5610223d41b7c0f09eff9d21ca2c"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xf96fea9f56f008b6dccb1bba4a59803cf53bd34b",
+      "nonzero_event_count": 9,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0xf96fea9f56f008b6dccb1bba4a59803cf53bd34b"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0x4e2be742c076f7e0a86192a25151c2bbeba0386f",
+      "nonzero_event_count": 12,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x4e2be742c076f7e0a86192a25151c2bbeba0386f"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xbe117e30c35f74302cea0ab7f553de08575f75a8",
+      "nonzero_event_count": 8,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0xbe117e30c35f74302cea0ab7f553de08575f75a8"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xb87f5110f19a42058908343ee10e5337a2b11187",
+      "nonzero_event_count": 15,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0xb87f5110f19a42058908343ee10e5337a2b11187"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0x4c93251abe89ac983a26c53aa2dd1db5cdf82cb4",
+      "nonzero_event_count": 30,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x4c93251abe89ac983a26c53aa2dd1db5cdf82cb4"
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "nonzero_event_count": 2,
+      "url": "https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x8a4aa176007196d48d39c89402d3753c39ae64c1"
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "nonzero_event_count": 232,
+      "url": "https://etherscan.io/token/0x4fabb145d64652a948d72533023f6e7a623c7c53?a=0x456325f2ac7067234dd71e01bebe032b0255e039"
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "nonzero_event_count": 9,
+      "url": "https://etherscan.io/token/0x4fabb145d64652a948d72533023f6e7a623c7c53?a=0x874de5761900ee526950d707d8cbd4b93092e290"
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "address": "0x5ce8eaf2bba018688ade0f0a264f0a572e56d3a3",
+      "nonzero_event_count": 4,
+      "url": "https://etherscan.io/token/0x4fabb145d64652a948d72533023f6e7a623c7c53?a=0x5ce8eaf2bba018688ade0f0a264f0a572e56d3a3"
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "nonzero_event_count": 3,
+      "url": "https://etherscan.io/token/0x4fabb145d64652a948d72533023f6e7a623c7c53?a=0x8a4aa176007196d48d39c89402d3753c39ae64c1"
+    }
+  ],
+  "labels": [
+    {
+      "chain": "BSC",
+      "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+      "label": "Binance 51"
+    },
+    {
+      "chain": "BSC",
+      "address": "0x41772edd47d9ddf9ef848cdb34fe76143908c7ad",
+      "label": "FTX 4"
+    },
+    {
+      "chain": "Ethereum",
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "label": "Binance 15"
+    },
+    {
+      "chain": "Ethereum",
+      "address": "0x8eb8a3b98659cce290402893d0123abb75e3ab28",
+      "label": "Avalanche: Bridge"
+    }
+  ]
+}

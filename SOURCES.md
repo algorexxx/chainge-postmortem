@@ -75,3 +75,7 @@ The first contract review and bounded node probes are recorded in [initial contr
 3. Inspect the saved token contracts and SDKs for historical configuration and asset mapping. Independently verify any proposed deployment against chain data.
 4. Locate historical API responses or alternate documented endpoints if available. Record provenance and dates rather than presenting historical configuration as current.
 5. Review captures for public distribution and establish an independent backup. The current local archive is not a complete site or ecosystem backup.
+
+## BUSD source-chain investigation pass (2026-10-11)
+
+The [case assessment](research/busd-case-assessment.md) consolidates Fusion accounting and the [source-chain investigation](research/busd-source-chain-flows.md). Reviewed public RPC receipts, state, headers, Routescan responses and explorer discovery observations are distributed in `evidence/2026-10-11-busd-source-review/`. Raw unrelated block-receipt discovery dumps remain in the ignored local archive. The package records coverage failures, including a demonstrably partial Ethereum index, and distinguishes verified Avalanche liquidity configuration from unverified reserve attribution.

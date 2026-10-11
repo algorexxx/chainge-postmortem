@@ -1,0 +1,70 @@
+{
+  "scope": "Capture interpretation corrections; original bytes retained.",
+  "entries": [
+    {
+      "file": "ethereum-receipt-cloudflare.response.txt",
+      "status": "failed-no-response",
+      "reason": "DNS lookup failed. HTTP status 0 in original capture is not a server HTTP response."
+    },
+    {
+      "file": "ethereum-pool-head.request.json",
+      "status": "failed-no-response",
+      "reason": "Python request returned HTTP 403; body was not saved. Later retry and fresh-head captures are separate."
+    },
+    {
+      "file": "ethereum-position-head.request.json",
+      "status": "incomplete-capture",
+      "reason": "No paired response is preserved; use confirmed state captures, not this request."
+    },
+    {
+      "file": "avaxe-page2-456325f2ac7067234dd71e01bebe032b0255e039.response.json",
+      "status": "failed-query",
+      "reason": "Provider result is null; use the separate explicit tail query, not a no-events interpretation."
+    },
+    {
+      "file": "ethereum-predecessor-api.response.json",
+      "status": "incomplete-discovery",
+      "reason": "Empty API result contradicted by nine node-verified Etherscan events. Control query returned 53 of 232 known controller events."
+    },
+    {
+      "file": "avaxe-vault-source.response.json",
+      "status": "naming-clarification",
+      "reason": "Historical capture filename records a lead, not an established contract role. Address 0x6a01...0056 has empty code; called router is 0x0b66...419b."
+    },
+    {
+      "file": "bsc-logs-publicnode-main.response.json",
+      "status": "empty-failed-capture",
+      "reason": "Empty file is not a valid RPC result and must not be interpreted as no events. See capture metadata and later retry where available."
+    },
+    {
+      "file": "ethereum-logs-probe.response.json",
+      "status": "empty-failed-capture",
+      "reason": "Empty file is not a valid RPC result and must not be interpreted as no events. See capture metadata and later retry where available."
+    },
+    {
+      "file": "ethereum-receipt-cloudflare.response.txt",
+      "status": "empty-failed-capture",
+      "reason": "Empty file is not a valid RPC result and must not be interpreted as no events. See capture metadata and later retry where available."
+    },
+    {
+      "file": "ethereum-successor-check.request.json",
+      "status": "prepared-not-submitted",
+      "reason": "Template with latest placeholders; the submitted request is ethereum-successor-check-pinned.request.json."
+    },
+    {
+      "file": "ethereum-block-receipts-llama.response.json",
+      "status": "non-json-error-response",
+      "reason": "Provider error response is not a successful JSON-RPC block-receipt result."
+    },
+    {
+      "file": "bsc-followup-head.response.json",
+      "status": "capture-association",
+      "reason": "Head response belongs to the BSC follow-up group; endpoint is https://bsc-dataseed.bnbchain.org. See bsc-followup.capture.json and adjacent state capture for retrieval context."
+    },
+    {
+      "file": "bsc-counterparty-state.response.json",
+      "status": "whole-batch-rpc-error",
+      "reason": "Single id:null error -32005: method eth_call in batch triggered rate limit. Separate bsc-counterparty-retry batches provide the later reads."
+    }
+  ]
+}

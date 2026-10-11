@@ -1,0 +1,6 @@
+{
+  "capture": "bsc-logs-publicnode-main.capture.json",
+  "response": "bsc-logs-publicnode-main.response.json",
+  "status": "failed",
+  "correction": "The response file is empty and is not a valid JSON-RPC result. The original shell output reported HTTP 400 with JSON-RPC error -32602: Archive requests require a personal token. The error body was not saved by that command. Do not interpret the empty file as no events."
+}

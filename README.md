@@ -6,6 +6,8 @@ The work does not presume intent, responsibility or the cause of service disrupt
 
 ## Start here
 
+- [BUSD case assessment and remaining questions](research/busd-case-assessment.md)
+- [BUSD source-chain flows and liquidity addresses](research/busd-source-chain-flows.md)
 - [Research plan and evidence policy](PLAN.md)
 - [Source inventory and preservation coverage](SOURCES.md)
 - [Archive handling](ARCHIVING.md)
@@ -21,7 +23,7 @@ The work does not presume intent, responsibility or the cause of service disrupt
 
 ## Current coverage
 
-The initial investigation covers a small Fusion token sample and a BUSD pilot. Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. No source-chain vault has been confirmed. A public site and repeatable collector are planned, not implemented.
+The initial investigation covers a small Fusion token sample and a BUSD pilot. Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. An Avalanche router's configured liquidity-address role and two subsequent changes are verified; segregated reserves and complete source-chain custody remain unconfirmed. A public site and repeatable collector are planned, not implemented.
 
 Reviewed query evidence is stored under `evidence/`, with request/response pairs, capture metadata and integrity manifests where available. Some source-inventory entries refer to local archives that are not distributed in this repository. A clone therefore does not contain the complete preservation archive.
 
