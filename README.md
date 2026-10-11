@@ -46,3 +46,7 @@ Evidence files are exempt from Git line-ending conversion so their saved-byte SH
 Public contributions must use independently retrieved public evidence and clearly mark uncertainty. Do not submit private messages, chat exports, personal transaction records, contributor identities or other direct community submissions through issues, pull requests or repository files. No private intake mechanism has been established here.
 
 Raw Telegram exports stay outside the checkout. The ignored `archives/` directory holds unreviewed public captures and is not part of the published repository. Follow the publication policy in [PLAN.md](PLAN.md) before adding material.
+
+## Offline asset reconciliation
+
+Run `./reconcile.ps1 -Asset busd` to normalize retained public events, propose deposit/redemption matches and flag unresolved outflows for review. See [configuration, outputs and limitations](reconciliation/README.md). New assets use their own configuration; publication remains one asset at a time and generated candidates remain separate from reviewed findings.

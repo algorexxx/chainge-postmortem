@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Chainge.Postmortem.Application/Chainge.Postmortem.Application.csproj" />
+    <ProjectReference Include="../Chainge.Postmortem.Persistence.Json/Chainge.Postmortem.Persistence.Json.csproj" />
+  </ItemGroup>
+</Project>
