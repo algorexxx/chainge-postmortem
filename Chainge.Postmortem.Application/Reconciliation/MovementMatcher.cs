@@ -67,6 +67,37 @@ public static class MovementMatcher
                 }
             }
         }
+        if (classification == "unmatched" && candidates.Count == 0 && outgoing && policy.VariableFeeRules.TryGetValue(e.Chain, out var rule))
+        {
+            candidates = FindVariableFeeCandidates(e, index[e.To], policy, rule);
+        }
+        if (classification == "unmatched" && candidates.Count == 0 && HasCounterAsset(e, outgoing)) { classification = "possible-asset-exchange"; }
         return new MovementReview { SourceEventId = e.Id, Direction = internalTransfer ? "internal" : outgoing ? "outgoing" : "incoming", Classification = candidates.Count == 0 ? classification : outgoing ? "possible-redemption" : "possible-deposit", Candidates = candidates.OrderBy(c => c.FusionEventId, StringComparer.Ordinal).ToList() };
     }
+    private static List<PairCandidate> FindVariableFeeCandidates(ChainEvent e, IEnumerable<ChainEvent> issuance, MatchPolicy policy, VariableFeeRule rule)
+    {
+        var result = new List<PairCandidate>();
+        var scale = BigInteger.Pow(10, 255 - policy.Decimals);
+        var maximumFee = BigInteger.Parse(rule.MaximumFeeRaw, CultureInfo.InvariantCulture) * scale;
+        foreach (var f in issuance.Where(f => f.To == Zero && f.Timestamp is not null))
+        {
+            var delay = e.Timestamp!.Value - f.Timestamp!.Value;
+            var fee = f.GetComparableUnits() - e.GetComparableUnits();
+            if (delay < TimeSpan.Zero || delay > rule.MaximumDelay || fee <= 0 || fee > maximumFee || fee * 10000 > e.GetComparableUnits() * rule.MaximumFeeBasisPoints || fee % scale != 0) { continue; }
+            result.Add(new PairCandidate { FusionEventId = f.Id, FeeRawHypothesis = (fee / scale).ToString(CultureInfo.InvariantCulture), Delay = delay, Competing = false, Rule = "bounded-variable-fee" });
+        }
+        return result;
+    }
+
+    private static bool HasCounterAsset(ChainEvent e, bool outgoing)
+    {
+        if (!e.ReceiptVerified || !e.ReceiptContextCaptured) { return false; }
+        var holder = outgoing ? e.From : e.To;
+        return e.RelatedTransfers.GroupBy(t => t.Token).Any(group =>
+        {
+            var net = group.Aggregate(BigInteger.Zero, (sum, t) => sum + (t.To == holder ? BigInteger.Parse(t.RawAmount, CultureInfo.InvariantCulture) : 0) - (t.From == holder ? BigInteger.Parse(t.RawAmount, CultureInfo.InvariantCulture) : 0));
+            return outgoing ? net > 0 : net < 0;
+        });
+    }
+
 }

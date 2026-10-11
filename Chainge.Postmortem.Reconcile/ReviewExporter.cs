@@ -11,7 +11,7 @@ public static class ReviewExporter
     {
         var byId = events.ToDictionary(e => e.Id, StringComparer.Ordinal);
         var movements = new StringBuilder("event_id,chain,token,decimals,utc,from,to,direction,amount,raw_amount,classification,candidate_count,flags,balance_before_raw,balance_after_raw,receipt_verified,evidence\n");
-        var pairs = new StringBuilder("source_event_id,fusion_event_id,source_amount,fusion_amount,delay,fee_raw_hypothesis,competing,fusion_receipt_verified,fusion_evidence\n");
+        var pairs = new StringBuilder("source_event_id,fusion_event_id,source_amount,fusion_amount,delay,fee_raw_hypothesis,rule,competing,fusion_receipt_verified,fusion_evidence\n");
         foreach (var movement in result.Movements)
         {
             var e = byId[movement.SourceEventId];
@@ -19,7 +19,7 @@ public static class ReviewExporter
             foreach (var candidate in movement.Candidates)
             {
                 var f = byId[candidate.FusionEventId];
-                AppendRow(pairs, [e.Id, f.Id, FormatAmount(e), FormatAmount(f), candidate.Delay.ToString(), candidate.FeeRawHypothesis, candidate.Competing.ToString(), f.ReceiptVerified.ToString(), string.Join(";", f.Evidence)]);
+                AppendRow(pairs, [e.Id, f.Id, FormatAmount(e), FormatAmount(f), candidate.Delay.ToString(), candidate.FeeRawHypothesis, candidate.Rule, candidate.Competing.ToString(), f.ReceiptVerified.ToString(), string.Join(";", f.Evidence)]);
             }
         }
         await File.WriteAllTextAsync(Path.Combine(output, "movements.csv"), movements.ToString(), Encoding.UTF8, cancellationToken);

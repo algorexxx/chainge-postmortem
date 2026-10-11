@@ -79,6 +79,30 @@ public sealed class EvidenceRepository
         {
             if (property.Name is "result" or "logs") { ReadElement(property.Value, selection, source, property.Name == "logs" || verified, events, timestamps, diagnostics); }
         }
+        if (element.TryGetProperty("logs", out var logs)) { AttachReceiptContext(logs, selection.Chain, events); }
+    }
+
+    private static void AttachReceiptContext(JsonElement logs, string chain, Dictionary<string, ChainEvent> events)
+    {
+        var transfers = new List<ReceiptTransfer>();
+        var ids = new List<string>();
+        foreach (var log in logs.EnumerateArray())
+        {
+            var topics = log.GetProperty("topics").EnumerateArray().Select(t => t.GetString()!.ToLowerInvariant()).ToList();
+            var data = GetText(log, "data");
+            if (topics.Count != 3 || topics[0] != Transfer || data.Length != 66) { continue; }
+            if (log.TryGetProperty("removed", out var removed) && removed.GetBoolean()) { throw new InvalidDataException("Removed receipt-context log"); }
+            var index = (long)ReadInteger(GetText(log, "logIndex"));
+            transfers.Add(new ReceiptTransfer { Token = GetText(log, "address"), From = "0x" + topics[1][^40..], To = "0x" + topics[2][^40..], RawAmount = ReadInteger(data).ToString(CultureInfo.InvariantCulture), LogIndex = index });
+            ids.Add($"{chain}:{GetText(log, "transactionHash")}:{index}");
+        }
+        foreach (var id in ids.Where(events.ContainsKey))
+        {
+            var e = events[id];
+            var related = transfers.Where(t => t.Token != e.Token).OrderBy(t => t.LogIndex).ToList();
+            if (e.ReceiptContextCaptured && !e.RelatedTransfers.SequenceEqual(related)) { throw new InvalidDataException($"Conflicting receipt context: {id}"); }
+            events[id] = e with { RelatedTransfers = related, ReceiptContextCaptured = true };
+        }
     }
 
     private static void ReadTimestamp(JsonElement element, string chain, string source, bool verified, Dictionary<string, TimestampObservation> timestamps, List<string> diagnostics)
@@ -129,7 +153,7 @@ public sealed class EvidenceRepository
         {
             if (previous.Decimals != e.Decimals || previous.Token != e.Token || previous.BlockHash != e.BlockHash || previous.Block != e.Block || previous.From != e.From || previous.To != e.To || previous.RawAmount != e.RawAmount || previous.FullTime != e.FullTime)
             { throw new InvalidDataException($"Conflicting duplicate event: {e.Id}"); }
-            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified };
+            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified, RelatedTransfers = previous.RelatedTransfers, ReceiptContextCaptured = previous.ReceiptContextCaptured };
         }
         events[e.Id] = e;
     }

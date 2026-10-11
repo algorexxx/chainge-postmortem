@@ -42,6 +42,18 @@ public sealed class MovementRiskScannerTests
         Assert.IsType<ArgumentOutOfRangeException>(actual);
     }
 
+    [Fact]
+    public void FlagMovements_LargeAssetExchange_ShouldRemainInBackingReviewQueue()
+    {
+        var events = new[] { Event("deposit", "holder", "vault", "100", 1), Event("pay", "vault", "pool", "50", 2) };
+        var movements = new[] { Review("pay", "outgoing") with { Classification = "possible-asset-exchange" } };
+        var expected = new[] { "backing-disposition-unresolved", "large-asset-exchange-outflow" };
+
+        var actual = MovementRiskScanner.FlagMovements(events, movements, Policy()).Single().Flags;
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
     private static ChainEvent Event(string id, string from, string to, string amount, int block)
     {
         return new ChainEvent { Id = id, Chain = "BSC", Token = "token", Transaction = id, BlockHash = "block", Block = block, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 0, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

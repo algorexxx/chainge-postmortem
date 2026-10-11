@@ -24,7 +24,24 @@
     ],
     "decimals": 18,
     "largeOutflowRaw": "10000000000000000000000",
-    "depletionBasisPoints": 9000
+    "depletionBasisPoints": 9000,
+    "variableFeeRules": {
+      "BSC": {
+        "maximumFeeRaw": "500000000000000000",
+        "maximumFeeBasisPoints": 100,
+        "maximumDelay": "00:05:00"
+      },
+      "Avalanche": {
+        "maximumFeeRaw": "50000000000000000",
+        "maximumFeeBasisPoints": 100,
+        "maximumDelay": "00:05:00"
+      },
+      "Ethereum": {
+        "maximumFeeRaw": "50000000000000000000",
+        "maximumFeeBasisPoints": 100,
+        "maximumDelay": "00:05:00"
+      }
+    }
   },
   "sources": [
     {
@@ -145,10 +162,11 @@
     "Operating-address scope: the two historically linked controllers on BSC, Ethereum and Avalanche. Other candidate custody addresses are not yet included.",
     "Fusion earlier representation history is partial (two captured pages); full-time child excludes dated slices. Never add representation supplies together.",
     "Source histories have explorer discovery limits. Failed/null responses remain diagnostics even where another file supplies a retry.",
-    "Matching uses same holder, exact mint/deposit amount or burn/payment delta 0 or 0.5 BUSD, and delay -120 seconds to 24 hours. These are search hypotheses, not verified fee rules.",
+    "Exact matching uses same holder, equal deposit/mint amounts or burn/payment differences of 0 or 0.5 BUSD with delay -120 seconds to 24 hours. A second pass uses same-holder burns 0 to 5 minutes before payment, with variable positive differences bounded by 1% of payment and chain-specific caps (BSC 0.5, Avalanche 0.05, Ethereum 50 BUSD). These are candidate-search hypotheses, not verified fee rules.",
     "Migration candidates are same-transaction cross-representation transfers of equal raw amount involving the holder. This is a conservative exclusion from external matching, not a complete migration classification.",
     "Candidate edges are not accepted matches. Many-to-one and one-to-many candidates are explicitly competing; split/batched payouts and different recipient addresses need manual review.",
     "Unmatched means no candidate under these rules and captured coverage, not proof of loss or absence of a burn. Missing timestamp and zero-value movements remain explicit.",
-    "Triage flags use configurable 10,000 BUSD and 90% reconstructed-balance-reduction thresholds. They indicate review priority, not misconduct. Reconstructed balances assume zero before the first retained event and are not pinned-state attestations."
+    "Triage flags use configurable 10,000 BUSD and 90% reconstructed-balance-reduction thresholds. They indicate review priority, not misconduct. Reconstructed balances assume zero before the first retained event and are not pinned-state attestations.",
+    "Possible asset exchanges require successful receipt context and a net opposite-direction transfer of another token involving the same operating address. This does not prove a swap, valuation, continued custody or replacement backing; native-asset legs without Transfer logs remain uncovered."
   ]
 }

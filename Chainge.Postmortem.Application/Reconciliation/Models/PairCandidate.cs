@@ -2,6 +2,7 @@ namespace Chainge.Postmortem.Application.Reconciliation.Models;
 
 public sealed record PairCandidate
 {
+    public string Rule { get; init; } = "exact-fee-hypothesis";
     public required string FusionEventId { get; init; }
     public required string FeeRawHypothesis { get; init; }
     public required TimeSpan Delay { get; init; }

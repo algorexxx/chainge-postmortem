@@ -103,6 +103,71 @@ public sealed class MovementMatcherTests
         Assert.IsType<ArgumentOutOfRangeException>(actual);
     }
 
+    [Theory]
+    [InlineData(20, "100090000000000000000", "possible-redemption")]
+    [InlineData(300, "100090000000000000000", "possible-redemption")]
+    [InlineData(301, "100090000000000000000", "unmatched")]
+    [InlineData(-1, "100090000000000000000", "unmatched")]
+    [InlineData(20, "100600000000000000000", "unmatched")]
+    [InlineData(20, "99900000000000000000", "unmatched")]
+    public void MatchMovements_VariableFee_ShouldApplyShortWindowAndAbsoluteCap(int delay, string burned, string expected)
+    {
+        var events = new[] { Event("burn", "Fusion", "holder", Zero, burned), Event("pay", "BSC", "vault", "holder", "100000000000000000000") with { Timestamp = DateTimeOffset.UnixEpoch.AddSeconds(delay) } };
+        var policy = Policy() with { VariableFeeRules = new Dictionary<string, VariableFeeRule> { ["BSC"] = new() { MaximumDelay = TimeSpan.FromMinutes(5), MaximumFeeBasisPoints = 100, MaximumFeeRaw = "500000000000000000" } } };
+
+        var actual = MovementMatcher.MatchMovements(events, policy).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
+    [Fact]
+    public void MatchMovements_VariableFeeTooLargeRelativeToPayment_ShouldRemainUnmatched()
+    {
+        var events = new[] { Event("burn", "Fusion", "holder", Zero, "1090000000000000000"), Event("pay", "BSC", "vault", "holder", "1000000000000000000") };
+        var policy = Policy() with { VariableFeeRules = new Dictionary<string, VariableFeeRule> { ["BSC"] = new() { MaximumDelay = TimeSpan.FromMinutes(5), MaximumFeeBasisPoints = 100, MaximumFeeRaw = "500000000000000000" } } };
+        var expected = "unmatched";
+
+        var actual = MovementMatcher.MatchMovements(events, policy).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
+    [Theory]
+    [InlineData(true, true, "vault", "possible-asset-exchange")]
+    [InlineData(true, false, "vault", "unmatched")]
+    [InlineData(false, true, "vault", "unmatched")]
+    [InlineData(true, true, "someone-else", "unmatched")]
+    public void MatchMovements_CounterAssetReceipt_ShouldRequireVerifiedCreditToOperatingAddress(bool verified, bool context, string recipient, string expected)
+    {
+        var events = new[] { Event("pay", "BSC", "vault", "pool", "100") with { ReceiptVerified = verified, ReceiptContextCaptured = context, RelatedTransfers = [new() { Token = "other-token", From = "pool", To = recipient, RawAmount = "7", LogIndex = 1 }] } };
+
+        var actual = MovementMatcher.MatchMovements(events, Policy()).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
+    [Fact]
+    public void MatchMovements_CounterAssetNetZero_ShouldRemainUnmatched()
+    {
+        var events = new[] { Event("pay", "BSC", "vault", "pool", "100") with { ReceiptContextCaptured = true, RelatedTransfers = [new() { Token = "other-token", From = "pool", To = "vault", RawAmount = "7", LogIndex = 1 }, new() { Token = "other-token", From = "vault", To = "pool", RawAmount = "7", LogIndex = 2 }] } };
+        var expected = "unmatched";
+
+        var actual = MovementMatcher.MatchMovements(events, Policy()).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
+    [Fact]
+    public void MatchMovements_IncomingSwapProceeds_ShouldRequireCounterAssetDebit()
+    {
+        var events = new[] { Event("pay", "BSC", "pool", "vault", "100") with { ReceiptContextCaptured = true, RelatedTransfers = [new() { Token = "other-token", From = "vault", To = "pool", RawAmount = "7", LogIndex = 1 }] } };
+        var expected = "possible-asset-exchange";
+
+        var actual = MovementMatcher.MatchMovements(events, Policy()).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
     private static ChainEvent Event(string id, string chain, string from, string to, string amount)
     {
         return new ChainEvent { Id = id, Chain = chain, Token = "token", Transaction = id, BlockHash = "block", Block = 1, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 18, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

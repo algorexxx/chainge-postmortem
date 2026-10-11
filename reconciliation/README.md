@@ -39,3 +39,24 @@ For the next asset, preserve its public evidence, identify contract versions and
 Reviewed interpretations remain in research and `registry/studies.json`, referenced by transaction hashes. The pipeline currently emits proposed edges only; it does not silently consume narrative case labels as accepted accounting decisions. A future review-decision store should reference event IDs, supporting evidence and reasons without duplicating amounts, and validate those IDs against each refreshed run.
 
 Validation covers exact fees, mixed decimals, clock/window boundaries, competing candidates in both directions, migration/slice exclusion, balance-reduction flags, duplicate evidence integrity, failed receipts, timestamp prioritization and conflict quarantine. Application line coverage is measured with the repository test command. No publication workflow or live refresh is enabled.
+
+## Second pass: variable fees and receipt context
+
+The fixed 0/0.5-fee model missed repeated same-holder burns followed seconds later by payments with small variable differences. Version 2 retains that original pass and adds a separately labelled `bounded-variable-fee` candidate rule for still-unmatched outgoing movements. It requires a burn 0–300 seconds before payment, a positive difference at most 1% of the payment and an absolute cap of 0.5 BUSD on BSC, 0.05 on Avalanche or 50 on Ethereum. Every candidate includes the exact difference, delay and rule. These empirically selected limits are hypotheses, not authenticated fee schedules; no widening of the original 24-hour window was necessary.
+
+Example preserved pairs motivating this search include BSC payment `0xea57749a1a02c0cfd0577a9ba6a8ca99a42a3edfeaba5d056253fe436aa5452e` and Fusion burn `0x9768b8fcd48c0859dee44180998e195a7d05fafdf46e5c9e005db9a235ec87b4` (22 seconds; 0.091838544451368446 difference), and Avalanche payment `0xc0371faa3ca6407ed25b6664f516862abef5688826045caf086ac393f231a654` and burn `0xa7be21ca55d7b2f782daeb4510e2fe20dff5b359bf48cc39e5de2ed713ef6f3b` (19 seconds; 0.018862577439034158). Their event IDs and file references are retained in the generated report. Fee hypotheses are asset configuration, not token-specific code.
+
+Successful receipts now retain other-token Transfer logs as `relatedTransfers`, without admitting those assets to the BUSD ledger. For still-unmatched BUSD movements, a net credit of another token to the paying operating address (or debit from the receiving address) creates a `possible-asset-exchange` classification. Raw counter-asset amounts, exact token contracts and log indices remain available; token prices/decimals and beneficial ownership are not inferred. The rule does not rely on explorer router labels or a counterparty allowlist. Conflicting copies of receipt context fail the run. A mere unrelated transfer elsewhere in the receipt, unverified logs or a net-zero round trip cannot satisfy the rule.
+
+| Movement classification | First pass | Second pass |
+| --- | ---: | ---: |
+| Unmatched outgoing | 1,964 | 408 |
+| Unmatched incoming | 1,230 | 508 |
+| Possible redemptions | 577 | 1,137 |
+| Possible deposits | 1,784 | 1,784 |
+| Possible asset exchanges, outgoing | 0 | 996 |
+| Possible asset exchanges, incoming | 0 | 722 |
+
+All 5,710 source movement IDs and all previously proposed links are preserved. The new rules add 560 redemption candidates; 179 movements now have competing links (previously 172). The December 2021 1.1M and 100k outflows and January 2024 204,567.658… outflow remain unmatched. These are comparisons on the same retained input files, not an expansion of chain coverage.
+
+**Asset-exchange classification does not settle the backing question.** Every such movement carries `backing-disposition-unresolved`; large outgoing exchanges also carry `large-asset-exchange-outflow`. They remain a separate review queue even though they no longer sit in the generic unmatched bucket. An alternative asset arriving in a transaction does not establish that it was retained or covers Fusion BUSD obligations. This reduction therefore improves categorization, not the established reserve position.
