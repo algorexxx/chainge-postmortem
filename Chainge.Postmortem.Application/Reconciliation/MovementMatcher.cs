@@ -69,12 +69,19 @@ public static class MovementMatcher
         }
         if (classification == "unmatched" && candidates.Count == 0 && outgoing && policy.VariableFeeRules.TryGetValue(e.Chain, out var rule))
         {
-            candidates = FindVariableFeeCandidates(e, index[e.To], policy, rule);
+            candidates = FindVariableFeeCandidates(e, index[e.To], policy, rule, false);
+            if (candidates.Count == 0 && e.ReceiptVerified && rule.AbsoluteFeeMaximumDelay > TimeSpan.Zero)
+            {
+                candidates = FindVariableFeeCandidates(e, index[e.To], policy, rule, true);
+            }
         }
         if (classification == "unmatched" && candidates.Count == 0 && HasCounterAsset(e, outgoing)) { classification = "possible-asset-exchange"; }
-        return new MovementReview { SourceEventId = e.Id, Direction = internalTransfer ? "internal" : outgoing ? "outgoing" : "incoming", Classification = candidates.Count == 0 ? classification : outgoing ? "possible-redemption" : "possible-deposit", Candidates = candidates.OrderBy(c => c.FusionEventId, StringComparer.Ordinal).ToList() };
+        var exchanges = FindReportedExchanges(e, outgoing);
+        exchanges.AddRange(PoolExchangeMatcher.FindExchanges(e, outgoing));
+        if (classification == "unmatched" && candidates.Count == 0 && exchanges.Count > 0) { classification = "reported-asset-exchange"; }
+        return new MovementReview { ExchangeEvidence = exchanges, SourceEventId = e.Id, Direction = internalTransfer ? "internal" : outgoing ? "outgoing" : "incoming", Classification = candidates.Count == 0 ? classification : outgoing ? "possible-redemption" : "possible-deposit", Candidates = candidates.OrderBy(c => c.FusionEventId, StringComparer.Ordinal).ToList() };
     }
-    private static List<PairCandidate> FindVariableFeeCandidates(ChainEvent e, IEnumerable<ChainEvent> issuance, MatchPolicy policy, VariableFeeRule rule)
+    private static List<PairCandidate> FindVariableFeeCandidates(ChainEvent e, IEnumerable<ChainEvent> issuance, MatchPolicy policy, VariableFeeRule rule, bool absoluteOnly)
     {
         var result = new List<PairCandidate>();
         var scale = BigInteger.Pow(10, 255 - policy.Decimals);
@@ -83,10 +90,19 @@ public static class MovementMatcher
         {
             var delay = e.Timestamp!.Value - f.Timestamp!.Value;
             var fee = f.GetComparableUnits() - e.GetComparableUnits();
-            if (delay < TimeSpan.Zero || delay > rule.MaximumDelay || fee <= 0 || fee > maximumFee || fee * 10000 > e.GetComparableUnits() * rule.MaximumFeeBasisPoints || fee % scale != 0) { continue; }
-            result.Add(new PairCandidate { FusionEventId = f.Id, FeeRawHypothesis = (fee / scale).ToString(CultureInfo.InvariantCulture), Delay = delay, Competing = false, Rule = "bounded-variable-fee" });
+            var maximumDelay = absoluteOnly ? rule.AbsoluteFeeMaximumDelay : rule.MaximumDelay;
+            var relativeFeeAccepted = absoluteOnly ? f.ReceiptVerified : fee * 10000 <= e.GetComparableUnits() * rule.MaximumFeeBasisPoints;
+            if (delay < TimeSpan.Zero || delay > maximumDelay || fee <= 0 || fee > maximumFee || !relativeFeeAccepted || fee % scale != 0) { continue; }
+            result.Add(new PairCandidate { FusionEventId = f.Id, FeeRawHypothesis = (fee / scale).ToString(CultureInfo.InvariantCulture), Delay = delay, Competing = false, Rule = absoluteOnly ? "short-delay-absolute-fee" : "bounded-variable-fee" });
         }
         return result;
+    }
+
+    private static List<ReceiptExchange> FindReportedExchanges(ChainEvent e, bool outgoing)
+    {
+        if (!e.ReceiptVerified || !e.ReceiptContextCaptured) { return []; }
+        return e.ReportedExchanges.Where(s => s.SourceToken != s.DestinationToken && s.SpentRaw != "0" && s.ReturnedRaw != "0")
+            .Where(s => outgoing ? s.Sender == e.From && s.SourceToken == e.Token && s.SpentRaw == e.RawAmount : s.Recipient == e.To && s.DestinationToken == e.Token && s.ReturnedRaw == e.RawAmount).ToList();
     }
 
     private static bool HasCounterAsset(ChainEvent e, bool outgoing)

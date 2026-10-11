@@ -60,3 +60,26 @@ Successful receipts now retain other-token Transfer logs as `relatedTransfers`, 
 All 5,710 source movement IDs and all previously proposed links are preserved. The new rules add 560 redemption candidates; 179 movements now have competing links (previously 172). The December 2021 1.1M and 100k outflows and January 2024 204,567.658… outflow remain unmatched. These are comparisons on the same retained input files, not an expansion of chain coverage.
 
 **Asset-exchange classification does not settle the backing question.** Every such movement carries `backing-disposition-unresolved`; large outgoing exchanges also carry `large-asset-exchange-outflow`. They remain a separate review queue even though they no longer sit in the generic unmatched bucket. An alternative asset arriving in a transaction does not establish that it was retained or covers Fusion BUSD obligations. This reduction therefore improves categorization, not the established reserve position.
+
+## Third pass: swap recipients and small-payment fees
+
+This pass leaves **232 outgoing and 452 incoming movements unmatched**. It uses the same 47,808 event IDs and 5,710 operating-address movement IDs. All previous candidate edges remain. Acquisition of 69 successful Fusion burn receipts and their block headers corroborates existing events rather than adding movements; the four `fusion-small-payment-*.request.json` batches and response/capture sidecars are retained in `evidence/2026-10-11-busd-source-review/`. Connection details are omitted. The run has 1,206 possible redemptions, 1,784 possible deposits and 179 movements with competing links.
+
+| Change | Outgoing | Incoming |
+| --- | ---: | ---: |
+| Second-pass unmatched | 408 | 508 |
+| Newly classified reported asset exchanges | 107 | 56 |
+| Newly proposed small-payment redemptions | 69 | 0 |
+| Remaining unmatched | 232 | 452 |
+
+Remaining outgoing counts are BSC 209, Ethereum 16 and Avalanche 7. Incoming counts are BSC 406, Ethereum 32 and Avalanche 14. None is discarded based on size. The December 2021 1.1M/100k and January 2024 204,567.658073647823395109 payments remain unmatched. These counts do not measure missing reserves.
+
+The first new check decodes the six non-indexed words of `Swapped(address,address,address,address,uint256,uint256)` (topic `0xd6d4f5681c246c9f42c203e287975af1601f8df8035a9251f79aab5c8f09e2f8`): sender, source token, destination token, recipient, spent amount and returned amount. A receipt must be successful; the relevant participant, token and exact raw amount must match the BUSD movement. This recognizes native-coin and third-party recipient reports that do not produce a counter-token credit to the operating address. The emitter and recipient remain explicit. The classification reports what the log says; it does not independently authenticate the contract implementation or prove final native-coin delivery.
+
+The second check recognizes the [V2 pool Swap event layout](https://github.com/Uniswap/v2-core/blob/master/contracts/interfaces/IUniswapV2Pair.sol). It requires the movement counterparty to be the emitting pool, the asset transfer and other-token transfer to precede the swap, opposite input/output slots to match both exact raw amounts, and the output recipient to match. Both unused amount slots must be zero. A different address merely transferring some token elsewhere in the receipt cannot qualify. Routed or split pool legs that fail these exact checks remain exceptions. Neither check proves a Fusion burn, bridge instruction or ownership of the output recipient.
+
+`exchange-evidence.csv` provides the movement ID, chain, transaction, rule, emitter/log index, sender, both token identifiers, recipient and raw amounts. One movement may have more than one supporting swap record; do not sum this table as separate outflows. The same supporting records are linked in the JSON review. Existing direct-counter-asset cases can also acquire these additional details without changing their classification. All 163 newly classified movements retain `backing-disposition-unresolved`, alongside the previous exchange queue.
+
+The additional fee hypothesis addresses payments where a small absolute fee exceeds 1% of a small principal. `absoluteFeeMaximumDelay` is opt-in per chain (zero disables it), configured to 60 seconds for BUSD. It applies only after the earlier fee rules fail and requires **both** the source payment and same-holder full-time Fusion burn to be receipt-verified. The existing absolute caps remain BSC 0.5, Avalanche 0.05 and Ethereum 50 BUSD. Positive differences and nonnegative delay are required. Its candidate rule is `short-delay-absolute-fee`, with `fee-exceeds-relative-bound` on each movement; it is a separately disclosed hypothesis, not a verified fee schedule or an accepted accounting match. All competing edges are preserved.
+
+This is a 43.1% reduction in the generic outgoing unmatched queue (408 to 232), composed of 107 exchange classifications and 69 additional burn/payment hypotheses. Exchanges still require destination/backing investigation. Identifying transfer mechanics does not establish collateralization, and no new cases are automatically published to the site.

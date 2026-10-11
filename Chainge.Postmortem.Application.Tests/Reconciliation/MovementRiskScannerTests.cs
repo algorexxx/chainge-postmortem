@@ -42,12 +42,26 @@ public sealed class MovementRiskScannerTests
         Assert.IsType<ArgumentOutOfRangeException>(actual);
     }
 
-    [Fact]
-    public void FlagMovements_LargeAssetExchange_ShouldRemainInBackingReviewQueue()
+    [Theory]
+    [InlineData("possible-asset-exchange")]
+    [InlineData("reported-asset-exchange")]
+    public void FlagMovements_LargeAssetExchange_ShouldRemainInBackingReviewQueue(string classification)
     {
         var events = new[] { Event("deposit", "holder", "vault", "100", 1), Event("pay", "vault", "pool", "50", 2) };
-        var movements = new[] { Review("pay", "outgoing") with { Classification = "possible-asset-exchange" } };
+        var movements = new[] { Review("pay", "outgoing") with { Classification = classification } };
         var expected = new[] { "backing-disposition-unresolved", "large-asset-exchange-outflow" };
+
+        var actual = MovementRiskScanner.FlagMovements(events, movements, Policy()).Single().Flags;
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public void FlagMovements_AbsoluteFeeFallback_ShouldRetainHypothesisWarning()
+    {
+        var events = new[] { Event("pay", "vault", "holder", "1", 1) };
+        var movements = new[] { Review("pay", "outgoing") with { Classification = "possible-redemption", Candidates = [new() { FusionEventId = "burn", Rule = "short-delay-absolute-fee", Competing = false, Delay = TimeSpan.FromSeconds(20), FeeRawHypothesis = "1" }] } };
+        var expected = new[] { "fee-exceeds-relative-bound", "negative-reconstructed-balance" };
 
         var actual = MovementRiskScanner.FlagMovements(events, movements, Policy()).Single().Flags;
 

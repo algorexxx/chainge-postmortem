@@ -26,13 +26,14 @@ public static class MovementRiskScanner
             if (!reviews.TryGetValue(e.Id, out var review)) { continue; }
             var outgoing = review.Direction == "outgoing";
             var flags = new List<string>();
-            if (review.Classification == "possible-asset-exchange")
+            if (review.Classification is "possible-asset-exchange" or "reported-asset-exchange")
             {
                 flags.Add("backing-disposition-unresolved");
                 if (outgoing && e.GetComparableUnits() >= threshold) { flags.Add("large-asset-exchange-outflow"); }
             }
             if (review.Classification == "unmatched" && outgoing && e.GetComparableUnits() >= threshold) { flags.Add("large-unmatched-outflow"); }
             if (outgoing && before > 0 && value * 10000 >= before * policy.DepletionBasisPoints) { flags.Add("large-balance-reduction"); }
+            if (review.Candidates.Any(c => c.Rule == "short-delay-absolute-fee")) { flags.Add("fee-exceeds-relative-bound"); }
             if (review.Candidates.Any(c => c.Competing)) { flags.Add("competing-matches"); }
             if (!e.ReceiptVerified) { flags.Add("source-event-not-receipt-verified"); }
             var tracked = review.Direction == "incoming" ? to : from;

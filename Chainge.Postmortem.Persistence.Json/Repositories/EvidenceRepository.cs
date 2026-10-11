@@ -84,6 +84,8 @@ public sealed class EvidenceRepository
 
     private static void AttachReceiptContext(JsonElement logs, string chain, Dictionary<string, ChainEvent> events)
     {
+        var exchanges = ReadReportedExchanges(logs);
+        var swaps = ReadPoolSwaps(logs);
         var transfers = new List<ReceiptTransfer>();
         var ids = new List<string>();
         foreach (var log in logs.EnumerateArray())
@@ -100,9 +102,40 @@ public sealed class EvidenceRepository
         {
             var e = events[id];
             var related = transfers.Where(t => t.Token != e.Token).OrderBy(t => t.LogIndex).ToList();
-            if (e.ReceiptContextCaptured && !e.RelatedTransfers.SequenceEqual(related)) { throw new InvalidDataException($"Conflicting receipt context: {id}"); }
-            events[id] = e with { RelatedTransfers = related, ReceiptContextCaptured = true };
+            if (e.ReceiptContextCaptured && (!e.RelatedTransfers.SequenceEqual(related) || !e.ReportedExchanges.SequenceEqual(exchanges) || !e.PoolSwaps.SequenceEqual(swaps))) { throw new InvalidDataException($"Conflicting receipt context: {id}"); }
+            events[id] = e with { RelatedTransfers = related, ReportedExchanges = exchanges, PoolSwaps = swaps, ReceiptContextCaptured = true };
         }
+    }
+
+    private static List<ReceiptPoolSwap> ReadPoolSwaps(JsonElement logs)
+    {
+        var swaps = new List<ReceiptPoolSwap>();
+        foreach (var log in logs.EnumerateArray())
+        {
+            var topics = log.GetProperty("topics").EnumerateArray().Select(t => t.GetString()!.ToLowerInvariant()).ToList();
+            if (topics.Count != 3 || topics[0] != "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822") { continue; }
+            var data = GetText(log, "data");
+            if (data.Length != 258 || topics[2].Length != 66 || topics[2][2..26] != new string('0', 24) || log.TryGetProperty("removed", out var removed) && removed.GetBoolean()) { throw new InvalidDataException("Invalid pool Swap receipt-context log"); }
+            var words = Enumerable.Range(0, 4).Select(i => ReadInteger(string.Concat("0x", data.AsSpan(2 + i * 64, 64))).ToString(CultureInfo.InvariantCulture)).ToList();
+            swaps.Add(new ReceiptPoolSwap { Pool = GetText(log, "address"), Recipient = "0x" + topics[2][26..], LogIndex = (long)ReadInteger(GetText(log, "logIndex")), Input0Raw = words[0], Input1Raw = words[1], Output0Raw = words[2], Output1Raw = words[3] });
+        }
+        return swaps.OrderBy(s => s.LogIndex).ToList();
+    }
+
+    private static List<ReceiptExchange> ReadReportedExchanges(JsonElement logs)
+    {
+        var exchanges = new List<ReceiptExchange>();
+        foreach (var log in logs.EnumerateArray())
+        {
+            var topics = log.GetProperty("topics").EnumerateArray().Select(t => t.GetString()!.ToLowerInvariant()).ToList();
+            if (topics.Count != 1 || topics[0] != "0xd6d4f5681c246c9f42c203e287975af1601f8df8035a9251f79aab5c8f09e2f8") { continue; }
+            var data = GetText(log, "data");
+            if (data.Length != 386 || log.TryGetProperty("removed", out var removed) && removed.GetBoolean()) { throw new InvalidDataException("Invalid Swapped receipt-context log"); }
+            var words = Enumerable.Range(0, 6).Select(i => data.Substring(2 + i * 64, 64)).ToList();
+            if (words.Take(4).Any(w => w[..24] != new string('0', 24))) { throw new InvalidDataException("Noncanonical Swapped address"); }
+            exchanges.Add(new ReceiptExchange { Emitter = GetText(log, "address"), LogIndex = (long)ReadInteger(GetText(log, "logIndex")), Sender = "0x" + words[0][24..], SourceToken = "0x" + words[1][24..], DestinationToken = "0x" + words[2][24..], Recipient = "0x" + words[3][24..], SpentRaw = ReadInteger("0x" + words[4]).ToString(CultureInfo.InvariantCulture), ReturnedRaw = ReadInteger("0x" + words[5]).ToString(CultureInfo.InvariantCulture) });
+        }
+        return exchanges.OrderBy(e => e.LogIndex).ToList();
     }
 
     private static void ReadTimestamp(JsonElement element, string chain, string source, bool verified, Dictionary<string, TimestampObservation> timestamps, List<string> diagnostics)
@@ -153,7 +186,7 @@ public sealed class EvidenceRepository
         {
             if (previous.Decimals != e.Decimals || previous.Token != e.Token || previous.BlockHash != e.BlockHash || previous.Block != e.Block || previous.From != e.From || previous.To != e.To || previous.RawAmount != e.RawAmount || previous.FullTime != e.FullTime)
             { throw new InvalidDataException($"Conflicting duplicate event: {e.Id}"); }
-            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified, RelatedTransfers = previous.RelatedTransfers, ReceiptContextCaptured = previous.ReceiptContextCaptured };
+            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified, RelatedTransfers = previous.RelatedTransfers, ReportedExchanges = previous.ReportedExchanges, PoolSwaps = previous.PoolSwaps, ReceiptContextCaptured = previous.ReceiptContextCaptured };
         }
         events[e.Id] = e;
     }

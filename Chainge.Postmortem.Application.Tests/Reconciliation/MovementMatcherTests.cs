@@ -168,6 +168,51 @@ public sealed class MovementMatcherTests
         Assert.Equivalent(expected, actual);
     }
 
+    [Theory]
+    [InlineData(true, true, true, "100", "reported-asset-exchange")]
+    [InlineData(false, true, true, "100", "reported-asset-exchange")]
+    [InlineData(true, false, true, "100", "unmatched")]
+    [InlineData(true, true, false, "100", "unmatched")]
+    [InlineData(true, true, true, "99", "unmatched")]
+    public void MatchMovements_ReportedSwap_ShouldRequireExactLegAndReceipt(bool outgoing, bool verified, bool context, string amount, string expected)
+    {
+        var swap = new ReceiptExchange { Emitter = "router", LogIndex = 3, Sender = outgoing ? "vault" : "other", SourceToken = outgoing ? "token" : "native", DestinationToken = outgoing ? "native" : "token", Recipient = outgoing ? "other" : "vault", SpentRaw = "100", ReturnedRaw = "100" };
+        var events = new[] { Event("pay", "BSC", outgoing ? "vault" : "router", outgoing ? "pool" : "vault", amount) with { ReceiptVerified = verified, ReceiptContextCaptured = context, ReportedExchanges = [swap] } };
+
+        var actual = MovementMatcher.MatchMovements(events, Policy()).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
+    [Fact]
+    public void MatchMovements_ReportedSwap_ShouldPreserveRecipientEvidenceWithoutCreatingBurnMatch()
+    {
+        var swap = new ReceiptExchange { Emitter = "router", LogIndex = 3, Sender = "vault", SourceToken = "token", DestinationToken = "native", Recipient = "third-party", SpentRaw = "100", ReturnedRaw = "7" };
+        var events = new[] { Event("pay", "BSC", "vault", "pool", "100") with { ReceiptContextCaptured = true, ReportedExchanges = [swap] } };
+        var expected = new MovementReview { SourceEventId = "pay", Direction = "outgoing", Classification = "reported-asset-exchange", Candidates = [], ExchangeEvidence = [swap] };
+
+        var actual = MovementMatcher.MatchMovements(events, Policy()).Movements.Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Theory]
+    [InlineData(60, true, true, "1090000000000000000", "possible-redemption")]
+    [InlineData(61, true, true, "1090000000000000000", "unmatched")]
+    [InlineData(-1, true, true, "1090000000000000000", "unmatched")]
+    [InlineData(20, false, true, "1090000000000000000", "unmatched")]
+    [InlineData(20, true, false, "1090000000000000000", "unmatched")]
+    [InlineData(20, true, true, "1500000000000000001", "unmatched")]
+    public void MatchMovements_AbsoluteFeeFallback_ShouldRequireVerifiedReceiptsAndTighterTiming(int delay, bool sourceVerified, bool burnVerified, string burned, string expected)
+    {
+        var events = new[] { Event("burn", "Fusion", "holder", Zero, burned) with { ReceiptVerified = burnVerified }, Event("pay", "BSC", "vault", "holder", "1000000000000000000") with { ReceiptVerified = sourceVerified, Timestamp = DateTimeOffset.UnixEpoch.AddSeconds(delay) } };
+        var policy = Policy() with { VariableFeeRules = new Dictionary<string, VariableFeeRule> { ["BSC"] = new() { MaximumDelay = TimeSpan.FromMinutes(5), AbsoluteFeeMaximumDelay = TimeSpan.FromMinutes(1), MaximumFeeBasisPoints = 100, MaximumFeeRaw = "500000000000000000" } } };
+
+        var actual = MovementMatcher.MatchMovements(events, policy).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
     private static ChainEvent Event(string id, string chain, string from, string to, string amount)
     {
         return new ChainEvent { Id = id, Chain = chain, Token = "token", Transaction = id, BlockHash = "block", Block = 1, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 18, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

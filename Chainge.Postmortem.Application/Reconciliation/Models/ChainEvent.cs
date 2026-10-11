@@ -2,6 +2,8 @@ namespace Chainge.Postmortem.Application.Reconciliation.Models;
 
 public sealed record ChainEvent
 {
+    public IReadOnlyList<ReceiptPoolSwap> PoolSwaps { get; init; } = [];
+    public IReadOnlyList<ReceiptExchange> ReportedExchanges { get; init; } = [];
     public IReadOnlyList<ReceiptTransfer> RelatedTransfers { get; init; } = [];
     public bool ReceiptContextCaptured { get; init; }
     public required string Id { get; init; }

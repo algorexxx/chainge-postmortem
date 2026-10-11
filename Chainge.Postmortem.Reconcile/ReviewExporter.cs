@@ -11,11 +11,16 @@ public static class ReviewExporter
     {
         var byId = events.ToDictionary(e => e.Id, StringComparer.Ordinal);
         var movements = new StringBuilder("event_id,chain,token,decimals,utc,from,to,direction,amount,raw_amount,classification,candidate_count,flags,balance_before_raw,balance_after_raw,receipt_verified,evidence\n");
+        var exchanges = new StringBuilder("source_event_id,chain,transaction,rule,emitter,swap_log_index,sender,source_token,destination_token,recipient,spent_raw,returned_raw,evidence\n");
         var pairs = new StringBuilder("source_event_id,fusion_event_id,source_amount,fusion_amount,delay,fee_raw_hypothesis,rule,competing,fusion_receipt_verified,fusion_evidence\n");
         foreach (var movement in result.Movements)
         {
             var e = byId[movement.SourceEventId];
             AppendRow(movements, [e.Id, e.Chain, e.Token, e.Decimals.ToString(CultureInfo.InvariantCulture), e.Timestamp?.ToString("O", CultureInfo.InvariantCulture) ?? "", e.From, e.To, movement.Direction, FormatAmount(e), e.RawAmount, movement.Classification, movement.Candidates.Count.ToString(CultureInfo.InvariantCulture), string.Join(";", movement.Flags), movement.ReconstructedBalanceBeforeRaw ?? "", movement.ReconstructedBalanceAfterRaw ?? "", e.ReceiptVerified.ToString(), string.Join(";", e.Evidence)]);
+            foreach (var exchange in movement.ExchangeEvidence)
+            {
+                AppendRow(exchanges, [e.Id, e.Chain, e.Transaction, exchange.Rule, exchange.Emitter, exchange.LogIndex.ToString(CultureInfo.InvariantCulture), exchange.Sender, exchange.SourceToken, exchange.DestinationToken, exchange.Recipient, exchange.SpentRaw, exchange.ReturnedRaw, string.Join(";", e.Evidence)]);
+            }
             foreach (var candidate in movement.Candidates)
             {
                 var f = byId[candidate.FusionEventId];
@@ -23,6 +28,7 @@ public static class ReviewExporter
             }
         }
         await File.WriteAllTextAsync(Path.Combine(output, "movements.csv"), movements.ToString(), Encoding.UTF8, cancellationToken);
+        await File.WriteAllTextAsync(Path.Combine(output, "exchange-evidence.csv"), exchanges.ToString(), Encoding.UTF8, cancellationToken);
         await File.WriteAllTextAsync(Path.Combine(output, "candidate-pairs.csv"), pairs.ToString(), Encoding.UTF8, cancellationToken);
     }
 

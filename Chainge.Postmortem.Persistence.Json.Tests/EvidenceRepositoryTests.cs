@@ -91,6 +91,58 @@ public sealed class EvidenceRepositoryTests
         Assert.IsType<InvalidDataException>(actual);
     }
 
+    [Fact]
+    public async Task ReadEvidenceAsync_SwapLogs_ShouldRetainAmountsParticipantsAndEmitter()
+    {
+        var root = await CreateFixture(SwapReceipt(false), SwapReceipt(false));
+        var reader = CreateReader();
+        var expected = new[] { new Chainge.Postmortem.Application.Reconciliation.Models.ReceiptExchange { Emitter = "router", LogIndex = 2, Sender = "0x1111111111111111111111111111111111111111", SourceToken = "0x2222222222222222222222222222222222222222", DestinationToken = "0x3333333333333333333333333333333333333333", Recipient = "0x4444444444444444444444444444444444444444", SpentRaw = "100", ReturnedRaw = "7" } };
+
+        var actual = (await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken)).Events.Single().ReportedExchanges;
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_PoolSwap_ShouldDecodeBothSides()
+    {
+        var root = await CreateFixture(SwapReceipt(true), SwapReceipt(true));
+        var reader = CreateReader();
+        var expected = new[] { new Chainge.Postmortem.Application.Reconciliation.Models.ReceiptPoolSwap { Pool = "pool", LogIndex = 2, Recipient = "0x4444444444444444444444444444444444444444", Input0Raw = "100", Input1Raw = "0", Output0Raw = "0", Output1Raw = "7" } };
+
+        var actual = (await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken)).Events.Single().PoolSwaps;
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Theory]
+    [InlineData(true)]
+    [InlineData(false)]
+    public async Task ReadEvidenceAsync_MalformedSwap_ShouldReject(bool pool)
+    {
+        var receipt = System.Text.Json.Nodes.JsonNode.Parse(SwapReceipt(pool))!;
+        receipt[0]!["result"]!["logs"]![1]!["data"] = "0x00";
+        var root = await CreateFixture(receipt.ToJsonString(), Receipt("0x1", "0x64"));
+        var reader = CreateReader();
+
+        var actual = await Record.ExceptionAsync(() => reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
+    private static string SwapReceipt(bool pool)
+    {
+        var receipt = System.Text.Json.Nodes.JsonNode.Parse(Receipt("0x1", "0x64"))!;
+        var logs = receipt[0]!["result"]!["logs"]!.AsArray();
+        var addresses = Enumerable.Range(1, 4).Select(i => new string('0', 24) + new string((char)('0' + i), 40)).ToArray();
+        int[] amounts = pool ? [100, 0, 0, 7] : [100, 7];
+        var encoded = amounts.Select(i => i.ToString("x64", System.Globalization.CultureInfo.InvariantCulture));
+        var words = pool ? encoded.ToArray() : addresses.Concat(encoded).ToArray();
+        var topics = pool ? new[] { "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822", "0x" + addresses[0], "0x" + addresses[3] } : new[] { "0xd6d4f5681c246c9f42c203e287975af1601f8df8035a9251f79aab5c8f09e2f8" };
+        logs.Add(System.Text.Json.Nodes.JsonNode.Parse(JsonSerializer.Serialize(new { address = pool ? "pool" : "router", topics, data = "0x" + string.Concat(words), logIndex = "0x2", transactionHash = "tx" })));
+        return receipt.ToJsonString();
+    }
+
     private static string MixedReceipt(int amount)
     {
         var receipt = System.Text.Json.Nodes.JsonNode.Parse(Receipt("0x1", "0x64"))!;
