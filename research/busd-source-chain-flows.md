@@ -107,6 +107,8 @@ The older controller's other largest outgoing branch is **1200000 BUSD**, sent a
 
 ## Ethereum controller history and later balances
 
+Follow-up: the **204567.658073647823395109 BUSD** outflow on January 1, 2024 is traced to a **Binance 14-labelled address**, through two intermediaries, in the [exchange-path report](busd-204k-exchange-path.md). This resolves that on-chain destination while leaving the payment's purpose and exchange-account outcome open.
+
 The returned Ethereum history of `0x4563...e039` contains **232 BUSD events in 232 successful receipts**, from **2022-07-12 06:34:53** to **2024-01-20 14:02:23 UTC**. Incoming and outgoing totals are each **878608.060806010088336945**, the reconstructed peak is **408224.513949397594602851**, and the final balance is zero, matching pinned state. All three Etherscan pages were covered; every discovered transaction has a successful node receipt after retrying null responses.
 
 Its predecessor `0x874d...e290` has **nine** returned Ethereum BUSD events, from **2021-12-22 02:57:08** to **2022-07-12 08:53:54 UTC**. All nine receipts were verified. Incoming and outgoing totals are each **157670.172885877183**, ending at zero. The final **37670.172885877182999999** transfer follows a one-raw-unit transfer to `0x4563...e039` earlier that day.

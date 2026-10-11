@@ -23,6 +23,8 @@ These are continuing investigation tasks. Unknown balances or missing vaults are
 
 All source-chain findings, full addresses, transaction hashes, timestamps and qualifications are in [BUSD source-chain flows](busd-source-chain-flows.md). No private community submission or contributor identity is needed to reproduce these observations.
 
+Follow-up: the January 1, 2024 Ethereum controller outflow of **204567.658073647823395109 BUSD** is now traced through two intermediaries to an address Etherscan labels **Binance 14**, combined with an earlier 92.645784413941010945 BUSD payment. Both intermediaries have zero BUSD at the pinned observation. See the [verified exchange path](busd-204k-exchange-path.md). The credited exchange account, payment purpose and subsequent internal outcome remain unresolved.
+
 ## Coverage achieved
 
 | Chain / token | Address | Returned Transfer events verified | Reconstructed final balance |
