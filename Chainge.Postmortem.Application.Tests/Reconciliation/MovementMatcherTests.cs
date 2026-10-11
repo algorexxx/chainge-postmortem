@@ -213,6 +213,22 @@ public sealed class MovementMatcherTests
         Assert.Equivalent(expected, actual);
     }
 
+    [Theory]
+    [InlineData(99, true, "99980000000000000000", "possible-deposit")]
+    [InlineData(301, true, "99980000000000000000", "unmatched")]
+    [InlineData(-1, true, "99980000000000000000", "unmatched")]
+    [InlineData(99, false, "99980000000000000000", "unmatched")]
+    [InlineData(99, true, "99940000000000000000", "unmatched")]
+    public void MatchMovements_DepositFee_ShouldRequireMintReceiptAndConfiguredBounds(int delay, bool verified, string minted, string expected)
+    {
+        var events = new[] { Event("deposit", "BSC", "holder", "vault", "100000000000000000000"), Event("mint", "Fusion", Zero, "holder", minted) with { ReceiptVerified = verified, Timestamp = DateTimeOffset.UnixEpoch.AddSeconds(delay) } };
+        var policy = Policy() with { DepositFeeRules = new Dictionary<string, VariableFeeRule> { ["BSC"] = new() { MaximumDelay = TimeSpan.FromMinutes(5), MaximumFeeBasisPoints = 100, MaximumFeeRaw = "50000000000000000" } } };
+
+        var actual = MovementMatcher.MatchMovements(events, policy).Movements.Single().Classification;
+
+        Assert.Equivalent(expected, actual);
+    }
+
     private static ChainEvent Event(string id, string chain, string from, string to, string amount)
     {
         return new ChainEvent { Id = id, Chain = chain, Token = "token", Transaction = id, BlockHash = "block", Block = 1, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 18, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

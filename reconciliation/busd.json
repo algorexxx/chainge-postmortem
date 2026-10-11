@@ -44,6 +44,18 @@
         "maximumDelay": "00:05:00",
         "absoluteFeeMaximumDelay": "00:01:00"
       }
+    },
+    "sourceChainRule": {
+      "maximumDelay": "00:05:00",
+      "maximumFeeRaw": "50000000000000000000",
+      "maximumFeeBasisPoints": 500
+    },
+    "depositFeeRules": {
+      "Ethereum": {
+        "maximumDelay": "00:05:00",
+        "maximumFeeRaw": "50000000000000000",
+        "maximumFeeBasisPoints": 100
+      }
     }
   },
   "sources": [
@@ -172,6 +184,9 @@
     "Triage flags use configurable 10,000 BUSD and 90% reconstructed-balance-reduction thresholds. They indicate review priority, not misconduct. Reconstructed balances assume zero before the first retained event and are not pinned-state attestations.",
     "Possible asset exchanges require successful receipt context and a net opposite-direction transfer of another token involving the same operating address. This does not prove a swap, valuation, continued custody or replacement backing; native-asset legs without Transfer logs remain uncovered.",
     "A separate short-delay-absolute-fee fallback requires same-holder full-time burns and source payments both receipt-verified, with nonnegative delay at most 60 seconds and unchanged chain absolute fee caps. It does not enforce the 1% relative bound; every such candidate is flagged fee-exceeds-relative-bound. This is a distinct fee hypothesis, not confirmation of redemption. Competing edges remain visible.",
-    "reported-asset-exchange requires a same-receipt Swapped event with exact token, participant and amount, or a V2-style Swap event corroborated by both token-transfer legs and its recipient. Event emitters and reported recipients are preserved; this does not authenticate protocol code, independently trace native delivery, link a Fusion burn or establish reserve backing. All exchange classifications retain backing-disposition-unresolved."
+    "reported-asset-exchange requires a same-receipt Swapped event with exact token, participant and amount, or a V2-style Swap event corroborated by both token-transfer legs and its recipient. Event emitters and reported recipients are preserved; this does not authenticate protocol code, independently trace native delivery, link a Fusion burn or establish reserve backing. All exchange classifications retain backing-disposition-unresolved.",
+    "A single-relay pool-swap rule follows an equal-amount asset transfer through one intermediate address in the same successful receipt. Exactly two nonzero transfers of that asset may touch the relay, both receipt-verified and correctly ordered; both event IDs are retained. Split, merged or longer routes are not inferred.",
+    "An opt-in source-chain pairing hypothesis links still-unmatched, receipt-verified incoming/outgoing asset movements for the same wallet on different chains, with delay 0 to 300 seconds and a nonnegative difference no greater than 50 BUSD and 5% of the deposit. All links and competition remain visible; there is no common bridge identifier and no implication of a Fusion burn or reserve coverage.",
+    "Ethereum deposit-fee candidates require both source and Fusion mint receipts, same holder, delay 0 to 300 seconds, a positive deposit-minus-mint difference no greater than 0.05 BUSD and 1% of the source deposit. This bounded-deposit-fee rule is an explicit hypothesis, not an authenticated fee schedule."
   ]
 }

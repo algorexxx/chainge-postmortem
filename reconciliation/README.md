@@ -83,3 +83,31 @@ The second check recognizes the [V2 pool Swap event layout](https://github.com/U
 The additional fee hypothesis addresses payments where a small absolute fee exceeds 1% of a small principal. `absoluteFeeMaximumDelay` is opt-in per chain (zero disables it), configured to 60 seconds for BUSD. It applies only after the earlier fee rules fail and requires **both** the source payment and same-holder full-time Fusion burn to be receipt-verified. The existing absolute caps remain BSC 0.5, Avalanche 0.05 and Ethereum 50 BUSD. Positive differences and nonnegative delay are required. Its candidate rule is `short-delay-absolute-fee`, with `fee-exceeds-relative-bound` on each movement; it is a separately disclosed hypothesis, not a verified fee schedule or an accepted accounting match. All competing edges are preserved.
 
 This is a 43.1% reduction in the generic outgoing unmatched queue (408 to 232), composed of 107 exchange classifications and 69 additional burn/payment hypotheses. Exchanges still require destination/backing investigation. Identifying transfer mechanics does not establish collateralization, and no new cases are automatically published to the site.
+
+## Fourth pass: relay paths, source-chain pairs and net mints
+
+The fourth checkpoint leaves **224 outgoing and 430 incoming movements unmatched**. All 47,808 input event IDs, 5,710 operating-address movement IDs and previous Fusion candidate edges remain. Three additional Fusion receipt/header reads corroborate existing mints. There are now 1,206 possible-redemption movements and 1,787 possible-deposit movements; 179 movements still have competing Fusion links.
+
+| Refinement | Newly classified outgoing | Newly classified incoming |
+| --- | ---: | ---: |
+| Same-receipt pool swap through one relay | 0 | 11 |
+| Possible source-chain transfer pairs | 8 | 8 |
+| Bounded deposit-to-mint fee candidates | 0 | 3 |
+
+Remaining unmatched outflows are BSC 207, Ethereum 10 and Avalanche 7; inflows are BSC 400, Ethereum 27 and Avalanche 3. The December 2021 1.1M and 100k payments and January 2024 204,567.658073647823395109 payment remain unmatched. All eight source-chain pairs and all eleven newly identified swap inflows retain `backing-disposition-unresolved`.
+
+**Relay paths.** The original pool rule required a transfer directly between the pool and operating address. `single-relay-pool-swap` now follows one intermediate address in the same transaction, chain and asset. Both transfer legs must be receipt-verified, equal in raw amount and precision, and ordered correctly. Exactly two nonzero transfers of that asset may involve the relay; fan-in, fan-out and partial forwarding are rejected. The pool-side leg must independently pass the existing swap/transfer checks. Both asset event IDs appear in `routeEventIds` and `exchange-evidence.csv`. For example, Avalanche transaction `0x98d8f7eed22ba1d04fe09d514fb4841a6a1742723ba5513b1282a01c809095f8` has a pool-to-router BUSD.e transfer followed by an equal router-to-operating-address transfer, supported by the pool's counter-token input and swap event. The rule does not infer beneficial ownership of any participant.
+
+**Source-chain pairs.** An optional `sourceChainRule` compares only still-unmatched, receipt-verified movements with timestamps. The incoming sender must equal the outgoing recipient, the chains must differ, and the incoming event must precede the payment by at most five minutes. The nonnegative difference is bounded by 50 BUSD and 5% of the incoming amount. These are disclosed search assumptions. Amounts use exact decimal normalization and differences must be representable in the policy precision. Every eligible pair is retained; competition is flagged on both sides rather than resolved greedily. Existing deposit/mint and burn/payment candidates cannot be reused by this pass. `source-chain-pairs.csv` writes each proposed pair once, keyed by both event IDs; JSON links are bidirectional. No Fusion burn is implied, and the asset configuration must already establish which contracts are being compared as representations of the same asset. These are candidates for user bridging or source-chain routing, not proven treasury rebalancing.
+
+**Net mints.** `depositFeeRules` is separate from the outgoing fee policy and disabled unless configured. For BUSD it applies only to Ethereum: both source and Fusion receipts, same holder, 0–300-second delay, positive difference at most 0.05 BUSD and 1% of the deposit. It proposes three new links involving a combined 113699.980580294796922512 BUSD deposited, with the exact hypotheses below. The requests, successful receipts and headers are retained under `fusion-deposit-fees.*` in the source-review evidence directory.
+
+| Ethereum deposit transaction | Deposit minus mint (BUSD) | Delay |
+| --- | ---: | ---: |
+| `0x08d38ee6244df95e11dc1b4d94180f70b40fa99ea220b77771ea972be1a1916f` | 0.019980377732618752 | 99 seconds |
+| `0xc485a6b6e6c1c5557114cb1656c29a70beed304c5c95793cbc82148dc026b1ab` | 0.020125625447486227 | 126 seconds |
+| `0x87e6cd4f2da6312e26de78c9edef9b5f251b7b8be53020e2f361a4bec1fdc2db` | 0.020497509834977995 | 95 seconds |
+
+This does not authenticate a fee schedule or prove the economic relationship. The candidate rule is explicitly `bounded-deposit-fee`; the precise mint event IDs and supporting files remain in `candidate-pairs.csv`.
+
+**Coverage limits discovered.** Before this pass, none of the 232 unmatched outflows had a full-time, non-conversion Fusion burn within the preceding five minutes whose amount exceeded the payment by no more than the configured chain fee cap, even without requiring the same holder. Further reductions cannot responsibly be obtained just by ignoring holder identity. Other-token funding is a useful unresolved lead, but bounded historical BSC log probes were rejected by the tested PublicNode, BNB dataseed and [dRPC public endpoint](https://drpc.org/chainlist/bsc-mainnet-rpc). Exact request/response pairs are preserved in `evidence/2026-10-11-busd-routing-review/`; provider errors are not zero activity. No paid service was used. Broader other-token history, changed-recipient instructions, split payments and exchange records remain separate evidence needs.

@@ -68,6 +68,18 @@ public sealed class MovementRiskScannerTests
         Assert.Equivalent(expected, actual, strict: true);
     }
 
+    [Fact]
+    public void FlagMovements_SourcePair_ShouldKeepBackingAndCompetitionFlags()
+    {
+        var events = new[] { Event("pay", "vault", "holder", "1", 1) };
+        var movements = new[] { Review("pay", "outgoing") with { Classification = "possible-source-chain-transfer", SourceCandidates = [new() { OtherEventId = "deposit", Delay = TimeSpan.FromSeconds(60), FeeRawHypothesis = "1", Competing = true }] } };
+        var expected = new[] { "backing-disposition-unresolved", "competing-source-matches", "negative-reconstructed-balance" };
+
+        var actual = MovementRiskScanner.FlagMovements(events, movements, Policy()).Single().Flags;
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
     private static ChainEvent Event(string id, string from, string to, string amount, int block)
     {
         return new ChainEvent { Id = id, Chain = "BSC", Token = "token", Transaction = id, BlockHash = "block", Block = block, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 0, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

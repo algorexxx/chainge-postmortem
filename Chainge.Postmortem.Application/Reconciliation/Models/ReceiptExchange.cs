@@ -2,6 +2,7 @@ namespace Chainge.Postmortem.Application.Reconciliation.Models;
 
 public sealed record ReceiptExchange
 {
+    public IReadOnlyList<string> RouteEventIds { get; init; } = [];
     public string Rule { get; init; } = "reported-swapped-event";
     public required string Emitter { get; init; }
     public required long LogIndex { get; init; }

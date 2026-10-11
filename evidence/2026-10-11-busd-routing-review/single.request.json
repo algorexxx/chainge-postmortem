@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": "BSC:0xaa3a21a1cf68843c06e410d7b40181d0d34beb0d63a506fea355156eabfec1a5:37",
+  "method": "eth_getLogs",
+  "params": [
+    {
+      "fromBlock": "0x1494a40",
+      "toBlock": "0x1494b08",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000753e2fcfe793185b0229f2762086dfb7d01cb680",
+        [
+          "0x000000000000000000000000874de5761900ee526950d707d8cbd4b93092e290",
+          "0x000000000000000000000000456325f2ac7067234dd71e01bebe032b0255e039"
+        ]
+      ]
+    }
+  ]
+}

@@ -33,6 +33,8 @@ public static class MovementRiskScanner
             }
             if (review.Classification == "unmatched" && outgoing && e.GetComparableUnits() >= threshold) { flags.Add("large-unmatched-outflow"); }
             if (outgoing && before > 0 && value * 10000 >= before * policy.DepletionBasisPoints) { flags.Add("large-balance-reduction"); }
+            if (review.Classification == "possible-source-chain-transfer") { flags.Add("backing-disposition-unresolved"); }
+            if (review.SourceCandidates.Any(c => c.Competing)) { flags.Add("competing-source-matches"); }
             if (review.Candidates.Any(c => c.Rule == "short-delay-absolute-fee")) { flags.Add("fee-exceeds-relative-bound"); }
             if (review.Candidates.Any(c => c.Competing)) { flags.Add("competing-matches"); }
             if (!e.ReceiptVerified) { flags.Add("source-event-not-receipt-verified"); }
