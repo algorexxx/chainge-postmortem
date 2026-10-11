@@ -56,6 +56,8 @@ The captured API documentation names the read-only endpoints `https://api2.chain
 
 ## Next collection priorities
 
+The [legacy balance-match report](research/legacy-balance-match-and-admin-transition.md) adds two bounded transaction windows, a matching legacy balance, blocking-call evidence and a January 2024 administrative transition. The second Fusionite-linked asset/chain workbook was downloaded successfully into the ignored public archive; it supplies chain-support leads, not a vault-address map. Eight reviewed JSON files plus a manifest are in `evidence/2026-10-11-bridge-review/`.
+
 The [legacy BUSD and funding-origin report](research/legacy-busd-and-funding-origin.md) traces the funding address back to a direct newer-BUSD mint and verifies that legacy BUSD delegates balance reads to a full-time child that emits mint Transfer events. Evidence is preserved in `evidence/2026-10-11-legacy-review/`, including explicit broad-scan failures and corrected malformed queries. Full legacy history remains incomplete.
 
 The [BUSD migration and balance-flow report](research/busd-migration-and-balance-flow.md) documents evidence consistent with legacy-to-new Fusion liquidity migration and reconciles the equal-amount burn/mint addresses against retained balances. Queries are preserved in `evidence/2026-10-11-flow-review/`; incomplete broad captures are explicitly marked. This adds Fusion-side context, not a confirmed source-chain vault.

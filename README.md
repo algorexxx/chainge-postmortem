@@ -14,6 +14,7 @@ The work does not presume intent, responsibility or the cause of service disrupt
 - [Factory history and BUSD supply](research/factory-history-and-busd-supply.md)
 - [BUSD migration and balance flow](research/busd-migration-and-balance-flow.md)
 - [Legacy BUSD and funding origin](research/legacy-busd-and-funding-origin.md)
+- [Legacy balance match and administrative transition](research/legacy-balance-match-and-admin-transition.md)
 
 ## Current coverage
 

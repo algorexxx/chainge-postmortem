@@ -54,6 +54,8 @@ The legacy explorer transaction capture contains only the first ten top-level tr
 
 ## Implications for continued research
 
+Follow-up: [legacy balance match and administrative transition](legacy-balance-match-and-admin-transition.md) records the same amount in earlier legacy transfers, subsequent blocking calls, and a change of legacy administration. Any connection to newer issuance remains a hypothesis.
+
 The BUSD pilot now distinguishes a newer token contract, a legacy parent, its full-time child, and liquidity-migration activity. These roles should guide the eventual collector rather than treating every spreadsheet entry or token mint alike.
 
 Next, preserve and investigate legacy administrative and conversion records in bounded block windows, locate any explicit source-chain references in documented bridge operations, and compare those with independently retrieved source-chain evidence. The direct mint found here is an issuance origin on Fusion, not a confirmed vault or proof of a deposit elsewhere.

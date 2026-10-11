@@ -156,6 +156,6 @@ During the initial planning review, Fusionite and GitHub pages were accessible t
 - [x] Trace the funding address to its newer-BUSD mint and verify the legacy parent/full-time-child event structure; see [legacy findings](research/legacy-busd-and-funding-origin.md). Complete legacy coverage remains pending.
 - [ ] Select pilot assets and publish the first reproducible findings.
 
-Repository direction: independent research under the maintainer's personal GitHub account. Local Git history starts with the current reviewed baseline; remote creation and push are left to the maintainer. See [README.md](README.md) for the history and correction policy.
+Repository: [algorexxx/chainge-postmortem](https://github.com/algorexxx/chainge-postmortem), maintained as independent research under a personal account. Local Git history starts with the reviewed baseline. Continue committing coherent research steps locally; the maintainer handles all pushes. See [README.md](README.md) for the history and correction policy.
 
-Open implementation decisions: remote repository name and site URL; external archive storage and backup availability; private intake location; actual free endpoint coverage; weekly refresh feasibility. None changes the agreed evidence and privacy policy.
+Open implementation decisions: site URL; external archive storage and backup availability; private intake location; actual free endpoint coverage; weekly refresh feasibility. None changes the agreed evidence and privacy policy.
