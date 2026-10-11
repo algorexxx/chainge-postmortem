@@ -17,7 +17,7 @@ The project does not presume a cause for service disruption, address ownership, 
 - Public Telegram information from ordinary participants may be used only after removing identifying information. DJ Qian, verified staff acting in an official capacity and official announcements may retain relevant public attribution. Verify the account and role rather than relying on a display name.
 - Do not copy raw chat exports into the repository, even temporarily or in an ignored directory. Keep original private material outside the checkout and public build inputs.
 - No incident date is established yet. Derive a timeline from preserved public announcements, accessible X/Twitter and Telegram history, and independently verifiable chain records.
-- Initial chain and asset selection is evidence-driven. Begin by assessing BNB Smart Chain and Fusion access, then select approximately 5–10 assets for a pilot if the evidence supports them.
+- Initial chain and asset selection is evidence-driven. Begin by assessing BNB Smart Chain and Fusion access, then select approximately 5â€“10 assets for a pilot if the evidence supports them.
 - This plan does not start an automation, create a remote repository or publish a site. Those are later implementation milestones.
 
 ## Evidence and publication policy
@@ -73,7 +73,7 @@ Completion: a sourced preliminary timeline, token classification method and a do
 ## Phase 3: Trace a small pilot
 
 1. Test free explorer and RPC access for Fusion and BNB Smart Chain, including historical ranges, pagination and available event types. Record reproducible queries and limits.
-2. Select approximately 5–10 assets based on verified source-chain identity, usable history and evidence quality. Stablecoins and widely used assets are candidate categories, not confirmed holdings.
+2. Select approximately 5â€“10 assets based on verified source-chain identity, usable history and evidence quality. Stablecoins and widely used assets are candidate categories, not confirmed holdings.
 3. Retrieve public on-chain evidence independently for any candidate suggested privately. Keep the lead itself outside published records. Do not label a candidate as Chainge-controlled without separate support.
 4. Trace historical deposits and withdrawals, token mint/burn events, deployments, administrative changes and transfers. Inspect contract code, proxy implementations and historical configuration where available.
 5. For each proposed cross-chain relationship, record the evidence and alternatives: unrelated transfers, shared infrastructure, routers, pools or other custodians. Use timing and amount correlations only with corroboration.
@@ -156,7 +156,7 @@ During the initial planning review, Fusionite and GitHub pages were accessible t
 - [x] Trace the funding address to its newer-BUSD mint and verify the legacy parent/full-time-child event structure; see [legacy findings](research/legacy-busd-and-funding-origin.md). Complete legacy coverage remains pending.
 - [x] Verify the legacy ownership/controller event sequence, reconcile one original address's full-time-child balance and distinguish a slice conversion from external issuance; see [slice accounting](research/legacy-authority-and-slice-accounting.md).
 - [ ] Select pilot assets and publish the first reproducible findings.
-- [x] Reconcile returned newer and legacy full-time BUSD Transfer ledgers against all observed address balances; classify all newer issuance receipts. See [ledger reconciliation](research/busd-ledger-reconciliation.md). Dated slices, earlier representations and source-chain reserves remain separate coverage questions.
+- [x] Reconcile returned newer and legacy full-time BUSD Transfer ledgers against all observed address balances; classify all newer issuance receipts. See [ledger reconciliation](research/busd-ledger-reconciliation.md). The subsequent [slice-coverage report](research/busd-time-slice-coverage.md) reconciles all four other returned legacy children. The earlier representation still lacks a validated historical replay model; source-chain reserve attribution remains separate.
 
 Repository: [algorexxx/chainge-postmortem](https://github.com/algorexxx/chainge-postmortem), maintained as independent research under a personal account. Local Git history starts with the reviewed baseline. Continue committing coherent research steps locally; the maintainer handles all pushes. See [README.md](README.md) for the history and correction policy.
 
