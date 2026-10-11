@@ -1,4 +1,5 @@
 using System.Globalization;
+using Chainge.Postmortem.Application.Reconciliation.Models.Extensions;
 using System.Numerics;
 using System.Text;
 using Chainge.Postmortem.Application.Reconciliation.Models;
@@ -57,11 +58,23 @@ public static class ReviewExporter
     public static async Task WriteDiscoveryFiles(string output, IReadOnlyList<ChainEvent> events, IReadOnlyList<BurnInventoryReview> inventory, IReadOnlyList<PayoutAddressCandidate> candidates, IReadOnlyList<DiscoveryCoverage> coverage, CancellationToken cancellationToken)
     {
         var byId = events.ToDictionary(e => e.Id, StringComparer.Ordinal);
-        var burns = new StringBuilder("burn_event_id,holder,token,utc,amount,classification,balance_before_raw,balance_after_raw,inventory_event_ids,evidence\n");
+        const string burnHeader = "burn_event_id,holder,token,utc,amount,classification,review_queue,balance_before_raw,balance_after_raw,inventory_event_ids,evidence\n";
+        var burns = new StringBuilder(burnHeader);
+        var queues = new Dictionary<string, StringBuilder>(StringComparer.Ordinal)
+        {
+            ["inventory-settlement-review"] = new(burnHeader),
+            ["unresolved-burn-review"] = new(burnHeader)
+        };
         foreach (var review in inventory)
         {
             var e = byId[review.BurnEventId];
-            AppendRow(burns, [e.Id, e.From, e.Token, e.Timestamp?.ToString("O", CultureInfo.InvariantCulture) ?? "", FormatAmount(e), review.Classification, review.ObservedBalanceBeforeRaw ?? "", review.ObservedBalanceAfterRaw ?? "", string.Join(";", review.InventoryEventIds), string.Join(";", e.Evidence)]);
+            string[] fields = [e.Id, e.From, e.Token, e.Timestamp?.ToString("O", CultureInfo.InvariantCulture) ?? "", FormatAmount(e), review.Classification, review.GetReviewQueue(), review.ObservedBalanceBeforeRaw ?? "", review.ObservedBalanceAfterRaw ?? "", string.Join(";", review.InventoryEventIds), string.Join(";", e.Evidence)];
+            AppendRow(burns, fields);
+            AppendRow(queues[review.GetReviewQueue()], fields);
+        }
+        foreach (var queue in queues)
+        {
+            await File.WriteAllTextAsync(Path.Combine(output, queue.Key + ".csv"), queue.Value.ToString(), Encoding.UTF8, cancellationToken);
         }
         var payouts = new StringBuilder("source_event_id,chain,token,candidate_sender,holder,fusion_burn_id,amount,rule,delay,fee_raw,competing,receipt_verified,existing_classification,evidence\n");
         foreach (var candidate in candidates)

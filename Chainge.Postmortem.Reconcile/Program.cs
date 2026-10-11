@@ -1,4 +1,5 @@
 using System.Globalization;
+using Chainge.Postmortem.Application.Reconciliation.Models.Extensions;
 using System.Numerics;
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -28,7 +29,7 @@ var payoutCandidates = PayoutAddressFinder.FindCandidates(snapshot.Events, disco
 var output = Path.GetFullPath(args[2]);
 Directory.CreateDirectory(output);
 var options = new JsonSerializerOptions(JsonSerializerOptions.Web) { WriteIndented = true };
-await File.WriteAllTextAsync(Path.Combine(output, "reconciliation.json"), JsonSerializer.Serialize(new { settings.Asset, Policy = settings.Policy, settings.Limitations, ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), snapshot.InputHashes, snapshot.Diagnostics, snapshot.Events, Review = result, FusionPurposes = purposes, DelayedReview = delayed, BurnInventory = inventory, PayoutCandidates = payoutCandidates, Discovery = discovery }, options));
+await File.WriteAllTextAsync(Path.Combine(output, "reconciliation.json"), JsonSerializer.Serialize(new { settings.Asset, Policy = settings.Policy, settings.Limitations, ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), snapshot.InputHashes, snapshot.Diagnostics, snapshot.Events, Review = result, FusionPurposes = purposes, DelayedReview = delayed, BurnInventory = inventory, BurnReviewQueues = inventory.GroupBy(r => r.GetReviewQueue()).ToDictionary(g => g.Key, g => g.Select(r => r.BurnEventId).ToList()), PayoutCandidates = payoutCandidates, Discovery = discovery }, options));
 await ReviewExporter.WriteReviewFiles(output, snapshot.Events, result, CancellationToken.None);
 await ReviewExporter.WritePurposeFile(output, snapshot.Events, purposes, result, CancellationToken.None);
 await ReviewExporter.WriteReviewFiles(Path.Combine(output, "delayed-review"), snapshot.Events, result with { Movements = delayed }, CancellationToken.None);
@@ -47,3 +48,6 @@ Console.WriteLine($"{snapshot.Events.Count(e => e.Timestamp is null)} events lac
 
 foreach (var group in purposes.GroupBy(p => p.Classification)) { Console.WriteLine($"Fusion purpose {group.Key}: {group.Count()}"); }
 foreach (var group in snapshot.Events.Where(e => result.UnpairedFusionEventIds.Contains(e.Id)).GroupBy(e => e.From == "0x0000000000000000000000000000000000000000" ? "mint" : "burn")) { Console.WriteLine($"Unpaired Fusion {group.Key}: {group.Count()}"); }
+
+foreach (var group in inventory.GroupBy(r => r.GetReviewQueue())) { Console.WriteLine($"Fusion burn queue {group.Key}: {group.Count()}"); }
+Console.WriteLine($"Total Fusion burns without an external settlement pairing: {inventory.Count}. Inventory classification explains the balance change, not the external settlement; no events removed from accounting.");

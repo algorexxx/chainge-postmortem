@@ -174,3 +174,9 @@ Outputs:
 - JSON `discovery`: original-file hashes, coverage and separate unverified observations. Explorer IDs begin `explorer:` and have log index -1, explicitly not an on-chain event ID. They do not affect source balances, normal classifications or the ledger event count.
 
 All prior 47,808 ledger events and 5,710 operating-address movements remain. The December 2021 1.1M/100k and January 2024 204567.658073647823395109 payments remain unmatched. No new address role or UI case is automatically published.
+
+### Automatic burn review queues
+
+Each reconciliation run now exports `inventory-settlement-review.csv` and `unresolved-burn-review.csv`, includes their event IDs in `burnReviewQueues` in the JSON report, and prints both queue counts. Only `controller-observed-balance-clearing` cases enter the inventory settlement queue; partial, unverified, inconsistent-history, holder, and unknown classifications remain in the unresolved burn queue. `burn-inventory.csv` retains all cases and includes their review queue.
+
+The BUSD rerun partitions 447 externally unpaired burns into 363 inventory settlement cases and 84 other unresolved burns, with no omitted or duplicated events. This reduces the generic review queue, not the external settlement gap: inventory clearing does not prove a payout or redemption. The 224 unmatched source outflows and 1,434 unpaired Fusion mints are unchanged. Both CSV partitions were checked against the JSON report; all 122 tests pass with full Application line coverage.
