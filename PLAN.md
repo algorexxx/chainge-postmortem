@@ -156,6 +156,7 @@ During the initial planning review, Fusionite and GitHub pages were accessible t
 - [x] Trace the funding address to its newer-BUSD mint and verify the legacy parent/full-time-child event structure; see [legacy findings](research/legacy-busd-and-funding-origin.md). Complete legacy coverage remains pending.
 - [x] Verify the legacy ownership/controller event sequence, reconcile one original address's full-time-child balance and distinguish a slice conversion from external issuance; see [slice accounting](research/legacy-authority-and-slice-accounting.md).
 - [ ] Select pilot assets and publish the first reproducible findings.
+- [x] Reconcile returned newer and legacy full-time BUSD Transfer ledgers against all observed address balances; classify all newer issuance receipts. See [ledger reconciliation](research/busd-ledger-reconciliation.md). Dated slices, earlier representations and source-chain reserves remain separate coverage questions.
 
 Repository: [algorexxx/chainge-postmortem](https://github.com/algorexxx/chainge-postmortem), maintained as independent research under a personal account. Local Git history starts with the reviewed baseline. Continue committing coherent research steps locally; the maintainer handles all pushes. See [README.md](README.md) for the history and correction policy.
 

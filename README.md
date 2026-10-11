@@ -16,6 +16,7 @@ The work does not presume intent, responsibility or the cause of service disrupt
 - [Legacy BUSD and funding origin](research/legacy-busd-and-funding-origin.md)
 - [Legacy balance match and administrative transition](research/legacy-balance-match-and-admin-transition.md)
 - [Legacy authority and time-slice accounting](research/legacy-authority-and-slice-accounting.md)
+- [BUSD ledger reconciliation and migration classification](research/busd-ledger-reconciliation.md)
 
 ## Current coverage
 
