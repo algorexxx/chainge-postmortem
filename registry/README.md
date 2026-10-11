@@ -1,6 +1,6 @@
 # Site data and local preview
 
-The static registry is a presentation of reviewed research. It does not collect chain data, automatically match burns, or complete an asset reconciliation.
+The static registry presents reviewed research alongside an explicitly provisional, generated movement ledger. Matching runs offline in the reconciliation script; the browser does not collect chain data or complete an asset reconciliation.
 
 ## Local preview
 
@@ -26,10 +26,10 @@ The output uses embedded assets and hash-based token selection, so it can be ser
 - `studies.json` is an editorial presentation of cited reports. It is deliberately limited to selected BUSD positions and five reviewed outflow cases. Amounts are decimal strings, never floating-point ledger values. Numeric summaries truncate to two decimals; exact values remain in the data, detailed ledger/path views and source reports. Tiny nonzero balances display their full exact value beside the abbreviated amount.
 - The other 2,183 contracts are selectable but unassessed. They have no invented supply, vaults or zero-balance defaults.
 - Gross inflows include routing and internal transfers. They are not unique deposits. Newer-token supply is not a consolidated outstanding-claims denominator. No backing ratio or deficit is calculated with incompatible cutoffs or incomplete custody coverage.
-- Movement cases are ordered by their stated initial BUSD amount. The 1.2-million case aggregates two separate outflows, not a single transfer. Repeated hops are not additive losses. An unmatched case has no verified burn linkage; this is not an allegation about its purpose. Cross-chain and redemption relationships remain explicitly inferred.
+- Movement views default to unmatched first, newest first, then amount; newest, largest, reconstructed balance reduction and destination unmatched-total ordering are available in the automated ledger. The 1.2-million case aggregates two separate outflows, not a single transfer. Repeated hops are not additive losses. An unmatched case has no verified burn linkage; this is not an allegation about its purpose. Cross-chain and redemption relationships remain explicitly inferred.
 - Exchange destinations use attributed explorer labels; tracing stops at the boundary where public evidence cannot identify account credit or further disposition.
 
-`studies.json` is an authored display selection, not a second accounting ledger. Changes to the research should be reviewed into this selection explicitly. A future collector should replace the authored amount fields with generated views of normalized events before claiming automatic refresh or exhaustive ranking.
+`studies.json` is an authored display selection, not a second accounting ledger. Changes to the research should be reviewed into this selection explicitly. The separate generated movement report covers every configured operating-address movement in the retained evidence, not every possible custody address or every historical transfer. Authored traced cases are not added to its totals.
 
 ## Implementation and checks
 
@@ -42,3 +42,17 @@ Browser checks covered symbol search, no-result state, unassessed-token selectio
 The standalone-output regression check served only the generated index.html from an otherwise empty directory. The full catalogue, BUSD overview, movements and token search loaded without companion files or browser errors. This verifies HTTP browser execution; the Codex file preview may impose separate script restrictions.
 
 Each reviewed case has its own movement card. Possible redemptions are hidden by default and can be included using the explanation filter. The list states how many reviewed cases are shown. The two reviewed January 2022 pairs are partial coverage; remaining payments are not presumed redemptions. The [offline reconciliation pipeline](../reconciliation/README.md) generates a separate candidate queue; generated proposals are not automatically published as reviewed cases.
+
+## Generated movement ledger
+
+Run `./reconcile.ps1 -Asset busd` before rebuilding the preview to refresh `registry/busd-movements.json`. The wrapper copies the CLI's `archives/reconciliation/busd/site-movements.json` only after a successful run. The study's `movementsFile` resolves relative to `studies.json`; a missing or invalid declared file fails the build instead of silently omitting movements. A fresh clone can build from the committed public report without RPC access or the ignored archives. For another asset, configure its evidence, run reconciliation and reference `<asset>-movements.json` from its study. No publication or network refresh is scheduled.
+
+The generated public report is a static distribution artifact, not a second hand-maintained ledger. The full local reconciliation JSON is approximately 78.5 MB; the compact site report is approximately 7.3 MB and the self-contained HTML approximately 7.6 MB for BUSD. This avoids embedding unrelated event payloads in the public UI. Both the configuration SHA-256 and input-file hashes are retained for provenance; all financial amounts remain integer strings with explicit decimals. Regenerate the report rather than editing amounts or classifications by hand.
+
+The current report contains 5,710 unique movements: 2,665 outgoing, 3,031 incoming and 14 internal. All 224 normally unmatched outflows are present. Cards paginate in batches of 50; hidden/matching counts distinguish filtering from pagination. Filters cover direction, classification, chain, token contract, recipient and minimum amount. There is no minimum amount by default. Possible redemptions are hidden by default but remain accessible. The five authored traced cases remain in a separate view and matching transaction hashes link to them from automated details.
+
+Destination summaries group outgoing events by chain, token and immediate recipient, excluding incoming and internal movements. All 538 groups retain gross and unmatched counts and amounts. They include small payments hidden by card filters and do not deduct returns. The top-ten destination table applies only the chain filter and states this explicitly; selecting a row sets its chain, token and recipient filters. Gross totals are not unique capital, balances, beneficial ownership or losses.
+
+Balance reduction is payment divided by reconstructed pre-payment sender balance, floored to hundredths of a percent. Nonpositive opening balances, missing values, negative payments and payments exceeding the reconstructed balance produce unavailable ratios. Otherwise, the percentage is conditional on coverage and the scanner's zero-opening-balance assumption, not a verified vault balance. Normal and additional delayed candidate relationships remain separate and do not establish final settlement. Detail panels retain receipt verification, event IDs, evidence links, candidate rules, competition flags, fee hypotheses and report limitations.
+
+Validation: 132 passing tests and 383/383 Application lines covered. Independent report checks confirmed exact event-ID preservation, no duplicates, and every destination aggregate against source movements. Browser checks cover all-movement and unmatched counts, amount/direction/chain/token/recipient filters, sorting, pagination, destination drill-down and the traced-case link.

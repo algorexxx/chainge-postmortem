@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Buffers;
 using Chainge.Postmortem.Application.Catalogue.Interfaces;
 using Chainge.Postmortem.Application.Catalogue.Models;
@@ -26,6 +27,15 @@ public sealed class CatalogueRepository : ICatalogueRepository
         await using var studiesFile = File.OpenRead(settings.StudiesPath);
         var studies = await JsonSerializer.DeserializeAsync<Dictionary<string, JsonElement>>(studiesFile, cancellationToken: cancellationToken)
             ?? throw new InvalidDataException("The case studies are null.");
+        foreach (var pair in studies.ToList())
+        {
+            if (!pair.Value.TryGetProperty("movementsFile", out var reportFile)) { continue; }
+            var reportPath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(settings.StudiesPath)!, reportFile.GetString()!));
+            var reportText = await File.ReadAllTextAsync(reportPath, cancellationToken);
+            var study = JsonNode.Parse(pair.Value.GetRawText())!;
+            study["automatedMovements"] = JsonNode.Parse(reportText);
+            studies[pair.Key] = JsonSerializer.SerializeToElement(study);
+        }
         return new CatalogueSource { Tokens = records.Select(token => token.ToTokenListing()).ToList(), Studies = studies };
     }
 

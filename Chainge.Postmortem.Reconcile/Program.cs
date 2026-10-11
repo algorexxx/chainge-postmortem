@@ -30,6 +30,8 @@ var output = Path.GetFullPath(args[2]);
 Directory.CreateDirectory(output);
 var options = new JsonSerializerOptions(JsonSerializerOptions.Web) { WriteIndented = true };
 await File.WriteAllTextAsync(Path.Combine(output, "reconciliation.json"), JsonSerializer.Serialize(new { settings.Asset, Policy = settings.Policy, settings.Limitations, ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), snapshot.InputHashes, snapshot.Diagnostics, snapshot.Events, Review = result, FusionPurposes = purposes, DelayedReview = delayed, BurnInventory = inventory, BurnReviewQueues = inventory.GroupBy(r => r.GetReviewQueue()).ToDictionary(g => g.Key, g => g.Select(r => r.BurnEventId).ToList()), PayoutCandidates = payoutCandidates, Discovery = discovery }, options));
+var siteReport = MovementSiteBuilder.BuildReport(snapshot.Events, result);
+await File.WriteAllTextAsync(Path.Combine(output, "site-movements.json"), JsonSerializer.Serialize(new { settings.Asset, ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), snapshot.InputHashes, settings.Limitations, siteReport.Cases, siteReport.Destinations, DelayedReview = delayed }, JsonSerializerOptions.Web));
 await ReviewExporter.WriteReviewFiles(output, snapshot.Events, result, CancellationToken.None);
 await ReviewExporter.WritePurposeFile(output, snapshot.Events, purposes, result, CancellationToken.None);
 await ReviewExporter.WriteReviewFiles(Path.Combine(output, "delayed-review"), snapshot.Events, result with { Movements = delayed }, CancellationToken.None);

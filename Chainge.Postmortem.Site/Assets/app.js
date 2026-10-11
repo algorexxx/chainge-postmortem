@@ -17,6 +17,14 @@ let flowId = 'jan-204k';
 let flowFilter = 'hide-redemptions';
 let flowSort = 'review';
 let flowMinimum = '0';
+let movementView = 'ledger';
+let ledgerDirection = 'outgoing';
+let ledgerClassification = 'hide-redemptions';
+let ledgerChain = 'all';
+let ledgerToken = 'all';
+let ledgerDestination = '';
+let ledgerCount = 50;
+let ledgerId = '';
 
 function renderCatalogue() {
   const query = search.value.trim().toLowerCase();
@@ -37,7 +45,7 @@ function renderSelection() {
   }
   document.title = `${selected.symbol} · Chainge Postmortem`;
   const study = registry.studies[selected.address];
-  detail.innerHTML = `<div class="breadcrumb">Asset registry <span aria-hidden="true">/</span> Fusion <span aria-hidden="true">/</span> ${escape(selected.symbol)}</div><div class="token-heading"><div><p class="eyebrow">02 / Token investigation</p><h1>${escape(selected.symbol)}<small>Fusion</small></h1><p>${study ? escape(study.scope) : 'Contract listed in the public source spreadsheet'}</p></div><div class="heading-meta"><span class="status ${study ? '' : 'neutral'}">${study ? escape(study.status) : 'Not assessed'}</span><p>${study ? 'Research updated 11 Oct 2026' : 'Catalogue captured 11 Oct 2026'}</p></div></div><div class="contract">${selected.address}<button class="copy" data-copy="${selected.address}" aria-label="Copy Fusion contract address">Copy address</button></div><div class="tabs" role="tablist" aria-label="Investigation view">${['overview','vaults','movements'].map(name => `<button id="tab-${name}" role="tab" aria-selected="${tabName === name}" aria-controls="tab-content" tabindex="${tabName === name ? '0' : '-1'}" data-tab="${name}">${name[0].toUpperCase()+name.slice(1)}${study && name !== 'overview' ? `<span>${name === 'vaults' ? study.vaults.length : study.flows.length}</span>` : ''}</button>`).join('')}</div><div id="tab-content" role="tabpanel" aria-labelledby="tab-${tabName}">${study ? renderStudy(study) : renderUnassessed()}</div><div class="source-line">Fusion contract identity comes from <a href="https://docs.google.com/spreadsheets/d/1pyQlI4oGOgaRx-5UWA68meb85KtsnZ98BZrYDrHsqhk/edit?gid=1161132641&range=A${selected.sourceRows[0]}:B${selected.sourceRows[0]}">source row${selected.sourceRows.length > 1 ? 's' : ''} ${selected.sourceRows.join(', ')}</a>. Listing alone does not verify issuer, deployment or custody.</div>`;
+  detail.innerHTML = `<div class="breadcrumb">Asset registry <span aria-hidden="true">/</span> Fusion <span aria-hidden="true">/</span> ${escape(selected.symbol)}</div><div class="token-heading"><div><p class="eyebrow">02 / Token investigation</p><h1>${escape(selected.symbol)}<small>Fusion</small></h1><p>${study ? escape(study.scope) : 'Contract listed in the public source spreadsheet'}</p></div><div class="heading-meta"><span class="status ${study ? '' : 'neutral'}">${study ? escape(study.status) : 'Not assessed'}</span><p>${study ? 'Research updated 11 Oct 2026' : 'Catalogue captured 11 Oct 2026'}</p></div></div><div class="contract">${selected.address}<button class="copy" data-copy="${selected.address}" aria-label="Copy Fusion contract address">Copy address</button></div><div class="tabs" role="tablist" aria-label="Investigation view">${['overview','vaults','movements'].map(name => `<button id="tab-${name}" role="tab" aria-selected="${tabName === name}" aria-controls="tab-content" tabindex="${tabName === name ? '0' : '-1'}" data-tab="${name}">${name[0].toUpperCase()+name.slice(1)}${study && name !== 'overview' ? `<span>${name === 'vaults' ? study.vaults.length : (study.automatedMovements?.cases.length ?? study.flows.length)}</span>` : ''}</button>`).join('')}</div><div id="tab-content" role="tabpanel" aria-labelledby="tab-${tabName}">${study ? renderStudy(study) : renderUnassessed()}</div><div class="source-line">Fusion contract identity comes from <a href="https://docs.google.com/spreadsheets/d/1pyQlI4oGOgaRx-5UWA68meb85KtsnZ98BZrYDrHsqhk/edit?gid=1161132641&range=A${selected.sourceRows[0]}:B${selected.sourceRows[0]}">source row${selected.sourceRows.length > 1 ? 's' : ''} ${selected.sourceRows.join(', ')}</a>. Listing alone does not verify issuer, deployment or custody.</div>`;
 }
 
 function renderUnassessed() {
@@ -56,6 +64,11 @@ function renderVaults(study) {
 }
 
 function renderMovements(study) {
+  const switcher = study.automatedMovements ? `<div class="filters"><label for="movement-view">View</label><select id="movement-view"><option value="ledger" ${movementView === 'ledger' ? 'selected' : ''}>Automated ledger · ${study.automatedMovements.cases.length} movements</option><option value="reviewed" ${movementView === 'reviewed' ? 'selected' : ''}>Traced cases · ${study.flows.length}</option></select></div>` : '';
+  return switcher + (study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
+}
+
+function renderReviewedMovements(study) {
   const flows = study.flows.filter(flow => flowFilter === 'all' || (flowFilter === 'hide-redemptions' ? flow.status !== 'Possible redemption' : flow.status === flowFilter))
     .filter(flow => tokenUnits(flow.amount) >= tokenUnits(flowMinimum))
     .sort(compareFlows);
@@ -91,12 +104,35 @@ detail.addEventListener('click', async event => {
   if (!button) return;
   if (button.dataset.tab) { tabName = button.dataset.tab; renderSelection(); document.querySelector(`#tab-${tabName}`).focus(); }
   if (button.dataset.flow) { flowId = button.dataset.flow; renderSelection(); document.querySelector(`[data-flow="${flowId}"]`).focus(); }
-  if (button.dataset.openFlow) { flowId = button.dataset.openFlow; flowFilter = 'all'; flowMinimum = '0'; tabName = 'movements'; renderSelection(); document.querySelector('#tab-movements').focus(); }
+  if (button.dataset.openFlow) { movementView = 'reviewed'; flowId = button.dataset.openFlow; flowFilter = 'all'; flowMinimum = '0'; tabName = 'movements'; renderSelection(); document.querySelector('#tab-movements').focus(); }
+  if (button.dataset.ledgerId) { ledgerId = button.dataset.ledgerId; renderSelection(); document.querySelector('.ledger-detail').scrollIntoView({block:'nearest'}); }
+  if (button.dataset.ledgerMore) { ledgerCount += 50; renderSelection(); document.querySelector('[data-ledger-more]')?.focus(); }
+  if (button.dataset.destination) { ledgerDestination = button.dataset.destination; ledgerChain = button.dataset.chain; ledgerToken = button.dataset.token; ledgerDirection = 'outgoing'; ledgerClassification = 'all'; flowMinimum = '0'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#ledger-destination').focus(); }
+  if (button.dataset.resetLedger) { ledgerDirection = 'outgoing'; ledgerClassification = 'hide-redemptions'; ledgerChain = 'all'; ledgerToken = 'all'; ledgerDestination = ''; flowMinimum = '0'; flowSort = 'review'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#ledger-classification').focus(); }
   if (button.dataset.resetFlows) { flowFilter = 'hide-redemptions'; flowSort = 'review'; flowMinimum = '0'; flowId = ''; renderSelection(); document.querySelector('#flow-filter').focus(); }
   if (button.dataset.copy) { try { await navigator.clipboard.writeText(button.dataset.copy); button.textContent = 'Copied'; } catch { button.textContent = 'Select address to copy'; } }
 });
+detail.addEventListener('input', event => {
+  if (event.target.id !== 'ledger-destination') return;
+  const position = event.target.selectionStart;
+  ledgerDestination = event.target.value.toLowerCase();
+  ledgerCount = 50; ledgerId = ''; renderSelection();
+  const input = document.getElementById('ledger-destination');
+  input.focus(); input.setSelectionRange(position, position);
+});
 detail.addEventListener('change', event => {
   const id = event.target.id;
+  if (id === 'movement-view') { movementView = event.target.value; if (movementView === 'reviewed' && !['review','newest','largest'].includes(flowSort)) flowSort = 'review'; renderSelection(); document.getElementById(id).focus(); return; }
+  if (id.startsWith('ledger-')) {
+    if (id === 'ledger-direction') ledgerDirection = event.target.value;
+    if (id === 'ledger-classification') ledgerClassification = event.target.value;
+    if (id === 'ledger-chain') { ledgerChain = event.target.value; ledgerToken = 'all'; }
+    if (id === 'ledger-token') ledgerToken = event.target.value;
+    if (id === 'ledger-destination') ledgerDestination = event.target.value.trim().toLowerCase();
+    if (id === 'ledger-sort') flowSort = event.target.value;
+    if (id === 'ledger-minimum') flowMinimum = event.target.value;
+    ledgerCount = 50; ledgerId = ''; renderSelection(); document.getElementById(id).focus(); return;
+  }
   if (!['flow-filter', 'flow-sort', 'flow-minimum'].includes(id)) return;
   if (id === 'flow-filter') flowFilter = event.target.value;
   if (id === 'flow-sort') flowSort = event.target.value;
@@ -114,3 +150,80 @@ detail.addEventListener('keydown', event => {
 });
 window.addEventListener('hashchange', renderSelection);
 renderSelection();
+
+function rawUnits(raw, decimals) {
+  const negative = String(raw).startsWith('-');
+  const digits = String(raw).replace(/^-/, '').padStart(decimals + 1, '0');
+  return (negative ? '-' : '') + (decimals ? digits.slice(0, -decimals) + '.' + digits.slice(-decimals) : digits);
+}
+
+function comparableRaw(raw, decimals) {
+  return BigInt(raw) * 10n ** BigInt(255 - decimals);
+}
+
+function compareInteger(a, b) { return a > b ? -1 : a < b ? 1 : 0; }
+function destinationKey(chain, token, address) { return [chain, token, address].join(':'); }
+function classificationLabel(value) { return value.replaceAll('-', ' '); }
+function depletionLabel(value) { return value === null ? 'Unavailable' : (value / 100).toFixed(2) + '%'; }
+
+function ledgerSelect(id, label, options, selectedValue) {
+  return `<label for="${id}">${label}</label><select id="${id}">${options.map(([value,text]) => `<option value="${escape(value)}" ${selectedValue === value ? 'selected' : ''}>${escape(text)}</option>`).join('')}</select>`;
+}
+
+function renderMovementLedger(report) {
+  const destinations = new Map(report.destinations.map(d => [destinationKey(d.chain, d.token, d.address), d]));
+  const minimum = comparableRaw(flowMinimum, 0);
+  const matches = report.cases.filter(c => (ledgerDirection === 'all' || c.review.direction === ledgerDirection)
+    && (ledgerClassification === 'all' || (ledgerClassification === 'hide-redemptions' ? c.review.classification !== 'possible-redemption' : c.review.classification === ledgerClassification))
+    && (ledgerChain === 'all' || c.chain === ledgerChain)
+    && (ledgerToken === 'all' || c.token === ledgerToken)
+    && (!ledgerDestination || c.to.includes(ledgerDestination))
+    && comparableRaw(c.rawAmount, c.decimals) >= minimum);
+  matches.sort((a,b) => {
+    const priority = flowSort === 'review' ? Number(b.review.classification === 'unmatched') - Number(a.review.classification === 'unmatched') : 0;
+    const byDate = (b.timestamp ?? '').localeCompare(a.timestamp ?? '');
+    const byAmount = compareInteger(comparableRaw(a.rawAmount,a.decimals),comparableRaw(b.rawAmount,b.decimals));
+    const byDepletion = (b.depletionBasisPoints ?? -1) - (a.depletionBasisPoints ?? -1);
+    const aDest = destinations.get(destinationKey(a.chain,a.token,a.to));
+    const bDest = destinations.get(destinationKey(b.chain,b.token,b.to));
+    const byDestination = compareInteger(comparableRaw(aDest?.unmatchedOutflowRaw ?? '0',a.decimals),comparableRaw(bDest?.unmatchedOutflowRaw ?? '0',b.decimals));
+    return priority || (flowSort === 'largest' ? byAmount : flowSort === 'depletion' ? byDepletion : flowSort === 'destination' ? byDestination : byDate) || byDate || byAmount || a.id.localeCompare(b.id);
+  });
+  const visible = matches.slice(0,ledgerCount);
+  const current = visible.find(c => c.id === ledgerId) || visible[0];
+  if (current) ledgerId = current.id;
+  const classifications = [...new Set(report.cases.map(c => c.review.classification))].sort();
+  return `<div class="section-title"><h2>Automated movement ledger</h2><span class="status neutral">Provisional classifications</span></div>
+    <p class="muted">${report.cases.length.toLocaleString()} retained movements · ${report.cases.filter(c=>c.review.direction === 'outgoing' && c.review.classification === 'unmatched').length} unmatched outflows. Showing ${visible.length} of ${matches.length} matching movements; ${report.cases.length - matches.length} excluded by filters. Possible redemptions are hidden by default. Unmatched means no pairing found under the normal rules, not proven loss.</p>
+    <div class="filters ledger-filters">
+    ${ledgerSelect('ledger-direction','Direction',[['outgoing','Outflows'],['incoming','Inflows'],['internal','Internal'],['all','All movements']],ledgerDirection)}
+    ${ledgerSelect('ledger-classification','Explanation',[['hide-redemptions','Hide possible redemptions'],['all','All classifications'],...classifications.map(c=>[c,classificationLabel(c)])],ledgerClassification)}
+    ${ledgerSelect('ledger-chain','Chain',[['all','All chains'],...[...new Set(report.cases.map(c=>c.chain))].sort().map(c=>[c,c])],ledgerChain)}
+    ${ledgerSelect('ledger-token','Token contract',[['all','All representations'],...[...new Set(report.cases.filter(c=>ledgerChain === 'all' || c.chain === ledgerChain).map(c=>c.token))].sort().map(c=>[c,c])],ledgerToken)}
+    ${ledgerSelect('ledger-sort','Sort',[['review','Unmatched first · newest'],['newest','Newest first'],['largest','Largest first'],['depletion','Balance reduction first'],['destination','Destination unmatched total']],flowSort)}
+    ${ledgerSelect('ledger-minimum','Minimum (token units)',['0','100','1000','10000','100000','1000000'].map(v=>[v,v === '0' ? 'No minimum' : format(v)]),flowMinimum)}
+    <label for="ledger-destination">Recipient address</label><input id="ledger-destination" value="${escape(ledgerDestination)}" placeholder="Full address or fragment" spellcheck="false"><button class="reset-filters" data-reset-ledger="true">Reset filters</button></div>
+    <p class="footnote">Amounts are token units, not current USD values. Balance reduction = payment / reconstructed sender balance before payment, assuming a zero opening balance. It is conditional on history coverage; impossible ratios are unavailable. Sorting is a review aid, not a misconduct score.</p>
+    ${renderDestinations(report.destinations)}
+    <div class="flow-layout"><div>${visible.map(c=>`<button class="flow-choice" data-ledger-id="${escape(c.id)}" aria-pressed="${current?.id === c.id}"><span><strong>${escape(classificationLabel(c.review.classification))}</strong><small>${escape(c.timestamp ?? 'Unknown date')} · ${escape(c.chain)} · ${escape(c.review.direction)}</small><p class="flow-description">${escape(short(c.from))} → ${escape(short(c.to))}</p><small>Reconstructed balance reduction: ${depletionLabel(c.depletionBasisPoints)}</small>${c.review.flags.length ? `<p class="flow-description">${c.review.flags.map(f=>escape(classificationLabel(f))).join(' · ')}</p>` : ''}</span><span class="flow-value">${amount(rawUnits(c.rawAmount,c.decimals))}<small style="display:block">${escape(report.asset)}</small></span></button>`).join('')}${matches.length > visible.length ? '<button class="load-more" data-ledger-more="true">Show 50 more movements</button>' : ''}</div>${current ? renderLedgerDetail(current,destinations.get(destinationKey(current.chain,current.token,current.to)),report) : '<div class="empty">No movements match these filters. Reset filters to restore the default view.</div>'}</div>`;
+}
+
+function renderDestinations(destinations) {
+  const ranked = destinations.filter(d => ledgerChain === 'all' || d.chain === ledgerChain).slice().sort((a,b)=>compareInteger(comparableRaw(a.unmatchedOutflowRaw,a.decimals),comparableRaw(b.unmatchedOutflowRaw,b.decimals)) || b.count-a.count).slice(0,10);
+  return `<details class="panel destination-panel"><summary>Top destinations by unmatched outflow total</summary><p>Gross transfers across all retained outflows, grouped separately by chain, token and recipient. Includes small transfers regardless of the amount filter. Only the chain filter applies here. No netting against returns; these totals do not establish ownership, unique capital or losses. Click a recipient to show its outflows.</p><div class="table-wrap"><table><thead><tr><th>Chain / token / recipient</th><th>Outflow count</th><th class="numeric">Gross (token units)</th><th class="numeric">Unmatched (token units)</th></tr></thead><tbody>${ranked.map(d=>`<tr><td>${escape(d.chain)}<code class="address-text">Token: ${escape(d.token)}</code><button class="copy" data-destination="${escape(d.address)}" data-chain="${escape(d.chain)}" data-token="${escape(d.token)}">${escape(d.address)}</button></td><td>${d.count} (${d.unmatchedCount} unmatched)</td><td class="numeric">${amount(rawUnits(d.grossOutflowRaw,d.decimals))}</td><td class="numeric">${amount(rawUnits(d.unmatchedOutflowRaw,d.decimals))}</td></tr>`).join('')}</tbody></table></div></details>`;
+}
+
+function renderLedgerDetail(c, destination, report) {
+  const delayed = report.delayedReview?.find(m => m.sourceEventId === c.id);
+  const traced = registry.studies[selected.address].flows.filter(flow => flow.steps.some(step => step.transaction?.endsWith('/' + c.transaction)));
+  const explorers = {BSC:'https://bscscan.com/tx/',Ethereum:'https://etherscan.io/tx/',Avalanche:'https://snowtrace.io/tx/'};
+  return `<section class="trace-panel ledger-detail" aria-label="Selected automated movement"><p class="eyebrow">Automated case · review required</p><h3>${escape(classificationLabel(c.review.classification))}</h3><p>One source-chain transfer event. The recipient shown is the immediate recipient, not a traced final destination.</p><code class="address-text">${escape(c.id)}</code><p>${escape(c.timestamp ?? 'Unknown date')} · ${escape(c.chain)}</p><p><strong>${amount(rawUnits(c.rawAmount,c.decimals))} ${escape(report.asset)}</strong></p><code class="address-text">Token: ${escape(c.token)}<br>From: ${escape(c.from)}<br>To: ${escape(c.to)}</code>${explorers[c.chain] ? `<a class="evidence-link" href="${explorers[c.chain]}${encodeURIComponent(c.transaction)}">View source transaction ↗</a>` : ''}<p>Receipt verification: ${c.receiptVerified ? 'verified' : 'not verified'}.</p><h3>Reconstructed sender balance</h3><p>${c.review.direction === 'outgoing' ? `Before: ${c.review.reconstructedBalanceBeforeRaw === null ? 'Unavailable' : amount(rawUnits(c.review.reconstructedBalanceBeforeRaw,c.decimals))}<br>After: ${c.review.reconstructedBalanceAfterRaw === null ? 'Unavailable' : amount(rawUnits(c.review.reconstructedBalanceAfterRaw,c.decimals))}<br>Reduction: ${depletionLabel(c.depletionBasisPoints)}. Conditional on retained history and zero opening balance.` : 'Balance-depletion comparison applies to outflows only.'}</p>
+    ${destination ? `<h3>Same recipient · ${escape(c.chain)}</h3><p>Across the complete retained outflow history for this token:<br>${destination.count} payments · ${amount(rawUnits(destination.grossOutflowRaw,destination.decimals))} gross token units.<br>${destination.unmatchedCount} unmatched · ${amount(rawUnits(destination.unmatchedOutflowRaw,destination.decimals))} token units.<br>Includes payments hidden by filters. Returns are not deducted.</p>` : ''}
+    ${traced.length ? `<h3>Related traced cases</h3><p>These reports may contain explanations beyond the automated matching rules.</p>${traced.map(flow=>`<button class="reset-filters" data-open-flow="${escape(flow.id)}">${escape(flow.title)} →</button>`).join('')}` : ''}
+    <h3>Candidate relationships</h3><p>${c.review.candidates.length} Fusion candidates · ${c.review.sourceCandidates.length} source-chain candidates. Candidates are hypotheses; competing candidates are not independently settled payments.</p>
+    ${c.review.candidates.map(p=>`<div class="candidate"><code class="address-text">${escape(p.fusionEventId)}</code><p>${escape(p.rule)} · delay ${escape(p.delay)} · fee hypothesis ${escape(p.feeRawHypothesis)} raw units · ${p.competing ? 'competing' : 'no competing normal candidate'}</p></div>`).join('')}
+    ${c.review.sourceCandidates.map(p=>`<div class="candidate"><code class="address-text">${escape(p.otherEventId)}</code><p>Delay ${escape(p.delay)} · fee ${escape(p.feeRawHypothesis)} raw units · ${p.competing ? 'competing' : 'no competing normal candidate'}</p></div>`).join('')}
+    <h3>Additional delayed-review candidates</h3><p>${delayed?.candidates.length ?? 0} Fusion candidates · ${delayed?.sourceCandidates.length ?? 0} source-chain candidates. Wider-window hypotheses are kept separate and do not change the normal classification.</p>${delayed ? `<pre class="json-evidence">${escape(JSON.stringify({fusion:delayed.candidates,sourceChain:delayed.sourceCandidates},null,2))}</pre>` : ''}
+    <details><summary>Receipt exchange evidence (${c.review.exchangeEvidence.length})</summary><pre class="json-evidence">${escape(JSON.stringify(c.review.exchangeEvidence,null,2))}</pre></details>
+    <h3>Retained evidence</h3>${c.evidence.map(path=>`<a class="evidence-link address-text" href="${repo}${path.split('/').map(encodeURIComponent).join('/')}">${escape(path)} ↗</a>`).join('')}<details><summary>Report provenance and limitations</summary><p>Configuration SHA-256: <code class="address-text">${escape(report.configurationSha256)}</code></p><pre class="json-evidence">${escape(JSON.stringify(report.limitations,null,2))}</pre></details></section>`;
+}

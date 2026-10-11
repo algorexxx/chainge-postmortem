@@ -1016,3 +1016,40 @@ main {
   transition:background-color .12s,border-color .12s
 }
 }
+
+.ledger-filters input {
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:7px;
+  min-width:180px;
+  font-size:11px
+}
+.address-text {
+  display:block;
+  overflow-wrap:anywhere;
+  font-size:10px
+}
+.destination-panel {
+  margin-top:18px
+}
+.destination-panel summary {
+  cursor:pointer
+}
+.destination-panel .copy {
+  margin:0;
+  overflow-wrap:anywhere;
+  text-align:left
+}
+.json-evidence {
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  font-size:10px
+}
+.candidate {
+  border-top:1px solid var(--line);
+  padding-top:8px
+}
+
+.ledger-filters select,.ledger-filters input {
+  max-width:100%
+}
