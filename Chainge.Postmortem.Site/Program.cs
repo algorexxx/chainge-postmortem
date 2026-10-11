@@ -2,9 +2,12 @@ using System.Text.Json;
 using Chainge.Postmortem.Application.Catalogue;
 using Chainge.Postmortem.Persistence.Json.Models;
 using Chainge.Postmortem.Site.Extensions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-ArgumentOutOfRangeException.ThrowIfNotEqual(args.Length, 3);
+var serve = args.Length == 4 && args[3] == "--serve";
+ArgumentOutOfRangeException.ThrowIfNotEqual(args.Length, serve ? 4 : 3);
 var input = Path.GetFullPath(args[0]);
 var studiesPath = Path.GetFullPath(args[1]);
 var output = Path.GetFullPath(args[2]);
@@ -26,3 +29,12 @@ var html = template.Replace("/* SITE_STYLES */", styles, StringComparison.Ordina
     .Replace("REGISTRY_DATA", json, StringComparison.Ordinal);
 await File.WriteAllTextAsync(Path.Combine(output, "index.html"), html);
 Console.WriteLine($"Built {snapshot.Tokens.Count} contract entries with {snapshot.Studies.Count} case studies into {output}");
+if (serve)
+{
+    var builder = WebApplication.CreateSlimBuilder();
+    await using var app = builder.Build();
+    app.MapGet("/", () => Results.File(Path.Combine(output, "index.html"), "text/html; charset=utf-8"));
+    app.MapGet("/index.html", () => Results.File(Path.Combine(output, "index.html"), "text/html; charset=utf-8"));
+    Console.WriteLine("Open http://127.0.0.1:8765 in your browser. Press Ctrl+C to stop.");
+    await app.RunAsync("http://127.0.0.1:8765");
+}

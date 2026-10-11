@@ -2,6 +2,10 @@
 
 The static registry is a presentation of reviewed research. It does not collect chain data, automatically match burns, or complete an asset reconciliation.
 
+## Local preview
+
+Run `./preview.ps1` from the repository root, then open http://127.0.0.1:8765 in your browser. Keep the terminal running; Ctrl+C stops the server. This rebuilds the site and serves the generated HTML using the installed .NET SDK. The server binds only to loopback and exposes only `/` and `/index.html`, not repository or archive files. Use this HTTP preview for the interactive UI; the Codex file preview has not rendered the scripts/styles reliably.
+
 ## Build
 
 From the repository root, with .NET SDK 10.0.401 or a later compatible patch:
@@ -12,7 +16,7 @@ dotnet test --solution Chainge.Postmortem.slnx --no-build --coverage --coverage-
 dotnet run --project Chainge.Postmortem.Site --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
 ```
 
-Open `dist/index.html` in a browser, or serve `dist/` using a local static HTTP server. The generated HTML embeds its styles, JavaScript and registry data and needs no companion files. If a file preview does not run scripts, open the file directly in your browser instead. All runtime assets are embedded; no RPC connection, API key, analytics or remote font is required. Evidence links open public source reports and explorers. Only the generated `dist/` directory is intended for static hosting. It contains no archive files.
+For local use, prefer `./preview.ps1` above. For deployment, serve the generated `dist/index.html` using a static HTTP host. The generated HTML embeds its styles, JavaScript and registry data and needs no companion files. If a file preview does not run scripts, open the file directly in your browser instead. All runtime assets are embedded; no RPC connection, API key, analytics or remote font is required. Evidence links open public source reports and explorers. Only the generated `dist/` directory is intended for static hosting. It contains no archive files.
 
 The output uses embedded assets and hash-based token selection, so it can be served under a GitHub Pages repository subdirectory without a server-side route fallback. Publication and remote Git pushes remain with the maintainer. No deployment workflow or automatic refresh is enabled.
 
