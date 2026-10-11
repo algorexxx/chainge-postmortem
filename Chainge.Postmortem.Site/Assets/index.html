@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Independent evidence registry for Fusion token representations, candidate custody addresses and traced asset movements.">
+  <title>Chainge Postmortem · Asset registry</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="registry.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#detail">Skip to token details</a>
+  <header class="masthead">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">c.</span><span>CHAINGE <b>POSTMORTEM</b><small>Independent public research</small></span></a>
+    <nav aria-label="Project"><a href="https://github.com/algorexxx/chainge-postmortem/blob/main/PLAN.md">Methodology ↗</a><a href="https://github.com/algorexxx/chainge-postmortem">Evidence repository ↗</a></nav>
+  </header>
+  <div class="workspace">
+    <aside class="catalogue" aria-label="Fusion token catalogue">
+      <div class="catalogue-head"><p class="eyebrow">01 / Asset index</p><h1>Fusion tokens <span id="total-count"></span></h1><p>Source-listed contracts. Select one to explore its evidence.</p>
+        <label for="token-search">Find a token</label><div class="search-wrap"><span aria-hidden="true">⌕</span><input id="token-search" type="search" placeholder="Symbol or full address" autocomplete="off"></div>
+        <label class="check-label"><input id="reviewed-only" type="checkbox"> With investigation</label>
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+      </div>
+      <div id="token-list" class="token-list"></div><button id="load-more" class="load-more">Show more tokens</button>
+      <footer class="catalogue-footer">Catalogue captured 11 Oct 2026<br><a href="https://docs.google.com/spreadsheets/d/1pyQlI4oGOgaRx-5UWA68meb85KtsnZ98BZrYDrHsqhk/edit?gid=1161132641#gid=1161132641">Public source spreadsheet ↗</a></footer>
+    </aside>
+    <main id="detail" tabindex="-1"><noscript>This registry needs JavaScript for token selection. All findings remain available in the <a href="https://github.com/algorexxx/chainge-postmortem/tree/main/research">research reports</a>.</noscript><p class="loading">Loading the evidence registry…</p></main>
+  </div>
+  <footer class="site-footer"><span>Public evidence. Explicit uncertainty.</span><span>Transfers do not establish ownership, purpose or loss.</span></footer>
+</body>
+</html>

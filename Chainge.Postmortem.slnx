@@ -1,0 +1,22 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Chainge.Postmortem.Application/Chainge.Postmortem.Application.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Chainge.Postmortem.Domain/Chainge.Postmortem.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Chainge.Postmortem.Persistence.Json/Chainge.Postmortem.Persistence.Json.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Chainge.Postmortem.Site/Chainge.Postmortem.Site.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Chainge.Postmortem.Application.Tests/Chainge.Postmortem.Application.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="PLAN.md" />
+  </Folder>
+</Solution>

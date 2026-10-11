@@ -8,6 +8,8 @@ The required result for every asset is a complete ledger comparing outstanding F
 
 ## Start here
 
+- [Build and preview the token registry UI](registry/README.md)
+
 - [BUSD case assessment and remaining questions](research/busd-case-assessment.md)
 - [January 2024 BUSD transfer to a Binance-labelled address](research/busd-204k-exchange-path.md)
 - [FDUSD replacement-reserve follow-up and search limits](research/busd-fdusd-followup.md)
@@ -27,7 +29,7 @@ The required result for every asset is a complete ledger comparing outstanding F
 
 ## Current coverage
 
-The initial investigation covers a small Fusion token sample and a BUSD pilot. **BUSD is incomplete: the outstanding-token/vault reconciliation has not yet been delivered.** Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. An Avalanche router's configured liquidity-address role and two subsequent changes are verified; segregated reserves and complete source-chain custody remain unconfirmed. A public site and repeatable collector are planned, not implemented.
+The initial investigation covers a small Fusion token sample and a BUSD pilot. **BUSD is incomplete: the outstanding-token/vault reconciliation has not yet been delivered.** Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. An Avalanche router's configured liquidity-address role and two subsequent changes are verified; segregated reserves and complete source-chain custody remain unconfirmed. A local static registry UI now covers all 2,184 source-listed contracts, with detailed BUSD positions and selected movement paths. Public deployment, automatic burn matching and a repeatable chain collector are not implemented.
 
 Reviewed query evidence is stored under `evidence/`, with request/response pairs, capture metadata and integrity manifests where available. Some source-inventory entries refer to local archives that are not distributed in this repository. A clone therefore does not contain the complete preservation archive.
 

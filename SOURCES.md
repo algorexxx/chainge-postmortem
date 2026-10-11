@@ -23,6 +23,8 @@ The initial sandbox HTTP attempts failed with local socket-access errors. A subs
 
 ## Workbook inspection
 
+Update for the UI: an independent public CSV export was successfully retrieved on 2026-10-11 and is distributed in [the catalogue evidence package](evidence/2026-10-11-token-catalogue/README.md). Its 2,185 rows, 2,184 distinct addresses and duplicate GLCH source rows agree with the earlier workbook inspection. The static-site generator reads the exported CSV directly. This verifies a current source export, not the underlying contracts' authenticity or custody.
+
 File: `New smart contract addresses on Fusion.xlsx`. Sheet: `Sheet2`.
 
 - `A1:B1` contains the headers `Asset` and `Address on Fusion`.

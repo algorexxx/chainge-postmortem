@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Chainge.Postmortem.Domain/Chainge.Postmortem.Domain.csproj" />
+    <ProjectReference Include="../Chainge.Postmortem.Application/Chainge.Postmortem.Application.csproj" />
+  </ItemGroup>
+</Project>

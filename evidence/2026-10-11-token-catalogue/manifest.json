@@ -1,0 +1,20 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "path": "capture.json",
+      "bytes": 662,
+      "sha256": "9d58a1d007c8d57b763d5e1581bfe5d3b939fec887ea1fbb4c50c4df06b94897"
+    },
+    {
+      "path": "README.md",
+      "bytes": 918,
+      "sha256": "a35b36758a4e0463e9810ef16a3b590c426abe0e39ac936d5120973dbc6ebaa6"
+    },
+    {
+      "path": "tokens.csv",
+      "bytes": 107146,
+      "sha256": "771fd19221d83f8a8525d16ce2c175080ffd2f802ec9217fbf8787377f20bec7"
+    }
+  ]
+}

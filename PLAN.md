@@ -185,3 +185,9 @@ During the initial planning review, Fusionite and GitHub pages were accessible t
 Repository: [algorexxx/chainge-postmortem](https://github.com/algorexxx/chainge-postmortem), maintained as independent research under a personal account. Local Git history starts with the reviewed baseline. Continue committing coherent research steps locally; the maintainer handles all pushes. See [README.md](README.md) for the history and correction policy.
 
 Open implementation decisions: site URL; external archive storage and backup availability; private intake location; actual free endpoint coverage; weekly refresh feasibility. None changes the agreed evidence and privacy policy.
+
+## Local UI implementation (2026-10-11)
+
+The first static registry is implemented with a layered .NET generator and browser-local navigation. It indexes 2,184 distinct source-listed Fusion addresses, with contract-specific unassessed states. The BUSD view presents newer-token issuance, incomplete backing coverage, six selected chain-qualified positions and four selected movement cases. Filters distinguish unmatched outflows from possible redemption and rebalancing. Exact amounts and cited reports remain available; no automatic burn matcher, consolidated reserve ratio or exhaustive outflow ranking is claimed. See [build instructions and data boundaries](registry/README.md).
+
+Publication, automated refresh, completed reconciliations and extension to additional researched assets remain pending. The maintainer continues to handle remote pushes.

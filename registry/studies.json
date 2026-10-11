@@ -1,0 +1,367 @@
+{
+  "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": {
+    "title": "BUSD",
+    "status": "Reconciliation incomplete",
+    "reviewed": "2026-10-11",
+    "scope": "Newer Fusion representation with linked historical BUSD research",
+    "fusionCutoff": "2025-10-07 08:43:50 UTC · block 15130080",
+    "minted": "1901947.310901214866171924",
+    "burned": "859866.890200848809065438",
+    "supply": "1042080.420700366057106486",
+    "ledgerSource": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/factory-history-and-busd-supply.md",
+    "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-case-assessment.md",
+    "fdusdSource": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-fdusd-followup.md",
+    "vaults": [
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BUSD",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Historical operating candidate",
+        "balance": "0",
+        "cutoff": "2026-10-11",
+        "note": "Deposit / mint and burn / payment pairings. Segregated reserve status unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BUSD",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Historical controller candidate",
+        "balance": "0",
+        "cutoff": "2026-10-11",
+        "note": "Returned ledger reconciles; operating relationship does not establish total custody.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BUSD",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Historical controller candidate",
+        "balance": "0",
+        "cutoff": "2026-10-11",
+        "note": "232 returned receipt-verified events; final observed balance zero.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BUSD",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Successor candidate",
+        "balance": "23.724135682808759163",
+        "cutoff": "2026-10-11 16:19:11 UTC · block 26170361",
+        "note": "Observed holding; no verified segregated-vault role on Ethereum.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BUSD.e",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Former configured liquidity address",
+        "balance": "0.000000000000087769",
+        "cutoff": "2026-10-11 16:12:49 UTC · block 97292331",
+        "note": "Role verified on Avalanche in May 2024. Dust balance is nonzero.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BUSD.e",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Configured liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-11 16:12:49 UTC · block 97292331",
+        "note": "Configuration verified. Segregated backing and complete custody remain unconfirmed.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
+      }
+    ],
+    "flows": [
+      {
+        "id": "earlier-1200k",
+        "title": "Earlier controller to Binance-labelled wallet",
+        "amount": "1200000",
+        "chain": "BSC",
+        "date": "2021-12-07 / 2021-12-20",
+        "status": "Unmatched",
+        "endpoint": "Binance 51",
+        "explanation": "Two outflows, 1,100,000 and 100,000 BUSD. No corresponding Fusion burn or internal exchange account has been verified. Amounts in this path aggregate the two transfers; hops must not be added together.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md",
+        "steps": [
+          {
+            "label": "Earlier controller",
+            "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+            "chain": "BSC",
+            "amount": "1200000",
+            "time": "December 2021",
+            "transaction": null,
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Intermediary",
+            "address": "0x4e2be742c076f7e0a86192a25151c2bbeba0386f",
+            "chain": "BSC",
+            "amount": "1200000",
+            "time": "December 2021",
+            "transaction": null,
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Intermediary",
+            "address": "0xbe117e30c35f74302cea0ab7f553de08575f75a8",
+            "chain": "BSC",
+            "amount": "1200000",
+            "time": "December 2021",
+            "transaction": null,
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Binance 51",
+            "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+            "chain": "BSC",
+            "amount": "1200000",
+            "time": "December 2021",
+            "transaction": null,
+            "note": "Explorer label. Two terminal transactions; exchange credit and later disposition unknown.",
+            "kind": "verified"
+          }
+        ]
+      },
+      {
+        "id": "redemption-1093k",
+        "title": "Payment with a candidate Fusion burn match",
+        "amount": "1093231.844870668851674158",
+        "chain": "BSC",
+        "date": "2022-01-01",
+        "status": "Possible redemption",
+        "endpoint": "FTX 4, after combining other balances",
+        "explanation": "A 1,093,232.344870668851674158 Fusion burn precedes the payment to the same holder by 9h 55m 28s. The 0.5 difference and pairing are consistent with redemption; no common bridge identifier or fee rule is verified. Later transfers combine other balances and reach an FTX-labelled wallet.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md",
+        "steps": [
+          {
+            "label": "Fusion burn",
+            "address": "0xf96fea9f56f008b6dccb1bba4a59803cf53bd34b",
+            "chain": "Fusion",
+            "amount": "1093232.344870668851674158",
+            "time": "2022-01-01 07:28:15 UTC",
+            "transaction": "https://fsnex.net/transaction/0x3c68959f063cb5a062708313bae8959fd8f9742b78dcaab0b2e169caf6541c7b",
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Earlier controller",
+            "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+            "chain": "BSC",
+            "amount": "1093231.844870668851674158",
+            "time": "2022-01-01 17:23:43 UTC",
+            "transaction": null,
+            "note": "",
+            "kind": "inferred"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xf96fea9f56f008b6dccb1bba4a59803cf53bd34b",
+            "chain": "BSC",
+            "amount": "1093231.844870668851674158",
+            "time": "2022-01-01 17:23:43 UTC",
+            "transaction": "https://bscscan.com/tx/0x2342819c3d81dede23f263ac409546b62f5891e3fa66b49a7c11a7d68a2be870",
+            "note": "Payment verified; link to Fusion burn is inferred. Follow subsequent combined-balance transfers in the evidence report.",
+            "kind": "verified"
+          },
+          {
+            "label": "Recipient forwards combined balance",
+            "address": "0xb87f5110f19a42058908343ee10e5337a2b11187",
+            "chain": "BSC",
+            "amount": "1102691.910645403908043643",
+            "time": "Later transfers · exact history in source report",
+            "transaction": null,
+            "note": "Includes the recipient’s existing BUSD balance; no one-to-one assignment of fungible units.",
+            "kind": "verified"
+          },
+          {
+            "label": "Second intermediary",
+            "address": "0x4c93251abe89ac983a26c53aa2dd1db5cdf82cb4",
+            "chain": "BSC",
+            "amount": "1103791.910645403908043643",
+            "time": "Later transfers · exact history in source report",
+            "transaction": "https://bscscan.com/tx/0x3f1c3fb29cf9f5b39e49b4de3aeb9246a29495ff715d1aff80a51f070683147e",
+            "note": "Adds a separate earlier 1100 BUSD receipt.",
+            "kind": "verified"
+          },
+          {
+            "label": "FTX 4",
+            "address": "0x41772edd47d9ddf9ef848cdb34fe76143908c7ad",
+            "chain": "BSC",
+            "amount": "1103791.910645403908043643",
+            "time": "Later transfers · exact history in source report",
+            "transaction": "https://bscscan.com/tx/0x0bcad18b6bed70b90f08450103f72e712a062af7da60dac333c4693f0e21f011",
+            "note": "BscScan label. Beneficiary, exchange credit and relationship to the later exchange failure are not established.",
+            "kind": "verified"
+          }
+        ]
+      },
+      {
+        "id": "jan-204k",
+        "title": "January balance sent through two intermediaries",
+        "amount": "204567.658073647823395109",
+        "chain": "Ethereum",
+        "date": "2024-01-01",
+        "status": "Unmatched",
+        "endpoint": "Binance 14",
+        "explanation": "The full January payment reaches the second intermediary. The terminal sweep also includes 92.645784413941010945 BUSD received in December. Binance’s FDUSD conversion timetable is consistent with a possible conversion, but no FDUSD return into the 20 tested candidates was found. No verified Fusion burn match.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-204k-exchange-path.md",
+        "steps": [
+          {
+            "label": "Historical controller",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Ethereum",
+            "amount": "204567.658073647823395109",
+            "time": "2024-01-01 01:31:11 UTC",
+            "transaction": null,
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "First intermediary",
+            "address": "0x99d1a2227b17ca28ed0287da301a91d0e1006571",
+            "chain": "Ethereum",
+            "amount": "204567.658073647823395109",
+            "time": "2024-01-01 01:31:11 UTC",
+            "transaction": "https://etherscan.io/tx/0xf32d2fd024c70b88b051d744d7741c948a2fef088a247e358d72a2783d370e40",
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Second intermediary",
+            "address": "0x7c329d8deaeb8eb622e6b4b08dacc24d0afa94db",
+            "chain": "Ethereum",
+            "amount": "204567.658073647823395109",
+            "time": "2024-01-01 01:31:59 UTC",
+            "transaction": "https://etherscan.io/tx/0x5642dee52b6c0a6a870209f78024f99ba84af5986f0f47d97b8ee810bd1799ad",
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Binance 14",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "204660.303858061764406054",
+            "time": "2024-01-01 03:00:11 UTC",
+            "transaction": "https://etherscan.io/tx/0x938dfb0a96b975e8c1b94147b5102b3030baa2be6054aab35dbfa292220c0354",
+            "note": "Includes the earlier 92.645784413941010945 payment. Explorer label; account and subsequent outcome unknown.",
+            "kind": "verified"
+          }
+        ]
+      },
+      {
+        "id": "nov-187k",
+        "title": "Exchange path with a near-matching return",
+        "amount": "187290.327160557405335843",
+        "chain": "BSC → Ethereum",
+        "date": "2023-11-02",
+        "status": "Possible rebalancing",
+        "endpoint": "Return to Ethereum controller",
+        "explanation": "BSC funds reach Binance 51, followed 25m 31s later by 187,285.72716055 BUSD returning to the controller on Ethereum. Individual transfers are verified; the exchange-internal connection is inferred. This is not a verified Fusion redemption.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md",
+        "steps": [
+          {
+            "label": "Historical controller",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "187290.327160557405335843",
+            "time": "2023-11-02",
+            "transaction": "https://bscscan.com/tx/0x18f90ba76942138254dee5b1882a4edd49ddc5f7228e72d2993afbfbed68bc3a",
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "First intermediary",
+            "address": "0x5ce8eaf2bba018688ade0f0a264f0a572e56d3a3",
+            "chain": "BSC",
+            "amount": "187290.327160557405335843",
+            "time": "2023-11-02",
+            "transaction": null,
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Second intermediary",
+            "address": "0x983868374f46b78473ba05396ccd593192ed074e",
+            "chain": "BSC",
+            "amount": "187290.327160557405335843",
+            "time": "2023-11-02",
+            "transaction": null,
+            "note": "Two incoming transfers: 100 and 187190.327160557405335843.",
+            "kind": "verified"
+          },
+          {
+            "label": "Binance 51",
+            "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+            "chain": "BSC",
+            "amount": "187290.327160557405335843",
+            "time": "2023-11-02 02:30:04 UTC",
+            "transaction": "https://bscscan.com/tx/0xa72423f29141d8da4dce0493abc299ac932005ccba07cf137ae999344042bec5",
+            "note": "",
+            "kind": "verified"
+          },
+          {
+            "label": "Binance 15",
+            "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+            "chain": "Ethereum",
+            "amount": "187285.72716055",
+            "time": "2023-11-02 02:45:47 UTC",
+            "transaction": null,
+            "note": "Explorer label. The relationship to the preceding BSC exchange receipt is inferred.",
+            "kind": "inferred"
+          },
+          {
+            "label": "Ethereum intermediary",
+            "address": "0x5ce8eaf2bba018688ade0f0a264f0a572e56d3a3",
+            "chain": "Ethereum",
+            "amount": "187285.72716055",
+            "time": "2023-11-02 02:45:47 UTC",
+            "transaction": "https://etherscan.io/tx/0x8cdbc747c45c2a317d62f0dd2c1d1acbfce8c287363211ea1aaeece4a4971b56",
+            "note": "Same address string as the first BSC intermediary.",
+            "kind": "verified"
+          },
+          {
+            "label": "Controller receives return",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Ethereum",
+            "amount": "187285.72716055",
+            "time": "2023-11-02 02:55:35 UTC",
+            "transaction": "https://etherscan.io/tx/0xcc074047330416fc0f61c8fbbdc4cea39d48bc2f693e89538b62294fef66b8b3",
+            "note": "Full received amount forwarded to the Ethereum controller.",
+            "kind": "verified"
+          }
+        ]
+      }
+    ],
+    "activity": [
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BUSD",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "inflow": "5627912.884153641388215982",
+        "outflow": "5627912.884153641388215982",
+        "period": "2022-07-12 → 2024-01-23"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BUSD",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "inflow": "878608.060806010088336945",
+        "outflow": "878608.060806010088336945",
+        "period": "2022-07-12 → 2024-01-20"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BUSD.e",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "inflow": "19569.129245861096569942",
+        "outflow": "19569.129245861096569942",
+        "period": "Returned history through 2023-11-02"
+      }
+    ]
+  }
+}

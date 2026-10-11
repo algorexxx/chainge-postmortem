@@ -1,0 +1,10 @@
+{
+  "source_url": "https://docs.google.com/spreadsheets/d/1pyQlI4oGOgaRx-5UWA68meb85KtsnZ98BZrYDrHsqhk/export?format=csv&gid=1161132641",
+  "captured_date_utc": "2026-10-11",
+  "method": "Direct public CSV export via HTTPS, independently retrieved for the UI. Exact download timestamp was not recorded.",
+  "sha256": "771fd19221d83f8a8525d16ce2c175080ffd2f802ec9217fbf8787377f20bec7",
+  "bytes": 107146,
+  "rows": 2185,
+  "distinct_addresses": 2184,
+  "mapping": "The site generator reads the two CSV columns and their one-based source rows directly. Duplicate case-insensitive addresses are grouped at build time, retaining all source row numbers."
+}
