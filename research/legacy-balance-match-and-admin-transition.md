@@ -56,6 +56,8 @@ Read-only inspection found one tab, `Assets`, with 1,599 nonempty rows, no formu
 
 ## Next verification targets
 
+Follow-up: [legacy authority and time-slice accounting](legacy-authority-and-slice-accounting.md) extends the administrative sequence and reconciles the original address's full-time balance, including a verified slice conversion and residual burn.
+
 Seek public records explaining the January legacy blocking sequence and February newer-token issuance, preserving attributed statements separately from chain facts. Source-chain correlation should begin with a specific independently verifiable transaction or historical order record, not the assumption that every mint was an external deposit. The collector must keep legacy parent/child roles, newer tokens, blocked balances and incomplete query coverage distinct.
 
 Receipt checks cover the eight selected transactions saved in `verification.*`, not every transaction in the two windows. No pre/post historical state traces were obtained. Node and explorer may share the same upstream data. No source-chain vault is confirmed.
