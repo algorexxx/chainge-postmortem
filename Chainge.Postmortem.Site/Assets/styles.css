@@ -1074,3 +1074,11 @@ main {
   .closing-amount { text-align:right }
   .closing-explanation { grid-column:1 }
 }
+
+.service-timeline { border-left:2px solid var(--line); padding-left:22px; margin:28px 0 }
+.timeline-entry { position:relative; margin-bottom:18px }
+.timeline-entry::before { content:''; position:absolute; left:-29px; top:29px; width:10px; height:10px; border-radius:50%; background:var(--green) }
+.timeline-entry h2 { font-size:20px; line-height:1.4 }
+.timeline-entry summary { cursor:pointer; color:var(--green); font-weight:600 }
+.timeline-source { border-top:1px solid var(--line); margin-top:20px; padding-top:8px }
+.timeline-source blockquote { white-space:pre-wrap; overflow-wrap:anywhere; margin:16px 0; padding:8px 18px; border-left:3px solid var(--line); line-height:1.65 }

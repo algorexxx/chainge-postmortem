@@ -33,6 +33,6 @@ public sealed class RegistryBuilder
             throw new InvalidDataException("A case study references a contract absent from the catalogue.");
         }
 
-        return new RegistrySnapshot { Tokens = tokens, Studies = studies };
+        return new RegistrySnapshot { Tokens = tokens, Studies = studies, Timeline = source.Timeline };
     }
 }

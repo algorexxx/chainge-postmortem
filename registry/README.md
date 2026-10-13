@@ -84,3 +84,8 @@ Regression coverage includes incoming/outgoing repeated same-pool swaps, reverse
 ### Combined closing-transfer presentation
 
 The default BUSD shortlist has eight distinct cards across six histories, with no vault selector or side-by-side evidence panel. Full ledger retains all 5,710 movements and its existing filters. This presentation change does not change classifications, matching rules or retained evidence.
+
+
+## Project-wide timeline
+
+`timeline.json` is the reviewed source for the Timeline navigation item (`#timeline`), independent of token selection. The generator loads it beside `studies.json` and embeds it in the self-contained page. It contains milestone summaries and selected founder excerpts, never the raw chat export. All dates use UTC Unix timestamps; publication, retained edit time and described event/target dates are separate. See `research/service-timeline.md` for attribution and privacy boundaries. `timeline.sha256` records the reviewed derivative. Update the manifest after a reviewed timeline change.

@@ -14,7 +14,8 @@ var output = Path.GetFullPath(args[2]);
 var services = new ServiceCollection().AddResearchSite(new CatalogueSettings
 {
     CataloguePath = input,
-    StudiesPath = studiesPath
+    StudiesPath = studiesPath,
+    TimelinePath = Path.Combine(Path.GetDirectoryName(studiesPath)!, "timeline.json")
 });
 await using var provider = services.BuildServiceProvider();
 var snapshot = await provider.GetRequiredService<RegistryBuilder>().BuildRegistry(CancellationToken.None);

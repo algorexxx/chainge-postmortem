@@ -9,6 +9,7 @@ The required result for every asset is a complete ledger comparing outstanding F
 ## Start here
 
 - [Build and preview the token registry UI](registry/README.md)
+- [Service timeline: sources, attribution and open questions](research/service-timeline.md)
 
 - [BUSD case assessment and remaining questions](research/busd-case-assessment.md)
 - [January 2024 BUSD transfer to a Binance-labelled address](research/busd-204k-exchange-path.md)

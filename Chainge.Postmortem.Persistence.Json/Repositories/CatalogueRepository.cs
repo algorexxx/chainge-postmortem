@@ -36,7 +36,15 @@ public sealed class CatalogueRepository : ICatalogueRepository
             study["automatedMovements"] = JsonNode.Parse(reportText);
             studies[pair.Key] = JsonSerializer.SerializeToElement(study);
         }
-        return new CatalogueSource { Tokens = records.Select(token => token.ToTokenListing()).ToList(), Studies = studies };
+        return new CatalogueSource { Tokens = records.Select(token => token.ToTokenListing()).ToList(), Studies = studies, Timeline = await ReadTimelineAsync(cancellationToken) };
+    }
+
+    private async Task<JsonElement?> ReadTimelineAsync(CancellationToken cancellationToken)
+    {
+        if (settings.TimelinePath is null) { return null; }
+        await using var stream = File.OpenRead(settings.TimelinePath);
+        using var document = await JsonDocument.ParseAsync(stream, cancellationToken: cancellationToken);
+        return document.RootElement.Clone();
     }
 
     private static List<TokenRecord> ReadTokenRows(string text)

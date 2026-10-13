@@ -36,6 +36,13 @@ function renderCatalogue() {
 }
 
 function renderSelection() {
+  if (location.hash === '#timeline') {
+    selected = undefined;
+    renderCatalogue();
+    document.title = 'Service timeline · Chainge Postmortem';
+    detail.innerHTML = renderTimeline();
+    return;
+  }
   const address = new URLSearchParams(location.hash.slice(1)).get('token')?.toLowerCase();
   selected = registry.tokens.find(token => token.address === address) || (!address ? registry.tokens[0] : undefined);
   renderCatalogue();
@@ -263,3 +270,20 @@ function renderTerminalConvergence(report, byId) {
   return `<details class="panel"><summary>Recipient convergence · ${report.sharedTerminalDestinations?.length ?? 0} same-chain groups / ${report.crossChainTerminalRecipients?.length ?? 0} cross-chain address groups</summary><p>Only recipients shared by distinct source addresses on the same chain and token are grouped. This tests direct transfers in the selected sequences; it does not trace later hops or establish who controls an address.</p>${(report.sharedTerminalDestinations ?? []).map(d=>`<h3>${escape(d.chain)} · ${escape(d.address)}</h3><code class="address-text">Token: ${escape(d.token)}</code><p>Sources: ${d.sourceAddresses.map(escape).join(', ')}</p>${d.eventIds.map(id=>`<p><code class="address-text">${escape(id)}</code>${terminalPayment(id,byId,report.asset)}</p>`).join('')}`).join('') || '<p>No shared immediate recipients found within this comparison scope. Later intermediary convergence is not ruled out.</p>'}<h3>Same recipient address across chains</h3><p>Identical address bytes are a lead, not proof of common control. Amounts and transfers stay separate by chain.</p>${(report.crossChainTerminalRecipients ?? []).map(d=>`<code class="address-text">${escape(d.address)}</code>${d.eventIds.map(id=>`<p>${escape(byId.get(id).chain)} · ${escape(short(byId.get(id).from))}<br>${terminalPayment(id,byId,report.asset)}</p>`).join('')}`).join('') || '<p>No cross-chain recipient-address reuse found in these sequences.</p>'}</details>`;
 }
 
+function renderTimeline() {
+  const timeline = registry.timeline;
+  if (!timeline) return '<div class="empty">No timeline available.</div>';
+  const coverage = timeline.coverage;
+  return `<p class="eyebrow">Project history</p><div class="section-title"><h1>Service timeline</h1><span class="status neutral">${escape(timeline.status)}</span></div>
+    <p>Reported disruptions, funding plans and restoration updates from DJ Qian. Read from oldest to newest, and expand any event to inspect the preserved statements.</p>
+    <div class="notice"><strong>Statements are evidence of what was said.</strong>They do not independently prove a blacklist, funding receipt or repayment. No single shutdown date has been established.</div>
+    <p class="muted">${timeline.entries.length} milestones · reviewed ${escape(coverage.reviewedDate)} · all publication times in UTC. <a href="${repo}research/service-timeline.md">Method and open questions ↗</a></p>
+    <div class="service-timeline">${timeline.entries.map(entry=>renderTimelineEntry(entry,timeline.sources)).join('')}</div>
+    <details class="panel"><summary>Source coverage, attribution & limitations</summary><p>Retained export: ${escape(coverage.firstRetainedUtc)} to ${escape(coverage.lastRetainedUtc)} · ${coverage.retainedRecords.toLocaleString()} records. Export completion time was not supplied.</p><p>${escape(coverage.attribution)}</p><p>${escape(coverage.method)}</p><ul>${coverage.limitations.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><p>Private original SHA-256:<code class="address-text">${escape(coverage.rawExportSha256)}</code></p><a href="${repo}registry/timeline.json">Reviewed timeline and excerpts ↗</a></details>`;
+}
+
+function renderTimelineEntry(entry, sources) {
+  return `<article class="panel timeline-entry"><p class="eyebrow"><time datetime="${escape(entry.publishedUtc)}">${escape(entry.publishedUtc.slice(0,10))}</time> · ${escape(entry.scope)}</p><h2>${escape(entry.title)}</h2><p>${escape(entry.summary)}</p>
+    <details><summary>Sources & uncertainty · ${entry.sourceIds.length} statement${entry.sourceIds.length === 1 ? '' : 's'}</summary><p><strong>Event or target time:</strong> ${escape(entry.eventTime)}</p><p><strong>Not established:</strong> ${escape(entry.limitation)}</p>
+    ${entry.sourceIds.map(id=>{const source=sources[id];return `<section class="timeline-source"><p><a href="${escape(source.url)}">DJ Qian · message ${source.messageId} ↗</a><br><time datetime="${escape(source.publishedUtc)}">${escape(source.publishedUtc)}</time>${source.lastEditedUtc ? `<br>Last retained edit: ${escape(source.lastEditedUtc)}` : ''}</p>${[source.excerpt,...(source.additionalExcerpts ?? [])].map(excerpt=>`<blockquote>${escape(excerpt)}</blockquote>`).join('')}<p class="footnote">${source.excerptIsCompleteMessage ? 'Complete retained message text.' : 'Selected verbatim excerpt(s); intervening or surrounding text omitted.'} Live message content has not been reverified.</p></section>`;}).join('')}</details></article>`;
+}

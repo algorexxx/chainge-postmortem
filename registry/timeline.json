@@ -1,0 +1,552 @@
+{
+  "title": "Chainge service timeline",
+  "status": "Preliminary · founder statements",
+  "coverage": {
+    "reviewedDate": "2026-10-13",
+    "chat": "https://t.me/chaingefinance",
+    "sourceFormat": "Telegram Desktop JSON",
+    "retainedRecords": 404958,
+    "retainedMessages": 392545,
+    "firstRetainedUtc": "2020-10-28T02:24:49Z",
+    "lastRetainedUtc": "2026-10-11T18:52:27Z",
+    "rawExportSha256": "08ff6dd409ce0375859f711836e3438e04a183866de4b40fa412f74608aa840d",
+    "rawExportBytes": 178894137,
+    "exportCompletedAtUtc": null,
+    "attribution": "Maintainer confirmed the author of message 864721 as @djqian on 2026-10-13. Selected messages share that exported sender identity. Numeric sender identifiers are not published. The export alone does not preserve the account username or authenticate past account control.",
+    "method": "Selected founder statements reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories.",
+    "limitations": [
+      "Raw export remains outside the repository; its hash is an integrity reference, not independent authentication or a certified capture time.",
+      "Live Telegram message retrieval was unavailable through the web tool during this review. Links are constructed from the public group handle and export message IDs; live existence/content not reverified.",
+      "Deleted/inaccessible messages and previous edits are not recovered. The observed range is not a completeness guarantee.",
+      "Fusion HTML export is present but not analyzed in this first Chainge-focused pass. Media and linked external announcements are not exhaustively reviewed.",
+      "Earlier reposted explanations are discovery leads only until original official sources and roles are verified. No ordinary-member messages are published.",
+      "This is a communications timeline. No issuer restriction, custody attribution, funding receipt or user repayment is independently established by an announcement."
+    ]
+  },
+  "sources": {
+    "638119": {
+      "messageId": 638119,
+      "url": "https://t.me/chaingefinance/638119",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2023-06-10T15:25:00Z",
+      "lastEditedUtc": "2023-06-10T15:26:08Z",
+      "excerpt": "After identifying an OTP related vulnerability in the beginners' mode wallets, we have taken immediate action to ensure the safety of your assets. \n\nAs a precautionary measure, certain Chainge features have been temporarily paused. \n\nWe are diligently working to resolve the issues and aim to resume normal operations as soon as possible. \n\nRest assured, the security of your assets remains our top priority and we are currently working on a recovery tool for all users in beginner mode to use and migrate to self-custodial expert mode.\n\nThank you for your patience and steadfast support.",
+      "excerptIsCompleteMessage": true
+    },
+    "828837": {
+      "messageId": 828837,
+      "url": "https://t.me/chaingefinance/828837",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2024-11-24T03:52:18Z",
+      "lastEditedUtc": "2024-11-24T04:07:18Z",
+      "excerpt": "Hi, just fyi. If you really want to bridge now, you could swap your wkas into USDT and use USDT to buy native KAS on Kaspa chain, both using our dapp. In this way, your wkas could be converted into KAS on Kaspa chain. And yes, the queue has been cleared. But we need to fix a bug for that to prevent it from happening again. That's why we have to leave it as it is now. However, it's functional.",
+      "excerptIsCompleteMessage": true
+    },
+    "862573": {
+      "messageId": 862573,
+      "url": "https://t.me/chaingefinance/862573",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-06T03:17:47Z",
+      "lastEditedUtc": "2025-03-06T04:51:34Z",
+      "excerpt": "I am aware of the stuck transactions.",
+      "excerptIsCompleteMessage": true
+    },
+    "862576": {
+      "messageId": 862576,
+      "url": "https://t.me/chaingefinance/862576",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-06T03:18:19Z",
+      "lastEditedUtc": "2025-03-06T03:18:41Z",
+      "excerpt": "I have been working on this for about 2 weeks.",
+      "excerptIsCompleteMessage": true
+    },
+    "862582": {
+      "messageId": 862582,
+      "url": "https://t.me/chaingefinance/862582",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-06T03:20:20Z",
+      "lastEditedUtc": "2025-03-06T03:20:42Z",
+      "excerpt": "1. We will solve all piled up stuck transactions asap. My target is by 3/14, which is by next week. But some of them will be solved sooner.",
+      "excerptIsCompleteMessage": true
+    },
+    "862585": {
+      "messageId": 862585,
+      "url": "https://t.me/chaingefinance/862585",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-06T03:20:37Z",
+      "lastEditedUtc": "2025-03-06T03:20:53Z",
+      "excerpt": "2. Right after that, we will activate CUSDT/KAS again",
+      "excerptIsCompleteMessage": true
+    },
+    "862586": {
+      "messageId": 862586,
+      "url": "https://t.me/chaingefinance/862586",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-06T03:21:00Z",
+      "lastEditedUtc": "2025-03-06T03:21:16Z",
+      "excerpt": "3. When wkas repegged, we will open the bridge for wkas/kas",
+      "excerptIsCompleteMessage": true
+    },
+    "864721": {
+      "messageId": 864721,
+      "url": "https://t.me/chaingefinance/864721",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-14T04:02:07Z",
+      "lastEditedUtc": "2025-03-14T04:02:35Z",
+      "excerpt": "Someone used our service for money laundry. And some of addresses holding funds were blacklisted, which caused the drain of liquidity. Our lawyer has been working on it 2 months ago to present our service and made it clear it has nothing to do with us. I expected it to be solved very soon. Unfortunately, it took too long. So I decided to use my funds to solve all stuck transactions first and take back mine after that case is resolved. My target date to get back my funds was around 3/14. So I stated the ETA. I hope it will come today and start to solve the stuck transactions.",
+      "excerptIsCompleteMessage": true
+    },
+    "864894": {
+      "messageId": 864894,
+      "url": "https://t.me/chaingefinance/864894",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-14T11:38:44Z",
+      "lastEditedUtc": "2025-03-14T11:38:56Z",
+      "excerpt": "I am getting my money back starting from today. If all comes back today, all will be resolved by today. But maximum 4 days, all my money will arrive",
+      "excerptIsCompleteMessage": true
+    },
+    "864927": {
+      "messageId": 864927,
+      "url": "https://t.me/chaingefinance/864927",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-14T12:21:15Z",
+      "lastEditedUtc": "2025-03-14T12:23:03Z",
+      "excerpt": "totally 473 stuck transactions left to go",
+      "excerptIsCompleteMessage": true
+    },
+    "866590": {
+      "messageId": 866590,
+      "url": "https://t.me/chaingefinance/866590",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-18T14:12:44Z",
+      "lastEditedUtc": "2025-03-18T14:13:46Z",
+      "excerpt": "I will take these questions: \n1. when will liquidity appear?\nOriginally I was expecting it appear mid last week. Then I expect it to appear today. Currently, I am waiting for my money back to put into the liquidity. And it's still the plan now. We still have some time for tonight. I am 80-90% sure my money will start to come tonight or tomorrow.\n2. why so few frozen transactions have been fixed?\nBecause I used my money in hand. And still waiting big amount coming to resolve the rest.\n3. what is the progress?\nProgress is that we have resolved 1/5 of the stuck transactions. But major part is still waiting.\n4. is there a problem with the receipt of funds DJ?\nYou don't have to worry about that. Leave it for me to worry about.",
+      "excerptIsCompleteMessage": true
+    },
+    "866868": {
+      "messageId": 866868,
+      "url": "https://t.me/chaingefinance/866868",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-19T16:29:02Z",
+      "lastEditedUtc": "2025-03-19T16:31:16Z",
+      "excerpt": "sorry for keep you all waiting. But that's not what I want to see. I was settling the money I put in fund. I will lose part of money. But I don't care. However, as I said I expected it to be back last week. That's why I told you all the ETA. Unfortunately, it did not happen. But after that, it may come anytime. I was waiting for that just as you are waiting for me to resolve the stuck transactions.",
+      "excerptIsCompleteMessage": true
+    },
+    "869069": {
+      "messageId": 869069,
+      "url": "https://t.me/chaingefinance/869069",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-26T02:05:25Z",
+      "lastEditedUtc": "2025-03-26T02:09:25Z",
+      "excerpt": "confirmed, it's AWS problem.",
+      "excerptIsCompleteMessage": true
+    },
+    "869079": {
+      "messageId": 869079,
+      "url": "https://t.me/chaingefinance/869079",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-26T02:40:59Z",
+      "lastEditedUtc": "2025-03-26T03:00:07Z",
+      "excerpt": "It won't affect us resolving stuck transactions",
+      "excerptIsCompleteMessage": true
+    },
+    "869080": {
+      "messageId": 869080,
+      "url": "https://t.me/chaingefinance/869080",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-26T02:41:12Z",
+      "lastEditedUtc": "2025-03-26T05:32:52Z",
+      "excerpt": "because all back end system are still running well",
+      "excerptIsCompleteMessage": true
+    },
+    "869081": {
+      "messageId": 869081,
+      "url": "https://t.me/chaingefinance/869081",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-26T02:41:20Z",
+      "lastEditedUtc": "2025-03-26T02:55:52Z",
+      "excerpt": "The only problem is AWS domain",
+      "excerptIsCompleteMessage": true
+    },
+    "869093": {
+      "messageId": 869093,
+      "url": "https://t.me/chaingefinance/869093",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-03-26T04:38:08Z",
+      "lastEditedUtc": "2025-03-26T04:40:00Z",
+      "excerpt": "service recovered",
+      "excerptIsCompleteMessage": true
+    },
+    "870596": {
+      "messageId": 870596,
+      "url": "https://t.me/chaingefinance/870596",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-04-01T14:17:07Z",
+      "lastEditedUtc": "2025-04-01T14:27:23Z",
+      "excerpt": "To be honest, I dare not give you any ETA. What I want to say is that I 100% will resolve it. I am getting funds back from two places. One is the backup as the other one. I am expecting it this week. But I can't commit. The latest would be next week from my understanding.",
+      "excerptIsCompleteMessage": true
+    },
+    "876444": {
+      "messageId": 876444,
+      "url": "https://t.me/chaingefinance/876444",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-04-26T12:29:39Z",
+      "lastEditedUtc": "2025-04-26T12:32:59Z",
+      "excerpt": "My efforts are not just focused on pursuing legal channels to reactivate the blacklisted addresses — more importantly, I have been working to get funds returned earlier to fully settle all pending orders. Once my personal funds are successfully withdrawn from the crypto fund, I expect to receive approximately 5 million USDT within three days.",
+      "excerptIsCompleteMessage": false,
+      "additionalExcerpts": [
+        "You should know that my personal funds are invested in a crypto fund. My early withdrawal violates the terms under which I initially invested, meaning not only am I forfeiting any potential returns, but I also have to wait for the fund’s liquidity to be available.",
+        "Since March 14th, we have made progress, even though it may not have been visible externally.\nI have now completed all necessary procedures and am simply waiting for the funds to be returned.\nAs soon as I receive the funds, I will immediately notify the community and begin processing the stuck orders.\nOnce the funds are received, we expect to resolve all pending orders within one week."
+      ]
+    },
+    "879895": {
+      "messageId": 879895,
+      "url": "https://t.me/chaingefinance/879895",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-05-13T07:14:12Z",
+      "lastEditedUtc": "2025-05-13T07:16:21Z",
+      "excerpt": "I am working on it. I don‘t want to speculate so I will only update you all when I have received the fund",
+      "excerptIsCompleteMessage": true
+    },
+    "881648": {
+      "messageId": 881648,
+      "url": "https://t.me/chaingefinance/881648",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-05-20T03:53:10Z",
+      "lastEditedUtc": "2025-05-20T03:53:35Z",
+      "excerpt": "No update. If there is any update from me, it would be \"I am injecting liquidity\".",
+      "excerptIsCompleteMessage": true
+    },
+    "883566": {
+      "messageId": 883566,
+      "url": "https://t.me/chaingefinance/883566",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-05-27T13:35:10Z",
+      "lastEditedUtc": "2025-05-27T13:35:29Z",
+      "excerpt": "service suspended until I inject the liquidity",
+      "excerptIsCompleteMessage": true
+    },
+    "894500": {
+      "messageId": 894500,
+      "url": "https://t.me/chaingefinance/894500",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-07-15T17:51:30Z",
+      "lastEditedUtc": "2025-07-15T17:52:22Z",
+      "excerpt": "I’m actively working on the liquidity injection — it's my top priority, and I'm fully aware of what’s at stake. That said, I unfortunately cannot provide an exact ETA yet. After months, I understand that words without proof are no longer enough. That’s why I’m doing everything I can to share some form of concrete progress soon. ",
+      "excerptIsCompleteMessage": false
+    },
+    "897496": {
+      "messageId": 897496,
+      "url": "https://t.me/chaingefinance/897496",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-07-30T13:29:34Z",
+      "lastEditedUtc": "2025-07-30T13:31:25Z",
+      "excerpt": "Hello everyone,\n\nI know these last few months have brought a lot of uncertainty and frustration. Many of you have been waiting far too long for a resolution, and I want you to know I’ve taken that seriously. That’s why I made the decision months ago to use my own personal funds to help solve this.\n\nIt hasn’t been easy. Most of my money is currently locked in a crypto fund that doesn’t allow early withdrawals. To speed things up, I accepted penalties and gave up any future profit just to get access to the funds as soon as possible.\n\nToday, I can finally share something clear and concrete:\n\nThe first part of the funds will be released on Friday, August 1st.\n\nFrom that day, a total of $3.752M will start being distributed gradually over the next 28 days.\n\nI will personally explain the full process for restoring everyone’s funds, step by step, once it starts.\n\nThis first step won’t solve everything at once, but it will officially begin the compensation process. More parts will follow after this. Every stuck transaction will be fully resolved — that promise stays.\n\nAlso: FsnScan is expected to be back online next week, as a full node sync is required.\n\nUntil now, I’ve been very hesitant with giving new timelines because of delays that were out of my control. But now, things are finally moving forward.\n\nI have already signed an official release execution paper with the fund, confirming that the transfer of funds starts this Friday. My lawyer has been involved in every step and has also prepared backup solutions in case anything unexpected happens.\n\nAlso, I want to say clearly: I hear your frustration. I understand it.\n\nI’m not going anywhere.\nI will stay here with you until all transactions are cleared and everything is back on track.\n\nAt the end of this whole process, I will also hold a live AMA and answer all the remaining questions openly.\n\nThank you for your patience and trust.\n\n— DJ",
+      "excerptIsCompleteMessage": true
+    },
+    "898198": {
+      "messageId": 898198,
+      "url": "https://t.me/chaingefinance/898198",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-08-02T03:09:51Z",
+      "lastEditedUtc": "2025-08-02T03:10:11Z",
+      "excerpt": "I checked again with them yesterday and got the confirmation again that first tranche will be paid by Friday. But so far，I haven‘t received. Just to give you a quick update. However，I will let you all know in next 26 hours after I speak with them.",
+      "excerptIsCompleteMessage": true
+    },
+    "898478": {
+      "messageId": 898478,
+      "url": "https://t.me/chaingefinance/898478",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-08-03T05:06:43Z",
+      "lastEditedUtc": "2025-08-03T05:07:04Z",
+      "excerpt": "Good news！Cheque for first tranche is in my agent‘s hand now. I thought it would be crypto like USDT. But it turned out to be cheque. And that‘s the reason I did not receive crypto on Friday. I will get back to you maybe on Monday for more details.",
+      "excerptIsCompleteMessage": true
+    },
+    "901596": {
+      "messageId": 901596,
+      "url": "https://t.me/chaingefinance/901596",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-08-18T11:34:29Z",
+      "lastEditedUtc": "2025-08-18T11:35:10Z",
+      "excerpt": "I have deposited the first cheque. And keep getting my funds back.",
+      "excerptIsCompleteMessage": false
+    },
+    "906505": {
+      "messageId": 906505,
+      "url": "https://t.me/chaingefinance/906505",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-09-10T17:04:01Z",
+      "lastEditedUtc": "2025-09-10T17:07:16Z",
+      "excerpt": "For the blacklisted address，we have been using legal ways to unlock it，at the same time，I am still working on getting my money back. I did get a small amount which I used to pay debts and keep us running. If I get any more in the near future，I will definitely start to settle those stuck transactions.",
+      "excerptIsCompleteMessage": false
+    },
+    "912470": {
+      "messageId": 912470,
+      "url": "https://t.me/chaingefinance/912470",
+      "author": "DJ Qian (@djqian)",
+      "publishedUtc": "2025-10-09T09:04:33Z",
+      "lastEditedUtc": "2025-10-09T09:04:58Z",
+      "excerpt": "But finally，it seems I am going to get some good news in 10 days.",
+      "excerptIsCompleteMessage": false
+    }
+  },
+  "entries": [
+    {
+      "id": "2023-otp",
+      "publishedUtc": "2023-06-10T15:25:00Z",
+      "title": "Earlier, separate interruption: beginner-mode vulnerability",
+      "kind": "Attributed statement",
+      "scope": "Earlier incident",
+      "summary": "DJ reported an OTP-related vulnerability in beginner-mode wallets, a precautionary pause of some features and work on a recovery/migration tool.",
+      "eventTime": "Reported as ongoing on publication date.",
+      "limitation": "This establishes a reported interruption, not a connection to the later liquidity problem.",
+      "sourceIds": [
+        "638119"
+      ]
+    },
+    {
+      "id": "2024-kas",
+      "publishedUtc": "2024-11-24T03:52:18Z",
+      "title": "wKAS bridge queue and bug workaround",
+      "kind": "Attributed statement",
+      "scope": "KAS / wKAS",
+      "summary": "DJ said the queue had cleared, but a bug still needed fixing; he described a route through USDT in the dapp to convert wKAS to native KAS.",
+      "eventTime": "Reported current status; exact bug onset unspecified.",
+      "limitation": "This is a claim about one route. It does not establish that all assets or withdrawals were functioning.",
+      "sourceIds": [
+        "828837"
+      ]
+    },
+    {
+      "id": "2025-march-plan",
+      "publishedUtc": "2025-03-06T03:17:47Z",
+      "title": "Backlog acknowledged; 14 March target",
+      "kind": "Attributed statement",
+      "scope": "Backlog / KAS",
+      "summary": "DJ acknowledged stuck transactions, said he had worked on them for about two weeks, and targeted 14 March for clearing the backlog. CUSDT/KAS activation and reopening the wKAS/KAS bridge were described as subsequent steps.",
+      "eventTime": "Target: 2025-03-14; reopening conditional on backlog clearance and wKAS repegging.",
+      "limitation": "Two weeks describes his claimed work period, not an independently established start date for all disruptions.",
+      "sourceIds": [
+        "862573",
+        "862576",
+        "862582",
+        "862585",
+        "862586"
+      ]
+    },
+    {
+      "id": "2025-blacklisting",
+      "publishedUtc": "2025-03-14T04:02:07Z",
+      "title": "Blacklisting explanation and personal-funding plan",
+      "kind": "Attributed statement",
+      "scope": "Liquidity / custody claims",
+      "summary": "DJ attributed depleted liquidity to fund-holding addresses being blacklisted after alleged illicit use of the service. He said lawyers had been working on the matter for about two months and that he would use personal funds while awaiting its resolution.",
+      "eventTime": "Retrospective claim of legal work for roughly two months; no precise restriction date.",
+      "limitation": "No specific issuer, chain-qualified address, restriction transaction or authority is identified in this message. Neither the restriction nor the alleged cause is independently established by this timeline.",
+      "sourceIds": [
+        "864721"
+      ]
+    },
+    {
+      "id": "2025-march-funding",
+      "publishedUtc": "2025-03-14T11:38:44Z",
+      "title": "Funding expected within four days; 473 transactions remaining",
+      "kind": "Attributed statement",
+      "scope": "Funding / backlog",
+      "summary": "DJ said he expected all his funds to arrive within at most four days and reported 473 stuck transactions remaining.",
+      "eventTime": "Funding target relative to 2025-03-14; backlog count as stated that day.",
+      "limitation": "The count and funding expectation are statements, not a reconciled claims ledger or proof of payment.",
+      "sourceIds": [
+        "864894",
+        "864927"
+      ]
+    },
+    {
+      "id": "2025-progress",
+      "publishedUtc": "2025-03-18T14:12:44Z",
+      "title": "One-fifth reportedly resolved; further funds awaited",
+      "kind": "Attributed statement",
+      "scope": "Funding / backlog",
+      "summary": "DJ reported resolving one-fifth of the stuck transactions using money already available, while the larger funding amount was still awaited.",
+      "eventTime": "Reported progress as of publication; further funds expected that night or next day.",
+      "limitation": "No denominator or independent payout reconciliation is supplied in this statement. Do not combine this fraction with another date's count as an audited total.",
+      "sourceIds": [
+        "866590"
+      ]
+    },
+    {
+      "id": "2025-missed-estimate",
+      "publishedUtc": "2025-03-19T16:29:02Z",
+      "title": "Earlier funding estimate acknowledged as missed",
+      "kind": "Attributed statement",
+      "scope": "Funding",
+      "summary": "DJ said the money expected the prior week had not arrived and that he was still waiting for funds to settle the transactions.",
+      "eventTime": "Retrospective reference to the preceding week.",
+      "limitation": "This is an acknowledgement of an unmet estimate, not independent evidence of the fund or its terms.",
+      "sourceIds": [
+        "866868"
+      ]
+    },
+    {
+      "id": "2025-domain",
+      "publishedUtc": "2025-03-26T02:05:25Z",
+      "title": "Separate AWS/domain interruption reported as recovered",
+      "kind": "Attributed statement",
+      "scope": "Infrastructure",
+      "summary": "DJ attributed a service interruption to AWS/domain problems, said backend systems continued running and that it would not affect resolving stuck transactions, then reported service recovery.",
+      "eventTime": "AWS explanation at 02:05 UTC; recovery claim at 04:38 UTC on 2025-03-26.",
+      "limitation": "Recovery here must not be read as confirmation that the withdrawal backlog was settled. The cause is attributed, not independently diagnosed.",
+      "sourceIds": [
+        "869069",
+        "869079",
+        "869080",
+        "869081",
+        "869093"
+      ]
+    },
+    {
+      "id": "2025-april-estimate",
+      "publishedUtc": "2025-04-01T14:17:07Z",
+      "title": "Two funding sources described; no firm ETA",
+      "kind": "Attributed statement",
+      "scope": "Funding",
+      "summary": "DJ described two places from which he was seeking funds, one as a backup, and said he could not commit to an ETA despite expecting progress that week or the next.",
+      "eventTime": "Conditional expectation, not a confirmed payment date.",
+      "limitation": "No counterparties, receipts or independently verified funding commitments are established.",
+      "sourceIds": [
+        "870596"
+      ]
+    },
+    {
+      "id": "2025-april-plan",
+      "publishedUtc": "2025-04-26T12:29:39Z",
+      "title": "Crypto-fund withdrawal constraints and conditional settlement plan",
+      "kind": "Attributed statement",
+      "scope": "Funding / backlog",
+      "summary": "DJ said early withdrawal from a crypto fund required waiting for liquidity. He expected about 5 million USDT within three days once the withdrawal succeeded and anticipated resolving pending orders within a week after receiving funds.",
+      "eventTime": "Conditional milestones: successful withdrawal, receipt of funds, then settlement.",
+      "limitation": "The three-day period is conditional on withdrawal success, not an unconditional three days from the announcement. No independent confirmation of funding or settlement is provided.",
+      "sourceIds": [
+        "876444"
+      ]
+    },
+    {
+      "id": "2025-may-updates",
+      "publishedUtc": "2025-05-13T07:14:12Z",
+      "title": "Updates tied to actual receipt of funds",
+      "kind": "Attributed statement",
+      "scope": "Communications / funding",
+      "summary": "DJ said he would update the group when he had received funds and subsequently said he had no update.",
+      "eventTime": "Messages on 2025-05-13 and 2025-05-20.",
+      "limitation": "These statements describe his update policy; they do not independently establish funding status.",
+      "sourceIds": [
+        "879895",
+        "881648"
+      ]
+    },
+    {
+      "id": "2025-suspension",
+      "publishedUtc": "2025-05-27T13:35:10Z",
+      "title": "Service suspended pending liquidity injection",
+      "kind": "Attributed statement",
+      "scope": "Service suspension",
+      "summary": "DJ explicitly stated that service was suspended until he injected liquidity.",
+      "eventTime": "Suspended as stated on publication date; no restoration date.",
+      "limitation": "The message gives no technical scope or exact start time of the suspension. It does not date the first affected withdrawal.",
+      "sourceIds": [
+        "883566"
+      ]
+    },
+    {
+      "id": "2025-july-no-eta",
+      "publishedUtc": "2025-07-15T17:51:30Z",
+      "title": "Liquidity injection still described as pending",
+      "kind": "Attributed statement",
+      "scope": "Funding",
+      "summary": "DJ said liquidity injection remained his priority but that he could not provide an exact ETA.",
+      "eventTime": "Current status as stated on publication date.",
+      "limitation": "A statement of intended action, not confirmation that liquidity had been supplied.",
+      "sourceIds": [
+        "894500"
+      ]
+    },
+    {
+      "id": "2025-july-schedule",
+      "publishedUtc": "2025-07-30T13:29:34Z",
+      "title": "1 August start and 28-day distribution schedule announced",
+      "kind": "Attributed statement",
+      "scope": "Funding / infrastructure",
+      "summary": "DJ announced that a first funding tranche would be released on 1 August and that $3.752 million would start being distributed over the next 28 days. He also said he had signed release-execution paperwork and expected FsnScan back online the following week.",
+      "eventTime": "Announced start: 2025-08-01; duration: 28 days; no timezone specified for the target date.",
+      "limitation": "The schedule, paperwork and explorer restoration are claims. Receipt, distribution and restoration require separate evidence.",
+      "sourceIds": [
+        "897496"
+      ]
+    },
+    {
+      "id": "2025-august-delay",
+      "publishedUtc": "2025-08-02T03:09:51Z",
+      "title": "First tranche not yet received",
+      "kind": "Attributed statement",
+      "scope": "Funding",
+      "summary": "DJ said the first tranche had been confirmed for Friday but had not yet reached him.",
+      "eventTime": "As of publication on 2025-08-02, following the 1 August target.",
+      "limitation": "A reported delay, not evidence that a transfer was sent or credited.",
+      "sourceIds": [
+        "898198"
+      ]
+    },
+    {
+      "id": "2025-cheque",
+      "publishedUtc": "2025-08-03T05:06:43Z",
+      "title": "First tranche described as a cheque",
+      "kind": "Attributed statement",
+      "scope": "Funding",
+      "summary": "DJ said a cheque was in his agent's possession and that he had expected cryptocurrency such as USDT instead.",
+      "eventTime": "Reported on publication date; proposed further detail on Monday.",
+      "limitation": "Possession of a cheque is not a cleared balance or a payout to users.",
+      "sourceIds": [
+        "898478"
+      ]
+    },
+    {
+      "id": "2025-cheque-deposit",
+      "publishedUtc": "2025-08-18T11:34:29Z",
+      "title": "Cheque deposit reported",
+      "kind": "Attributed statement",
+      "scope": "Funding",
+      "summary": "DJ said he had deposited the first cheque and was continuing to recover his funds.",
+      "eventTime": "Deposit reported retrospectively; exact deposit date unspecified.",
+      "limitation": "This does not establish clearance, amount, liquidity injection or user settlement.",
+      "sourceIds": [
+        "901596"
+      ]
+    },
+    {
+      "id": "2025-september",
+      "publishedUtc": "2025-09-10T17:04:01Z",
+      "title": "Small receipt reportedly used for debts and operations",
+      "kind": "Attributed statement",
+      "scope": "Funding / custody claims",
+      "summary": "DJ said legal efforts to unlock the blacklisted address continued and that a small amount received had been used to pay debts and keep operations running; he linked settlement to receiving more.",
+      "eventTime": "Retrospective small receipt; further settlement conditional on more funds.",
+      "limitation": "The amount and recipients are unspecified. This is not evidence that user claims were settled.",
+      "sourceIds": [
+        "906505"
+      ]
+    },
+    {
+      "id": "2025-october",
+      "publishedUtc": "2025-10-09T09:04:33Z",
+      "title": "Further progress expected in ten days",
+      "kind": "Attributed statement",
+      "scope": "Communications",
+      "summary": "DJ said he appeared likely to receive good news within ten days. This is the latest message from the confirmed founder account in this retained Chainge export.",
+      "eventTime": "Forward-looking expectation from 2025-10-09; outcome unverified.",
+      "limitation": "No promised settlement date or confirmed outcome. No later retained messages from this account does not prove silence on other channels or absence of deleted messages.",
+      "sourceIds": [
+        "912470"
+      ]
+    }
+  ]
+}

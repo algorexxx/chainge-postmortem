@@ -163,7 +163,7 @@ During the initial planning review, Fusionite and GitHub pages were accessible t
 
 - [x] Agree on neutral language, evidence standards, privacy boundaries and zero budget.
 - [x] Create this plan without private submissions or candidate addresses copied from them.
-- [ ] Export Telegram history to a private location outside the repository.
+- [x] Export Telegram history to a private location outside the repository. Chainge JSON and Fusion HTML were supplied; the first Chainge timeline pass is documented below.
 - [x] Establish local public-archive location, ignore rules and reviewed-evidence publication boundaries. Private exports remain outside the checkout; independent backup is still pending.
 - [ ] Complete public-source preservation. Initial workbook, web captures and six Git histories are saved locally; see [SOURCES.md](SOURCES.md) for coverage and gaps.
 - [ ] Verify official social accounts and begin the sourced timeline.
@@ -229,3 +229,10 @@ The movement scanner retains a per-chain/token/account history inconsistency aft
 Explicit exchange evidence now takes precedence over the generic counter-asset heuristic when no Fusion candidate exists. Internal transfers, missing timestamps and other existing classification gates remain unchanged. The BUSD rerun relabels 1,582 movements from `possible-asset-exchange` to `reported-asset-exchange`; all 5,710 movement IDs, 224 unmatched outflows, retained amounts, and terminal balance summaries remain unchanged. Neither the pool-boundary correction nor the persistent-history correction changes BUSD exchange-evidence counts or depletion percentages in this run. These are code corrections, not new transaction findings.
 
 Regression coverage includes incoming/outgoing repeated same-pool swaps, reversed receipt-swap order, competing counterpart legs, no later swap, recovered negative histories, independent account histories, and explicit swap evidence alongside the generic heuristic. All 152 tests pass; Application line coverage is 458/458.
+
+
+## Communications timeline checkpoint (2026-10-13)
+
+A first founder-statement chronology is published in `registry/timeline.json` and rendered in the project-wide Timeline view. Nineteen milestones reference 29 selected messages, with UTC publication/edit times, exact reviewed excerpts, conditional target dates and event-specific limitations. Raw Telegram exports remain outside the repository. Ordinary-member messages and unverified staff attributions are not published. The JSON export's hash, retained range and attribution method are recorded; export completion time and independent backup remain unknown.
+
+The March 2025 blacklisting explanation remains an attributed claim without identified issuers, restricted addresses or restriction events. The March AWS/domain interruption is separate from withdrawal settlement; the May suspension is an explicit statement but not an established first-disruption date. Earlier routes and the BUSD outflows require separate chronology. See [timeline method and next evidence needs](research/service-timeline.md).

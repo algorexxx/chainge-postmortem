@@ -8,6 +8,22 @@ namespace Chainge.Postmortem.Application.Tests.Catalogue;
 public sealed class RegistryBuilderTests
 {
     [Fact]
+    public async Task BuildRegistry_Timeline_ShouldPreserveProjectWideEvidence()
+    {
+        var timeline = JsonSerializer.Deserialize<JsonElement>("""{"title":"Service history","entries":["announcement"]}""");
+        var repository = new FixedCatalogueRepository
+        {
+            Source = new CatalogueSource { Tokens = [], Studies = new Dictionary<string, JsonElement>(), Timeline = timeline }
+        };
+        var builder = new RegistryBuilder(repository);
+        var expected = new RegistrySnapshot { Tokens = [], Studies = new Dictionary<string, JsonElement>(), Timeline = timeline };
+
+        var actual = await builder.BuildRegistry(TestContext.Current.CancellationToken);
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
     public async Task BuildRegistry_DuplicateAddress_PreservesRowsAndAliasesWithoutDoubleCounting()
     {
         var repository = new FixedCatalogueRepository
