@@ -1,6 +1,6 @@
 {
   "title": "Chainge service timeline",
-  "status": "Preliminary · founder statements",
+  "status": "Preliminary · founder and community-admin statements",
   "coverage": {
     "reviewedDate": "2026-10-13",
     "chat": "https://t.me/chaingefinance",
@@ -12,8 +12,8 @@
     "rawExportSha256": "08ff6dd409ce0375859f711836e3438e04a183866de4b40fa412f74608aa840d",
     "rawExportBytes": 178894137,
     "exportCompletedAtUtc": null,
-    "attribution": "Maintainer confirmed the author of message 864721 as @djqian on 2026-10-13. Selected messages share that exported sender identity. Numeric sender identifiers are not published. The export alone does not preserve the account username or authenticate past account control.",
-    "method": "Selected founder statements reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories.",
+    "attribution": "Maintainer confirmed the author of message 864721 as @djqian on 2026-10-13. Selected messages share that exported sender identity. Numeric sender identifiers are not published. The export alone does not preserve the account username or authenticate past account control. Maintainer confirmed Tanvir (@Nabil437) as a community admin. The selected Tanvir messages share the exported sender identity of message 823196, in which that account identifies @Nabil437 as its username. Admin status does not establish control over vaults or firsthand knowledge of their operation.",
+    "method": "Selected founder and confirmed community-admin statements reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories.",
     "limitations": [
       "Raw export remains outside the repository; its hash is an integrity reference, not independent authentication or a certified capture time.",
       "Live Telegram message retrieval was unavailable through the web tool during this review. Links are constructed from the public group handle and export message IDs; live existence/content not reverified.",
@@ -288,6 +288,33 @@
       "lastEditedUtc": "2025-10-09T09:04:58Z",
       "excerpt": "But finally，it seems I am going to get some good news in 10 days.",
       "excerptIsCompleteMessage": false
+    },
+    "842003": {
+      "messageId": 842003,
+      "url": "https://t.me/chaingefinance/842003",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2025-01-16T04:11:24Z",
+      "lastEditedUtc": "2025-01-16T04:15:14Z",
+      "excerpt": "We are currently in the process of launching a new KRC-20/KASPA platform which implies a system Migration. This transition is necessary to improve the overall experience and functionality of our services. As part of this migration, the bridge will be reopened as soon as the new platform is launched. There is no need for concern during this period as users can still swap WKAS for USDT. Alternatively, users may choose to wait for the new platform and bridge to be fully operational which is expected by the end of the month. At that time, the peg and bridge will be synchronized and the USDT/KAS pairs will also be reopened.",
+      "excerptIsCompleteMessage": true
+    },
+    "842051": {
+      "messageId": 842051,
+      "url": "https://t.me/chaingefinance/842051",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2025-01-16T08:11:08Z",
+      "lastEditedUtc": "2025-01-16T09:48:24Z",
+      "excerpt": "We are unable to disclose it at this time for security reasons. However, once the migration is completed and the vault addresses are updated accordingly, our bridge will implement an asset proof mechanism to ensure 100% transparency. We appreciate your patience while we finalize the migration and prepare for the amazing upcoming platfrom. In the meantime, if you are in a hurry, please feel free to utilize the available routes for swapping and bridging KAS, as users can liquidate without any issues.",
+      "excerptIsCompleteMessage": true
+    },
+    "865107": {
+      "messageId": 865107,
+      "url": "https://t.me/chaingefinance/865107",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2025-03-14T19:51:18Z",
+      "lastEditedUtc": "2025-03-14T19:54:22Z",
+      "excerpt": "If you read the article we published very earlier, you’ll notice we clearly mentioned the vault’s blacklisting issue. Initially, only BTC txns were affected but over time, we observed the problem spreading to other assets.",
+      "excerptIsCompleteMessage": false
     }
   },
   "entries": [
@@ -315,6 +342,20 @@
       "limitation": "This is a claim about one route. It does not establish that all assets or withdrawals were functioning.",
       "sourceIds": [
         "828837"
+      ]
+    },
+    {
+      "id": "2025-january-migration",
+      "publishedUtc": "2025-01-16T04:11:24Z",
+      "title": "Admin describes KAS bridge pause and planned vault migration",
+      "kind": "Attributed admin statement",
+      "scope": "KAS / wKAS routes",
+      "summary": "Tanvir described a system migration for a new KRC-20/KASPA platform, with the bridge expected to reopen by the end of January. In a later message that day, he said vault addresses would be updated and an asset-proof mechanism would follow the migration.",
+      "eventTime": "Statements published 16 January 2025; end-of-month reopening was an expectation, not a verified completion date.",
+      "limitation": "An admin communication about KAS routes. It does not establish when the pause began, identify the old or replacement vaults, prove reserve coverage, or show that the migration or asset-proof mechanism was delivered. It does not establish a link to the later blacklisting explanation.",
+      "sourceIds": [
+        "842003",
+        "842051"
       ]
     },
     {
@@ -359,6 +400,19 @@
       "sourceIds": [
         "864894",
         "864927"
+      ]
+    },
+    {
+      "id": "2025-admin-btc-scope",
+      "publishedUtc": "2025-03-14T19:51:18Z",
+      "title": "Admin says initial BTC issues spread to other assets",
+      "kind": "Attributed admin statement",
+      "scope": "BTC and unspecified other assets",
+      "summary": "Tanvir referred to an earlier published article about vault blacklisting and said BTC transactions were initially affected before the problem spread to other assets.",
+      "eventTime": "Retrospective statement published 14 March 2025; initial onset and expansion dates are unspecified.",
+      "limitation": "This records the admin’s explanation, not independent confirmation of a restriction. The referenced earlier article has not been identified and verified. No issuer, restricted address, chain, or specific additional asset is identified in this excerpt.",
+      "sourceIds": [
+        "865107"
       ]
     },
     {

@@ -6,7 +6,7 @@ The chronological timeline and selected verbatim source excerpts are maintained 
 
 ## What this first pass establishes
 
-The retained founder messages distinguish an earlier beginner-mode security interruption, a wKAS route/queue problem, the 2025 stuck-transaction backlog, a blacklisting explanation, repeated funding estimates, an explicit service-suspension statement and subsequent funding updates. Every milestone is an **attributed statement**. An announcement supports what the account said, not whether its explanation or promised outcome occurred.
+The retained founder and community-admin messages distinguish an earlier beginner-mode security interruption, a wKAS route/queue problem, the 2025 stuck-transaction backlog, a blacklisting explanation, repeated funding estimates, an explicit service-suspension statement and subsequent funding updates. Every milestone is an **attributed statement**. An announcement supports what the account said, not whether its explanation or promised outcome occurred.
 
 The 14 March 2025 explanation attributes liquidity depletion to blacklisted fund-holding addresses. It does not identify an asset issuer, chain-qualified vault, restriction transaction or authority. The claim that an issuer blocked particular assets therefore remains an open verification question. Do not turn the word “blacklisted” into a verified on-chain freeze.
 
@@ -18,13 +18,17 @@ The BUSD movements already documented in [source-chain flows](busd-source-chain-
 
 The source is a Telegram Desktop JSON export of the public Chainge group, retained privately outside the checkout. Its observed range, counts and SHA-256 are recorded in the timeline coverage object. The date of this review is not the export completion date, which has not been supplied. A hash establishes integrity of the inspected bytes, not independent authenticity or completeness. A second independent backup has not been confirmed.
 
-The maintainer confirmed that the author of [message 864721](https://t.me/chaingefinance/864721) is @djqian. All selected messages share that sender identity in the export. This supports attribution for this pass; the export does not itself preserve the username or certify past account control. No numeric sender identifier or private confirmation transcript is published.
+The maintainer confirmed that the author of [message 864721](https://t.me/chaingefinance/864721) is @djqian. Selected founder messages share that sender identity in the export. This supports attribution for this pass; the export does not itself preserve the username or certify past account control. No numeric sender identifier or private confirmation transcript is published.
 
-Only allowlisted founder messages were used for the published timeline. Exact excerpts were checked against the private original. Ordinary-participant content, reply/forward metadata, ticket-to-person associations, attachments and unrelated personal information were excluded. Selected excerpts are labelled as excerpts rather than presented as complete messages. Additional excerpts from a long statement remain separate, so omissions are visible. Public message IDs and links are retained only for the confirmed founder sources.
+Only allowlisted founder and confirmed community-admin messages were used for the published timeline. Exact excerpts were checked against the private original. Ordinary-participant content, reply/forward metadata, ticket-to-person associations, attachments and unrelated personal information were excluded. Selected excerpts are labelled as excerpts rather than presented as complete messages. Additional excerpts from a long statement remain separate, so omissions are visible. Public message IDs and links are retained only for the confirmed founder and community-admin sources.
 
 UTC is derived from `date_unixtime`, not from the export's offset-free display date. `edited_unixtime`, where present, is retained separately. Message text is the version present at export; it must not be described as a recovered original revision. Edited content cannot be assumed to have appeared unchanged at initial publication.
 
 The public JSON is both the reviewed research record and the site's input. The site generates its presentation from that single source. The SHA-256 manifest beside it records the reviewed derivative. Raw messages are not build inputs and were never copied into the checkout.
+
+The maintainer confirmed Tanvir (@Nabil437), KaBii (@Kabii70) and James (@James_man) as community admins. This is role confirmation, not evidence of custody control or historical permissions. Only Tanvir has been added as a timeline source in this pass: his selected messages share the exported sender identity of [message 823196](https://t.me/chaingefinance/823196), which identifies @Nabil437 as his username. Private screenshots and confirmation transcripts are not published. KaBii and James require further message-level attribution review before their statements are added. Oana and Vlad remain discovery leads; names alone do not establish an account, employment role or authority.
+
+The January 2025 admin statements describe a KAS migration and planned vault-address updates. The March admin statement describes BTC being affected first. Neither establishes an incident start date or verifies a freeze; the January migration must not be assumed to explain the later blacklisting claim.
 
 ## Coverage and remaining work
 
