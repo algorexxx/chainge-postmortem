@@ -18,7 +18,15 @@ dotnet run --project Chainge.Postmortem.Site --no-build -- evidence/2026-10-11-t
 
 For local use, prefer `./preview.ps1` above. For deployment, serve the generated `dist/index.html` using a static HTTP host. The generated HTML embeds its styles, JavaScript and registry data and needs no companion files. If a file preview does not run scripts, open the file directly in your browser instead. All runtime assets are embedded; no RPC connection, API key, analytics or remote font is required. Evidence links open public source reports and explorers. Only the generated `dist/` directory is intended for static hosting. It contains no archive files.
 
-The output uses embedded assets and hash-based token selection, so it can be served under a GitHub Pages repository subdirectory without a server-side route fallback. Publication and remote Git pushes remain with the maintainer. No deployment workflow or automatic refresh is enabled.
+The output uses embedded assets and hash-based token selection, so it can be served under a GitHub Pages repository subdirectory without a server-side route fallback. Remote Git pushes remain with the maintainer. No automatic data refresh is enabled.
+
+## GitHub Pages publication
+
+The [Pages workflow](../.github/workflows/pages.yml) builds and tests the solution in Release, generates the site from committed public inputs and uploads only `dist/`. It runs after pushes to `main` or through **Actions → Publish research site → Run workflow**. Deployment is restricted to `main`; failed builds or tests prevent publication. It uses GitHub's temporary workflow permissions and needs no personal access token, RPC credentials or private archive.
+
+One-time setup in the repository: **Settings → Pages → Build and deployment → Source → GitHub Actions**. Follow [GitHub's custom workflow instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). After the sanitized history and workflow are pushed, the expected address is https://algorexxx.github.io/chainge-postmortem/. If the first workflow ran before Pages was enabled, rerun it after changing the setting. GitHub's deployment result supplies the actual published URL.
+
+The workflow publishes the retained snapshot; it does not contact chain nodes, refresh balances or regenerate reconciliation findings. Review and commit updated public reports before pushing. Evidence links open the public GitHub repository or relevant explorer. A failed later deployment leaves the previous published site in place. Hosting has not been verified until the first successful GitHub deployment; local checks do not exercise GitHub permissions or environment rules.
 
 ## Sources and interpretation
 
