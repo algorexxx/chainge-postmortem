@@ -17,7 +17,7 @@ let flowId = 'jan-204k';
 let flowFilter = 'hide-redemptions';
 let flowSort = 'review';
 let flowMinimum = '0';
-let movementView = 'terminal';
+let movementView = 'reviewed';
 let ledgerDirection = 'outgoing';
 let ledgerClassification = 'hide-redemptions';
 let ledgerChain = 'all';
@@ -73,7 +73,7 @@ function renderVaults(study) {
 
 function renderMovements(study) {
   const switcher = study.automatedMovements ? `<div class="filters"><label for="movement-view">View</label><select id="movement-view"><option value="terminal" ${movementView === 'terminal' ? 'selected' : ''}>Closing transfers</option><option value="ledger" ${movementView === 'ledger' ? 'selected' : ''}>Full ledger · ${study.automatedMovements.cases.length} movements</option><option value="reviewed" ${movementView === 'reviewed' ? 'selected' : ''}>Traced cases · ${study.flows.length}</option></select></div>` : '';
-  return switcher + (study.automatedMovements && movementView === 'terminal' ? renderTerminalReview(study.automatedMovements) : study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
+  return switcher + (study.automatedMovements && movementView !== 'ledger' ? `<p class="muted">${study.automatedMovements.cases.length.toLocaleString()} recorded movements are available in the full ledger, hidden from this view. Includes inflows, outflows and internal transfers. History coverage remains incomplete. <button class="reset-filters" data-show-all-movements="true">Show all recorded movements</button></p>` : '') + (study.automatedMovements && movementView === 'terminal' ? renderTerminalReview(study.automatedMovements) : study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
 }
 
 function renderReviewedMovements(study) {
@@ -115,6 +115,7 @@ detail.addEventListener('click', async event => {
   const button = event.target.closest('button');
   if (!button) return;
   if (button.dataset.tab) { tabName = button.dataset.tab; renderSelection(); document.querySelector(`#tab-${tabName}`).focus(); }
+  if (button.dataset.showAllMovements) { movementView = 'ledger'; ledgerDirection = 'all'; ledgerClassification = 'all'; ledgerChain = 'all'; ledgerToken = 'all'; ledgerDestination = ''; flowMinimum = '0'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#movement-view').focus(); }
   if (button.dataset.flow) { flowId = button.dataset.flow; renderSelection(); document.querySelector(`[data-flow="${flowId}"]`).focus(); }
   if (button.dataset.openFlow) { movementView = 'reviewed'; flowId = button.dataset.openFlow; flowFilter = 'all'; flowMinimum = '0'; tabName = 'movements'; renderSelection(); document.querySelector('#tab-movements').focus(); }
   if (button.dataset.ledgerId) { ledgerId = button.dataset.ledgerId; renderSelection(); document.querySelector('.ledger-detail').scrollIntoView({block:'nearest'}); }
@@ -206,7 +207,7 @@ function renderMovementLedger(report) {
   if (current) ledgerId = current.id;
   const classifications = [...new Set(report.cases.map(c => c.review.classification))].sort();
   return `<div class="section-title"><h2>Automated movement ledger</h2><span class="status neutral">Provisional classifications</span></div>
-    <p class="muted">${report.cases.length.toLocaleString()} retained movements · ${report.cases.filter(c=>c.review.direction === 'outgoing' && c.review.classification === 'unmatched').length} unmatched outflows. Showing ${visible.length} of ${matches.length} matching movements; ${report.cases.length - matches.length} excluded by filters. Possible redemptions are hidden by default. Unmatched means no pairing found under the normal rules, not proven loss.</p>
+    <p class="muted">${report.cases.length.toLocaleString()} retained movements · ${report.cases.filter(c=>c.review.direction === 'outgoing' && c.review.classification === 'unmatched').length} unmatched outflows. Showing ${visible.length} of ${matches.length} matching movements; ${report.cases.length - visible.length} currently hidden (${report.cases.length - matches.length} excluded by filters; ${matches.length - visible.length} more matching movements available below). Possible redemptions are hidden by default. Unmatched means no pairing found under the normal rules, not proven loss.</p>
     <div class="filters ledger-filters">
     ${ledgerSelect('ledger-direction','Direction',[['outgoing','Outflows'],['incoming','Inflows'],['internal','Internal'],['all','All movements']],ledgerDirection)}
     ${ledgerSelect('ledger-classification','Explanation',[['hide-redemptions','Hide possible redemptions'],['all','All classifications'],...classifications.map(c=>[c,classificationLabel(c)])],ledgerClassification)}
@@ -214,7 +215,7 @@ function renderMovementLedger(report) {
     ${ledgerSelect('ledger-token','Token contract',[['all','All representations'],...[...new Set(report.cases.filter(c=>ledgerChain === 'all' || c.chain === ledgerChain).map(c=>c.token))].sort().map(c=>[c,c])],ledgerToken)}
     ${ledgerSelect('ledger-sort','Sort',[['review','Unmatched first · newest'],['newest','Newest first'],['largest','Largest first'],['depletion','Balance reduction first'],['destination','Destination unmatched total']],flowSort)}
     ${ledgerSelect('ledger-minimum','Minimum (token units)',['0','100','1000','10000','100000','1000000'].map(v=>[v,v === '0' ? 'No minimum' : format(v)]),flowMinimum)}
-    <label for="ledger-destination">Recipient address</label><input id="ledger-destination" value="${escape(ledgerDestination)}" placeholder="Full address or fragment" spellcheck="false"><button class="reset-filters" data-reset-ledger="true">Reset filters</button></div>
+    <label for="ledger-destination">Recipient address</label><input id="ledger-destination" value="${escape(ledgerDestination)}" placeholder="Full address or fragment" spellcheck="false"><button class="reset-filters" data-reset-ledger="true">Reset filters</button><button class="reset-filters" data-show-all-movements="true">Show all recorded movements</button></div>
     <p class="footnote">Amounts are token units, not current USD values. Balance reduction = payment / reconstructed sender balance before payment, assuming a zero opening balance. It is conditional on history coverage; impossible ratios are unavailable. Sorting is a review aid, not a misconduct score.</p>
     ${renderDestinations(report.destinations)}
     <div class="flow-layout"><div>${visible.map(c=>`<div class="movement-row"><button class="flow-choice" data-ledger-id="${escape(c.id)}" aria-pressed="${current?.id === c.id}"><span><strong>${escape(classificationLabel(c.review.classification))}</strong><small>${escape(c.timestamp ?? 'Unknown date')} · ${escape(c.chain)} · ${escape(c.review.direction)}</small><p class="flow-description">${escape(short(c.from))} → ${escape(short(c.to))}</p><small>Reconstructed balance reduction: ${depletionLabel(c.depletionBasisPoints)}</small>${c.review.flags.length ? `<p class="flow-description">${c.review.flags.map(f=>escape(classificationLabel(f))).join(' · ')}</p>` : ''}</span><span class="flow-value">${amount(rawUnits(c.rawAmount,c.decimals))}<small style="display:block">${escape(report.asset)}</small></span></button><p class="movement-explorers">${explorerLink(c.chain, c.from, "Sender ↗")} · ${explorerLink(c.chain, c.to, "Recipient ↗")} · ${explorerLink(c.chain, c.transaction, "Transaction ↗")}</p></div>`).join('')}${matches.length > visible.length ? '<button class="load-more" data-ledger-more="true">Show 50 more movements</button>' : ''}</div>${current ? renderLedgerDetail(current,destinations.get(destinationKey(current.chain,current.token,current.to)),report) : '<div class="empty">No movements match these filters. Reset filters to restore the default view.</div>'}</div>`;
