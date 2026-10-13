@@ -293,3 +293,16 @@ function renderCommunityReview(review, sources) {
   if (!review) return '';
   return `<details class="panel"><summary>${escape(review.title)}</summary><p class="status neutral">${escape(review.status)}</p><p>${escape(review.method)}</p>${review.periods.map(period=>`<section class="timeline-source"><h3>${escape(period.period)} · ${escape(period.scope)}</h3><p>${escape(period.reports)}</p><p><strong>Compared with the announcements:</strong> ${escape(period.comparison)}</p>${period.sourceIds.map(id=>`<a href="${escape(sources[id].url)}">Official/admin message ${sources[id].messageId} ↗</a>`).join(' · ')}</section>`).join('')}<p><strong>Privacy:</strong> ${escape(review.privacy)}</p><p><strong>Limits:</strong> ${escape(review.limitations)}</p></details>`;
 }
+
+document.querySelector('#copy-donation').addEventListener('click', async () => {
+  const address = document.querySelector('#donation-address');
+  const status = document.querySelector('#donation-status');
+  try {
+    await navigator.clipboard.writeText(address.value);
+    status.textContent = 'Address copied · BNB Smart Chain (BSC)';
+  } catch {
+    address.focus();
+    address.select();
+    status.textContent = 'Select and copy the address above · BNB Smart Chain (BSC)';
+  }
+});

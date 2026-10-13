@@ -1082,3 +1082,14 @@ main {
 .timeline-entry summary { cursor:pointer; color:var(--green); font-weight:600 }
 .timeline-source { border-top:1px solid var(--line); margin-top:20px; padding-top:8px }
 .timeline-source blockquote { white-space:pre-wrap; overflow-wrap:anywhere; margin:16px 0; padding:8px 18px; border-left:3px solid var(--line); line-height:1.65 }
+
+.donation-banner { display:flex; flex-wrap:wrap; align-items:center; gap:16px 32px; padding:18px clamp(20px,4vw,56px); background:#edf3e7; border-bottom:1px solid var(--line) }
+.donation-banner > div:first-child { flex:1 1 340px }
+.donation-banner h2 { font-size:16px; letter-spacing:0; margin-bottom:4px }
+.donation-banner p { margin:0; max-width:720px; color:var(--muted) }
+.donation-wallet { flex:0 1 510px; min-width:0; max-width:100% }
+.donation-wallet label { display:block; font-size:12px; font-weight:700; margin-bottom:5px }
+.donation-actions { display:flex; flex-wrap:wrap; gap:8px }
+.donation-actions input { flex:1 1 370px; width:100%; min-width:0; border:1px solid var(--line); background:var(--white); color:var(--ink); border-radius:6px; padding:9px 8px; font-family:monospace; font-size:12px }
+.donation-actions button { border:1px solid var(--green); background:var(--green); color:var(--white); border-radius:6px; padding:8px 12px }
+#donation-status { display:block; font-size:12px }
