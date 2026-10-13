@@ -1119,6 +1119,469 @@
             ]
           }
         ]
+      },
+      {
+        "id": "usdc-followup-fcdb1918461b",
+        "title": "Payment has a same-holder Fusion burn candidate",
+        "chain": "Arbitrum",
+        "amount": "300000.000000",
+        "date": "2023-11-04",
+        "status": "Possible redemption",
+        "endpoint": "Immediate recipient; see evidence for settlement limitations",
+        "explanation": "A 300150.199949-unit Fusion burn from this recipient precedes payment by 38 seconds. The difference is 150.199949 USDC units. A fee-like difference and matching holder support a possible redemption, but do not authenticate the fee rule or settlement. ",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "Candidate burn from the payment recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "amount": "300150.199949",
+            "time": "2023-11-04T12:06:07.0000000+00:00",
+            "transaction": "https://fsnex.net/transaction/0x16e180fedc0b5ae7c40870933f48317162d656f0af0e8abb9e95deca8d72993f",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Source operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "300000.000000",
+            "time": "2023-11-04T12:06:45+00:00",
+            "transaction": null,
+            "kind": "inferred",
+            "asset": "USDC.e"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Payment recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "amount": "300000.000000",
+            "time": "2023-11-04T12:06:45+00:00",
+            "transaction": "https://arbiscan.io/tx/0xfcdb1918461bcd659caf8f0889cd45aba9fc6dc5f1c4be0b8a5ebe7bfcefb0b8",
+            "kind": "verified",
+            "asset": "USDC.e"
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-191c1acdb037",
+        "title": "Delayed burn candidate; recipient later swaps and provides liquidity",
+        "chain": "Arbitrum",
+        "amount": "261490.095828",
+        "date": "2024-01-02",
+        "status": "Possible redemption",
+        "endpoint": "Native USDC, DAI-token output and Gamma pool tokens returned to recipient",
+        "explanation": "A 261621.106333-unit Fusion burn from this recipient precedes payment by 46862 seconds. The difference is 131.010505 USDC units. A fee-like difference and matching holder support a possible redemption, but do not authenticate the fee rule or settlement. The approximately 13-hour delay weakens this candidate. Later receipts show conversions to native USDC and DAI-token output, followed by a deposit into the Gamma USDC–USDC.e pool. These are observed uses, not a final CEX attribution or proof of Chainge control.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "Candidate burn from the payment recipient",
+            "address": "0xf84225927948fbbe418c5e0c242fe3b26438de66",
+            "amount": "261621.106333",
+            "time": "2024-01-01T15:54:47.0000000+00:00",
+            "transaction": "https://fsnex.net/transaction/0x6dcd1ab9e88e59617a69eecdfc3f3b3622c433793f157cd38722dc94fa6c0a4d",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Source operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "261490.095828",
+            "time": "2024-01-02T04:55:49+00:00",
+            "transaction": null,
+            "kind": "inferred",
+            "asset": "USDC.e"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Payment recipient",
+            "address": "0xf84225927948fbbe418c5e0c242fe3b26438de66",
+            "amount": "261490.095828",
+            "time": "2024-01-02T04:55:49+00:00",
+            "transaction": "https://arbiscan.io/tx/0x191c1acdb037896edd1fd8fa340bdad279ade7c634f1ea5664c31c6a3ec07fbe",
+            "kind": "verified",
+            "asset": "USDC.e"
+          }
+        ],
+        "branches": [
+          {
+            "title": "90,000 USDC.e swap",
+            "explanation": "Native USDC returns to the same holder.",
+            "steps": [
+              {
+                "chain": "Arbitrum",
+                "label": "Native USDC output",
+                "address": "0xf84225927948fbbe418c5e0c242fe3b26438de66",
+                "amount": "89991.722496",
+                "asset": "USDC",
+                "time": "2024-01-02T13:47:55.000Z",
+                "transaction": "https://arbiscan.io/tx/0xddb936f39c6aede689abedad916896fbfac76335dbfb9e753e34dd2ff9f8c1d2",
+                "kind": "verified",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "title": "60,000 USDC.e swap",
+            "explanation": "Raw DAI-token output; exact contract and receipt are linked.",
+            "steps": [
+              {
+                "chain": "Arbitrum",
+                "label": "DAI-token output",
+                "address": "0xf84225927948fbbe418c5e0c242fe3b26438de66",
+                "amount": "60009818447576098279989",
+                "asset": "DAI raw units",
+                "time": "2024-01-02T14:33:42.000Z",
+                "transaction": "https://arbiscan.io/tx/0x4eb8974efe8594f6f340631b36298b989b3f30333b342a9ff225805be1f2ec0d",
+                "kind": "verified",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "title": "66,000 USDC.e swap",
+            "explanation": "Native USDC returns to the same holder.",
+            "steps": [
+              {
+                "chain": "Arbitrum",
+                "label": "Native USDC output",
+                "address": "0xf84225927948fbbe418c5e0c242fe3b26438de66",
+                "amount": "65994.878406",
+                "asset": "USDC",
+                "time": "2024-01-02T16:16:09.000Z",
+                "transaction": "https://arbiscan.io/tx/0x530d706eb52236ef28f71c9b145a81985a7ed94c137de8701530305abe93c3fa",
+                "kind": "verified",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "title": "Liquidity provision",
+            "explanation": "44,560.656099 USDC.e and 78,481.618869 native USDC enter the pool; it mints its own token to the recipient. Subsequent position history remains open.",
+            "steps": [
+              {
+                "chain": "Arbitrum",
+                "label": "Gamma pool receives USDC.e",
+                "address": "0x80709a760ff54112bd3e0ce31c104d912ba51774",
+                "amount": "44560.656099",
+                "asset": "USDC.e",
+                "time": "2024-01-02T16:16:31.000Z",
+                "transaction": "https://arbiscan.io/tx/0x524b732eac3b62feccf85f72a4b85542ddd741330a25b7146ed631957438c54a",
+                "kind": "verified",
+                "note": ""
+              },
+              {
+                "chain": "Arbitrum",
+                "label": "Pool token minted",
+                "address": "0xf84225927948fbbe418c5e0c242fe3b26438de66",
+                "amount": "122904054747",
+                "asset": "Pool-token raw units",
+                "time": "2024-01-02T16:16:31.000Z",
+                "transaction": "https://arbiscan.io/tx/0x524b732eac3b62feccf85f72a4b85542ddd741330a25b7146ed631957438c54a",
+                "kind": "verified",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-b2f997383979",
+        "title": "Arbitrum payment converted from native USDC to USDC.e",
+        "chain": "Arbitrum",
+        "amount": "14982.000000",
+        "date": "2024-01-05",
+        "status": "Unmatched",
+        "endpoint": "14,981.489630 USDC.e returned to the recipient",
+        "explanation": "Fourteen minutes 49 seconds after payment, the recipient routed 14,982 native USDC through contracts and received 14,981.489630 USDC.e back. No accepted Fusion settlement or final CEX destination is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Arbitrum",
+            "label": "Source operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "14982.000000",
+            "time": "2024-01-05T06:13:52+00:00",
+            "transaction": null,
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Payment recipient",
+            "address": "0xdfc4ca96eb97521bb66367900a14fea0c0a571a0",
+            "amount": "14982.000000",
+            "time": "2024-01-05T06:13:52+00:00",
+            "transaction": "https://arbiscan.io/tx/0xb2f997383979b7c27a84e6d36c7f0b50532cf14dd1ed42ebad5a4dc65e05d16f",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Later representation conversion",
+            "explanation": "The successful receipt records both assets and the return to the same recipient.",
+            "steps": [
+              {
+                "chain": "Arbitrum",
+                "label": "USDC.e returned",
+                "address": "0xdfc4ca96eb97521bb66367900a14fea0c0a571a0",
+                "amount": "14981.489630",
+                "asset": "USDC.e",
+                "time": "2024-01-05T06:28:41.000Z",
+                "transaction": "https://arbiscan.io/tx/0xf1c38ae4bbe6bca1ba0d72845e34ed4cc2db55dfc13ee6d3a5834bd253e928c5",
+                "kind": "verified",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-55bf5c8c3dc5",
+        "title": "Payment has a same-holder Fusion burn candidate",
+        "chain": "Avalanche",
+        "amount": "40000.000000",
+        "date": "2024-01-01",
+        "status": "Possible redemption",
+        "endpoint": "Immediate recipient; see evidence for settlement limitations",
+        "explanation": "A 40020.044495-unit Fusion burn from this recipient precedes payment by 45 seconds. The difference is 20.044495 USDC units. A fee-like difference and matching holder support a possible redemption, but do not authenticate the fee rule or settlement. ",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "Candidate burn from the payment recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "amount": "40020.044495",
+            "time": "2024-01-01T09:59:07.0000000+00:00",
+            "transaction": "https://fsnex.net/transaction/0xd8629a043ba29c0ae79034a7eea506779f2eff981a2d384ba698ddad13cf9d7d",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Avalanche",
+            "label": "Source operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "40000.000000",
+            "time": "2024-01-01T09:59:52+00:00",
+            "transaction": null,
+            "kind": "inferred",
+            "asset": "USDC.e"
+          },
+          {
+            "chain": "Avalanche",
+            "label": "Payment recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "amount": "40000.000000",
+            "time": "2024-01-01T09:59:52+00:00",
+            "transaction": "https://snowtrace.io/tx/0x55bf5c8c3dc5bdddd36fff067e03e1e77909c72e59b3687beef29f701508807e",
+            "kind": "verified",
+            "asset": "USDC.e"
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-cc911ae356a7",
+        "title": "Avalanche payment followed by a mixed-balance BTC.b swap",
+        "chain": "Avalanche",
+        "amount": "21774.015699",
+        "date": "2024-07-17",
+        "status": "Unmatched",
+        "endpoint": "BTC.b returned to the recipient; later token disposition unresolved",
+        "explanation": "The recipient already held 40,965.411028 USDC. After this payment, it spent 32,522.137672 of its mixed balance in a contract route and received 0.49908123 BTC.b back. A nearby 24,999-USDC vault inflow requests separate Fusion issuance; it does not explain this outgoing payment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Avalanche",
+            "label": "Source operating candidate",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "amount": "21774.015699",
+            "time": "2024-07-17T08:21:46+00:00",
+            "transaction": null,
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Avalanche",
+            "label": "Payment recipient",
+            "address": "0x6d58c8987577c067cf8f103dc52ab453bedcb15a",
+            "amount": "21774.015699",
+            "time": "2024-07-17T08:21:46+00:00",
+            "transaction": "https://snowtrace.io/tx/0xcc911ae356a702a5d60a409d8e2a143c45cfd2533576821a72a6e2ca4201467c",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Later swap from a mixed balance",
+            "explanation": "These amounts include prior holdings and must not be attributed wholly to this vault payment.",
+            "steps": [
+              {
+                "chain": "Avalanche",
+                "label": "Contract swap route",
+                "address": "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
+                "amount": "32522.137672",
+                "asset": "USDC",
+                "time": "2024-07-17T08:25:51.000Z",
+                "transaction": "https://snowtrace.io/tx/0x36fb260b151e952653f85f5a6faa4f068622074447f9d636837dbf6041caf48e",
+                "kind": "verified",
+                "note": ""
+              },
+              {
+                "chain": "Avalanche",
+                "label": "BTC.b returned to recipient",
+                "address": "0x6d58c8987577c067cf8f103dc52ab453bedcb15a",
+                "amount": "0.49908123",
+                "asset": "BTC.b",
+                "time": "2024-07-17T08:25:51.000Z",
+                "transaction": "https://snowtrace.io/tx/0x36fb260b151e952653f85f5a6faa4f068622074447f9d636837dbf6041caf48e",
+                "kind": "verified",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-0606c9196105",
+        "title": "Late Avalanche outflow forwarded in full to Binance-labelled address",
+        "chain": "Avalanche",
+        "amount": "35993.090970",
+        "date": "2024-08-23",
+        "status": "Unmatched",
+        "endpoint": "Binance 49 — Snowtrace label on Avalanche",
+        "explanation": "The recipient forwarded the identical 35,993.090970 USDC 56 minutes 38 seconds later. Historical USDC balances are zero before receipt, the full amount after receipt, and zero after forwarding. No accepted Fusion settlement link; the credited exchange account is unknown.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Avalanche",
+            "label": "Source operating candidate",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "amount": "35993.090970",
+            "time": "2024-08-23T03:54:05+00:00",
+            "transaction": null,
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Avalanche",
+            "label": "Payment recipient",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "amount": "35993.090970",
+            "time": "2024-08-23T03:54:05+00:00",
+            "transaction": "https://snowtrace.io/tx/0x0606c91961052186d254bbbf37d428673bf72ed4adb8b5e790a3aed40f20635f",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Avalanche",
+            "label": "Binance 49 — Snowtrace label",
+            "address": "0x9f8c163cba728e99993abe7495f06c0a3c8ac8b9",
+            "amount": "35993.090970",
+            "asset": "USDC",
+            "time": "2024-08-23T04:50:43.000Z",
+            "transaction": "https://snowtrace.io/tx/0xc43aa9634bf3ff2d15871df4d3a08669848582a60a7500f38721b36f6ea0f4d3",
+            "kind": "verified",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-11c4ace0060b",
+        "title": "Payment has a same-holder Fusion burn candidate",
+        "chain": "Optimism",
+        "amount": "60299.971401",
+        "date": "2024-01-01",
+        "status": "Possible redemption",
+        "endpoint": "Immediate recipient; see evidence for settlement limitations",
+        "explanation": "A 60330.336471-unit Fusion burn from this recipient precedes payment by 45 seconds. The difference is 30.365070 USDC units. A fee-like difference and matching holder support a possible redemption, but do not authenticate the fee rule or settlement. ",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "Candidate burn from the payment recipient",
+            "address": "0x402758ed60470a305ad24d02ef31fd8c66666688",
+            "amount": "60330.336471",
+            "time": "2024-01-01T01:22:12.0000000+00:00",
+            "transaction": "https://fsnex.net/transaction/0x9787728adb738d626f7b44bf72c9095b82b8d8970405bbfa01fdd9585bdfeb95",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Optimism",
+            "label": "Source operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "60299.971401",
+            "time": "2024-01-01T01:22:57+00:00",
+            "transaction": null,
+            "kind": "inferred",
+            "asset": "USDC.e"
+          },
+          {
+            "chain": "Optimism",
+            "label": "Payment recipient",
+            "address": "0x402758ed60470a305ad24d02ef31fd8c66666688",
+            "amount": "60299.971401",
+            "time": "2024-01-01T01:22:57+00:00",
+            "transaction": "https://optimistic.etherscan.io/tx/0x11c4ace0060b8a4a82189d7a905d1864e1b50fab8d142f13dd747e330d0f7c02",
+            "kind": "verified",
+            "asset": "USDC.e"
+          }
+        ]
+      },
+      {
+        "id": "usdc-followup-d392b9b94869",
+        "title": "Payment has a same-holder Fusion burn candidate",
+        "chain": "Optimism",
+        "amount": "110000.000000",
+        "date": "2024-01-11",
+        "status": "Possible redemption",
+        "endpoint": "Immediate recipient; see evidence for settlement limitations",
+        "explanation": "A 110055.199975-unit Fusion burn from this recipient precedes payment by 42 seconds. The difference is 55.199975 USDC units. A fee-like difference and matching holder support a possible redemption, but do not authenticate the fee rule or settlement. ",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-arbitrum-optimism-avalanche.md",
+        "limitation": "Automated accounting remains unchanged. Candidate relationships do not prove ownership, authorization or loss. Downstream amounts are not additional vault outflows.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "Candidate burn from the payment recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "amount": "110055.199975",
+            "time": "2024-01-11T07:47:27.0000000+00:00",
+            "transaction": "https://fsnex.net/transaction/0xdf75022c790c8ae25095b67fd32ea17caae1928ffc556cef724c73c01ef26962",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Optimism",
+            "label": "Source operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "110000.000000",
+            "time": "2024-01-11T07:48:09+00:00",
+            "transaction": null,
+            "kind": "inferred",
+            "asset": "USDC.e"
+          },
+          {
+            "chain": "Optimism",
+            "label": "Payment recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "amount": "110000.000000",
+            "time": "2024-01-11T07:48:09+00:00",
+            "transaction": "https://optimistic.etherscan.io/tx/0xd392b9b948698fc13d18de861ecbbc36c2e66fd8960275cc02e3af1894afd7b3",
+            "kind": "verified",
+            "asset": "USDC.e"
+          }
+        ]
       }
     ],
     "movementsFile": "usdc-movements.json"

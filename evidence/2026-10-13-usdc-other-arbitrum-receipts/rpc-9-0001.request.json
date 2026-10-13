@@ -1,0 +1,9 @@
+{
+        "jsonrpc": "2.0",
+        "id": 10,
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x9ea1fa2",
+          false
+        ]
+      }

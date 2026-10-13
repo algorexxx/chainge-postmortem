@@ -1,0 +1,17 @@
+{
+  "observedDate": "2026-10-13",
+  "method": "Web-tool text extraction; manually transcribed observations, not raw HTTP responses",
+  "observations": [
+    {
+      "url": "https://snowtrace.io/address/0x9f8c163cba728e99993abe7495f06c0a3c8ac8b9",
+      "chain": "Avalanche",
+      "label": "Binance: 49",
+      "qualification": "Explorer attributes tagging to hildobby compilation; no independent exchange-account attribution."
+    },
+    {
+      "url": "https://forum.arbitrum.foundation/t/gamma-stip-program-updates/19614/6",
+      "summary": "Gamma January 9, 2024 update identifies 0x80709a760ff54112bd3e0ce31c104d912ba51774 as its Ramses USDC-USDC.e vault and reports a January 4 incident affecting it.",
+      "qualification": "Protocol context only. Holder withdrawals, incident exposure, compensation and losses have not been determined."
+    }
+  ]
+}
