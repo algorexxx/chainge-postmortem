@@ -13,7 +13,7 @@
     "rawExportBytes": 178894137,
     "exportCompletedAtUtc": null,
     "attribution": "Maintainer confirmed the author of message 864721 as @djqian on 2026-10-13. Selected messages share that exported sender identity. Numeric sender identifiers are not published. The export alone does not preserve the account username or authenticate past account control. Maintainer confirmed Tanvir (@Nabil437) as a community admin. The selected Tanvir messages share the exported sender identity of message 823196, in which that account identifies @Nabil437 as its username. Admin status does not establish control over vaults or firsthand knowledge of their operation. The maintainer identified @vldv24 as Vlad. Message 912341 from the matching export display name carries a joint PDF naming Vlad Tirla and Oana Batran. The document is an attributed account, not independent verification of their stated roles. Oana’s personal account has not been independently mapped to an exported sender.",
-    "method": "Selected founder and confirmed community-admin statements, plus a reviewed joint public statement reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, unreviewed attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories.",
+    "method": "Selected founder and confirmed community-admin statements, plus a reviewed joint public statement reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, unreviewed attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories. A separate community-review section contains only anonymized multi-account summaries; ordinary-participant source records remain private.",
     "limitations": [
       "Raw export remains outside the repository; its hash is an integrity reference, not independent authentication or a certified capture time.",
       "Live Telegram message retrieval was unavailable through the web tool during this review. Links are constructed from the public group handle and export message IDs; live existence/content not reverified.",
@@ -334,6 +334,42 @@
         "pages": 3,
         "summary": "Pages 1–2: the authors describe independent-contractor roles despite CBO/CPO presentation, and deny executive authority, backend access, fund control or vault/private-key access. Pages 2–3: they say legal representatives sought unpaid invoices and information about funds and blacklisted vaults, without substantive answers. Page 3: they propose a follow-up document in the coming week. These are the authors’ claims, not independently verified findings."
       }
+    },
+    "832254": {
+      "messageId": 832254,
+      "url": "https://t.me/chaingefinance/832254",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2024-12-08T08:43:09Z",
+      "lastEditedUtc": null,
+      "excerpt": "Bridge liquidity is unlimited. We keep the real token and mint on other chains. If users want to go back, then there's always an equal amount of tokens to go back. Bridged tokens are always backed 1:1. So, there should never be a liquidity problem in regards to the bridge.\n\nAnd with some dev skills yes, it’s possible to bridge manually.",
+      "excerptIsCompleteMessage": true
+    },
+    "848029": {
+      "messageId": 848029,
+      "url": "https://t.me/chaingefinance/848029",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2025-02-07T10:39:50Z",
+      "lastEditedUtc": "2025-02-07T11:00:57Z",
+      "excerpt": "We are currently processing all BTC txns manually which is causing the delay.\n\nYou can find the details on chapter 06: https://chainge-news.notion.site/\n\nWe apologize for any inconvenience and assure you that your assets are 100% SAFU with Chainge.",
+      "excerptIsCompleteMessage": true
+    },
+    "849327": {
+      "messageId": 849327,
+      "url": "https://t.me/chaingefinance/849327",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2025-02-13T05:24:27Z",
+      "lastEditedUtc": "2025-02-13T05:50:20Z",
+      "excerpt": "Dear Chaingers,\n\nWe want to address the ongoing issue regarding delayed transactions. We are actively working towards a full resolution and expect all issues to be fully addressed within 10-14 days.\n\nWe appreciate your patience and support during this time as our team continues to prioritize a smooth and efficient resolution.\n\nThank you for standing with us.\n\nBest Regards,\nThe Chainge Team.",
+      "excerptIsCompleteMessage": true
+    },
+    "851456": {
+      "messageId": 851456,
+      "url": "https://t.me/chaingefinance/851456",
+      "author": "Tanvir (@Nabil437), community admin",
+      "publishedUtc": "2025-02-23T08:13:50Z",
+      "lastEditedUtc": "2025-02-23T08:14:24Z",
+      "excerpt": "All issues are expected to be resolved by February 27. We appreciate your patience.",
+      "excerptIsCompleteMessage": true
     }
   },
   "entries": [
@@ -364,6 +400,19 @@
       ]
     },
     {
+      "id": "2024-reserve-assurance",
+      "publishedUtc": "2024-12-08T08:43:09Z",
+      "title": "Admin asserts one-to-one backing and available bridge liquidity",
+      "kind": "Attributed admin statement",
+      "scope": "Reserve / bridge claims",
+      "summary": "Tanvir said bridged tokens were always backed one-to-one and that an equal amount of original tokens would be available for returning to the source chain.",
+      "eventTime": "General assurance published 8 December 2024.",
+      "limitation": "This is an admin assertion, not an audited reserve statement. No token inventory, vault addresses or block-specific balances are supplied. Operational delays alone do not prove a reserve shortfall.",
+      "sourceIds": [
+        "832254"
+      ]
+    },
+    {
       "id": "2025-january-migration",
       "publishedUtc": "2025-01-16T04:11:24Z",
       "title": "Admin describes KAS bridge pause and planned vault migration",
@@ -375,6 +424,33 @@
       "sourceIds": [
         "842003",
         "842051"
+      ]
+    },
+    {
+      "id": "2025-btc-manual",
+      "publishedUtc": "2025-02-07T10:39:50Z",
+      "title": "Admin confirms manual BTC processing",
+      "kind": "Attributed admin statement",
+      "scope": "BTC processing",
+      "summary": "Tanvir said all BTC transactions were being processed manually, causing delays, and referred readers to chapter 06 of a linked announcement.",
+      "eventTime": "Current processing described on 7 February 2025; initial onset unspecified.",
+      "limitation": "This establishes an earlier public admin explanation of delays, not the cause or a verified blacklist. The linked Notion page could not be retrieved during this review.",
+      "sourceIds": [
+        "848029"
+      ]
+    },
+    {
+      "id": "2025-feb-deadline",
+      "publishedUtc": "2025-02-13T05:24:27Z",
+      "title": "Team announcement anticipates resolution within 10–14 days",
+      "kind": "Attributed admin statement",
+      "scope": "Delayed transactions",
+      "summary": "Tanvir posted a message signed by the Chainge Team anticipating full resolution of delayed-transaction issues within 10–14 days. A subsequent message explicitly named 27 February.",
+      "eventTime": "Announcement published 13 February 2025; 27 February target reiterated on 23 February.",
+      "limitation": "A projected resolution date, not evidence of completion. Later community reports describe both unresolved transactions and individual processing; these reports are not an audited ticket ledger.",
+      "sourceIds": [
+        "849327",
+        "851456"
       ]
     },
     {
@@ -634,5 +710,81 @@
         "912470"
       ]
     }
-  ]
+  ],
+  "communityReview": {
+    "title": "Community reports around the announcements",
+    "status": "Anonymized reports · not transaction-verified",
+    "reviewedDate": "2026-10-13",
+    "method": "Keyword-assisted qualitative review of the private Chainge export, focused on September 2024–March 2025, with a BTC look-back into January–October 2024 and a separate search for reported resolutions. First-person problem reports were distinguished from advice, speculation, copied announcements and hypothetical questions. Repeat posts were not treated as separate affected users. These selected groups are not a census or incident count.",
+    "privacy": "Only broad, paraphrased multi-account patterns are published. Each selected group draws on at least three distinct exported sender identities; this is a disclosure-reduction rule, not a guarantee of anonymity or independent witnesses. No ordinary-user IDs, quotes, timestamps, links, ticket references, amounts, addresses or transaction hashes are published. Months or broader periods replace weeks where finer detail could identify reporters.",
+    "limitations": "No transactions were independently verified in this pass. Reports can be inaccurate, duplicated across accounts or incomplete; deleted posts, missing context and keyword/language bias limit coverage. Report dates do not establish incident onset. A report of reversal or wrapped-token return is not proof of native-asset redemption. No silence or missing follow-up is treated as resolution.",
+    "periods": [
+      {
+        "period": "February–March 2024",
+        "scope": "BTC bridging",
+        "reports": "Multiple accounts described BTC bridge delays or failed transfers. Return of a Fusion representation also appears in the reviewed material.",
+        "comparison": "This predates the 2025 explanation. It does not establish that the earlier incidents shared a cause, persisted continuously or involved restricted vaults.",
+        "sourceIds": []
+      },
+      {
+        "period": "October–November 2024",
+        "scope": "KAS / KRC-20 swaps and bridging",
+        "reports": "Multiple accounts described debited inputs, delayed outputs and difficulty recovering assets after failed or cancelled operations. Reports appear both before and after the late-November founder update.",
+        "comparison": "The founder described a cleared queue alongside a remaining bug and an alternative route. Later reports do not by themselves refute clearance of that particular queue: different routes and new orders may be involved.",
+        "sourceIds": [
+          "828837"
+        ]
+      },
+      {
+        "period": "December 2024",
+        "scope": "KAS / KRC-20 operations",
+        "reports": "Reports of delayed swaps, missing outputs and awaited returns continued across the month.",
+        "comparison": "An admin separately asserted one-to-one reserve backing. Operational availability and reserve sufficiency are different questions; the chat alone cannot reconcile them.",
+        "sourceIds": [
+          "832254"
+        ]
+      },
+      {
+        "period": "January–early February 2025",
+        "scope": "BTC-related swaps and bridging",
+        "reports": "Multiple accounts reported BTC operations remaining unresolved, including waits described as lasting weeks. Repeated follow-ups were present.",
+        "comparison": "These reports precede the March founder explanation. By early February an admin explicitly described manual BTC processing. January KAS migration messages concern a different route and should not be treated as a BTC explanation.",
+        "sourceIds": [
+          "848029",
+          "842003",
+          "864721"
+        ]
+      },
+      {
+        "period": "February 2025",
+        "scope": "Stablecoin swaps and bridging",
+        "reports": "Multiple accounts reported delayed stablecoin operations, including CUSDT conversion, cross-chain transfers and an operation described as staying within Fusion.",
+        "comparison": "The team announced a 10–14-day resolution window and then named 27 February. The reports show that complaints were not limited to BTC by this period; they do not establish a common underlying fault.",
+        "sourceIds": [
+          "849327",
+          "851456"
+        ]
+      },
+      {
+        "period": "March 2025",
+        "scope": "Continuing stablecoin delays",
+        "reports": "Multiple accounts reported still-pending or undelivered outputs both before and after the March resolution target.",
+        "comparison": "These reports do not support treating the February or March target as a verified blanket completion date. They remain user reports; some may describe newly submitted rather than pre-existing orders.",
+        "sourceIds": [
+          "851456",
+          "862573",
+          "864721"
+        ]
+      },
+      {
+        "period": "Late February–mid-March 2025",
+        "scope": "Reported processing and mixed outcomes",
+        "reports": "Multiple accounts also reported individual operations completing or being resolved. Other accounts described returned wrapped assets while they remained unable to complete the desired redemption.",
+        "comparison": "The record is mixed: claims that nothing was processed omit reported successes, while claims that all users were repaid conflate different outcomes. Wrapped-asset return, destination payment and a generic claim of resolution must remain separate in any future verified ledger.",
+        "sourceIds": [
+          "866590"
+        ]
+      }
+    ]
+  }
 }

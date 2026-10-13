@@ -6,7 +6,7 @@ The chronological timeline and selected verbatim source excerpts are maintained 
 
 ## What this first pass establishes
 
-The retained founder and community-admin messages distinguish an earlier beginner-mode security interruption, a wKAS route/queue problem, the 2025 stuck-transaction backlog, a blacklisting explanation, repeated funding estimates, an explicit service-suspension statement and subsequent funding updates. Every milestone is an **attributed statement**. An announcement supports what the account said, not whether its explanation or promised outcome occurred.
+The retained founder and community-admin messages distinguish an earlier beginner-mode security interruption, a wKAS route/queue problem, the 2025 stuck-transaction backlog, a blacklisting explanation, repeated funding estimates, an explicit service-suspension statement and subsequent funding updates. Announcement milestones are **attributed statements**; the separate community-review section contains anonymized, unverified reports. An announcement supports what the account said, not whether its explanation or promised outcome occurred.
 
 The 14 March 2025 explanation attributes liquidity depletion to blacklisted fund-holding addresses. It does not identify an asset issuer, chain-qualified vault, restriction transaction or authority. The claim that an issuer blocked particular assets therefore remains an open verification question. Do not turn the word “blacklisted” into a verified on-chain freeze.
 
@@ -20,7 +20,7 @@ The source is a Telegram Desktop JSON export of the public Chainge group, retain
 
 The maintainer confirmed that the author of [message 864721](https://t.me/chaingefinance/864721) is @djqian. Selected founder messages share that sender identity in the export. This supports attribution for this pass; the export does not itself preserve the username or certify past account control. No numeric sender identifier or private confirmation transcript is published.
 
-Only allowlisted founder and confirmed community-admin messages were used for the published timeline. Exact excerpts were checked against the private original. Ordinary-participant content, reply/forward metadata, ticket-to-person associations, unreviewed attachments and unrelated personal information were excluded. Selected excerpts are labelled as excerpts rather than presented as complete messages. Additional excerpts from a long statement remain separate, so omissions are visible. Public message IDs and links are retained only for the confirmed founder and community-admin sources.
+Only allowlisted founder and confirmed community-admin messages were used for the published timeline. Exact excerpts were checked against the private original. Ordinary-participant source records, reply/forward metadata, ticket-to-person associations, unreviewed attachments and unrelated personal information were excluded. Selected excerpts are labelled as excerpts rather than presented as complete messages. Additional excerpts from a long statement remain separate, so omissions are visible. Public message IDs and links are retained only for the confirmed founder and community-admin sources.
 
 UTC is derived from `date_unixtime`, not from the export's offset-free display date. `edited_unixtime`, where present, is retained separately. Message text is the version present at export; it must not be described as a recovered original revision. Edited content cannot be assumed to have appeared unchanged at initial publication.
 
@@ -56,3 +56,11 @@ The original remains preserved even if the Telegram post becomes unavailable. Th
 ## Late founder-message context correction (2026-10-13)
 
 A second pass reviewed the final 25 retained messages from the confirmed founder sender, independent of display-name changes. The September 10 statement already appeared in the timeline, but its conditional settlement wording needed more prominence. The August 18 excerpt had omitted the discussion of alternative solutions if resolution failed and his explanation of reduced communication; that context is now retained. The July 15 unconditional repayment assurance and complete October 9 message are also included to avoid presenting only optimistic fragments. The latest retained message remains October 9, 2025, not September 10. This is a finding about the supplied Chainge export, not a claim that no later statements exist elsewhere.
+
+## Community comparison pass (2026-10-13)
+
+The timeline JSON now includes a separate `communityReview` section, rendered above the announcement chronology. This is the single public record of the period summaries and their limitations. The main review focused on September 2024 through March 2025, with an earlier BTC look-back and a separate review of success, reversal and refund reports. It is a selected qualitative review, not a count of incidents or affected users. A private review index preserves the supporting selections outside the repository.
+
+First-person reports were separated from copied statements, speculation, advice and questions. Distinct exported accounts do not prove independent people or independent incidents. No exact community quotations, IDs, timestamps, links, amounts, addresses, ticket references or hashes are published. Broad periods and multi-account summaries reduce identification risk; isolated details are withheld. No blockchain transactions were verified in this pass, and no report is used to establish a reserve shortfall or the date a vault became restricted.
+
+The comparison also adds public admin sources about reserve backing, manual BTC processing and the February resolution target. The earlier Notion announcement linked by an admin remains inaccessible through the web tool, so its contents have not been promoted from a community repost to verified official text. Two November admin explanations carry edits months after publication; their retained wording is not used to establish what was said in November.
