@@ -3,5 +3,6 @@
   <ItemGroup>
     <ProjectReference Include="../Chainge.Postmortem.Application/Chainge.Postmortem.Application.csproj" />
     <ProjectReference Include="../Chainge.Postmortem.Persistence.Json/Chainge.Postmortem.Persistence.Json.csproj" />
+    <ProjectReference Include="../Chainge.Postmortem.Rpc.Http/Chainge.Postmortem.Rpc.Http.csproj" />
   </ItemGroup>
 </Project>

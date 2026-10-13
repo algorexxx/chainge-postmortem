@@ -79,4 +79,25 @@ Configure `balanceSources` using saved `eth_call` request files. Each selection 
 
 The evidence reader also supports raw Blockscout v2 ERC-20 transfer pages selected through `sources`. Follow and preserve every pagination cursor during acquisition. These rows retain explorer timestamps and remain receipt-unverified until independently corroborated; pagination is not RPC range coverage. Discovery rows sharing an actual transaction/log identity must agree with node evidence or the import fails. Keep an explicit missing-receipt queue rather than treating a successful import as verification.
 
+For a terminal window, retain pinned `balanceOf` reads immediately before its first block and at its closing block. `balance-intervals.json` compares consecutive observed balances with the intervening transfer change, excluding the opening block and including the closing block. It keeps all source observations, rejects conflicting same-block states, checks for negative intermediate balances, and reports log-range coverage separately. A matching interval can validate the observed net change while earlier history remains incomplete; cancelling omissions are still possible. These checks do not remove transfers from the ledger or classify redemptions.
+
 Use anonymous free sources for this project. Preserve throttling/range failures and resume bounded acquisition; do not introduce account requirements or credentials into the workflow.
+
+## Generate and resume anonymous RPC acquisition
+
+The .NET collector can turn configured coverage gaps into bounded log queries, then batch missing receipts and block headers. Configure `capturePolicies` per chain with a public endpoint, expected chain ID, request delay, timeout, stop threshold, maximum inclusive log span and RPC batch size. The batch size applies to log windows as well as receipts and headers. `combineHolderFilters` defaults to false: enable it only where the provider supports OR-holder filters at the configured range. Arbitrum, for example, permits a much larger span for a single holder than for an OR filter. Provider limits are observations that may change.
+
+```powershell
+./capture-plan.ps1 -Asset usdc
+./capture.ps1 -Plan archives/capture-plans/usdc/avalanche.json -Output evidence/YYYY-MM-DD-usdc-avalanche
+```
+
+Inspect the generated plan before running it. Planning and reconciliation are offline; only `capture.ps1` makes network calls. The plan is an ignored working artifact; every executed request is saved in the evidence package. Only read-only RPC methods are allowed. Each run verifies the chain ID before data acquisition. Requests, raw responses and capture metadata are appended as separate attempts, with hashes and a package manifest. A batch with an error or missing ID remains unsuccessful; its successful members still remain in the raw response for review.
+
+Rerunning the **same plan and output directory** resumes hash-checked successful pinned requests. Calls using dynamic tags such as `latest` are never reused. Existing attempts are never overwritten. Consecutive failures stop the run with a nonzero exit code and an explicit remaining count; retain the failures, respect provider limits and adjust the next plan rather than treating unavailable responses as zero. An interrupted process may lack a final manifest: resume the plan to finish it before selecting the package. No background scheduler or automatic publication is installed.
+
+After capture, add a README explaining scope and failures, include it in the SHA-256 manifest, and explicitly select reviewed request/response files through `sources`, `logQuerySources` and, where applicable, `balanceSources`. Reconcile again, then regenerate a **second plan**: newly discovered logs may introduce receipts and headers that the first plan could not know about. Keep a plan unchanged while resuming it; regenerated ordinal batch names need not match old ones, and differing request hashes are never reused. Use a new package for a materially different plan when that makes provenance clearer.
+
+Coverage, receipt verification, balance agreement, custody attribution and accepted settlement remain separate checks. The collector closes evidence gaps; it does not accept redemptions or infer ownership. Preserve public venue API traces separately from EVM RPC logs, with their API retention limits stated.
+
+For downstream bridge traces, verify the protocol contract from official documentation, then bind successful source and destination receipts using the actual message fields. For CCTP v1, check emitting contracts, source/destination domains, nonce, sender and the complete message body, plus the corresponding token burn and destination mint amount/recipient. Amount and time proximity alone are insufficient. Shared protocol contracts are transit points; tracing their entire global user history usually adds unrelated activity. Follow the destination recipient instead, and retain partial explorer discovery separately from complete bounded log coverage.

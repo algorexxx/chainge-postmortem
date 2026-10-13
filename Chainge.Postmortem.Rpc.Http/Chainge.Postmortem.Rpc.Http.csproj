@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Chainge.Postmortem.Application/Chainge.Postmortem.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Sentry" Version="6.12.1" />
+  </ItemGroup>
+</Project>

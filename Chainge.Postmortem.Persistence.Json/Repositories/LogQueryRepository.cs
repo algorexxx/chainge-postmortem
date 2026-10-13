@@ -2,6 +2,7 @@ using System.Buffers;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.Json;
+using Chainge.Postmortem.Application.Acquisition;
 using Chainge.Postmortem.Application.Reconciliation.Models;
 using Chainge.Postmortem.Persistence.Json.Models;
 
@@ -30,30 +31,30 @@ public sealed class LogQueryRepository
             foreach (var file in files)
             {
                 using var request = await ReadDocument(root, file, hashes, cancellationToken);
-                var query = request.RootElement;
-                if (query.ValueKind != JsonValueKind.Object || query.GetProperty("method").GetString() != "eth_getLogs") { continue; }
-                var source = Path.GetRelativePath(root, file).Replace('\\', '/');
-                var filter = query.GetProperty("params")[0];
-                var topics = filter.GetProperty("topics");
-                var supported = topics.GetArrayLength() is 2 or 3 && topics[0].ValueKind == JsonValueKind.String && topics[0].GetString() == Transfer;
-                var from = ReadBlock(filter.GetProperty("fromBlock"));
-                var through = ReadBlock(filter.GetProperty("toBlock"));
-                var incoming = topics.GetArrayLength() == 3 && topics[1].ValueKind == JsonValueKind.Null;
-                supported &= incoming || topics.GetArrayLength() == 2 || topics.GetArrayLength() == 3 && topics[2].ValueKind == JsonValueKind.Null;
-                if (!supported || from < 0 || through < from) { diagnostics.Add($"{source}: unsupported or unpinned query; no coverage credit"); continue; }
-                var tokens = ReadAlternatives(filter.GetProperty("address"));
-                var holders = ReadAlternatives(topics[incoming ? 2 : 1]);
-                if (tokens.Any(t => !IsHex(t, 42)) || holders.Any(h => !IsHex(h, 66) || h[2..26] != new string('0', 24))) { throw new InvalidDataException($"Malformed query address: {source}"); }
                 var responseFile = file.Replace(".request.json", ".response.json", StringComparison.Ordinal);
-                var succeeded = false;
-                if (File.Exists(responseFile))
+                using var response = File.Exists(responseFile) ? await ReadDocument(root, responseFile, hashes, cancellationToken) : JsonDocument.Parse("null");
+                var requests = CaptureResponseInspector.ReadElements(request.RootElement);
+                if (requests.Select(q => q.GetProperty("id").GetRawText()).Distinct(StringComparer.Ordinal).Count() != requests.Count) { throw new InvalidDataException("Duplicate log query identifiers."); }
+                foreach (var query in requests)
                 {
-                    using var response = await ReadDocument(root, responseFile, hashes, cancellationToken);
-                    succeeded = ValidateResponse(query, response.RootElement, tokens, holders, incoming, from, through);
-                }
-                foreach (var token in tokens)
-                {
-                    foreach (var holder in holders) { windows.Add(new LogQueryWindow { Chain = selection.Chain, Token = token, Holder = "0x" + holder[26..], Direction = incoming ? "incoming" : "outgoing", Range = new BlockRange { From = from, Through = through }, Succeeded = succeeded, Source = source }); }
+                    if (query.ValueKind != JsonValueKind.Object || query.GetProperty("method").GetString() != "eth_getLogs") { continue; }
+                    var source = Path.GetRelativePath(root, file).Replace('\\', '/');
+                    var filter = query.GetProperty("params")[0];
+                    var topics = filter.GetProperty("topics");
+                    var supported = topics.GetArrayLength() is 2 or 3 && topics[0].ValueKind == JsonValueKind.String && topics[0].GetString() == Transfer;
+                    var from = ReadBlock(filter.GetProperty("fromBlock"));
+                    var through = ReadBlock(filter.GetProperty("toBlock"));
+                    var incoming = topics.GetArrayLength() == 3 && topics[1].ValueKind == JsonValueKind.Null;
+                    supported &= incoming || topics.GetArrayLength() == 2 || topics.GetArrayLength() == 3 && topics[2].ValueKind == JsonValueKind.Null;
+                    if (!supported || from < 0 || through < from) { diagnostics.Add($"{source}: unsupported or unpinned query; no coverage credit"); continue; }
+                    var tokens = ReadAlternatives(filter.GetProperty("address"));
+                    var holders = ReadAlternatives(topics[incoming ? 2 : 1]);
+                    if (tokens.Any(t => !IsHex(t, 42)) || holders.Any(h => !IsHex(h, 66) || h[2..26] != new string('0', 24))) { throw new InvalidDataException($"Malformed query address: {source}"); }
+                    var succeeded = ValidateResponse(query, response.RootElement, tokens, holders, incoming, from, through);
+                    foreach (var token in tokens)
+                    {
+                        foreach (var holder in holders) { windows.Add(new LogQueryWindow { Chain = selection.Chain, Token = token, Holder = "0x" + holder[26..], Direction = incoming ? "incoming" : "outgoing", Range = new BlockRange { From = from, Through = through }, Succeeded = succeeded, Source = source }); }
+                    }
                 }
             }
         }
@@ -86,8 +87,16 @@ public sealed class LogQueryRepository
 
     private static bool ValidateResponse(JsonElement query, JsonElement response, List<string> tokens, List<string> holders, bool incoming, long from, long through)
     {
+        if (response.ValueKind == JsonValueKind.Array)
+        {
+            var matching = response.EnumerateArray().Where(r => r.ValueKind == JsonValueKind.Object && r.TryGetProperty("id", out var id) && id.GetRawText() == query.GetProperty("id").GetRawText()).ToList();
+            if (matching.Count > 1) { throw new InvalidDataException("Duplicate log response identifiers."); }
+            if (matching.Count == 0) { return false; }
+            response = matching[0];
+        }
+        if (response.ValueKind != JsonValueKind.Object) { return false; }
         if (response.TryGetProperty("error", out _) || !response.TryGetProperty("result", out var rows) || rows.ValueKind != JsonValueKind.Array) { return false; }
-        if (!response.TryGetProperty("id", out var id) || id.ToString() != query.GetProperty("id").ToString()) { throw new InvalidDataException("Log response identifier does not match request."); }
+        if (!response.TryGetProperty("id", out var id) || id.GetRawText() != query.GetProperty("id").GetRawText()) { throw new InvalidDataException("Log response identifier does not match request."); }
         foreach (var row in rows.EnumerateArray())
         {
             var topics = row.GetProperty("topics");

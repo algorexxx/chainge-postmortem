@@ -11,8 +11,39 @@ using Chainge.Postmortem.Reconcile;
 using Microsoft.Extensions.DependencyInjection;
 using Chainge.Postmortem.Persistence.Json.Repositories;
 using Chainge.Postmortem.Persistence.Json;
+using Chainge.Postmortem.Application.Acquisition;
+using Chainge.Postmortem.Application.Acquisition.Models;
 
 ArgumentOutOfRangeException.ThrowIfNotEqual(args.Length, 3);
+if (args[0] == "plan-capture")
+{
+    var captureSettings = (JsonSerializer.Deserialize<EvidenceSettings>(await File.ReadAllBytesAsync(args[1]), JsonSerializerOptions.Web) ?? throw new InvalidDataException("Missing settings.")).NormalizeAddresses();
+    await using var planningProvider = new ServiceCollection().AddReconciliation(captureSettings).BuildServiceProvider();
+    var evidence = await planningProvider.GetRequiredService<EvidenceRepository>().ReadEvidenceAsync(Directory.GetCurrentDirectory(), CancellationToken.None);
+    var logQueries = await planningProvider.GetRequiredService<LogQueryRepository>().ReadQueriesAsync(Directory.GetCurrentDirectory(), CancellationToken.None);
+    await EvidenceIntegrityVerifier.VerifyAsync(Directory.GetCurrentDirectory(), evidence.InputHashes, CancellationToken.None);
+    await EvidenceIntegrityVerifier.VerifyAsync(Directory.GetCurrentDirectory(), logQueries.InputHashes, CancellationToken.None);
+    var coverage = LogHistoryReviewer.ReviewCoverage(captureSettings.LogHistoryTargets, logQueries.Windows);
+    Directory.CreateDirectory(args[2]);
+    var planOptions = new JsonSerializerOptions(JsonSerializerOptions.Web) { WriteIndented = true };
+    foreach (var item in CapturePlanBuilder.BuildPlans(evidence.Events, coverage, captureSettings.CapturePolicies))
+    {
+        var file = Path.Combine(args[2], item.Key.ToLowerInvariant() + ".json");
+        await File.WriteAllBytesAsync(file, JsonSerializer.SerializeToUtf8Bytes(item.Value, planOptions));
+        Console.WriteLine($"{item.Key}: {item.Value.Queries.Count} capture queries -> {file}");
+    }
+    return;
+}
+if (args[0] == "capture")
+{
+    var plan = JsonSerializer.Deserialize<CapturePlan>(await File.ReadAllBytesAsync(args[1]), JsonSerializerOptions.Web) ?? throw new InvalidDataException("Missing capture plan.");
+    await using var captureProvider = new ServiceCollection().AddAcquisition(plan, Path.GetFullPath(args[2])).BuildServiceProvider();
+    var progress = new Progress<CaptureProgress>(p => Console.WriteLine($"{p.Name}: {p.Status}"));
+    var captured = await captureProvider.GetRequiredService<EvidenceCapturer>().CaptureEvidence(plan, progress, CancellationToken.None);
+    Console.WriteLine(JsonSerializer.Serialize(captured, JsonSerializerOptions.Web));
+    Environment.ExitCode = captured.IdentityVerified && captured.Remaining == 0 ? 0 : 2;
+    return;
+}
 var root = Path.GetFullPath(args[0]);
 var configBytes = await File.ReadAllBytesAsync(Path.GetFullPath(args[1]));
 var settings = JsonSerializer.Deserialize<EvidenceSettings>(configBytes, JsonSerializerOptions.Web) ?? throw new InvalidDataException("Missing settings");
@@ -38,6 +69,7 @@ Directory.CreateDirectory(output);
 var options = new JsonSerializerOptions(JsonSerializerOptions.Web) { WriteIndented = true };
 await File.WriteAllTextAsync(Path.Combine(output, "balance-checks.json"), JsonSerializer.Serialize(new { settings.Asset, Scope = "Pinned balanceOf observations compared with zero-opening Transfer replay. Agreement does not prove custody, backing, absence of cancelling omissions or claim eligibility. Query coverage and balance agreement are separate checks. Failed state reads remain unavailable.", ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), BalanceInputHashes = balances.InputHashes, EventInputHashes = snapshot.InputHashes, QueryInputHashes = queries.InputHashes, Checks = BalanceReviewer.ReviewBalances(snapshot.Events, balances.Observations, queries.Windows) }, options));
 var historyCoverage = LogHistoryReviewer.ReviewCoverage(settings.LogHistoryTargets, queries.Windows);
+await File.WriteAllTextAsync(Path.Combine(output, "balance-intervals.json"), JsonSerializer.Serialize(new { settings.Asset, Scope = "Changes between consecutive pinned balance blocks, compared with retained transfers after the opening block through the closing block. All same-block observations remain visible; conflicting states are not resolved by choosing a source. Net agreement does not rule out cancelling omissions or certify earlier history, custody or backing.", ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), BalanceInputHashes = balances.InputHashes, EventInputHashes = snapshot.InputHashes, QueryInputHashes = queries.InputHashes, Checks = BalanceIntervalReviewer.ReviewIntervals(snapshot.Events, balances.Observations, queries.Windows) }, options));
 await File.WriteAllTextAsync(Path.Combine(output, "history-coverage.json"), JsonSerializer.Serialize(new { settings.Asset, Scope = "Bounded Transfer-log query coverage for explicitly configured token/address targets. Successful provider responses are not independent proof that a provider never omits logs. Both directions, balance checks and chain continuity still matter. Unpinned and unsupported queries receive no coverage credit.", ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), queries.InputHashes, queries.Diagnostics, Coverage = historyCoverage }, options));
 foreach (var source in SourcePositionBuilder.BuildSnapshots(snapshot.Events, settings.LogHistoryTargets, queries.Windows, settings.SourceCutoffBlocks))
 {

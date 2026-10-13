@@ -6,6 +6,7 @@
     <Project Path="Chainge.Postmortem.Domain/Chainge.Postmortem.Domain.csproj" />
   </Folder>
   <Folder Name="/Infrastructure/">
+    <Project Path="Chainge.Postmortem.Rpc.Http/Chainge.Postmortem.Rpc.Http.csproj" />
     <Project Path="Chainge.Postmortem.Persistence.Json/Chainge.Postmortem.Persistence.Json.csproj" />
   </Folder>
   <Folder Name="/Presentation/">

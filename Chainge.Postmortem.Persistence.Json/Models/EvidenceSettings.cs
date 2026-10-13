@@ -4,6 +4,7 @@ namespace Chainge.Postmortem.Persistence.Json.Models;
 
 public sealed record EvidenceSettings
 {
+    public IReadOnlyDictionary<string, Chainge.Postmortem.Application.Acquisition.Models.CapturePolicy> CapturePolicies { get; init; } = new Dictionary<string, Chainge.Postmortem.Application.Acquisition.Models.CapturePolicy>();
     public IReadOnlyList<EvidenceSelection> BalanceSources { get; init; } = [];
     public IReadOnlyList<EvidenceSelection> LogQuerySources { get; init; } = [];
     public IReadOnlyList<LogHistoryTarget> LogHistoryTargets { get; init; } = [];

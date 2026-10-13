@@ -69,6 +69,36 @@ public sealed class LogQueryRepositoryTests
         return JsonSerializer.Serialize(new { id = 1, method = "eth_getLogs", @params = new[] { new { address = new[] { Token }, fromBlock = "0x0", toBlock = through, topics = new object?[] { Transfer, null, new[] { HolderTopic } } } } });
     }
 
+    [Theory]
+    [InlineData("[{\"id\":2,\"error\":{\"code\":-1}},{\"id\":1,\"result\":[]}]", true, false)]
+    [InlineData("[{\"id\":2,\"result\":[]},{\"id\":1,\"result\":[]}]", true, true)]
+    [InlineData("[{\"id\":1,\"result\":[]}]", true, false)]
+    [InlineData("[{\"id\":\"1\",\"result\":[]}]", false, false)]
+    public async Task ReadQueriesAsync_BatchReplies_ShouldBindByTypedIdAndRetainPartialFailures(string response, bool first, bool second)
+    {
+        var request = "[" + Request("0xa") + "," + Request("0xa").Replace("\"id\":1", "\"id\":2", StringComparison.Ordinal) + "]";
+        var root = await CreateFixture(request, response);
+        var expected = new[] { first, second };
+
+        var result = await CreateReader().ReadQueriesAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Windows.Select(w => w.Succeeded).ToArray();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task ReadQueriesAsync_DuplicateBatchIds_ShouldRejectAmbiguousBinding(bool duplicateRequest)
+    {
+        var request = duplicateRequest ? "[" + Request("0xa") + "," + Request("0xa") + "]" : "[" + Request("0xa") + "]";
+        var root = await CreateFixture(request, "[{\"id\":1,\"result\":[]},{\"id\":1,\"result\":[]}]");
+
+        var actual = await Record.ExceptionAsync(() => CreateReader().ReadQueriesAsync(root, TestContext.Current.CancellationToken));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
     private static LogQueryRepository CreateReader()
     {
         var json = """
