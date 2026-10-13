@@ -9,6 +9,67 @@ namespace Chainge.Postmortem.Persistence.Json.Tests;
 public sealed class EvidenceRepositoryTests
 {
     [Fact]
+    public async Task ReadEvidenceAsync_PaginatedExplorerRows_ShouldRetainUnverifiedEvents()
+    {
+        var root = await CreateFixture(ExplorerPage("100", "18"), "[]");
+        var reader = CreateReader();
+        var expected = new { Id = "BSC:tx:0", RawAmount = "100", ReceiptVerified = false, Timestamp = DateTimeOffset.FromUnixTimeSeconds(100), Evidence = new[] { "a.json" } };
+
+        var result = await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Events.Select(e => new { e.Id, e.RawAmount, e.ReceiptVerified, e.Timestamp, e.Evidence }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_ExplorerAndReceiptAgree_ShouldDeduplicateAndPreferNodeTime()
+    {
+        var root = await CreateFixture(Receipt("0x1", "0x65"), ExplorerPage("100", "18"));
+        var reader = CreateReader();
+        var expected = new { Id = "BSC:tx:0", RawAmount = "100", ReceiptVerified = true, Timestamp = DateTimeOffset.FromUnixTimeSeconds(101), Evidence = new[] { "a.json", "b.json" } };
+
+        var result = await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Events.Select(e => new { e.Id, e.RawAmount, e.ReceiptVerified, e.Timestamp, e.Evidence }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Theory]
+    [InlineData("101", "18")]
+    [InlineData("100", "6")]
+    [InlineData("-1", "18")]
+    public async Task ReadEvidenceAsync_InvalidExplorerTransfer_ShouldReject(string amount, string decimals)
+    {
+        var root = await CreateFixture(Receipt("0x1", "0x64"), ExplorerPage(amount, decimals));
+        var reader = CreateReader();
+
+        var actual = await Record.ExceptionAsync(() => reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
+    private static string ExplorerPage(string amount, string decimals)
+    {
+        return JsonSerializer.Serialize(new { items = new[] { new { token_type = "ERC-20", token = new { address_hash = "token" }, total = new { value = amount, decimals }, block_hash = "block", block_number = 1, log_index = 0, transaction_hash = "tx", timestamp = "1970-01-01T00:01:40.000000Z", from = new { hash = "0x0000000000000000000000000000000000000000" }, to = new { hash = "0x1111111111111111111111111111111111111111" } } }, next_page_params = (string?)null });
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_DatedToken_ShouldRetainBalanceEventWithoutFullTimeIssuance()
+    {
+        var root = await CreateFixture(Receipt("0x1", "0x64"), "[]");
+        var settings = JsonSerializer.Deserialize<EvidenceSettings>("""
+        {"asset":"fixture","policy":{"largeOutflowRaw":"100","depletionBasisPoints":9000,"decimals":18,"fusionChain":"Fusion","operatingAddresses":{},"maximumDelay":"00:05:00","clockTolerance":"00:02:00","redemptionFeeRawHypotheses":["0"]},"sources":[{"chain":"Fusion","directory":".","pattern":"*.json","tokenDecimals":{"token":18},"datedTokens":["token"]}],"limitations":[]}
+        """, JsonSerializerOptions.Web)!;
+        var reader = new EvidenceRepository(settings);
+        var expected = new { RawAmount = "100", FullTime = false, ReceiptVerified = true };
+
+        var snapshot = await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = snapshot.Events.Select(e => new { e.RawAmount, e.FullTime, e.ReceiptVerified }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
     public async Task ReadEvidenceAsync_DuplicateReceipts_ShouldDeduplicateAndPreserveSources()
     {
         var root = await CreateFixture(Receipt("0x1", "0x64"), Receipt("0x1", "0x64"));

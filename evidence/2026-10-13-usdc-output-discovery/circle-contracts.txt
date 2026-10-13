@@ -1,0 +1,280 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developers.circle.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+> ## Agent Instructions
+> Before reading these docs, install the relevant Circle Skill to get pre-loaded context — skills are LLM-optimized and cover architecture decisions, correct flows, and common pitfalls. In Claude Code: run /plugin marketplace add circlefin/skills then /plugin install circle-skills@circle. With Vercel Skills CLI: run npx skills add circlefin/skills. Available skills: use-usdc https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-usdc/SKILL.md (balances, transfers, approvals on EVM and Solana); EURC has no skill — see https://developers.circle.com/stablecoins/what-is-eurc.md; bridge-stablecoin https://github.com/circlefin/skills/blob/master/plugins/circle/skills/bridge-stablecoin/SKILL.md (crosschain transfers via CCTP, USDC, EURC, and third-party assets); use-arc https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-arc/SKILL.md (Arc chain config, contract deployment, USDC bridging — Arc docs: https://docs.arc.io/llms.txt); use-circle-wallets https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-circle-wallets/SKILL.md (choose wallet type); use-developer-controlled-wallets https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-developer-controlled-wallets/SKILL.md (custodial wallets for payouts and treasury); use-user-controlled-wallets https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-user-controlled-wallets/SKILL.md (embedded wallets with Web2 login); use-modular-wallets https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-modular-wallets/SKILL.md (smart contract wallets with passkeys and ERC-4337); use-gateway https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-gateway/SKILL.md (unified USDC balance, nanopayments); use-smart-contract-platform https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-smart-contract-platform/SKILL.md (deploy, interact, monitor contracts). Pair any skill with the Circle MCP server for live SDK signatures, contract addresses, and chain IDs: {"mcpServers":{"circle":{"url":"https://api.circle.com/v1/codegen/mcp"}}}.
+> Read the product overview first. Each product has an overview explaining when and why to use it. Read it before quickstarts.
+> Pick the right wallet type. Developer-controlled (you hold keys), user-controlled (end user holds keys via PIN/social login), or modular (smart contract wallets with passkeys). See https://developers.circle.com/wallets.md.
+> Use CCTP V2 for crosschain transfers. CCTP natively transfers USDC and EURC via burn-and-mint, and supports permissionless wrapping of third-party assets via lock-and-mint. V1 is legacy; always use V2 unless V1 is specified or the chain requires it (Noble, Sui, and Aptos still require V1). Migration guide: https://developers.circle.com/cctp/migration-from-v1-to-v2.md.
+> Use Bridge Kit for frontend bridging. Wraps CCTP with a simpler SDK for user-facing apps. Use CCTP directly for backend transfers.
+> Gas Station vs Paymaster. Gas Station sponsors gas for Circle Wallet transactions. Paymaster lets users pay gas in USDC. Different use cases — read both overviews.
+> Gateway Nanopayments for sub-cent payments. Gasless USDC micropayments down to $0.000001 via x402 and batched settlement. For pay-per-request APIs, AI agent payments, streaming.
+> Look up USDC addresses per chain. Never hardcode — use https://developers.circle.com/stablecoins/usdc-contract-addresses.md.
+> Prefer SDKs over raw API calls. Node.js and Python SDKs handle auth, retries, and errors.
+> API key required. Bearer token in Authorization header. Testnet and mainnet use separate keys and may use different base URLs depending on the product.
+> Set up webhooks when available. Most operations are async. Webhooks deliver transaction confirmations and state changes.
+> When calling list endpoints, paginate using pageSize and pageAfter until no nextPageAfter cursor is returned—stopping at the first page silently misses records.
+> Building an AI agent? Start with the Agent Stack—Circle CLI, agent wallets, and nanopayments built for autonomous use cases: https://developers.circle.com/agent-stack.md.
+
+# CCTP EVM contracts and interfaces V1
+
+> CCTP V1 smart contracts for EVM-compatible blockchains
+
+<Warning>
+  **This is CCTP V1 (Legacy) version. For the latest version, see
+  [CCTP](/cctp)**.
+</Warning>
+
+## Contract responsibilities
+
+* **TokenMessenger**: Entrypoint for cross-chain USDC transfer. Routes messages
+  to burn USDC on a source chain, and mint USDC on a destination chain.
+* **MessageTransmitter**: Generic message passing. Sends all messages on the
+  source chain, and receives all messages on the destination chain.
+* **TokenMinter**: Responsible for minting and burning USDC. Contains
+  chain-specific settings used by burners and minters.
+* **Message**: Provides helper functions for cross-chain transfers, such as
+  `bytes32ToAddress` and `addressToBytes32`, which are commonly used when
+  bridging between EVM and non-EVM chains. These conversions are simple: prepend
+  12 zero bytes to an EVM address, or strip them to convert back.
+
+<Note>
+  **Note:** If you're writing your own integration, it's more gas-efficient to
+  [include this logic directly in your
+  contract](https://github.com/circlefin/evm-cctp-contracts/blob/5f1901a9791b18204e8556bb53fb0dfcb05a832a/src/messages/Message.sol#L146)
+  rather than calling an external one.
+</Note>
+
+Full contract source code is
+[available on GitHub](https://github.com/circlefin/evm-cctp-contracts).
+
+## Mainnet contract addresses
+
+### TokenMessenger: Mainnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum** | 0 | [`0xBd3fa81B58Ba92a82136038B25aDec7066af3155`](https://etherscan.io/address/0xbd3fa81b58ba92a82136038b25adec7066af3155) |
+| **Avalanche** | 1 | [`0x6B25532e1060CE10cc3B0A99e5683b91BFDe6982`](https://snowtrace.io/address/0x6b25532e1060ce10cc3b0a99e5683b91bfde6982) |
+| **OP Mainnet** | 2 | [`0x2B4069517957735bE00ceE0fadAE88a26365528f`](https://optimistic.etherscan.io/address/0x2B4069517957735bE00ceE0fadAE88a26365528f) |
+| **Arbitrum** | 3 | [`0x19330d10D9Cc8751218eaf51E8885D058642E08A`](https://arbiscan.io/address/0x19330d10D9Cc8751218eaf51E8885D058642E08A) |
+| **Base** | 6 | [`0x1682Ae6375C4E4A97e4B583BC394c861A46D8962`](https://basescan.org/address/0x1682Ae6375C4E4A97e4B583BC394c861A46D8962) |
+| **Polygon PoS** | 7 | [`0x9daF8c91AEFAE50b9c0E69629D3F6Ca40cA3B3FE`](https://polygonscan.com/address/0x9daf8c91aefae50b9c0e69629d3f6ca40ca3b3fe) |
+| **Unichain** | 10 | [`0x4e744b28E787c3aD0e810eD65A24461D4ac5a762`](https://uniscan.xyz/address/0x4e744b28E787c3aD0e810eD65A24461D4ac5a762) |
+
+### MessageTransmitter: Mainnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum** | 0 | [`0x0a992d191DEeC32aFe36203Ad87D7d289a738F81`](https://etherscan.io/address/0x0a992d191deec32afe36203ad87d7d289a738f81) |
+| **Avalanche** | 1 | [`0x8186359aF5F57FbB40c6b14A588d2A59C0C29880`](https://snowtrace.io/address/0x8186359af5f57fbb40c6b14a588d2a59c0c29880) |
+| **OP Mainnet** | 2 | [`0x4D41f22c5a0e5c74090899E5a8Fb597a8842b3e8`](https://optimistic.etherscan.io/address/0x4d41f22c5a0e5c74090899e5a8fb597a8842b3e8) |
+| **Arbitrum** | 3 | [`0xC30362313FBBA5cf9163F0bb16a0e01f01A896ca`](https://arbiscan.io/address/0xC30362313FBBA5cf9163F0bb16a0e01f01A896ca) |
+| **Base** | 6 | [`0xAD09780d193884d503182aD4588450C416D6F9D4`](https://basescan.org/address/0xAD09780d193884d503182aD4588450C416D6F9D4) |
+| **Polygon PoS** | 7 | [`0xF3be9355363857F3e001be68856A2f96b4C39Ba9`](https://polygonscan.com/address/0xF3be9355363857F3e001be68856A2f96b4C39Ba9) |
+| **Unichain** | 10 | [`0x353bE9E2E38AB1D19104534e4edC21c643Df86f4`](https://uniscan.xyz/address/0x353bE9E2E38AB1D19104534e4edC21c643Df86f4) |
+
+### TokenMinter: Mainnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum** | 0 | [`0xc4922d64a24675E16e1586e3e3Aa56C06fABe907`](https://etherscan.io/address/0xc4922d64a24675e16e1586e3e3aa56c06fabe907) |
+| **Avalanche** | 1 | [`0x420F5035fd5dC62a167E7e7f08B604335aE272b8`](https://snowtrace.io/address/0x420f5035fd5dc62a167e7e7f08b604335ae272b8) |
+| **OP Mainnet** | 2 | [`0x33E76C5C31cb928dc6FE6487AB3b2C0769B1A1e3`](https://optimistic.etherscan.io/address/0x33E76C5C31cb928dc6FE6487AB3b2C0769B1A1e3) |
+| **Arbitrum** | 3 | [`0xE7Ed1fa7f45D05C508232aa32649D89b73b8bA48`](https://arbiscan.io/address/0xE7Ed1fa7f45D05C508232aa32649D89b73b8bA48) |
+| **Base** | 6 | [`0xe45B133ddc64bE80252b0e9c75A8E74EF280eEd6`](https://basescan.org/address/0xe45B133ddc64bE80252b0e9c75A8E74EF280eEd6) |
+| **Polygon PoS** | 7 | [`0x10f7835F827D6Cf035115E10c50A853d7FB2D2EC`](https://polygonscan.com/address/0x10f7835f827d6cf035115e10c50a853d7fb2d2ec) |
+| **Unichain** | 10 | [`0x726bFEF3cBb3f8AF7d8CB141E78F86Ae43C34163`](https://uniscan.xyz/address/0x726bFEF3cBb3f8AF7d8CB141E78F86Ae43C34163) |
+
+### Message: Mainnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum** | 0 | [`0xB2f38107A18f8599331677C14374Fd3A952fb2c8`](https://etherscan.io/address/0xb2f38107a18f8599331677c14374fd3a952fb2c8) |
+| **Avalanche** | 1 | [`0x21F337db7A718F23e061262470Af8c1Fd01232D1`](https://snowtrace.io/address/0x21f337db7a718f23e061262470af8c1fd01232d1) |
+| **OP Mainnet** | 2 | [`0xDB2831EaF163be1B564d437A97372deB0046C70D`](https://optimistic.etherscan.io/address/0xdb2831eaf163be1b564d437a97372deb0046c70d) |
+| **Arbitrum** | 3 | [`0xE189BDCFbceCEC917b937247666a44ED959D81e4`](https://arbiscan.io/address/0xe189bdcfbcecec917b937247666a44ed959d81e4) |
+| **Base** | 6 | [`0x827ae40E55C4355049ab91e441b6e269e4091441`](https://basescan.org/address/0x827ae40E55C4355049ab91e441b6e269e4091441) |
+| **Polygon PoS** | 7 | [`0x02d9fa3e7f870E5FAA7Ca6c112031E0ddC5E646C`](https://polygonscan.com/address/0x02d9fa3e7f870E5FAA7Ca6c112031E0ddC5E646C) |
+| **Unichain** | 10 | [`0x395b1be6E432033B676e3e36B2c2121a1f952622`](https://uniscan.xyz/address/0x395b1be6E432033B676e3e36B2c2121a1f952622) |
+
+## Testnet contract addresses
+
+### TokenMessenger: Testnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum Sepolia** | 0 | [`0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5`](https://sepolia.etherscan.io/address/0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5) |
+| **Avalanche Fuji** | 1 | [`0xeb08f243E5d3FCFF26A9E38Ae5520A669f4019d0`](https://testnet.snowtrace.io/address/0xeb08f243e5d3fcff26a9e38ae5520a669f4019d0) |
+| **OP Sepolia** | 2 | [`0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5`](https://sepolia-optimism.etherscan.io/address/0x9f3b8679c73c2fef8b59b4f3444d4e156fb70aa5) |
+| **Arbitrum Sepolia** | 3 | [`0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5`](https://sepolia.arbiscan.io/address/0x9f3b8679c73c2fef8b59b4f3444d4e156fb70aa5) |
+| **Base Sepolia** | 6 | [`0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5`](https://base-sepolia.blockscout.com/address/0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5) |
+| **Polygon PoS Amoy** | 7 | [`0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5`](https://amoy.polygonscan.com/address/0x9f3b8679c73c2fef8b59b4f3444d4e156fb70aa5) |
+| **Unichain Sepolia** | 10 | [`0x8ed94B8dAd2Dc5453862ea5e316A8e71AAed9782`](https://unichain-sepolia.blockscout.com/address/0x8ed94B8dAd2Dc5453862ea5e316A8e71AAed9782) |
+
+### MessageTransmitter: Testnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum Sepolia** | 0 | [`0x7865fAfC2db2093669d92c0F33AeEF291086BEFD`](https://sepolia.etherscan.io/address/0x7865fAfC2db2093669d92c0F33AeEF291086BEFD) |
+| **Avalanche Fuji** | 1 | [`0xa9fB1b3009DCb79E2fe346c16a604B8Fa8aE0a79`](https://testnet.snowtrace.io/address/0xa9fb1b3009dcb79e2fe346c16a604b8fa8ae0a79) |
+| **OP Sepolia** | 2 | [`0x7865fAfC2db2093669d92c0F33AeEF291086BEFD`](https://sepolia-optimism.etherscan.io/address/0x7865fAfC2db2093669d92c0F33AeEF291086BEFD) |
+| **Arbitrum Sepolia** | 3 | [`0xaCF1ceeF35caAc005e15888dDb8A3515C41B4872`](https://sepolia.arbiscan.io/address/0xacf1ceef35caac005e15888ddb8a3515c41b4872) |
+| **Base Sepolia** | 6 | [`0x7865fAfC2db2093669d92c0F33AeEF291086BEFD`](https://base-sepolia.blockscout.com/address/0x7865fAfC2db2093669d92c0F33AeEF291086BEFD) |
+| **Polygon PoS Amoy** | 7 | [`0x7865fAfC2db2093669d92c0F33AeEF291086BEFD`](https://amoy.polygonscan.com/address/0x7865fafc2db2093669d92c0f33aeef291086befd) |
+| **Unichain Sepolia** | 10 | [`0xbc498c326533d675cf571B90A2Ced265ACb7d086`](https://unichain-sepolia.blockscout.com/address/0xbc498c326533d675cf571B90A2Ced265ACb7d086) |
+
+### TokenMinter: Testnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum Sepolia** | 0 | [`0xE997d7d2F6E065a9A93Fa2175E878Fb9081F1f0A`](https://sepolia.etherscan.io/address/0xe997d7d2f6e065a9a93fa2175e878fb9081f1f0a) |
+| **Avalanche Fuji** | 1 | [`0x4ED8867f9947A5fe140C9dC1c6f207F3489F501E`](https://testnet.snowtrace.io/address/0x4ed8867f9947a5fe140c9dc1c6f207f3489f501e) |
+| **OP Sepolia** | 2 | [`0xE997d7d2F6E065a9A93Fa2175E878Fb9081F1f0A`](https://sepolia-optimism.etherscan.io/address/0xe997d7d2f6e065a9a93fa2175e878fb9081f1f0a) |
+| **Arbitrum Sepolia** | 3 | [`0xE997d7d2F6E065a9A93Fa2175E878Fb9081F1f0A`](https://sepolia.arbiscan.io/address/0xe997d7d2f6e065a9a93fa2175e878fb9081f1f0a) |
+| **Base Sepolia** | 6 | [`0xE997d7d2F6E065a9A93Fa2175E878Fb9081F1f0A`](https://base-sepolia.blockscout.com/address/0xE997d7d2F6E065a9A93Fa2175E878Fb9081F1f0A) |
+| **Polygon PoS Amoy** | 7 | [`0xE997d7d2F6E065a9A93Fa2175E878Fb9081F1f0A`](https://amoy.polygonscan.com/address/0xe997d7d2f6e065a9a93fa2175e878fb9081f1f0a) |
+| **Unichain Sepolia** | 10 | [`0x7348358C94519Da790DB38638d8c23669d343Bc6`](https://unichain-sepolia.blockscout.com/address/0x7348358C94519Da790DB38638d8c23669d343Bc6) |
+
+### Message: Testnet
+
+| Chain | [Domain](/cctp/v1/supported-domains) | Address |
+| - | - | - |
+| **Ethereum Sepolia** | 0 | [`0x80537e4e8bAb73D21096baa3a8c813b45CA0b7c9`](https://sepolia.etherscan.io/address/0x80537e4e8bAb73D21096baa3a8c813b45CA0b7c9) |
+| **Avalanche Fuji** | 1 | [`0xeAf1DB5E3eb86FEbD8080368a956622b62Dcb78f`](https://testnet.snowtrace.io/address/0xeaf1db5e3eb86febd8080368a956622b62dcb78f) |
+| **OP Sepolia** | 2 | [`0xffbeA106ce4A3CdAfcC82BAebeD78C81814e32Ed`](https://sepolia-optimism.etherscan.io/address/0xffbeA106ce4A3CdAfcC82BAebeD78C81814e32Ed) |
+| **Arbitrum Sepolia** | 3 | [`0x70fAB9868cd54E12C7d87196424d6E0ca21be534`](https://sepolia.arbiscan.io/address/0x70fAB9868cd54E12C7d87196424d6E0ca21be534) |
+| **Base Sepolia** | 6 | [`0x8E52a9e76148185536F0f0779749Cc895E5f70dC`](https://base-sepolia.blockscout.com/address/0x8E52a9e76148185536F0f0779749Cc895E5f70dC) |
+| **Polygon PoS Amoy** | 7 | [`0x8E52a9e76148185536F0f0779749Cc895E5f70dC`](https://amoy.polygonscan.com/address/0x8E52a9e76148185536F0f0779749Cc895E5f70dC) |
+| **Unichain Sepolia** | 10 | [`0x1Fae490d95dDcFFD70728AF5024C524ed303a2e3`](https://unichain-sepolia.blockscout.com/address/0x1Fae490d95dDcFFD70728AF5024C524ed303a2e3) |
+
+## CCTP V1 Interface
+
+This section provides the **CCTP V1 Smart Contract Interface** exposed by **CCTP
+V1**, outlining the available functions, and their parameters.
+
+The interface below serves as a reference for permissionless messaging functions
+exposed by the **TokenMessenger** and **MessageTransmitter** functions. The full
+ABIs are
+[available on GitHub](https://github.com/circlefin/evm-cctp-contracts/tree/adb2a382b09ea574f4d18d8af5b6706e8ed9b8f2/docs/abis/cctp).
+
+### TokenMessenger
+
+#### depositForBurn
+
+Deposits and burns tokens from sender to be minted on destination domain. Minted
+tokens will be transferred to `mintRecipient`.
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `amount` | `uint256` | Amount of tokens to deposit and burn |
+| `destinationDomain` | `uint32` | Destination domain identifier |
+| `mintRecipient` | `bytes32` | Address of mint recipient on destination domain |
+| `burnToken` | `address` | Address of contract to burn deposited tokens on local domain |
+
+#### depositForBurnWithCaller
+
+Same as `depositForBurn` but with an additional parameter, `destinationCaller`.
+This parameter specifies which address has permission to call `receiveMessage`
+on the destination domain for the message.
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `amount` | `uint256` | Amount of tokens to deposit and burn |
+| `destinationDomain` | `uint32` | Destination domain identifier |
+| `mintRecipient` | `bytes32` | Address of mint recipient on destination domain |
+| `burnToken` | `address` | Address of contract to burn deposited tokens on local domain |
+| `destinationCaller` | `bytes32` | Address of caller on the destination domain |
+
+#### replaceDepositForBurn
+
+Replace a `BurnMessage` to change the mint recipient and/or destination caller.
+Allows the sender of a previous `BurnMessage` (created by `depositForBurn` or
+`depositForBurnWithCaller`) to send a new `BurnMessage` to replace the original.
+The new `BurnMessage` will reuse the amount and burn token of the original,
+without requiring a new deposit.
+
+This is useful in situations where the user specified an incorrect address and
+has no way to safely mint the previously burned USDC.
+
+<Note>
+  The sender of the original `depositForBurn` has access to call
+  `replaceDepositForBurn`. The resulting mint will supersede the original mint,
+  as long as the original mint has not confirmed yet onchain. When using a
+  third-party app/bridge that integrates with CCTP V1 to burn and mint USDC, it
+  is the choice of the app/bridge if and when to replace messages on behalf of
+  users. When sending USDC to smart contracts, be aware of the functionality
+  that those contracts have and their respective trust model.
+</Note>
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `originalMessage` | `bytes calldata` | Original message bytes (to replace) |
+| `originalAttestation` | `bytes calldata` | Original attestation bytes |
+| `newDestinationCaller` | `bytes32` | The new destination caller, which may be the same as the original destination caller, a new destination caller, or an empty destination caller, indicating that any destination caller is valid |
+| `newMintRecipient` | `bytes32` | The new mint recipient, which may be the same as the original mint recipient, or different |
+
+### MessageTransmitter
+
+#### receiveMessage
+
+Messages with a given nonce can only be broadcast successfully once for a pair
+of domains. The message body of a valid message is passed to the specified
+recipient for further processing.
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `message` | `bytes calldata` | Message bytes |
+| `attestation` | `bytes calldata` | Signed attestation of message |
+
+#### sendMessage
+
+Sends a message to the destination domain and recipient. Emits a `MessageSent`
+event which will be attested by Circle's attestation service (Iris).
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `destinationDomain` | `uint32` | Destination domain identifier |
+| `recipient` | `bytes32` | Address to handle message body on destination domain |
+| `messageBody` | `bytes calldata` | App-specific message to be handled by recipient |
+
+#### sendMessageWithCaller
+
+Same as `sendMessage` but with an additional parameter, `destinationCaller`.
+This parameter specifies which address has permission to call `receiveMessage`
+on the destination domain for the message.
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `destinationDomain` | `uint32` | Destination domain identifier |
+| `recipient` | `bytes32` | Address of message recipient on destination domain |
+| `destinationCaller` | `bytes32` | Address of caller on the destination domain |
+| `messageBody` | `bytes calldata` | App-specific message to be handled by recipient |
+
+#### replaceMessage
+
+Replace a message with a new message body and/or destination caller. The
+`originalAttestation` must be a valid attestation of `originalMessage`, produced
+by Circle's attestation service (Iris).
+
+**Parameters**
+
+| Field | Type | Description |
+| - | - | - |
+| `originalMessage` | `bytes calldata` | Original message to replace |
+| `originalAttestation` | `bytes calldata` | Attestation of `originalMessage` |
+| `newMessageBody` | `bytes calldata` | New message body of replaced message |
+| `newDestinationCaller` | `bytes32` | The new destination caller, which may be the same as the original destination caller, a new destination caller, or an empty destination caller (bytes32(0), indicating that any destination caller is valid) |

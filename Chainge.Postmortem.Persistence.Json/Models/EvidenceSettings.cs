@@ -4,6 +4,10 @@ namespace Chainge.Postmortem.Persistence.Json.Models;
 
 public sealed record EvidenceSettings
 {
+    public IReadOnlyList<EvidenceSelection> BalanceSources { get; init; } = [];
+    public IReadOnlyList<EvidenceSelection> LogQuerySources { get; init; } = [];
+    public IReadOnlyList<LogHistoryTarget> LogHistoryTargets { get; init; } = [];
+    public IReadOnlyDictionary<string, long> SourceCutoffBlocks { get; init; } = new Dictionary<string, long>();
     public IReadOnlyList<EvidenceSelection> DiscoverySources { get; init; } = [];
     public required string Asset { get; init; }
     public required MatchPolicy Policy { get; init; }

@@ -2,6 +2,9 @@ namespace Chainge.Postmortem.Application.Reconciliation.Models;
 
 public sealed record MatchPolicy
 {
+    public long ClaimCutoffBlock { get; init; }
+    public ulong ClaimCutoffUnixTime { get; init; }
+    public IReadOnlyDictionary<string, ClaimInterval> ClaimIntervals { get; init; } = new Dictionary<string, ClaimInterval>();
     public IReadOnlyList<string> RoutingCallTargets { get; init; } = [];
     public IReadOnlyDictionary<string, string> RoutingChainNames { get; init; } = new Dictionary<string, string>();
     public TimeSpan RoutingReviewMaximumDelay { get; init; }

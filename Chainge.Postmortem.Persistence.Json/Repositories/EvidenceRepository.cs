@@ -61,6 +61,11 @@ public sealed class EvidenceRepository
             return;
         }
         if (element.ValueKind != JsonValueKind.Object) { return; }
+        if (element.TryGetProperty("items", out var items) && element.TryGetProperty("next_page_params", out _))
+        {
+            foreach (var item in items.EnumerateArray()) { ReadExplorerTransfer(item, selection, source, events, timestamps); }
+            return;
+        }
         if (element.TryGetProperty("error", out _) || element.TryGetProperty("result", out var result) && result.ValueKind == JsonValueKind.Null)
         {
             diagnostics.Add($"{source}: failed/null response {GetText(element, "id")}");
@@ -82,6 +87,29 @@ public sealed class EvidenceRepository
             if (property.Name is "result" or "logs") { ReadElement(property.Value, selection, source, property.Name == "logs" || verified, events, timestamps, calls, diagnostics); }
         }
         if (element.TryGetProperty("logs", out var logs)) { AttachReceiptContext(logs, selection.Chain, GetText(element, "to"), events); }
+    }
+
+    private static void ReadExplorerTransfer(JsonElement item, EvidenceSelection selection, string source, Dictionary<string, ChainEvent> events, Dictionary<string, TimestampObservation> timestamps)
+    {
+        var token = GetText(item.GetProperty("token"), "address_hash");
+        if (!selection.TokenDecimals.TryGetValue(token, out var decimals)) { return; }
+        if (GetText(item, "token_type") != "erc-20" || item.GetProperty("total").GetProperty("decimals").ToString() != decimals.ToString(CultureInfo.InvariantCulture)) { throw new InvalidDataException($"Unexpected explorer token type or precision: {source}"); }
+        var transaction = GetText(item, "transaction_hash");
+        var logIndex = item.GetProperty("log_index").GetInt64();
+        var rawAmount = BigInteger.Parse(GetText(item.GetProperty("total"), "value"), CultureInfo.InvariantCulture);
+        if (logIndex < 0 || rawAmount < 0) { throw new InvalidDataException($"Invalid explorer transfer: {source}"); }
+        var e = new ChainEvent
+        {
+            Id = $"{selection.Chain}:{transaction}:{logIndex}", Chain = selection.Chain, Token = token, Transaction = transaction,
+            BlockHash = GetText(item, "block_hash"), Block = item.GetProperty("block_number").GetInt64(), LogIndex = logIndex,
+            Decimals = decimals, From = GetText(item.GetProperty("from"), "hash"), To = GetText(item.GetProperty("to"), "hash"), RawAmount = rawAmount.ToString(CultureInfo.InvariantCulture),
+            FullTime = !selection.DatedTokens.Contains(token, StringComparer.OrdinalIgnoreCase), ReceiptVerified = false, TimestampSource = "missing", Evidence = [source]
+        };
+        StoreEvent(e, source, events);
+        var key = selection.Chain + ":" + e.BlockHash;
+        var timestamp = DateTimeOffset.Parse(item.GetProperty("timestamp").GetString()!, CultureInfo.InvariantCulture);
+        if (!timestamps.TryGetValue(key, out var previous)) { timestamps[key] = new TimestampObservation { Value = timestamp, Source = source, Node = false }; }
+        else if (!previous.Node && previous.Value != timestamp) { timestamps[key] = new TimestampObservation { Value = null, Source = previous.Source + "; " + source, Node = false }; }
     }
 
     private static void ReadTransaction(JsonElement element, string chain, string source, Dictionary<string, TransactionCall> calls)
@@ -198,14 +226,19 @@ public sealed class EvidenceRepository
             Id = $"{chain}:{transaction}:{logIndex}", Chain = chain, Token = GetText(log, "address"), Transaction = transaction,
             BlockHash = GetText(log, "blockHash"), Block = (long)ReadInteger(GetText(log, "blockNumber")), LogIndex = logIndex,
             Decimals = selection.TokenDecimals[GetText(log, "address")], From = "0x" + topics[1][^40..], To = "0x" + topics[2][^40..], RawAmount = ReadInteger(data[..66]).ToString(CultureInfo.InvariantCulture),
-            FullTime = !timed || ReadInteger(string.Concat("0x", data.AsSpan(66, 64))).IsZero && ReadInteger(string.Concat("0x", data.AsSpan(130, 64))) == ulong.MaxValue,
+            FullTime = !selection.DatedTokens.Contains(GetText(log, "address"), StringComparer.OrdinalIgnoreCase) && (!timed || ReadInteger(string.Concat("0x", data.AsSpan(66, 64))).IsZero && ReadInteger(string.Concat("0x", data.AsSpan(130, 64))) == ulong.MaxValue),
             ReceiptVerified = verified, TimestampSource = "missing", Evidence = [source]
         };
+        StoreEvent(e, source, events);
+    }
+
+    private static void StoreEvent(ChainEvent e, string source, Dictionary<string, ChainEvent> events)
+    {
         if (events.TryGetValue(e.Id, out var previous))
         {
             if (previous.Decimals != e.Decimals || previous.Token != e.Token || previous.BlockHash != e.BlockHash || previous.Block != e.Block || previous.From != e.From || previous.To != e.To || previous.RawAmount != e.RawAmount || previous.FullTime != e.FullTime)
             { throw new InvalidDataException($"Conflicting duplicate event: {e.Id}"); }
-            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || verified, ReceiptTarget = previous.ReceiptTarget, RelatedTransfers = previous.RelatedTransfers, ReportedExchanges = previous.ReportedExchanges, PoolSwaps = previous.PoolSwaps, ReceiptContextCaptured = previous.ReceiptContextCaptured };
+            e = e with { Evidence = previous.Evidence.Append(source).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), ReceiptVerified = previous.ReceiptVerified || e.ReceiptVerified, ReceiptTarget = previous.ReceiptTarget, RelatedTransfers = previous.RelatedTransfers, ReportedExchanges = previous.ReportedExchanges, PoolSwaps = previous.PoolSwaps, ReceiptContextCaptured = previous.ReceiptContextCaptured };
         }
         events[e.Id] = e;
     }

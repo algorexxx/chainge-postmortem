@@ -8,6 +8,6 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddReconciliation(this IServiceCollection services, EvidenceSettings settings)
     {
-        return services.AddSingleton(settings).AddTransient<EvidenceRepository>().AddTransient<ExplorerDiscoveryRepository>();
+        return services.AddSingleton(settings).AddTransient<EvidenceRepository>().AddTransient<ExplorerDiscoveryRepository>().AddTransient<LogQueryRepository>().AddTransient<BalanceRepository>();
     }
 }

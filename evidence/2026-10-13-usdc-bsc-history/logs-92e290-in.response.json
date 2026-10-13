@@ -1,0 +1,1 @@
+{"error":{"code":-32602,"data":{"max_blocks":10000,"max_step":9999,"requested_blocks":127435223},"message":"block range exceeds maximum allowed (max=10000, requested=127435223) — the range is INCLUSIVE, so page with to = from + 9999 (a 10000-block span means to - from = 9999, not 10000)"},"id":"logs-92e290-in","jsonrpc":"2.0"}

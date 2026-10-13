@@ -16,6 +16,41 @@
         "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
         "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
         "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Arbitrum": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Optimism": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Aurora": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Rollux": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "BSC": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
       ]
     },
     "maximumDelay": "00:05:00",
@@ -51,7 +86,35 @@
       "BNB": "BSC",
       "ARB": "Arbitrum"
     },
-    "routingReviewMaximumDelay": "7.00:00:00"
+    "routingReviewMaximumDelay": "7.00:00:00",
+    "claimCutoffBlock": 15130080,
+    "claimCutoffUnixTime": 1759826630,
+    "claimIntervals": {
+      "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf": {
+        "start": 0,
+        "end": 1704067199
+      },
+      "0x9673123f25a3807cb6937865af7f74115d633a02": {
+        "start": 1704067199,
+        "end": 18446744073709551615
+      },
+      "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98": {
+        "start": 1672531199,
+        "end": 18446744073709551615
+      },
+      "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293": {
+        "start": 0,
+        "end": 1672531199
+      },
+      "0xfc9e57d7543e0591824121fda6461fe2148a5966": {
+        "start": 0,
+        "end": 18446744073709551615
+      },
+      "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": {
+        "start": 0,
+        "end": 18446744073709551615
+      }
+    }
   },
   "sources": [
     {
@@ -192,8 +255,18 @@
       "pattern": "*.response.json",
       "tokenDecimals": {
         "0xfc9e57d7543e0591824121fda6461fe2148a5966": 6,
-        "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": 6
-      }
+        "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": 6,
+        "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf": 6,
+        "0x9673123f25a3807cb6937865af7f74115d633a02": 6,
+        "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98": 6,
+        "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293": 6
+      },
+      "datedTokens": [
+        "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
+        "0x9673123f25a3807cb6937865af7f74115d633a02",
+        "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
+        "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293"
+      ]
     },
     {
       "chain": "Arbitrum",
@@ -202,17 +275,253 @@
       "tokenDecimals": {
         "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
       }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "fusion-slice-*.response.json",
+      "tokenDecimals": {
+        "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf": 6,
+        "0x9673123f25a3807cb6937865af7f74115d633a02": 6,
+        "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98": 6,
+        "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293": 6
+      },
+      "datedTokens": [
+        "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
+        "0x9673123f25a3807cb6937865af7f74115d633a02",
+        "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
+        "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293"
+      ]
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-source-completion",
+      "pattern": "1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-source-completion",
+      "pattern": "43114-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-retries",
+      "pattern": "eth-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-retries2",
+      "pattern": "eth-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-expanded-receipts",
+      "pattern": "arbitrum-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-expanded-receipts2",
+      "pattern": "arbitrum-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-expanded-receipts2",
+      "pattern": "optimism-*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Aurora",
+      "directory": "evidence/2026-10-13-usdc-expanded-receipts",
+      "pattern": "aurora-*.response.json",
+      "tokenDecimals": {
+        "0xb12bfca5a55806aaf64e99521918a4bf0fc40802": 6
+      }
+    },
+    {
+      "chain": "Aurora",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "aurora-in.response.json",
+      "tokenDecimals": {
+        "0xb12bfca5a55806aaf64e99521918a4bf0fc40802": 6
+      }
+    },
+    {
+      "chain": "Aurora",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "aurora-out.response.json",
+      "tokenDecimals": {
+        "0xb12bfca5a55806aaf64e99521918a4bf0fc40802": 6
+      }
+    },
+    {
+      "chain": "Rollux",
+      "directory": "evidence/2026-10-13-usdc-expanded-receipts",
+      "pattern": "rollux-*.response.json",
+      "tokenDecimals": {
+        "0x368433cac2a0b8d76e64681a9835502a1f2a8a30": 6
+      }
+    },
+    {
+      "chain": "Rollux",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "rollux-in.response.json",
+      "tokenDecimals": {
+        "0x368433cac2a0b8d76e64681a9835502a1f2a8a30": 6
+      }
+    },
+    {
+      "chain": "Rollux",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "rollux-out.response.json",
+      "tokenDecimals": {
+        "0x368433cac2a0b8d76e64681a9835502a1f2a8a30": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-arbitrum-history",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-history-single",
+      "pattern": "optimism-*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries",
+      "pattern": "arb-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries2",
+      "pattern": "arb-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries4",
+      "pattern": "arb-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "optimism-*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-retries4",
+      "pattern": "eth-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-cctp-followup",
+      "pattern": "destination-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-terminal-get",
+      "pattern": "0x*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-range-repair",
+      "pattern": "arbitrum-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-range-repair",
+      "pattern": "optimism-*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-ethereum-pagination",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-routing",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
+      }
     }
   ],
   "limitations": [
-    "Partial USDC investigation. Candidate Ethereum and Avalanche histories come from explorer discovery followed by available public-node receipts; other chains, representations and custody addresses remain unassessed.",
-    "Fusion Transfer logs cover the newer token and legacy full-time child from creation through block 15130080. All observed mint/burn transactions have node receipts, inputs and block headers; ordinary transfers outside those transactions remain explorer observations. FSNEX and the node share infrastructure.",
-    "Legacy full-time event supply includes address-one inventory. Slice conversions and migration must be resolved before interpreting mint/burn totals as external issuance or adding representations. Dated slice Transfer histories are retained separately and excluded from full-time matching.",
-    "Five candidate operating addresses are included on Ethereum and Avalanche. Later-address Avalanche liquidity configuration is supported by prior retained getter/admin evidence; equivalent roles on Ethereum and outside observed intervals remain hypotheses. Internal classifications reflect this candidate boundary, not verified common control or segregated backing.",
-    "Five-minute equal-amount matching and a 10000-token review threshold remain explicit trial hypotheses. No BUSD fee, inventory exclusion or source-chain settlement rule is inherited.",
-    "No consolidated Fusion liability or missing-asset amount is established. Missing receipt or coverage data remains unknown; current balances must not be substituted for balances at the earlier Fusion cutoff.",
-    "Successor 3f0e40bc and 66ff2f0a histories have explorer discovery plus selected largest/latest receipts, not complete receipt coverage. Ethereum predecessor empty discovery conflicts with known limits of this provider and does not establish no activity. BSC and Arbitrum have balance probes but no full movement ledger in this run.",
-    "Routing review decodes receipt-bound colon memos using an observed layout, not a verified ABI; JSON memos remain unsupported. Exact memo-amount candidates in a seven-day review window do not change normal settlement classifications. Arbitrum evidence covers one targeted recipient query, not a complete vault history."
+    "Partial investigation: source-chain inventory, historical coverage, custody roles and consolidated Fusion claims remain unresolved.",
+    "Fusion reference block 15130080 is the retained node head, not an independently established current canonical head. Address-one holdings and complementary dated rights are not automatically netted into liabilities.",
+    "Source histories mix raw logs and successful receipts. Review history-coverage.json and source-positions outputs before treating replay as a balance; several chain histories remain incomplete.",
+    "Routing candidates are separate hypotheses. JSON token indices are not authenticated token contracts; exact memo matches do not automatically settle claims.",
+    "Rollux USDC-labelled units have unresolved Syscoin-parent backing and are not counted as independently backed dollars.",
+    "All acquisition is restricted to anonymous free sources. Public-node limits and failed queries remain visible."
   ],
   "discoverySources": [
     {
@@ -264,6 +573,847 @@
         "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
         "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
       }
+    }
+  ],
+  "logQuerySources": [
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-arbitrum-history",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-history-single",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries",
+      "pattern": "arb-*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries2",
+      "pattern": "arb-*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries3",
+      "pattern": "arb-*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-retries4",
+      "pattern": "arb-*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Aurora",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "aurora-in.request.json",
+      "tokenDecimals": {
+        "0xb12bfca5a55806aaf64e99521918a4bf0fc40802": 6
+      }
+    },
+    {
+      "chain": "Aurora",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "aurora-out.request.json",
+      "tokenDecimals": {
+        "0xb12bfca5a55806aaf64e99521918a4bf0fc40802": 6
+      }
+    },
+    {
+      "chain": "Rollux",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "rollux-in.request.json",
+      "tokenDecimals": {
+        "0x368433cac2a0b8d76e64681a9835502a1f2a8a30": 6
+      }
+    },
+    {
+      "chain": "Rollux",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "rollux-out.request.json",
+      "tokenDecimals": {
+        "0x368433cac2a0b8d76e64681a9835502a1f2a8a30": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-pinned-followup",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-range-repair",
+      "pattern": "arbitrum-*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-range-repair",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    }
+  ],
+  "logHistoryTargets": [
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Optimism",
+      "token": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 158153117
+      }
+    },
+    {
+      "chain": "Aurora",
+      "token": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 219837226
+      }
+    },
+    {
+      "chain": "Aurora",
+      "token": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 219837226
+      }
+    },
+    {
+      "chain": "Aurora",
+      "token": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 219837226
+      }
+    },
+    {
+      "chain": "Aurora",
+      "token": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 219837226
+      }
+    },
+    {
+      "chain": "Aurora",
+      "token": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 219837226
+      }
+    },
+    {
+      "chain": "Rollux",
+      "token": "0x368433cac2a0b8d76e64681a9835502a1f2a8a30",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 52270765
+      }
+    },
+    {
+      "chain": "Rollux",
+      "token": "0x368433cac2a0b8d76e64681a9835502a1f2a8a30",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 52270765
+      }
+    },
+    {
+      "chain": "Rollux",
+      "token": "0x368433cac2a0b8d76e64681a9835502a1f2a8a30",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 52270765
+      }
+    },
+    {
+      "chain": "Rollux",
+      "token": "0x368433cac2a0b8d76e64681a9835502a1f2a8a30",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 52270765
+      }
+    },
+    {
+      "chain": "Rollux",
+      "token": "0x368433cac2a0b8d76e64681a9835502a1f2a8a30",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 52270765
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 26184402
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 26184402
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 26184402
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 26184402
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 26184402
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 97454772
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 127425353
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 127425353
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 127425353
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 127425353
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 127425353
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 95466224
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 52557666
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 52557666
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 52557666
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 52557666
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 52557666
+      }
+    }
+  ],
+  "sourceCutoffBlocks": {
+    "Ethereum": 23524761,
+    "Avalanche": 69908002,
+    "BSC": 63769742,
+    "Arbitrum": 386963544,
+    "Polygon": 77364542,
+    "Optimism": 142113926,
+    "Base": 36518641,
+    "Aurora": 167240245,
+    "Rollux": 36230694
+  },
+  "balanceSources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "ethereum-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "avalanche-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "bsc-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "arbitrum-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "polygon-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "base-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Aurora",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "aurora-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Rollux",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff",
+      "pattern": "rollux-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry",
+      "pattern": "bsc-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry",
+      "pattern": "arbitrum-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry",
+      "pattern": "polygon-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry",
+      "pattern": "base-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry2",
+      "pattern": "bsc-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry2",
+      "pattern": "arbitrum-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry2",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-13-usdc-common-cutoff-retry2",
+      "pattern": "base-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-13-usdc-fusion-claims",
+      "pattern": "balances-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-range-repair",
+      "pattern": "arbitrum-balance-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-history",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {}
     }
   ]
 }

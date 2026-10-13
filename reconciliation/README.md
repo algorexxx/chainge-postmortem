@@ -200,3 +200,14 @@ The movement scanner retains a per-chain/token/account history inconsistency aft
 Explicit exchange evidence now takes precedence over the generic counter-asset heuristic when no Fusion candidate exists. Internal transfers, missing timestamps and other existing classification gates remain unchanged. The BUSD rerun relabels 1,582 movements from `possible-asset-exchange` to `reported-asset-exchange`; all 5,710 movement IDs, 224 unmatched outflows, retained amounts, and terminal balance summaries remain unchanged. Neither the pool-boundary correction nor the persistent-history correction changes BUSD exchange-evidence counts or depletion percentages in this run. These are code corrections, not new transaction findings.
 
 Regression coverage includes incoming/outgoing repeated same-pool swaps, reversed receipt-swap order, competing counterpart legs, no later swap, recovered negative histories, independent account histories, and explicit swap evidence alongside the generic heuristic. All 152 tests pass; Application line coverage is 458/458.
+
+
+### Multi-chain coverage, positions and state audit
+
+The USDC follow-up adds configuration-driven `history-coverage.json`, `claim-positions.json`, `source-positions-<chain>.json` and `balance-checks.json`. See the [contributor guide](../CONTRIBUTING.md#coverage-and-balance-checks-for-every-asset) for required inputs. Inclusive block-range unions retain holes, failed requests and separate transfer directions. Holder replay uses exact integers and persistent negative-history flags. Dated child logs cannot enter full-time issuance matching when explicitly listed in `datedTokens`.
+
+Pinned `balanceOf` requests and responses now drive reproducible state comparisons, including unordered batches. A matching balance is not enough for a covered status: both-direction range coverage is also required. Even that status refers to retained provider responses, not independent custody certification. Identical net balances can conceal cancelling omissions; missing balances never become zero.
+
+The routing decoder now supports the observed flat JSON layouts and colon-containing Kaspa recipients. JSON token indices do not become contract addresses. Exact receipt-backed memo candidates stay outside automatic settlement classification. The generic evidence reader supports raw Blockscout v2 ERC-20 pages as unverified events, with existing duplicate-conflict checks and node timestamp precedence. No fee/time window is relaxed.
+
+The current USDC scope and counts are maintained in the [assessment](../research/assets/usdc.md); historical checkpoints above describe earlier runs. BUSD's committed movement report remains the regression control.

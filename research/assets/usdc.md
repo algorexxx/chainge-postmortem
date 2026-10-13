@@ -11,7 +11,7 @@ Reference time: **2025-10-07 08:43:50 UTC**, [Fusion block 15130080](https://fsn
 | [Newer USDC](https://fsnex.net/address/0xfc9e57d7543e0591824121fda6461fe2148a5966) | 42,183 | 11,458,899.022430 | 4,397,871.503941 | 7,061,027.518489 |
 | [Legacy full-time child](https://fsnex.net/address/0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89) | 142,178 | 2,185,789,652.986973 | 1,186,689,889.469145 | 999,099,763.517828 |
 
-These are six-decimal units, not USD valuations or consolidated liabilities. Histories run from creation through the reference block. Inclusive overlapping windows avoid the explorer's 10,000-row pagination ceiling; duplicate event identities are collapsed. Reconstructed holder balances are nonnegative. The newer net equals reported supply; its largest reconstructed holders agree with the retained first holder page.
+These are six-decimal units, not USD valuations or consolidated liabilities. Histories run from creation through the reference block. Inclusive overlapping windows avoid the explorer's 10,000-row pagination ceiling; duplicate event identities are collapsed. Reconstructed holder balances are nonnegative. The newer net equals reported supply. All **529 positive holder positions** across the newer, legacy and four dated children now agree exactly with pinned node `balanceOf` calls. The [holder-check package](../../evidence/2026-10-13-usdc-fusion-claims/) preserves those calls. This validates token positions, not beneficial ownership or consolidated customer claims.
 
 The legacy net includes **996,416,657.619439** units at [address one](https://fsnex.net/address/0x0000000000000000000000000000000000000001). This is not a zero-address burn; economic treatment requires contract-semantics review. The [legacy parent](https://fsnex.net/address/0x6b52048a01c41d1625a6893c80fbe4aa2c22bb54) has a different reported supply counter. Neither counter is substituted for customer claims.
 
@@ -23,7 +23,7 @@ A [January 20, 2024 legacy transfer](https://fsnex.net/transaction/0x349d41aeb31
 
 ## Candidate custody and balances
 
-[Prior research](../busd-source-chain-flows.md) identifies the earlier candidates and preserves Avalanche router getters/admin transactions establishing later liquidity-address configuration. This supports investigation, not segregated custody for every token/chain. Equivalent Ethereum/BSC/Arbitrum roles remain candidates. Five addresses are explicitly included on Ethereum and Avalanche; internal-transfer classification depends on this candidate boundary and does not prove common human control.
+[Prior research](../busd-source-chain-flows.md) identifies the earlier candidates and preserves Avalanche router getters/admin transactions establishing later liquidity-address configuration. This supports investigation, not segregated custody for every token/chain. Equivalent Ethereum/BSC/Arbitrum roles remain candidates. Five addresses are explicitly investigated across the configured source chains; internal-transfer classification depends on this candidate boundary and does not prove common human control.
 
 Current pinned observations in token units; row links refer to Ethereum, while the site links each address to its respective chain:
 
@@ -39,19 +39,39 @@ Contracts: [Ethereum a0b8…eb48](https://etherscan.io/token/0xa0b86991c6218b36c
 
 Pinned blocks on 2026-10-13: Ethereum **26182886** (10:11:23 UTC), Avalanche **97436077** (10:11:29), BSC **127384504** (10:11:31), Arbitrum **514397849** (10:14:17). Headers, hashes and exact call tags are in `extended-custody-*` and `arbitrum-*`. These later balances are not a reserve ratio against the October 2025 Fusion ledger.
 
-At the reference time, Ethereum **23524761** (08:43:47 UTC) and Avalanche **69908002** (08:43:50 UTC) return **zero for both earlier candidates** for the listed Ethereum/Avalanche tokens. Adjacent headers bound the timestamp selection. Ethereum's first provider denied archive reads; a second returned balances with matching block hashes. Historical reads cover three addresses, not the complete candidate inventory. Other aligned balances and opening balances remain unresolved.
+### Balances aligned to the Fusion reference time
+
+Historical calls now cover all five candidates for Ethereum, Avalanche, BSC, Polygon, Optimism, Base, Aurora and Rollux. Arbitrum positions at the same cutoff are reconstructed from bounded log history; all ten later pinned token/address balances match that replay. A further anonymous BSC endpoint supplied the missing historical state after six listed endpoints failed. These observations must not be mixed with the later-date table above to calculate a reserve ratio.
+
+| Chain / representation | Cutoff block | Nonzero candidate positions (token units) |
+| --- | ---: | --- |
+| Ethereum USDC | 23524761 | 8a4a: 0.014095; 3f0e: 0.014318; 66ff: 2,254.807663 |
+| Avalanche USDC.e | 69908002 | 66ff: 8.035128 |
+| Avalanche native USDC | 69908002 | 8a4a: 0.774669; 66ff: 1.866669 |
+| Arbitrum native USDC | 386963544 | 66ff: 258.747601 |
+| Arbitrum USDC.e | 386963544 | 4563: 0.002815; 66ff: 5.600507 |
+| Polygon native USDC | 77364542 | 66ff: 249.339821 |
+| Polygon USDC.e | 77364542 | 66ff: 45.370745 |
+| Optimism native USDC | 142113926 | 8a4a: 0.003495; 66ff: 0.800343 |
+| Optimism USDC.e | 142113926 | 4563: 0.003933; 66ff: 111.037397 |
+| Base USDC | 36518641 | All five queried candidates: zero |
+| Aurora USDC-labelled token | 167240245 | 8a4a: 0.131653; 66ff: 0.793990 |
+| Rollux USDC-labelled token | 36230694 | 66ff: 2,284,499.383095; backing unresolved |
+| BSC Binance-Peg USDC | 63769742 | 66ff: 254.382949325249263627; other four candidates: zero |
+
+Exact contracts, addresses, block hashes and adjacent timestamp headers are retained in the [common-cutoff](../../evidence/2026-10-13-usdc-common-cutoff/), [first retry](../../evidence/2026-10-13-usdc-common-cutoff-retry/), [second retry](../../evidence/2026-10-13-usdc-common-cutoff-retry2/) [range-repair](../../evidence/2026-10-13-usdc-range-repair/) and [BSC historical-state](../../evidence/2026-10-13-usdc-bsc-history/) packages. Addresses in this table abbreviate the candidates linked above. Zero applies only to an actually queried position; no other-chain zero is inferred.
+
+The large [Rollux balance](https://explorer.rollux.com/address/0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1) is particularly important to qualify. The [token](https://explorer.rollux.com/address/0x368433cac2a0b8d76e64681a9835502a1f2a8a30) identifies [a Syscoin parent](https://explorer.syscoin.org/address/0x3fca6743e2fb55759fee767f3a68b2c06d699dc4) and the [standard bridge](https://explorer.rollux.com/address/0x4200000000000000000000000000000000000010). The parent is unverified in the retained explorer response; its backing has not been established. **Do not count 2.284M independently backed dollars from the token name or balance.** See [contract calls](../../evidence/2026-10-13-usdc-pinned-followup/) and [parent metadata](../../evidence/2026-10-13-usdc-cctp-followup/).
 
 ## Source coverage
 
-| Scope | Discovery rows | Receipt corroboration |
-| --- | ---: | --- |
-| Earlier current candidate, Ethereum | 719 | All rows match 711 successful receipts; 691 headers |
-| Earlier current candidate, Avalanche USDC.e | 2,131 | All rows match 2,106 successful receipts; 2,105 headers |
-| January recipient, Ethereum | 763 | All rows match 720 successful receipts; 717 headers |
-| January recipient, Avalanche USDC.e | 43 | All rows match 41 successful receipts; 41 headers |
-| Later 3f0e… / 66ff… candidates | Ethereum 31 / 715; Avalanche USDC.e 0 / 3; native USDC 10 / 76 | Selected largest/latest only: 18 Ethereum and 18 Avalanche receipts |
+The engine now checks saved `eth_getLogs` requests and responses against explicit token/address/direction/range targets. `history-coverage.json` lists every missing inclusive block interval. Failed, unpinned, removed-log or counterparty-constrained queries do not establish complete address history. Successful provider responses still require state checks and are not independent proof against provider omissions.
 
-Checks compare token, sender, recipient and integer amount with receipt logs. This verifies returned events, not absent events. Routescan's incomplete Ethereum discovery is demonstrated in the BUSD control query. Empty predecessor results are not accepted as no history; receipt context itself reveals predecessor activity. BSC discovery through Routescan was unsupported. BSC has balance probes; Arbitrum additionally has a targeted receipt-backed payout check, still not a full history. No universal USDC chain/address census is claimed.
+Both directions have bounded coverage for all five candidates on **Arbitrum (native and bridged), Aurora and Rollux**. Arbitrum replay matches all ten pinned current balances; Aurora and Rollux replay also matches the reference-time states. Avalanche native-USDC replay for the 8a4a candidate is 736.852009 units versus the observed 0.774669, explicitly flagging incomplete history. Optimism has an incomplete outgoing range for one candidate: its reconstructed native-USDC position differs materially from the independently read balance. That replay is explicitly incomplete, not an asset balance.
+
+Ethereum and Avalanche have expanded receipt corroboration, but no complete range-certified discovery. A second anonymous Ethereum explorer returned all paginated pages for five candidates: 0, 2,960, 763, 31 and 717 rows respectively. All five cutoff net positions match node balance checks. For the earlier candidate this substantially exceeds the original 719-row discovery set. The [raw pages](../../evidence/2026-10-13-usdc-ethereum-pagination/) are now imported as unverified events, deduplicated against receipts and rejected on conflicting amounts; matching net balances cannot rule out cancelling omissions. BSC, Polygon and Base remain incomplete histories. Public endpoints reject some historical queries, restrict ranges, or rate-limit batches; these failures are retained. Empty predecessor explorer results do not establish no activity. There is no universal USDC chain/address census. Acquisition uses anonymous free sources only.
+
+Raw source logs and successful receipts are distinct evidence levels. The raw-log expansion does not silently mark every transaction receipt-verified. `source-positions-<chain>.json` pairs observed net positions with coverage gaps; it must not be read as a certified reserve statement. `balance-checks.json` now automatically binds saved single/batched `balanceOf` calls by response ID and compares them with replay at the exact requested block. The run includes 599 observations, including all 529 Fusion positions. Missing state, net differences, negative-history flags and incomplete query coverage have distinct statuses. A matching balance with missing history is never marked covered.
 
 ## Reviewed movements
 
@@ -63,13 +83,22 @@ The recipient did not retain either amount intact through the reference time: it
 
 ### September asset exchange
 
-In [transaction 3e0a…217e](https://etherscan.io/tx/0x3e0a6a69ce57f3706916f04a050f2a1d53c13353d397d3c62f28e5639905217e), **274,999 USDC** left the latest candidate via [4c5f…85a5](https://etherscan.io/address/0x4c5f53015f3adb1b1d15ddf4e17edaae6fa185a5). The same receipt records the USDC route and **272,239.479401 USDT** returning through contracts, then **272,074.135714 USDT** to [5fcb…b03b](https://etherscan.io/address/0x5fcb0eb5958383136768675f9ac593289de9b03b) and **165.343687 USDT** to the latest candidate. The latter looks fee-like; its economic purpose is not authenticated. This establishes an asset-changing route, not customer authorization or backing. Current balances and ultimate disposition of those USDT outputs remain unestablished.
+In [transaction 3e0a…217e](https://etherscan.io/tx/0x3e0a6a69ce57f3706916f04a050f2a1d53c13353d397d3c62f28e5639905217e), **274,999 USDC** left the latest candidate via [4c5f…85a5](https://etherscan.io/address/0x4c5f53015f3adb1b1d15ddf4e17edaae6fa185a5). The same receipt records the USDC route and **272,239.479401 USDT** returning through contracts, then **272,074.135714 USDT** to [5fcb…b03b](https://etherscan.io/address/0x5fcb0eb5958383136768675f9ac593289de9b03b) and **165.343687 USDT** to the latest candidate. The latter looks fee-like; its economic purpose is not authenticated. This establishes an asset-changing route, not customer authorization or backing. The main USDT recipient subsequently paid **177,100 USDT in four transfers** to [a389…e623](https://etherscan.io/address/0xa3895eeeb52a04002d58214d46ee5c5a26fce623), and returned **46,100 USDT** to the latest candidate: [25,100](https://etherscan.io/tx/0x77c334cf423d12082d220fb0ccc2451fbd941536cd474c3d21f0b60e9fba77a8) and [21,000](https://etherscan.io/tx/0x071df403d74b638ca71a51ed82f4b1823ae3860808ba6300abce32029ab25de1). Its later pinned balance is **0.166778 USDT**. All 29 returned discovery rows match successful receipt logs in the [output-receipt package](../../evidence/2026-10-13-usdc-output-receipts/). This demonstrates distribution, not ownership or purpose; later unrelated funding prevents assigning every subsequent payment to the original output. Returned explorer pages are not independently certified full history.
 
 ### A near-amount match rejected
 
 The [416,050.404450-USDC Ethereum payment](https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e) to [584d…fea6](https://etherscan.io/address/0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6) follows a [416,302-unit Fusion burn](https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802) by **1,687 seconds**. But the burn's node-corroborated input requests **Arbitrum**, af88…5831, [35cb…e3f](https://arbiscan.io/address/0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f), and raw output **416052118806**. Chain, recipient and amount differ. Direct settlement of that Ethereum transfer is not accepted. A subsequent targeted check found the exact memo-named Arbitrum payout, described below; an indirect relationship to the separate Ethereum payment remains unproven.
 
-Another [100,000-unit burn](https://fsnex.net/transaction/0xa86a558cafb8b11eab004832fad2f69e4d60bf3e45d23c7a3fb72e7f96a1e27f) explicitly names BNB and the BSC contract. Ethereum/Avalanche alone therefore cannot resolve all requested settlements.
+### Where the separate Ethereum payment went
+
+The 416,050.404450-USDC Ethereum recipient split the observed amount into two branches:
+
+- **100,000 USDC** moved to [a4b6…8673](https://etherscan.io/address/0xa4b6aa5f955f3a944cca20e65b22280a47cc8673) on September 2, 2024 ([receipt](https://etherscan.io/tx/0xaefaa10bc8b2f9a19ce384847772da89b8788a28d3a91c91445e2eb072c15dd5)), then to [4044…2e32](https://etherscan.io/address/0x404460039499c774c48248552f802ce5dd482e32) on September 4 ([receipt](https://etherscan.io/tx/0xe09bd19377ec43944066120535e00f8dac552fa6c37937694390a41b1705e474)). Saved Etherscan HTML labels the latter **Netcoins 1**. This supports an exchange-labelled destination, not the credited account or beneficial owner.
+- **316,050.404450 USDC** entered a Circle CCTP route on September 4 ([Ethereum receipt](https://etherscan.io/tx/0xd292b5ec3edc809ae826ad69db887862b9a6459fd64750c03e6c00480a7f48ac)). It burned **316,050.304450 USDC**, with a 0.1-USDC difference, and [minted 316,050.304450 native USDC on Arbitrum](https://arbiscan.io/tx/0xc7661ff75f5b8c9db1209aabd4957441674688128ee8e7042ee60cefec588e6a) to the same recipient. Source domain 0, destination domain 3, nonce **104217** and the byte-identical 132-byte message body link the successful source and destination receipts. The destination timestamp is September 4, 2024 02:57:02 UTC. This is verified protocol-level bridging; subsequent disposition on Arbitrum remains open.
+
+Evidence: [initial receipts](../../evidence/2026-10-13-usdc-terminal-get/), [CCTP destination](../../evidence/2026-10-13-usdc-cctp-followup/), [output discovery and official Circle documentation](../../evidence/2026-10-13-usdc-output-discovery/), and [saved explorer label / direct node receipt](../../evidence/2026-10-13-usdc-trace-sources/). These two branches account for the observed original recipient outflows; they do not authenticate a customer redemption or explain custody authorization.
+
+Another [100,000-unit burn](https://fsnex.net/transaction/0xa86a558cafb8b11eab004832fad2f69e4d60bf3e45d23c7a3fb72e7f96a1e27f) explicitly names BNB and the BSC contract. Ethereum/Avalanche alone therefore cannot resolve all requested settlements. The subsequent [BSC check](../../evidence/2026-10-13-usdc-bsc-routing/) found a successful [99,939.699936610000000000-USDC payment](https://bscscan.com/tx/0xb2e35fc2efdffb5008bdef6d3e2f2fb72d6432fac9d447850093ea1be371be0e) from [66ff…ecf1](https://bscscan.com/address/0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1) to the exact memo recipient [4408…0a80](https://bscscan.com/address/0x440872cfddac749d9f201234395fc20ed5480a80), **44 seconds after the Fusion burn**. Chain, token, recipient and raw memo output all match. This is a strong payout candidate; the 60.30006339-unit difference is not an authenticated fee rule, and a targeted recipient query does not establish full BSC vault history.
 
 ## Reproduction and completion gates
 
@@ -87,20 +116,17 @@ The expanded dataset reuses the engine without relaxing thresholds. All 46,309 e
 
 The **1,366 conversion-related events** remain in accounting but are excluded from external matching. This includes 395 transactions that each burn legacy full-time USDC and mint newer USDC. Three additional newer mints burn the known legacy remaining-time child [9673…3a02](https://fsnex.net/address/0x9673123f25a3807cb6937865af7f74115d633a02) in the same receipt, for the same holder and integer amount: [6313…5dc3](https://fsnex.net/transaction/0x6313eafcf11509389d7da88c8d039a95ea035e924b0d06180d9ed689b8d55dc3), [9767…0a98](https://fsnex.net/transaction/0x9767161b2c09a32884f7090bfd76791dddd19b63e3833b7c75fa9bdbb4ee0a98), and [a4d4…78f4](https://fsnex.net/transaction/0xa4d4388c0df0b3671927f72e72522423aca36c0a3e416ac436b32233b30e78f4). The configuration now supplies this observed slice counterpart for the newer token. This identifies conversion mechanics, not economic equivalence of every dated claim.
 
-Unpaired Fusion mints fall from **37,181 to 36,594**, and unpaired burns from **8,049 to 7,270**. These counts exclude identified conversions; they do not establish unresolved liabilities or missing funds. Direct-call classification identifies execution mechanics, not an external deposit or settlement.
+The expanded retained dataset contains **234,980 events and 34,012 operating-address movements**. There are **35,609 unpaired Fusion mints and 7,270 unpaired burns** after conversion exclusions. These counts are not missing funds or liabilities. The much larger source ledger contains normal trading and incomplete address histories; counts cannot be compared with the earlier two-chain sample as though the scope were unchanged.
 
-The **801 unmatched outgoing source events are unchanged**: Ethereum USDC 503, Avalanche USDC.e 292 and native USDC 6. No new redemption is inferred solely from these receipts. Of the 1,920 events with unresolved contract purpose, 1,897 use three selectors on the known routing target; their requested destinations and settlement paths require structured decoding and source-chain evidence. The remaining 23 events use two other targets. Public inputs contain routing strings naming more chains than the currently acquired source histories; these are research leads, not validated settlement records.
-
-Fusion receipt/transaction access is now working through the documented tunnel. Bulk acquisition/import for observed mint/burn transactions is complete. Completion still requires routing-input decoding, broader migration and time-slice review, address-one treatment, predecessor discovery, BSC/Arbitrum and other requested chains, complete later-candidate receipts, opening/closing balance checks, terminal/output tracing, dated custody roles and consolidated claims without double-counting. Beneficial owners and intent are not established by these observations.
-
+Completion still requires consolidated treatment of address one, migrations and complementary time rights; justified custody roles and complete source-chain inventory; missing histories and state checks; remaining receipt verification; and downstream follow-up of material terminal cases. The current dataset is a reproducible **partial investigation**, not a completed reconciliation. No deficit is asserted.
 
 ## Routing-input review
 
-`routing-review.json` is now generated for every asset. Configuration selects routing targets, chain-code mappings and a separate seven-day candidate-review window. The first decoder validates successful receipt context, full-time burn, caller/holder, token, amount, observed mode and canonical ABI offset/length/padding before interpreting ASCII colon memos. It does not scan arbitrary calldata for a matching string. The [interface checks](../../evidence/2026-10-13-routing-interface/README.md) found no verified router ABI, so these remain observations of an empirically established layout.
+`routing-review.json` is now generated for every asset. Configuration selects routing targets, chain-code mappings and a separate seven-day candidate-review window. The first decoder validates successful receipt context, full-time burn, caller/holder, token, amount, observed mode and canonical ABI offset/length/padding before interpreting colon or supported flat JSON memos. It does not scan arbitrary calldata for a matching string. The [interface checks](../../evidence/2026-10-13-routing-interface/README.md) found no verified router ABI, so these remain observations of an empirically established layout.
 
-USDC yields **676 decoded colon memos**, **119 unsupported JSON memos**, and **2 unsupported colon variants** containing Kaspa addresses with an additional colon. Unsupported calls remain visible. Memo destinations include 17 chain codes, demonstrating why Ethereum/Avalanche histories cannot cover all requests. Some requests name other output assets; they cannot be treated as same-token redemption by amount proximity alone.
+USDC now decodes **797 observed memos: 678 colon and 119 JSON**, including colon-containing Kaspa recipients. JSON token indices remain indices; without an authenticated index-to-contract mapping they cannot create an exact-token settlement candidate. Unsupported, malformed and unbound calls remain visible. Some requests name other output assets, so amount proximity alone cannot make them same-token redemptions.
 
-Three exact chain/token/recipient/memo-amount candidates occur in the retained evidence:
+There are **32 exact chain/token/recipient/memo-amount candidates** in the expanded retained receipt evidence. They remain separate review edges, with no automatic promotion into settled accounting. Three illustrative cases:
 
 | Fusion burn | Candidate payment | Burned USDC | Paid USDC | Delay |
 | --- | --- | ---: | ---: | ---: |
@@ -110,4 +136,4 @@ Three exact chain/token/recipient/memo-amount candidates occur in the retained e
 
 The first two payments came from [8a4a…64c1](https://etherscan.io/address/0x8a4aa176007196d48d39c89402d3753c39ae64c1); the Arbitrum payment came from [3f0e…aa8e](https://arbiscan.io/address/0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e). Its [targeted evidence package](../../evidence/2026-10-13-usdc-arbitrum-routing/README.md) retains the token/recipient log query, receipt and timestamp header. This strongly supports a payout relationship for the 416,302-unit burn and is distinct from the earlier Ethereum payment.
 
-These candidate links do not establish a shared bridge identifier, authenticated fee rule or full source-chain coverage. They are reported separately and do not remove burns or source outflows from normal queues. The newly imported Arbitrum receipt adds one ledger event (191,669 retained in total); existing movement counts and Fusion issuance are unchanged. No Arbitrum operating-address history is silently promoted from one payment.
+These candidate links do not establish a shared bridge identifier, authenticated fee rule or full source-chain coverage. They are reported separately and do not remove burns or source outflows from normal queues. The expanded Arbitrum history is retained separately from this targeted payment. No address role is established solely by a payout, and no exact memo candidate automatically removes a source outflow or Fusion burn from the normal queues.

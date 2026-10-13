@@ -1,0 +1,20 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "circle-message.capture.json": "33e390da46429cec9905c53b9718fdf9bb1bb46588ed2c45f32b855ab5f5f4eb",
+    "destination-header.capture.json": "24cbffe8193bbb9c5ae412b174f99f25f32574c349133a79743d62a19b26141d",
+    "destination-header.request.json": "432c2eda27a273f51556cd221412473534ad45e0f81451d6a2405d1cce463a98",
+    "destination-header.response.json": "1944252ff4e10a9ad062be05b91ad58193a8b22a7beb5f952a93bc2504c3c0a1",
+    "destination-logs.capture.json": "191473c1bafe7edb7f319a8a9e5bb1c23998595819d53830c2c51020ffb57c85",
+    "destination-logs.request.json": "8025868ded603aba6439295e56849f84dc4f864756ae7670b24b7d1382ebaea7",
+    "destination-logs.response.json": "530478c803ae1eea18a58fd4f9b0ef821ccb1be94ff49ad7c083dc4b2fb03bc1",
+    "destination-receipt.capture.json": "d4877ae4234205593b2a061d65aaf9535717d53b0515de5518fcad083a7dfa8e",
+    "destination-receipt.request.json": "d0a41b3fc98642542119b987cfe269105ba6d3d82b3f9280dcaa03e6228de518",
+    "destination-receipt.response.json": "9d250201b071c4e6a506b9dc6fb49386af1ba7000717d87e3a07ea264fb6f91c",
+    "README.md": "b424fe0a8e29c9293fe6b9e991bc967f455a96198a0e40a8c2da49d51c366ea3",
+    "syscoin-address.capture.json": "0db5979bf25540014c8a9359f4fa0da6cc1f158ad2ac6a64e84078ccb4328b9f",
+    "syscoin-address.response.json": "7347190279586165b856d0011c5041a4d4cf2ee154181e4d151300f902521017",
+    "syscoin-source.capture.json": "d1e475d00f426738484cf56f5ed61c76765a9d5ed03afe385d86b575fc94e3de",
+    "syscoin-source.response.json": "17ca7fc598f0431747b787e51399e43478f3372051bc4819a543efbf6541554c"
+  }
+}

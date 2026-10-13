@@ -117,6 +117,34 @@ public sealed class RoutingInputReviewerTests
         Assert.Equivalent(expected, actual, strict: true);
     }
 
+    [Theory]
+    [InlineData("{\"channel\":\"chaingeappv1\",\"toChain\":\"BNB\",\"toIndex\":\"6\",\"toAddr\":\"recipient\",\"extra\":\"1_100\"}", "observed-json-memo", "BNB", "6", "recipient", "100")]
+    [InlineData("{\"channel\":\"chainge\",\"toChain\":\"ARB\",\"toIndex\":\"6\",\"toAddr\":\"recipient\",\"extra\":\"1_8994100189;3_2\"}", "observed-json-memo", "ARB", "6", "recipient", "8994100189")]
+    [InlineData("{\"channel\":\"chaingeappv1\",\"nested\":{}}", "unsupported-json-memo", "", "", "", null)]
+    [InlineData("{\"channel\":\"chaingeappv1\",\"channel\":\"other\"}", "unsupported-json-memo", "", "", "", null)]
+    [InlineData("{\"channel\":\"other\"}", "unsupported-json-memo", "", "", "", null)]
+    [InlineData("{\"channel\":\"chaingeappv1\",\"toChain\":\"BNB\",\"toAddr\":\"recipient\",\"toIndex\":\"bad\"}", "unsupported-json-memo", "", "", "", null)]
+    public void ReviewInputs_JsonMemo_ShouldDecodeFlatStringFieldsWithoutInventingToken(string memo, string status, string chain, string index, string recipient, string? amount)
+    {
+        var burn = Burn() with { TransactionInput = EncodeMemo(memo) };
+        var expected = new RoutingObservation { EventId = "burn", Status = status, ChainCode = chain, TokenIndex = index, Recipient = recipient, MemoAmountRaw = amount };
+
+        var actual = RoutingInputReviewer.ReviewInputs([burn], Policy());
+
+        Assert.Equivalent(new[] { expected }, actual, strict: true);
+    }
+
+    [Fact]
+    public void ReviewInputs_ColonInRecipient_ShouldPreserveAddress()
+    {
+        var burn = Burn() with { TransactionInput = EncodeMemo("chaingeappv1:KAS:native:kaspa:recipient:0:1_100") };
+        var expected = new RoutingObservation { EventId = "burn", Status = "observed-colon-memo", ChainCode = "KAS", Token = "native", Recipient = "kaspa:recipient", MemoAmountRaw = "100" };
+
+        var actual = RoutingInputReviewer.ReviewInputs([burn], Policy());
+
+        Assert.Equivalent(new[] { expected }, actual, strict: true);
+    }
+
     private static string EncodeMemo(string memo)
     {
         var bytes = Encoding.ASCII.GetBytes(memo);

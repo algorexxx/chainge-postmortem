@@ -43,3 +43,14 @@ The next improvements should be driven by actual missing evidence or a demonstra
 A reusable, configuration-selected routing reviewer now emits `routing-review.json` without changing normal matching or accounting. It validates the observed burn-call layout and receipt binding, retains unsupported formats, and compares decoded destination fields against successful source receipts. USDC yielded 676 decoded memos and three exact destination/amount/time payout candidates, including the newly captured Arbitrum payout. JSON and Kaspa address variants remain unsupported; the router has no verified ABI in the retained explorer response. See the USDC assessment for evidence and limits.
 
 Follow-up validation: Release build clean, all 188 tests passed, Application line coverage 100%. Full workflow verification passed; published BUSD movement output remains byte-identical. The generated USDC site renders five reviewed cases, including the Arbitrum candidate.
+
+
+## Anonymous-source expansion and automated audit
+
+The later USDC pass supports 678 colon memos and 119 flat JSON memos, including the formerly unsupported Kaspa variants. JSON token indices are deliberately not resolved by guesswork. Broader source evidence produces 32 exact destination candidates without altering automatic settlement rules.
+
+Reusable additions now audit numeric log-query coverage in both directions, replay per-representation holder positions, label claim intervals, preserve dated-child exclusions, and compare saved pinned state calls with ledger replay. Failed/unpinned/constrained queries receive no coverage credit; balance agreement with incomplete history remains explicitly incomplete. This codifies checks previously performed in one-off acquisition analysis. It does not consolidate customer claims or establish source-token backing.
+
+An anonymous second Ethereum explorer disclosed 2,960 rows for a candidate whose original provider returned 719. Paginated explorer rows are now imported without receipt-verification promotion, deduplicated against actual log identities, and checked for contradictions. All five candidate cutoff nets match historical node balances. A free BSC endpoint supplied historical state after six public endpoints failed; log access remains limited to inclusive 10,000-block windows.
+
+The updated suite passes 231 tests. Release build has no warnings or errors. Handwritten Application coverage is 618/618 lines; generated regex implementation is reported separately by the coverage tool. The final full workflow verification passed, including input-manifest checks, static-site generation and BUSD's byte-identical public movement report. Public-source acquisition scheduling, representation consolidation, custody attribution and economic interpretation remain manual. The completion status is still partial.
