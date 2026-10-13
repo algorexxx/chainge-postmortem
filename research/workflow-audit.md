@@ -27,6 +27,8 @@ Release build: zero warnings/errors. All 169 tests passed. Application line cove
 
 `./verify.ps1 -SkipBuildAndTests` passed after the tested Release build. JavaScript syntax and focused generic-study/null-balance/USDC-trace rendering checks passed. Local tests do not exercise GitHub environment permissions. No remote push or deployment was performed.
 
+Both asset runs also passed from a temporary export of the committed Git tree, without private archives or untracked inputs; BUSD's public report remained byte-identical. Configuration and registry JSON line endings are pinned to LF so checkout conversion cannot change configuration hashes or stale-report comparisons across platforms. Original evidence remains exempt from conversion.
+
 ## What is still manual
 
 Public-source acquisition, complete range/pagination checks, contract semantics, predecessor discovery, custody attribution, common-cutoff balances and reviewed settlement decisions still require investigation. There is no automatic live collector or accepted-decision accounting store. Full private export processing is deliberately outside this workflow. New event types need a supported adapter and tests; do not force native or non-EVM assets into the ERC-20 schema.

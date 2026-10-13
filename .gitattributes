@@ -2,4 +2,6 @@
 .gitattributes text eol=lf
 .gitignore text eol=lf
 *.md text eol=lf
+/reconciliation/*.json text eol=lf
+/registry/*.json text eol=lf
 /evidence/** -text whitespace=cr-at-eol
