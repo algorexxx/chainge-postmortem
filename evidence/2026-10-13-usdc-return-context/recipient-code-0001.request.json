@@ -1,0 +1,9 @@
+{
+        "jsonrpc": "2.0",
+        "id": "recipient-code",
+        "method": "eth_getCode",
+        "params": [
+          "0xe7ed1fa7f45d05c508232aa32649d89b73b8ba48",
+          "0x1eaa53fe"
+        ]
+      }

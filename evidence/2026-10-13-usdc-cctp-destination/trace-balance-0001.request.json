@@ -1,0 +1,12 @@
+{
+        "jsonrpc": "2.0",
+        "id": "trace-balance",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+            "data": "0x70a08231000000000000000000000000584de4fe0aea85fa45f5c4d7f50e09deeeecfea6"
+          },
+          "0x1eaa53fe"
+        ]
+      }

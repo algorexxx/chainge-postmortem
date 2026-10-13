@@ -1,0 +1,29 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "block-0x79000cfce006bf9b3163c2ff9f1701faa61d6dbad266c73a6764016a6e48fdec",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x79000cfce006bf9b3163c2ff9f1701faa61d6dbad266c73a6764016a6e48fdec",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "block-0x82f8062b0b9a08e729a5fca80583e7fe0dc029eef97cd06de1256c912c453c91",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x82f8062b0b9a08e729a5fca80583e7fe0dc029eef97cd06de1256c912c453c91",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "block-0x82fe258b245f88d1b0aad2a5708fad9d74b873052393a7168746e21c87faa54b",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x82fe258b245f88d1b0aad2a5708fad9d74b873052393a7168746e21c87faa54b",
+            false
+          ]
+        }
+      ]

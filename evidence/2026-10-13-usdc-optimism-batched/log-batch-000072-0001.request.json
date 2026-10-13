@@ -1,0 +1,66 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000360",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93c8080",
+              "toBlock": "0x93ca78f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000361",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93ca790",
+              "toBlock": "0x93cce9f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000362",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93ccea0",
+              "toBlock": "0x93cf5af",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000363",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93cf5b0",
+              "toBlock": "0x93d1cbf",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        }
+      ]

@@ -1,0 +1,56 @@
+[
+  {
+    "compiler": "0.8.12+commit.f00d7308.Emscripten.clang",
+    "sourceFile": "evidence/2026-10-13-usdc-fusion-claims/comparison-frc759.sol",
+    "sourceSha256": "84ee503d5e73baf807c6f3d718ce78d9f8756e6433fedf2ec1f49b619f7278c7",
+    "settings": {
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "contract": "FRC759Token",
+    "deployedBytes": 15419,
+    "compiledBytes": 27541,
+    "exact": false,
+    "metadataDigestNormalizedMatch": false,
+    "normalization": "Only the 32-byte IPFS digest within exact Solidity 0.8.12 CBOR metadata trailers is zeroed; opcodes, lengths, compiler bytes and all other bytes remain unchanged.",
+    "deployedSha256": "e055e3dadaaaf7e5d36c4582c4357cfd28ad0aa055d4ac8b146be5e606c19c04",
+    "compiledSha256": "f8edf8da6c0e8e514a869eb2efa556947349a846f409c3361f50e1701c918f56"
+  },
+  {
+    "compiler": "0.8.12+commit.f00d7308.Emscripten.clang",
+    "sourceFile": "evidence/2026-10-13-usdc-fusion-claims/comparison-frc759.sol",
+    "sourceSha256": "84ee503d5e73baf807c6f3d718ce78d9f8756e6433fedf2ec1f49b619f7278c7",
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "contract": "FRC759Token",
+    "deployedBytes": 15419,
+    "compiledBytes": 15419,
+    "exact": false,
+    "metadataDigestNormalizedMatch": true,
+    "normalization": "Only the 32-byte IPFS digest within exact Solidity 0.8.12 CBOR metadata trailers is zeroed; opcodes, lengths, compiler bytes and all other bytes remain unchanged.",
+    "deployedSha256": "e055e3dadaaaf7e5d36c4582c4357cfd28ad0aa055d4ac8b146be5e606c19c04",
+    "compiledSha256": "aacea581b8d305da9f6a5bf27f6167073db4004f43237252ab5ba29b60b8acec"
+  }
+]

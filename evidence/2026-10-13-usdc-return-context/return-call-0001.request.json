@@ -1,0 +1,8 @@
+{
+        "jsonrpc": "2.0",
+        "id": "return-call",
+        "method": "eth_getTransactionByHash",
+        "params": [
+          "0x97e81005a3d3aa342656e5426c4621d976d3563ef54c52812940f3fddee9d570"
+        ]
+      }

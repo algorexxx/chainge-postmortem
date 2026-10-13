@@ -1,0 +1,82 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000355",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93bbd30",
+              "toBlock": "0x93be43f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000356",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93be440",
+              "toBlock": "0x93c0b4f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000357",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93c0b50",
+              "toBlock": "0x93c325f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000358",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93c3260",
+              "toBlock": "0x93c596f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "logs-000359",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "fromBlock": "0x93c5970",
+              "toBlock": "0x93c807f",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+              ]
+            }
+          ]
+        }
+      ]

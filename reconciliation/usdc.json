@@ -513,6 +513,148 @@
       "tokenDecimals": {
         "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
       }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-gap-probes",
+      "pattern": "avalanche-*.response.json",
+      "tokenDecimals": {
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-gap-probes",
+      "pattern": "optimism-*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-avalanche-history",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-avalanche-capture",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-cctp-destination",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-cctp-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-optimism-capture",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-downstream-single",
+      "pattern": "5fcb-*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-return-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-return-ethereum",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-return-ethereum-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-arbitrum-capture",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-discovery",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-terminal-discovery",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-optimism-batched",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-terminal-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-arbitrum-last-receipt",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": 6
+      }
     }
   ],
   "limitations": [
@@ -684,6 +826,98 @@
       "chain": "Optimism",
       "directory": "evidence/2026-10-13-usdc-range-repair",
       "pattern": "optimism-*.request.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-gap-probes",
+      "pattern": "avalanche-*.request.json",
+      "tokenDecimals": {
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-gap-probes",
+      "pattern": "optimism-*.request.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-avalanche-history",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-avalanche-capture",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-cctp-destination",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-cctp-context",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-optimism-capture",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-downstream-single",
+      "pattern": "5fcb-*.request.json",
+      "tokenDecimals": {
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 6
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-discovery",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-terminal-discovery",
+      "pattern": "*.request.json",
+      "tokenDecimals": {
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": 18
+      }
+    },
+    {
+      "chain": "Optimism",
+      "directory": "evidence/2026-10-13-usdc-optimism-batched",
+      "pattern": "*.request.json",
       "tokenDecimals": {
         "0x0b2c639c533813f4aa9d7837caf62653d097ff85": 6,
         "0x7f5c764cbc14f9669b88837ca1490cca17c31607": 6
@@ -1275,6 +1509,24 @@
         "from": 0,
         "through": 52557666
       }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "holder": "0x5fcb0eb5958383136768675f9ac593289de9b03b",
+      "range": {
+        "from": 0,
+        "through": 514479102
+      }
     }
   ],
   "sourceCutoffBlocks": {
@@ -1414,6 +1666,72 @@
       "directory": "evidence/2026-10-13-usdc-bsc-history",
       "pattern": "balance-*.request.json",
       "tokenDecimals": {}
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-cctp-destination",
+      "pattern": "trace-balance-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-13-usdc-return-context",
+      "pattern": "return-balance-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-return-ethereum-context",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {}
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-13-usdc-bsc-terminal-balances",
+      "pattern": "terminal-balances-*.request.json",
+      "tokenDecimals": {}
     }
-  ]
+  ],
+  "capturePolicies": {
+    "Avalanche": {
+      "template": {
+        "endpoint": "https://api.avax.network/ext/bc/C/rpc",
+        "expectedChainId": "0xa86a",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:01",
+        "timeout": "00:02:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 5000000,
+      "batchSize": 20,
+      "combineHolderFilters": true
+    },
+    "Optimism": {
+      "template": {
+        "endpoint": "https://mainnet.optimism.io",
+        "expectedChainId": "0xa",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:02:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 10000,
+      "batchSize": 5
+    },
+    "Arbitrum": {
+      "template": {
+        "endpoint": "https://arb1.arbitrum.io/rpc",
+        "expectedChainId": "0xa4b1",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:02:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 10000000,
+      "batchSize": 10
+    }
+  }
 }

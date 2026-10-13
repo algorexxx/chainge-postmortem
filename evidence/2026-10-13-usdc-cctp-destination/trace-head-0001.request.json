@@ -1,0 +1,9 @@
+{
+        "jsonrpc": "2.0",
+        "id": "trace-head",
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x1eaa53fe",
+          false
+        ]
+      }

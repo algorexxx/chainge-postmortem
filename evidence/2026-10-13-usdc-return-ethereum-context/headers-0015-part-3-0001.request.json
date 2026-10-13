@@ -1,0 +1,20 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "0x35ad2afdb7afb9d8a3ceda0c30e6273af21543af08f2fa79e6a51341527a6507",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x35ad2afdb7afb9d8a3ceda0c30e6273af21543af08f2fa79e6a51341527a6507",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0x38860d12117e6e4a2526be8bc6e29f4dcc3c9129e9c0a4d9c2640acb6b133b98",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x38860d12117e6e4a2526be8bc6e29f4dcc3c9129e9c0a4d9c2640acb6b133b98",
+            false
+          ]
+        }
+      ]

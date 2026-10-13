@@ -1,0 +1,16 @@
+{
+        "jsonrpc": "2.0",
+        "id": "trace-out-018",
+        "method": "eth_getLogs",
+        "params": [
+          {
+            "address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+            "fromBlock": "0xaba9500",
+            "toBlock": "0xb532b7f",
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x000000000000000000000000584de4fe0aea85fa45f5c4d7f50e09deeeecfea6"
+            ]
+          }
+        ]
+      }
