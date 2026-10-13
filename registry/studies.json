@@ -785,7 +785,7 @@
         "date": "2024-09-01",
         "status": "Unmatched",
         "endpoint": "100,000 USDC reached a Netcoins-labelled address; 316,050.300000 USDC entered Hyperliquid via Arbitrum",
-        "explanation": "This Ethereum payment remains without an accepted Fusion burn match. Its recipient later sent 100,000 USDC through another address to the address Etherscan labels Netcoins 1. A separate 316,050.404450-USDC branch used Circle CCTP: 316,050.304450 USDC was minted to the same recipient address on Arbitrum, with matching message nonce and body. The Arbitrum recipient then deposited 316,050.300000 USDC into the officially documented Hyperliquid bridge. The venue ledger independently records that transaction, later withdrawals and more deposits; available fills show BTC trading activity.",
+        "explanation": "This Ethereum payment remains without an accepted Fusion burn match. Its recipient later sent 100,000 USDC through another address to the address Etherscan labels Netcoins 1. A separate 316,050.404450-USDC branch used Circle CCTP: 316,050.304450 USDC was minted to the same recipient address on Arbitrum, with matching message nonce and body. The Arbitrum recipient then deposited 316,050.300000 USDC into the officially documented Hyperliquid bridge. The venue ledger independently records that transaction, later withdrawals and more deposits; available fills show BTC trading activity. A 416,154.953803-USDC inflow 24 seconds earlier requests Fusion issuance and is followed by a matching quoted mint; it does not supply a payout instruction to this recipient. See the terminal review for funding context.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
         "limitation": "Both branches belong to the original payment; their amounts are not additional vault outflows. Current queried venue states and the pinned Arbitrum balance are zero. Ownership, customer authorization and a loss amount remain unproven.",
         "steps": [
@@ -881,6 +881,24 @@
             ],
             "limitation": "The trading API has retention limits. Later deposits and withdrawals prevent attributing every payment to the original branch. No human controller, authorization or consolidated loss is established. Hyperliquid is a venue destination, not a centralized-exchange label.",
             "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-hyperliquid-trace.md"
+          },
+          {
+            "title": "Earlier vault funding — separate issuance context",
+            "explanation": "The incoming 416,154.953803 USDC requested 415,905.250831 Fusion USDC for its sender; the quoted amount was minted 41 seconds later. This is not an additional outflow or an explanation of the 584d payment.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "Vault receives funding",
+                "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+                "amount": "416154.953803",
+                "time": "2024-09-01T22:43:23.000000Z",
+                "transaction": "https://etherscan.io/tx/0x37640e7333727a764f7766393985d7f5367d206a06f24a6a60ff0e02613c1136",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ],
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-terminal-review.md"
           }
         ]
       },
@@ -928,6 +946,177 @@
             "note": "79 seconds after the Fusion burn.",
             "kind": "verified",
             "asset": "USDC"
+          }
+        ]
+      },
+      {
+        "id": "usdc-september-70k-redemption",
+        "title": "Late payment follows a near-exact Fusion routing memo",
+        "chain": "Ethereum",
+        "amount": "69955.999671",
+        "date": "2024-09-05",
+        "status": "Possible redemption",
+        "endpoint": "Recipient later forwarded combined funds through a Binance-labelled route",
+        "explanation": "A 70,000-unit Fusion burn names Ethereum USDC and this recipient 96 seconds before payment. Its quoted output is 69,955.999869, 0.000198 USDC above the actual payment. This supports a possible redemption but fails the strict exact-memo rule. Later transfers include other funds.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-terminal-review.md",
+        "limitation": "The relationship is inferred; no shared authenticated settlement identifier or fee rule is established. The automated ledger remains unmatched. The later 154,887.164464 payment is combined funds, not another vault outflow or an amount attributable solely to this case.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "70,000-unit burn; near-exact routing memo",
+            "address": "0xf11b4db13148d56e2a10ad701ad0ff338c62c52c",
+            "amount": "70000",
+            "time": "2024-09-05 06:46:35 UTC",
+            "transaction": "https://fsnex.net/transaction/0xe331a649aebe51fa9b341e0e38a42606a14e0fed0e89ea1976fb001c477c9250",
+            "note": "Memo quote differs from the payment by 198 raw units.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Source liquidity candidate",
+            "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+            "amount": "69955.999671",
+            "time": "2024-09-05T06:48:11+00:00",
+            "transaction": null,
+            "note": "",
+            "kind": "inferred",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Memo-named recipient",
+            "address": "0xf11b4db13148d56e2a10ad701ad0ff338c62c52c",
+            "amount": "69955.999671",
+            "time": "2024-09-05T06:48:11.000000Z",
+            "transaction": "https://etherscan.io/tx/0xd2b58bd63e5ee5a477ed769f5ffbd68063dfb88724ee1c016686ba190709a288",
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Later combined funds → Binance-labelled route",
+            "explanation": "Other funding intervened. This path shows later activity, not an isolated trace of the original amount.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "Later intermediary",
+                "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+                "amount": "154887.164464",
+                "time": "2024-09-22T03:15:11.000000Z",
+                "transaction": "https://etherscan.io/tx/0x10bf830c856adbd3d7f878f733324b8f8f0ca91d59e2984026576cca9260e84f",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Ethereum",
+                "label": "Binance 14 — explorer label",
+                "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+                "amount": "154887.164464",
+                "time": "2024-09-22T03:20:47.000000Z",
+                "transaction": "https://etherscan.io/tx/0xe62fb6a44211bdeafea70397676301e3f8b2aa2aea83edbb005584c5db0eace2",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "usdc-may-17k",
+        "title": "Late 17,000-USDC outflow followed by mixed-fund distribution",
+        "chain": "Ethereum",
+        "amount": "17000",
+        "date": "2025-05-22",
+        "status": "Unmatched",
+        "endpoint": "2,700 later reached Binance 14; 15,000 followed a separate onward route",
+        "explanation": "A direct USDC transfer one day before the latest retained vault outflow. No accepted Fusion settlement link. The recipient already had a reconstructed 720.651071 USDC, so the subsequent 15,000 and 2,700 payments distribute mixed funds.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-terminal-review.md",
+        "limitation": "Do not add the downstream amounts as new vault outflows. Prior funds prevent attributing the 17,700 total solely to the 17,000 payment. Exchange credit ownership and the final use of the larger branch remain unknown.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Source liquidity candidate",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "amount": "17000.000000",
+            "time": "2025-05-22T01:43:35+00:00",
+            "transaction": null,
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Initial recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "amount": "17000.000000",
+            "time": "2025-05-22T01:43:35.000000Z",
+            "transaction": "https://etherscan.io/tx/0xd061965ff4a96f2fc1eb0ef09fb3c7d70fc03ae3d6983c38b434b17cac420082",
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ],
+        "branches": [
+          {
+            "title": "15,000 USDC → later combined 18,150-USDC payment",
+            "explanation": "The next address received another 3,150 USDC before the August transfer.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "15,000-USDC recipient",
+                "address": "0xde0a5ee32ed914c2d3f13128c2b375decdc394e0",
+                "amount": "15000.000000",
+                "time": "2025-05-22T02:03:59.000000Z",
+                "transaction": "https://etherscan.io/tx/0x983be5fb3858bc0ae4ead9cba0211cb8abd0257fd8d612b96dbaf743a074a4ae",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Ethereum",
+                "label": "Later recipient; further route unresolved",
+                "address": "0x53e2cb064e2de9594584c9dba24ef071f110dd28",
+                "amount": "18150.000000",
+                "time": "2025-08-14T14:25:35.000000Z",
+                "transaction": "https://etherscan.io/tx/0xbca797ac32f1ac29c76bdb6c72794cfb5ded19667214e9d4c67fc93255650128",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
+          },
+          {
+            "title": "2,700 USDC → Binance-labelled route",
+            "explanation": "Observed later payments from the mixed balance; the credited exchange account is unknown.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "Intermediary",
+                "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+                "amount": "2700.000000",
+                "time": "2025-05-22T02:09:23.000000Z",
+                "transaction": "https://etherscan.io/tx/0x2cec663be097f0ca85ec19d55b730fd3d20af2a71773677da471f3d064220809",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Ethereum",
+                "label": "Binance 14 — explorer label",
+                "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+                "amount": "2700.000000",
+                "time": "2025-05-22T02:13:11.000000Z",
+                "transaction": "https://etherscan.io/tx/0xdf54bddba2744cb1266ad0ec6fcd505200fc4808f306270ff16c8965d05abd6a",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
           }
         ]
       }

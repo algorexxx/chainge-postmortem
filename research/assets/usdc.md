@@ -118,7 +118,7 @@ Another [100,000-unit burn](https://fsnex.net/transaction/0xa86a558cafb8b11eab00
 
 ## Reproduction and completion gates
 
-Run `./reconcile.ps1 -Asset usdc` and `./verify.ps1`. Accounting, movements, discovery gaps and burn review remain in ignored `archives/`. Five-minute equal-amount matching, two-minute clock tolerance and a 10,000-token triage threshold remain hypotheses. BUSD fee and inventory exclusions are not inherited. The public site uses reviewed cases, not the unfinished automated queue.
+Run `./reconcile.ps1 -Asset usdc` and `./verify.ps1`. Accounting, discovery gaps and burn review remain in ignored `archives/`; the reproducible public movement ledger is `registry/usdc-movements.json`. Five-minute equal-amount matching, two-minute clock tolerance and a 10,000-token triage threshold remain hypotheses. BUSD fee and inventory exclusions are not inherited. The public site starts with reviewed cases and offers the full retained movement queue on demand, with provisional classifications and coverage limitations.
 
 The expanded dataset reuses the engine without relaxing thresholds. All 46,309 explorer events encountered in the acquired receipts match their node logs and header timestamps; 45,544 are mint/burn events. Total events and gross/net issuance remain unchanged.
 
@@ -153,3 +153,7 @@ There are **58 exact chain/token/recipient/memo-amount candidates** in the expan
 The first two payments came from [8a4a…64c1](https://etherscan.io/address/0x8a4aa176007196d48d39c89402d3753c39ae64c1); the Arbitrum payment came from [3f0e…aa8e](https://arbiscan.io/address/0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e). Its [targeted evidence package](../../evidence/2026-10-13-usdc-arbitrum-routing/README.md) retains the token/recipient log query, receipt and timestamp header. This strongly supports a payout relationship for the 416,302-unit burn and is distinct from the earlier Ethereum payment.
 
 These candidate links do not establish a shared bridge identifier, authenticated fee rule or full source-chain coverage. They are reported separately and do not remove burns or source outflows from normal queues. The expanded Arbitrum history is retained separately from this targeted payment. No address role is established solely by a payout, and no exact memo candidate automatically removes a source outflow or Fusion burn from the normal queues.
+
+## Large late-outflow follow-up
+
+The [terminal review](../usdc-terminal-review.md) documents a near-exact routing candidate for the 69,955.999671-USDC September payment, and receipt-confirmed downstream distribution of the 17,000-USDC May 2025 payment. Later combined funds on both paths reach the Binance-14-labelled address; the larger branch of the May distribution remains unresolved beyond a further recipient. The reviewed possible-redemption label does not change strict automated classifications. The report also identifies the incoming funding immediately before the 416k payment and its separate matching Fusion issuance; that funding does not resolve the outgoing payment's purpose.
