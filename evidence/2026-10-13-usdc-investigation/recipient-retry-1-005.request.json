@@ -1,0 +1,26 @@
+[
+  {
+    "jsonrpc": "2.0",
+    "id": "tx-0x049ec91ee75835235ff1afe92ddd4c17fe8c3f88362c99e2160204a5e90d838b",
+    "method": "eth_getTransactionReceipt",
+    "params": [
+      "0x049ec91ee75835235ff1afe92ddd4c17fe8c3f88362c99e2160204a5e90d838b"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "tx-0x04a6c4ab9968311ec8769930d3c20f769c221e095c2242dda58e70bf6d31b9d3",
+    "method": "eth_getTransactionReceipt",
+    "params": [
+      "0x04a6c4ab9968311ec8769930d3c20f769c221e095c2242dda58e70bf6d31b9d3"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "tx-0x0533c33372dfdce1cb725f6af68932fea63e0109d03d212cce23723c9e52155f",
+    "method": "eth_getTransactionReceipt",
+    "params": [
+      "0x0533c33372dfdce1cb725f6af68932fea63e0109d03d212cce23723c9e52155f"
+    ]
+  }
+]

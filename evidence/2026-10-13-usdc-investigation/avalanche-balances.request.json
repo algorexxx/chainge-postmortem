@@ -1,0 +1,98 @@
+[
+  {
+    "jsonrpc": "2.0",
+    "id": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664-decimals",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "data": "0x313ce567"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664-0x456325f2ac7067234dd71e01bebe032b0255e039",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "data": "0x70a08231000000000000000000000000456325f2ac7067234dd71e01bebe032b0255e039"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664-0x874de5761900ee526950d707d8cbd4b93092e290",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "data": "0x70a08231000000000000000000000000874de5761900ee526950d707d8cbd4b93092e290"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664-0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "data": "0x70a082310000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e-decimals",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+        "data": "0x313ce567"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e-0x456325f2ac7067234dd71e01bebe032b0255e039",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+        "data": "0x70a08231000000000000000000000000456325f2ac7067234dd71e01bebe032b0255e039"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e-0x874de5761900ee526950d707d8cbd4b93092e290",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+        "data": "0x70a08231000000000000000000000000874de5761900ee526950d707d8cbd4b93092e290"
+      },
+      "0x5cebf04"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e-0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+    "method": "eth_call",
+    "params": [
+      {
+        "to": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+        "data": "0x70a082310000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+      },
+      "0x5cebf04"
+    ]
+  }
+]

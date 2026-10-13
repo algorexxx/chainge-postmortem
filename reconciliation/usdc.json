@@ -5,7 +5,17 @@
     "operatingAddresses": {
       "Ethereum": [
         "0x874de5761900ee526950d707d8cbd4b93092e290",
-        "0x456325f2ac7067234dd71e01bebe032b0255e039"
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Avalanche": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
       ]
     },
     "maximumDelay": "00:05:00",
@@ -15,7 +25,20 @@
     ],
     "decimals": 6,
     "largeOutflowRaw": "10000000000",
-    "depletionBasisPoints": 9000
+    "depletionBasisPoints": 9000,
+    "sliceCounterparts": {
+      "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": [
+        "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
+        "0x9673123f25a3807cb6937865af7f74115d633a02",
+        "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
+        "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293"
+      ]
+    },
+    "issuanceCallTargets": {
+      "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": [
+        "0x6b52048a01c41d1625a6893c80fbe4aa2c22bb54"
+      ]
+    }
   },
   "sources": [
     {
@@ -33,13 +56,183 @@
       "tokenDecimals": {
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
       }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "fusion-new-transfers-*.response.json",
+      "tokenDecimals": {
+        "0xfc9e57d7543e0591824121fda6461fe2148a5966": 6,
+        "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": 6
+      }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "fusion-legacy-transfers-*.response.json",
+      "tokenDecimals": {
+        "0xfc9e57d7543e0591824121fda6461fe2148a5966": 6,
+        "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "ethereum-corroboration-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "ethereum-retry-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "eth-closing.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "avalanche-corroboration-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "avax-closing.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "recipient-corroboration-1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "recipient-retry-1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "successor-review-1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "ethereum-416050-payout.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "ethereum-large-payout-context.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "recipient-corroboration-43114-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "successor-review-43114-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
     }
   ],
   "limitations": [
-    "Workflow trial using USDC logs in already retained Ethereum BUSD-context receipts. This is a transaction-selected sample, not complete USDC address history.",
-    "The two operating addresses are investigation candidates from BUSD research, not independently verified USDC vaults. Ethereum token identity follows the cited Circle list; decimals are corroborated by a retained pinned eth_call.",
-    "No Fusion USDC issuance history is supplied. No cross-chain settlement pair can be established by this run.",
-    "Both candidate Ethereum balances returned zero at block 26182536. No common-cutoff Fusion balance, opening balances or consolidated Fusion claims have been established. Missing data is unknown, never zero.",
-    "Five-minute equal-amount matching and 10000-token review threshold are trial hypotheses, not authenticated bridge rules. No BUSD fee, migration, slice or inventory rules are inherited."
+    "Partial USDC investigation. Candidate Ethereum and Avalanche histories come from explorer discovery followed by available public-node receipts; other chains, representations and custody addresses remain unassessed.",
+    "Fusion Transfer logs cover the newer token from creation and the legacy full-time child from its creation through block 15130080. These are explorer-index observations, not node-receipt corroboration; the private Fusion gateway was unavailable.",
+    "Legacy full-time event supply includes address-one inventory. Slice conversions and migration must be resolved before interpreting mint/burn totals as external issuance or adding representations. Dated slice Transfer histories are retained separately and excluded from full-time matching.",
+    "Five candidate operating addresses are included on Ethereum and Avalanche. Later-address Avalanche liquidity configuration is supported by prior retained getter/admin evidence; equivalent roles on Ethereum and outside observed intervals remain hypotheses. Internal classifications reflect this candidate boundary, not verified common control or segregated backing.",
+    "Five-minute equal-amount matching and a 10000-token review threshold remain explicit trial hypotheses. No BUSD fee, inventory exclusion or source-chain settlement rule is inherited.",
+    "No consolidated Fusion liability or missing-asset amount is established. Missing receipt or coverage data remains unknown; current balances must not be substituted for balances at the earlier Fusion cutoff.",
+    "Successor 3f0e40bc and 66ff2f0a histories have explorer discovery plus selected largest/latest receipts, not complete receipt coverage. Ethereum predecessor empty discovery conflicts with known limits of this provider and does not establish no activity. BSC and Arbitrum have balance probes but no full movement ledger in this run."
+  ],
+  "discoverySources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "source-discovery-1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "source-discovery-43114-current-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "closing-recipient-1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "successor-discovery-1-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "closing-recipient-43114-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-13-usdc-investigation",
+      "pattern": "successor-discovery-43114-*.response.json",
+      "tokenDecimals": {
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
+      }
+    }
   ]
 }

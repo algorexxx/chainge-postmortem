@@ -4,7 +4,7 @@ This procedure is shared by people and LLMs. Start with one asset and a bounded,
 
 ## 1. Open an investigation package
 
-Fork the repository and create a branch such as `research/usdc-ethereum`. Copy [the package template](research/assets/TEMPLATE.md) to `research/assets/<asset>.md`. Use a lowercase asset slug. See [BUSD](research/assets/busd.md) for the reference package and [USDC](research/assets/usdc.md) for a deliberately incomplete trial.
+Fork the repository and create a branch such as `research/usdc-ethereum`. Copy [the package template](research/assets/TEMPLATE.md) to `research/assets/<asset>.md`. Use a lowercase asset slug. See [BUSD](research/assets/busd.md) for the reference package and [USDC](research/assets/usdc.md) for a partial investigation with explicit acquisition and interpretation gaps.
 
 Record exact chain IDs, contract addresses, representation relationships, observed decimals and supporting evidence. A symbol or identical address on another chain is not proof of asset equivalence or common control. Start from the Fusion catalogue, verify deployed code/getters and discover predecessors, parent/child tokens, time slices and authority changes before adding their supplies together.
 
@@ -20,7 +20,7 @@ Do not commit raw Telegram exports, private messages, community submissions, ide
 
 ## 3. Configure and run the common pipeline
 
-Install the .NET SDK selected in `global.json` and PowerShell 7. Add `reconciliation/<asset>.json`, using [the small USDC configuration](reconciliation/usdc.json) for its structure. Replace all asset-specific inputs and hypotheses; do not copy BUSD fees, operating addresses, migration mappings or cutoffs as facts.
+Install the .NET SDK selected in `global.json` and PowerShell 7. Add `reconciliation/<asset>.json`, using [the USDC configuration](reconciliation/usdc.json) for its structure. Replace all asset-specific inputs and hypotheses; do not copy BUSD fees, operating addresses, migration mappings or cutoffs as facts.
 
 The configuration declares `asset`, `policy`, `sources`, optional `discoverySources`, and `limitations`. Each source declares `chain`, `directory`, filename `pattern` and a contract-to-decimals `tokenDecimals` map. Select response files, not arbitrary archives. The adapter supports EVM ERC-20/Fusion timed Transfer logs, receipts, transaction calls and block headers. Native assets, UTXO chains, rebasing/fee-on-transfer semantics and different event schemas require explicit support rather than fabricated ERC-20 rows.
 

@@ -1,0 +1,19 @@
+[
+  {
+    "jsonrpc": "2.0",
+    "id": "transaction",
+    "method": "eth_getTransactionByHash",
+    "params": [
+      "0x3e0a6a69ce57f3706916f04a050f2a1d53c13353d397d3c62f28e5639905217e"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "code",
+    "method": "eth_getCode",
+    "params": [
+      "0x4c5f53015f3adb1b1d15ddf4e17edaae6fa185a5",
+      "latest"
+    ]
+  }
+]

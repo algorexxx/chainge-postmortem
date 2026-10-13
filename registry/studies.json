@@ -398,5 +398,421 @@
         "period": "Returned history through 2023-11-02"
       }
     ]
+  },
+  "0xfc9e57d7543e0591824121fda6461fe2148a5966": {
+    "title": "USDC",
+    "status": "Partial investigation",
+    "reviewed": "2026-10-13",
+    "scope": "Newer Fusion supply: 7,061,027.518489 USDC. Legacy migration, consolidated claims and total backing remain unresolved. Five candidate addresses across four source chains; selected reviewed movements only.",
+    "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
+    "vaults": [
+      {
+        "chain": "Ethereum",
+        "token": "USDC",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 26182886",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "USDC",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 26182886",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "USDC",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0.014095",
+        "cutoff": "2026-10-13 · block 26182886",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "USDC",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0.014318",
+        "cutoff": "2026-10-13 · block 26182886",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "USDC",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "2254.807763",
+        "cutoff": "2026-10-13 · block 26182886",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "USDC.e",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "USDC.e",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "USDC.e",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "USDC.e",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "USDC.e",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "8.035128",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Native USDC",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Native USDC",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Native USDC",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0.774669",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Native USDC",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Native USDC",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "1.866669",
+        "cutoff": "2026-10-13 · block 97436077",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg USDC",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 127384504",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg USDC",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 127384504",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg USDC",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 127384504",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg USDC",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate operating / liquidity address",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 127384504",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg USDC",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate operating / liquidity address",
+        "balance": "254.382949325249263627",
+        "cutoff": "2026-10-13 · block 127384504",
+        "note": "Observed token balance; custody role and total backing are not established. See assessment for dated Avalanche configuration evidence.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "USDC",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Cross-chain custody candidate",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 514397849",
+        "note": "Balance probe only. Fusion burn inputs name this chain; full transfer history and custody attribution remain open.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "USDC",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Cross-chain custody candidate",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 514397849",
+        "note": "Balance probe only. Fusion burn inputs name this chain; full transfer history and custody attribution remain open.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "USDC",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Cross-chain custody candidate",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 514397849",
+        "note": "Balance probe only. Fusion burn inputs name this chain; full transfer history and custody attribution remain open.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "USDC",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Cross-chain custody candidate",
+        "balance": "0",
+        "cutoff": "2026-10-13 · block 514397849",
+        "note": "Balance probe only. Fusion burn inputs name this chain; full transfer history and custody attribution remain open.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "USDC",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Cross-chain custody candidate",
+        "balance": "258.747601",
+        "cutoff": "2026-10-13 · block 514397849",
+        "note": "Balance probe only. Fusion burn inputs name this chain; full transfer history and custody attribution remain open.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      }
+    ],
+    "flows": [
+      {
+        "id": "usdc-january-ethereum",
+        "title": "January transfer to later liquidity candidate",
+        "chain": "Ethereum",
+        "amount": "52464.903010",
+        "date": "2024-01-20",
+        "status": "Possible operating transition",
+        "endpoint": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "explanation": "Receipt-confirmed transfer. The recipient continued receiving and sending funds. Later Avalanche liquidity configuration supports an operational-transition hypothesis; common control and the contemporaneous purpose remain unproven.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
+        "limitation": "Selected reviewed case, not a complete movement list. Mixed later funds prevent assigning every onward transfer to this funding. No CEX endpoint is established.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Earlier operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "52464.903010",
+            "time": "",
+            "transaction": null,
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Later liquidity candidate",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "amount": "52464.903010",
+            "time": "",
+            "transaction": "https://etherscan.io/tx/0x3d04f41ab5fbdc1149803dd9e14840f650a7e718e82ab98465cbe8328278f8f4",
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ]
+      },
+      {
+        "id": "usdc-january-avalanche",
+        "title": "January transfer to later liquidity candidate",
+        "chain": "Avalanche",
+        "amount": "21356.767181",
+        "date": "2024-01-20",
+        "status": "Possible operating transition",
+        "endpoint": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "explanation": "Receipt-confirmed transfer. The recipient continued receiving and sending funds. Later Avalanche liquidity configuration supports an operational-transition hypothesis; common control and the contemporaneous purpose remain unproven.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
+        "limitation": "Selected reviewed case, not a complete movement list. Mixed later funds prevent assigning every onward transfer to this funding. No CEX endpoint is established.",
+        "steps": [
+          {
+            "chain": "Avalanche",
+            "label": "Earlier operating candidate",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "21356.767181",
+            "time": "",
+            "transaction": null,
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC.e"
+          },
+          {
+            "chain": "Avalanche",
+            "label": "Later liquidity candidate",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "amount": "21356.767181",
+            "time": "",
+            "transaction": "https://snowtrace.io/tx/0x67363ba6866f53e21d9b4da88ff75f03c6ae9aca474d851ff510e2fbf2e0bed5",
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC.e"
+          }
+        ]
+      },
+      {
+        "id": "usdc-september-exchange",
+        "title": "USDC exchanged for USDT in one transaction",
+        "chain": "Ethereum",
+        "amount": "274999",
+        "date": "2024-09-30",
+        "status": "Observed asset exchange",
+        "endpoint": "USDT recipient and a return to the source candidate",
+        "explanation": "The same successful receipt records 274,999 USDC entering a contract route and USDT outputs of 272,074.135714 to another address plus 165.343687 to the source candidate. Customer authorization, a Fusion settlement link and the role of these outputs remain unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
+        "limitation": "Main route shown. A separate output in the same receipt returns 165.343687 USDT to the source candidate. Output balances and ultimate disposition are not established.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Source liquidity candidate",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "amount": "274999",
+            "time": "",
+            "transaction": null,
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Contract route begins",
+            "address": "0x4c5f53015f3adb1b1d15ddf4e17edaae6fa185a5",
+            "amount": "274999",
+            "time": "",
+            "transaction": "https://etherscan.io/tx/0x3e0a6a69ce57f3706916f04a050f2a1d53c13353d397d3c62f28e5639905217e",
+            "note": "Intervening contract hops are in the receipt.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Main USDT output",
+            "address": "0x5fcb0eb5958383136768675f9ac593289de9b03b",
+            "amount": "272074.135714",
+            "time": "",
+            "transaction": "https://etherscan.io/tx/0x3e0a6a69ce57f3706916f04a050f2a1d53c13353d397d3c62f28e5639905217e",
+            "note": "",
+            "kind": "verified",
+            "asset": "USDT"
+          }
+        ]
+      },
+      {
+        "id": "usdc-september-416k",
+        "title": "Large payment with no accepted direct burn match",
+        "chain": "Ethereum",
+        "amount": "416050.404450",
+        "date": "2024-09-01",
+        "status": "Unmatched",
+        "endpoint": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
+        "explanation": "A nearby 416,302-unit Fusion burn requests Arbitrum, a different recipient and a different output amount. It is not accepted as direct settlement for this Ethereum payment. An indirect relationship remains unproven.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
+        "limitation": "This is a selected unresolved payment, not proof of loss. Recipient discovery is retained; a complete onward trace and economic explanation remain open.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Liquidity candidate",
+            "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+            "amount": "416050.404450",
+            "time": "",
+            "transaction": null,
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Observed recipient",
+            "address": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
+            "amount": "416050.404450",
+            "time": "",
+            "transaction": "https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e",
+            "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ]
+      }
+    ]
   }
 }

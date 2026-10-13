@@ -1,0 +1,29 @@
+[
+  {
+    "jsonrpc": "2.0",
+    "id": "block-50430310",
+    "method": "eth_getBlockByNumber",
+    "params": [
+      "0x3018166",
+      false
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "block-50430315",
+    "method": "eth_getBlockByNumber",
+    "params": [
+      "0x301816b",
+      false
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "block-50919394",
+    "method": "eth_getBlockByNumber",
+    "params": [
+      "0x308f7e2",
+      false
+    ]
+  }
+]
