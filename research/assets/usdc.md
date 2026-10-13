@@ -4,7 +4,7 @@ Reviewed 2026-10-13. [Configuration](../../reconciliation/usdc.json), [capture i
 
 ## Fusion accounting
 
-Reference time: **2025-10-07 08:43:50 UTC**, [Fusion block 15130080](https://fsnex.net/block/15130080), hash `0xe93ffded087a79097d4309c7831690161db6ed136f4b1a22c4c83a99db80f99f`. FSNEX and the previously retained node baseline share infrastructure. The first acquisition attempted the LAN listener, which intentionally does not accept this PC. The documented local SSH tunnel was subsequently restored and two transactions were corroborated directly; see the [access correction](../../evidence/2026-10-13-fusion-rpc-recovery/README.md). Bulk Fusion receipt import remains outstanding; the current generated ledger still uses explorer logs.
+Reference time: **2025-10-07 08:43:50 UTC**, [Fusion block 15130080](https://fsnex.net/block/15130080), hash `0xe93ffded087a79097d4309c7831690161db6ed136f4b1a22c4c83a99db80f99f`. FSNEX and the previously retained node baseline share infrastructure. The first acquisition attempted the LAN listener, which intentionally does not accept this PC. The documented local SSH tunnel was subsequently restored and two transactions were corroborated directly; see the [access correction](../../evidence/2026-10-13-fusion-rpc-recovery/README.md). The [bulk receipt package](../../evidence/2026-10-13-usdc-fusion-receipts/README.md) now corroborates all 45,544 observed mint/burn events in 45,149 transactions, with 43,345 block headers. Ordinary transfers outside those transactions still use explorer logs.
 
 | Representation | Transfer events | Gross minted | Gross burned | Mint minus burn |
 | --- | ---: | ---: | ---: | ---: |
@@ -17,7 +17,7 @@ The legacy net includes **996,416,657.619439** units at [address one](https://fs
 
 Four dated children have retained histories: [55be…70cf](https://fsnex.net/address/0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf), [9673…3a02](https://fsnex.net/address/0x9673123f25a3807cb6937865af7f74115d633a02), [dcc0…ca98](https://fsnex.net/address/0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98), and [544b…9293](https://fsnex.net/address/0x544b0bb334eb34dd4e69d1722abd79fdecdf9293). Complementary time rights must not be added as independent full-time claims. Their child ERC-20 logs are retained separately and excluded from full-time matching.
 
-The [first newer mint](https://fsnex.net/transaction/0x1baa6e0909589cac84be88ac1ecef3e91ae1aadf6d6b4b2b8e90d01ea5774ed7) has a legacy burn and newer mint of **328,973.737129** to the same holder in the explorer detail: representation conversion, not a fresh external deposit. The script does not relabel explorer details as node receipts or automatically exclude conversions without its required corroboration.
+The [first newer mint](https://fsnex.net/transaction/0x1baa6e0909589cac84be88ac1ecef3e91ae1aadf6d6b4b2b8e90d01ea5774ed7) has a legacy burn and newer mint of **328,973.737129** to the same holder, now corroborated by the raw node receipt: representation conversion, not a fresh external deposit. The script excludes both issuance events from external matching and retains both in the ledger.
 
 A [January 20, 2024 legacy transfer](https://fsnex.net/transaction/0x349d41aeb3198d652cf7758d5012ab48c258eb14c4e67c6fde5ba649dcad1cdf) placed **2,677,846.972295** at [7bc4…695e](https://fsnex.net/address/0x7bc4db49e8bc78c20fbc9f76ec3eb2d552c6695e). A [February 4 newer mint](https://fsnex.net/transaction/0xa7c577ee69d7329a46796b4abac3d3f3b616c4da178f5c8eb6bbbb0b885d07a8) issued exactly that amount to [8a85…4e84](https://fsnex.net/address/0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84). An inventory/migration relationship is plausible, but different transactions and holders do not prove it. No liability adjustment is asserted.
 
@@ -67,7 +67,7 @@ In [transaction 3e0a…217e](https://etherscan.io/tx/0x3e0a6a69ce57f3706916f04a0
 
 ### A near-amount match rejected
 
-The [416,050.404450-USDC Ethereum payment](https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e) to [584d…fea6](https://etherscan.io/address/0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6) follows a [416,302-unit Fusion burn](https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802) by **1,687 seconds**. But the burn's explorer-retained input requests **Arbitrum**, af88…5831, [35cb…e3f](https://arbiscan.io/address/0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f), and raw output **416052118806**. Chain, recipient and amount differ. Direct settlement is not accepted; an indirect relationship remains unproven.
+The [416,050.404450-USDC Ethereum payment](https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e) to [584d…fea6](https://etherscan.io/address/0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6) follows a [416,302-unit Fusion burn](https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802) by **1,687 seconds**. But the burn's node-corroborated input requests **Arbitrum**, af88…5831, [35cb…e3f](https://arbiscan.io/address/0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f), and raw output **416052118806**. Chain, recipient and amount differ. Direct settlement is not accepted; an indirect relationship remains unproven.
 
 Another [100,000-unit burn](https://fsnex.net/transaction/0xa86a558cafb8b11eab004832fad2f69e4d60bf3e45d23c7a3fb72e7f96a1e27f) explicitly names BNB and the BSC contract. Ethereum/Avalanche alone therefore cannot resolve all requested settlements.
 
@@ -75,6 +75,20 @@ Another [100,000-unit burn](https://fsnex.net/transaction/0xa86a558cafb8b11eab00
 
 Run `./reconcile.ps1 -Asset usdc` and `./verify.ps1`. Accounting, movements, discovery gaps and burn review remain in ignored `archives/`. Five-minute equal-amount matching, two-minute clock tolerance and a 10,000-token triage threshold remain hypotheses. BUSD fee and inventory exclusions are not inherited. The public site uses reviewed cases, not the unfinished automated queue.
 
-The expanded dataset reuses the engine without relaxing thresholds to reduce unmatched counts. Missing Fusion receipt context leaves conversions and burn settlement unresolved; it does not show that every unresolved operation was abnormal.
+The expanded dataset reuses the engine without relaxing thresholds. All 46,309 explorer events encountered in the acquired receipts match their node logs and header timestamps; 45,544 are mint/burn events. Total events and gross/net issuance remain unchanged.
 
-Fusion receipt/transaction access is now working through the documented tunnel. Completion requires bulk receipt/transaction acquisition and import, migration and time-slice review, address-one treatment, predecessor discovery, BSC/Arbitrum and other requested chains, complete later-candidate receipts, opening/closing balance checks, terminal/output tracing, dated custody roles and consolidated claims without double-counting. Beneficial owners and intent are not established by these observations.
+| Fusion purpose after receipt import | Events |
+| --- | ---: |
+| Direct mint call | 35,785 |
+| Direct burn call | 6,473 |
+| Cross-representation mint/burn | 790 |
+| Receipt-backed slice conversion | 576 |
+| Contract purpose still unresolved | 1,920 |
+
+The **1,366 conversion-related events** remain in accounting but are excluded from external matching. This includes 395 transactions that each burn legacy full-time USDC and mint newer USDC. Three additional newer mints burn the known legacy remaining-time child [9673…3a02](https://fsnex.net/address/0x9673123f25a3807cb6937865af7f74115d633a02) in the same receipt, for the same holder and integer amount: [6313…5dc3](https://fsnex.net/transaction/0x6313eafcf11509389d7da88c8d039a95ea035e924b0d06180d9ed689b8d55dc3), [9767…0a98](https://fsnex.net/transaction/0x9767161b2c09a32884f7090bfd76791dddd19b63e3833b7c75fa9bdbb4ee0a98), and [a4d4…78f4](https://fsnex.net/transaction/0xa4d4388c0df0b3671927f72e72522423aca36c0a3e416ac436b32233b30e78f4). The configuration now supplies this observed slice counterpart for the newer token. This identifies conversion mechanics, not economic equivalence of every dated claim.
+
+Unpaired Fusion mints fall from **37,181 to 36,594**, and unpaired burns from **8,049 to 7,270**. These counts exclude identified conversions; they do not establish unresolved liabilities or missing funds. Direct-call classification identifies execution mechanics, not an external deposit or settlement.
+
+The **801 unmatched outgoing source events are unchanged**: Ethereum USDC 503, Avalanche USDC.e 292 and native USDC 6. No new redemption is inferred solely from these receipts. Of the 1,920 events with unresolved contract purpose, 1,897 use three selectors on the known routing target; their requested destinations and settlement paths require structured decoding and source-chain evidence. The remaining 23 events use two other targets. Public inputs contain routing strings naming more chains than the currently acquired source histories; these are research leads, not validated settlement records.
+
+Fusion receipt/transaction access is now working through the documented tunnel. Bulk acquisition/import for observed mint/burn transactions is complete. Completion still requires routing-input decoding, broader migration and time-slice review, address-one treatment, predecessor discovery, BSC/Arbitrum and other requested chains, complete later-candidate receipts, opening/closing balance checks, terminal/output tracing, dated custody roles and consolidated claims without double-counting. Beneficial owners and intent are not established by these observations.

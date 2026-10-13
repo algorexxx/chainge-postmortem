@@ -32,6 +32,9 @@
         "0x9673123f25a3807cb6937865af7f74115d633a02",
         "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
         "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293"
+      ],
+      "0xfc9e57d7543e0591824121fda6461fe2148a5966": [
+        "0x9673123f25a3807cb6937865af7f74115d633a02"
       ]
     },
     "issuanceCallTargets": {
@@ -172,11 +175,20 @@
         "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": 6,
         "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": 6
       }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-13-usdc-fusion-receipts",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xfc9e57d7543e0591824121fda6461fe2148a5966": 6,
+        "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89": 6
+      }
     }
   ],
   "limitations": [
     "Partial USDC investigation. Candidate Ethereum and Avalanche histories come from explorer discovery followed by available public-node receipts; other chains, representations and custody addresses remain unassessed.",
-    "Fusion Transfer logs cover the newer token from creation and the legacy full-time child from its creation through block 15130080. These are explorer-index observations, not node-receipt corroboration; the private Fusion gateway was unavailable.",
+    "Fusion Transfer logs cover the newer token and legacy full-time child from creation through block 15130080. All observed mint/burn transactions have node receipts, inputs and block headers; ordinary transfers outside those transactions remain explorer observations. FSNEX and the node share infrastructure.",
     "Legacy full-time event supply includes address-one inventory. Slice conversions and migration must be resolved before interpreting mint/burn totals as external issuance or adding representations. Dated slice Transfer histories are retained separately and excluded from full-time matching.",
     "Five candidate operating addresses are included on Ethereum and Avalanche. Later-address Avalanche liquidity configuration is supported by prior retained getter/admin evidence; equivalent roles on Ethereum and outside observed intervals remain hypotheses. Internal classifications reflect this candidate boundary, not verified common control or segregated backing.",
     "Five-minute equal-amount matching and a 10000-token review threshold remain explicit trial hypotheses. No BUSD fee, inventory exclusion or source-chain settlement rule is inherited.",
