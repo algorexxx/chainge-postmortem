@@ -1,0 +1,49 @@
+[
+  {
+    "jsonrpc": "2.0",
+    "id": "chain",
+    "method": "eth_chainId",
+    "params": []
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "head",
+    "method": "eth_getBlockByNumber",
+    "params": [
+      "latest",
+      false
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "migration-receipt",
+    "method": "eth_getTransactionReceipt",
+    "params": [
+      "0x1baa6e0909589cac84be88ac1ecef3e91ae1aadf6d6b4b2b8e90d01ea5774ed7"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "migration-transaction",
+    "method": "eth_getTransactionByHash",
+    "params": [
+      "0x1baa6e0909589cac84be88ac1ecef3e91ae1aadf6d6b4b2b8e90d01ea5774ed7"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "burn-receipt",
+    "method": "eth_getTransactionReceipt",
+    "params": [
+      "0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802"
+    ]
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": "burn-transaction",
+    "method": "eth_getTransactionByHash",
+    "params": [
+      "0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802"
+    ]
+  }
+]

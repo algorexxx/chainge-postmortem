@@ -4,7 +4,7 @@ Reviewed 2026-10-13. [Configuration](../../reconciliation/usdc.json), [capture i
 
 ## Fusion accounting
 
-Reference time: **2025-10-07 08:43:50 UTC**, [Fusion block 15130080](https://fsnex.net/block/15130080), hash `0xe93ffded087a79097d4309c7831690161db6ed136f4b1a22c4c83a99db80f99f`. FSNEX and the previously retained node baseline share infrastructure. The private gateway timed out during this acquisition; new Fusion histories remain explorer observations without node-receipt corroboration.
+Reference time: **2025-10-07 08:43:50 UTC**, [Fusion block 15130080](https://fsnex.net/block/15130080), hash `0xe93ffded087a79097d4309c7831690161db6ed136f4b1a22c4c83a99db80f99f`. FSNEX and the previously retained node baseline share infrastructure. The first acquisition attempted the LAN listener, which intentionally does not accept this PC. The documented local SSH tunnel was subsequently restored and two transactions were corroborated directly; see the [access correction](../../evidence/2026-10-13-fusion-rpc-recovery/README.md). Bulk Fusion receipt import remains outstanding; the current generated ledger still uses explorer logs.
 
 | Representation | Transfer events | Gross minted | Gross burned | Mint minus burn |
 | --- | ---: | ---: | ---: | ---: |
@@ -77,4 +77,4 @@ Run `./reconcile.ps1 -Asset usdc` and `./verify.ps1`. Accounting, movements, dis
 
 The expanded dataset reuses the engine without relaxing thresholds to reduce unmatched counts. Missing Fusion receipt context leaves conversions and burn settlement unresolved; it does not show that every unresolved operation was abnormal.
 
-Completion requires restored Fusion receipt/transaction access, migration and time-slice review, address-one treatment, predecessor discovery, BSC/Arbitrum and other requested chains, complete later-candidate receipts, opening/closing balance checks, terminal/output tracing, dated custody roles and consolidated claims without double-counting. Beneficial owners and intent are not established by these observations.
+Fusion receipt/transaction access is now working through the documented tunnel. Completion requires bulk receipt/transaction acquisition and import, migration and time-slice review, address-one treatment, predecessor discovery, BSC/Arbitrum and other requested chains, complete later-candidate receipts, opening/closing balance checks, terminal/output tracing, dated custody roles and consolidated claims without double-counting. Beneficial owners and intent are not established by these observations.
