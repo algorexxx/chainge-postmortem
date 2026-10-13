@@ -233,7 +233,10 @@
       "publishedUtc": "2025-07-15T17:51:30Z",
       "lastEditedUtc": "2025-07-15T17:52:22Z",
       "excerpt": "I’m actively working on the liquidity injection — it's my top priority, and I'm fully aware of what’s at stake. That said, I unfortunately cannot provide an exact ETA yet. After months, I understand that words without proof are no longer enough. That’s why I’m doing everything I can to share some form of concrete progress soon. ",
-      "excerptIsCompleteMessage": false
+      "excerptIsCompleteMessage": false,
+      "additionalExcerpts": [
+        "What I can say with certainty is this: everyone will get their money back. No matter what. That remains non-negotiable."
+      ]
     },
     "897496": {
       "messageId": 897496,
@@ -268,7 +271,7 @@
       "author": "DJ Qian (@djqian)",
       "publishedUtc": "2025-08-18T11:34:29Z",
       "lastEditedUtc": "2025-08-18T11:35:10Z",
-      "excerpt": "I have deposited the first cheque. And keep getting my funds back.",
+      "excerpt": "I have deposited the first cheque. And keep getting my funds back. I want myself to be fully focused on this and not distracted by useless communication. I will say， the issue will be resolved. If it couldn‘t，I will come here to communicate with you in details to find other solutions. So，please don’t be desperate if I am not here. It means I am working. On the contrary，you should be frightened if I come here and keep communicating with you guys.",
       "excerptIsCompleteMessage": false
     },
     "906505": {
@@ -286,8 +289,8 @@
       "author": "DJ Qian (@djqian)",
       "publishedUtc": "2025-10-09T09:04:33Z",
       "lastEditedUtc": "2025-10-09T09:04:58Z",
-      "excerpt": "But finally，it seems I am going to get some good news in 10 days.",
-      "excerptIsCompleteMessage": false
+      "excerpt": "I did have some bad time in past two months. But finally，it seems I am going to get some good news in 10 days. For those who have not given up，I am grateful. For whose who has cursed me，I want to say I understand you. Anyway，after I resolve this issue，let‘s talk.",
+      "excerptIsCompleteMessage": true
     },
     "842003": {
       "messageId": 842003,
@@ -530,10 +533,10 @@
     {
       "id": "2025-july-no-eta",
       "publishedUtc": "2025-07-15T17:51:30Z",
-      "title": "Liquidity injection still described as pending",
+      "title": "Full repayment promised without a date",
       "kind": "Attributed statement",
       "scope": "Funding",
-      "summary": "DJ said liquidity injection remained his priority but that he could not provide an exact ETA.",
+      "summary": "DJ said liquidity injection remained his priority and gave no exact ETA, while saying everyone would get their money back “No matter what.”",
       "eventTime": "Current status as stated on publication date.",
       "limitation": "A statement of intended action, not confirmation that liquidity had been supplied.",
       "sourceIds": [
@@ -582,12 +585,12 @@
     {
       "id": "2025-cheque-deposit",
       "publishedUtc": "2025-08-18T11:34:29Z",
-      "title": "Cheque deposit reported",
+      "title": "Cheque deposit reported; alternative solutions discussed if resolution fails",
       "kind": "Attributed statement",
       "scope": "Funding",
-      "summary": "DJ said he had deposited the first cheque and was continuing to recover his funds.",
+      "summary": "DJ said he had deposited the first cheque and continued recovering funds. He said the issue would be resolved, but added that if it could not be, he would return to discuss other solutions. He presented limited communication as evidence that he was working and said frequent communication should instead cause concern.",
       "eventTime": "Deposit reported retrospectively; exact deposit date unspecified.",
-      "limitation": "This does not establish clearance, amount, liquidity injection or user settlement.",
+      "limitation": "The deposit claim does not establish clearance, amount, liquidity injection or user settlement. His explanation of silence is an attributed assertion, not evidence of recovery work. No alternative solution is specified.",
       "sourceIds": [
         "901596"
       ]
@@ -595,12 +598,12 @@
     {
       "id": "2025-september",
       "publishedUtc": "2025-09-10T17:04:01Z",
-      "title": "Small receipt reportedly used for debts and operations",
+      "title": "Starting settlement made conditional on receiving more funds",
       "kind": "Attributed statement",
       "scope": "Funding / custody claims",
-      "summary": "DJ said legal efforts to unlock the blacklisted address continued and that a small amount received had been used to pay debts and keep operations running; he linked settlement to receiving more.",
+      "summary": "DJ said the small amount he had received went toward debts and keeping operations running. He then said: “If I get any more in the near future，I will definitely start to settle those stuck transactions.” He also said legal efforts to unlock the blacklisted address continued.",
       "eventTime": "Retrospective small receipt; further settlement conditional on more funds.",
-      "limitation": "The amount and recipients are unspecified. This is not evidence that user claims were settled.",
+      "limitation": "No amount, recipients or receipt date is supplied. This statement does not demonstrate user repayments or prove the claimed source of funds. It makes starting settlement conditional on further receipts; it does not state that repayment has been abandoned.",
       "sourceIds": [
         "906505"
       ]
