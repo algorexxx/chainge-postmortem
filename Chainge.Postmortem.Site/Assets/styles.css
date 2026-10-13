@@ -1093,3 +1093,9 @@ main {
 .donation-actions input { flex:1 1 370px; width:100%; min-width:0; border:1px solid var(--line); background:var(--white); color:var(--ink); border-radius:6px; padding:9px 8px; font-family:monospace; font-size:12px }
 .donation-actions button { border:1px solid var(--green); background:var(--green); color:var(--white); border-radius:6px; padding:8px 12px }
 #donation-status { display:block; font-size:12px }
+
+.token-row { display:flex; align-items:center; gap:5px }
+.token-row .token-choice { flex:1; min-width:0 }
+.token-row > a { padding:8px; font-size:17px }
+.movement-explorers { margin:-4px 12px 14px; font-size:12px }
+#donation-explorer { display:block; margin-top:5px; font-size:12px }

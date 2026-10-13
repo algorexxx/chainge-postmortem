@@ -11,3 +11,14 @@
 **/obj/
 /dist/
 **/TestResults/
+
+/secrets/
+/private/
+**/telegram-exports/
+**/research-review/
+**/*.session
+**/*.session-journal
+**/id_rsa
+**/id_ed25519
+**/*.pfx
+**/*.p12

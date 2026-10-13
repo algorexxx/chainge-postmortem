@@ -11,3 +11,7 @@ The [BNB Chain endpoint documentation](https://docs.bnbchain.org/bnb-smart-chain
 `manifest.json` records saved-byte SHA-256 hashes for the files in this package, excluding itself. Requests are represented by capture URLs for GET requests and explicit request JSON for RPC probes. The chain registry is discovery provenance, not a recommendation or endorsement of its listed endpoints.
 
 Reproduce the offline analysis with `./reconcile.ps1 -Asset busd` from the repository root. See [the sixth checkpoint](../../reconciliation/README.md#sixth-pass-payout-discovery-and-controller-inventory) for findings and limits.
+
+## Sanitized public derivative (2026-10-13)
+
+The captured public chain directory contained unrelated RPC URLs with embedded authentication and provider-key information. The public response file has been minimized to the BNB Smart Chain (chain ID 56) record actually relevant to these probes; all other chain records have been removed. It is a filtered, sanitized derivative rather than an untouched response. The package manifest records the sanitized bytes. The removed credential-bearing endpoints were not used for this investigation. Earlier Git revisions still contain the original capture pending coordinated history cleanup.
