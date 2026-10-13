@@ -1,6 +1,6 @@
 {
   "title": "Chainge service timeline",
-  "status": "Preliminary · founder and community-admin statements",
+  "status": "Preliminary · attributed public statements",
   "coverage": {
     "reviewedDate": "2026-10-13",
     "chat": "https://t.me/chaingefinance",
@@ -12,8 +12,8 @@
     "rawExportSha256": "08ff6dd409ce0375859f711836e3438e04a183866de4b40fa412f74608aa840d",
     "rawExportBytes": 178894137,
     "exportCompletedAtUtc": null,
-    "attribution": "Maintainer confirmed the author of message 864721 as @djqian on 2026-10-13. Selected messages share that exported sender identity. Numeric sender identifiers are not published. The export alone does not preserve the account username or authenticate past account control. Maintainer confirmed Tanvir (@Nabil437) as a community admin. The selected Tanvir messages share the exported sender identity of message 823196, in which that account identifies @Nabil437 as its username. Admin status does not establish control over vaults or firsthand knowledge of their operation.",
-    "method": "Selected founder and confirmed community-admin statements reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories.",
+    "attribution": "Maintainer confirmed the author of message 864721 as @djqian on 2026-10-13. Selected messages share that exported sender identity. Numeric sender identifiers are not published. The export alone does not preserve the account username or authenticate past account control. Maintainer confirmed Tanvir (@Nabil437) as a community admin. The selected Tanvir messages share the exported sender identity of message 823196, in which that account identifies @Nabil437 as its username. Admin status does not establish control over vaults or firsthand knowledge of their operation. The maintainer identified @vldv24 as Vlad. Message 912341 from the matching export display name carries a joint PDF naming Vlad Tirla and Oana Batran. The document is an attributed account, not independent verification of their stated roles. Oana’s personal account has not been independently mapped to an exported sender.",
+    "method": "Selected founder and confirmed community-admin statements, plus a reviewed joint public statement reviewed in the local export. Unix timestamps converted to UTC. Retain only selected public message IDs, publication/edit timestamps and reviewed excerpts. Omit ordinary participant records, reply/forward headers, numeric sender IDs, personal ticket references, unreviewed attachments and unrelated personal information. Edited messages are the retained versions, not original revision histories.",
     "limitations": [
       "Raw export remains outside the repository; its hash is an integrity reference, not independent authentication or a certified capture time.",
       "Live Telegram message retrieval was unavailable through the web tool during this review. Links are constructed from the public group handle and export message IDs; live existence/content not reverified.",
@@ -315,6 +315,22 @@
       "lastEditedUtc": "2025-03-14T19:54:22Z",
       "excerpt": "If you read the article we published very earlier, you’ll notice we clearly mentioned the vault’s blacklisting issue. Initially, only BTC txns were affected but over time, we observed the problem spreading to other assets.",
       "excerptIsCompleteMessage": false
+    },
+    "912341": {
+      "messageId": 912341,
+      "url": "https://t.me/chaingefinance/912341",
+      "author": "Vlad (@vldv24), joint statement with Oana",
+      "publishedUtc": "2025-10-08T21:43:00Z",
+      "lastEditedUtc": "2025-10-08T22:11:13Z",
+      "excerpt": "Statement to the Chainge Community\nIssued by Vlad (former UI/UX Designer) and Oanna (former Brand/BD Manager)\n\nFollowing several weeks since the initiation of formal legal proceedings, we are issuing this statement in our personal capacities to clarify our previous roles, address misconceptions and outline our current position & steps we have undertaken.\n\nIn the coming week, an additional document will be released containing answers to the most significant questions collected by both our legal team and members of the community.\n\nThank you for taking the time to read with fairness and discernment",
+      "excerptIsCompleteMessage": true,
+      "document": {
+        "title": "Joint statement dated 8 October 2025",
+        "path": "evidence/2026-10-13-chainge-joint-statement/official-statement.pdf",
+        "sha256": "6920c1dd26e081ecbbf713fcb81d5017330a104cec0378db12d491cd091c1b33",
+        "pages": 3,
+        "summary": "Pages 1–2: the authors describe independent-contractor roles despite CBO/CPO presentation, and deny executive authority, backend access, fund control or vault/private-key access. Pages 2–3: they say legal representatives sought unpaid invoices and information about funds and blacklisted vaults, without substantive answers. Page 3: they propose a follow-up document in the coming week. These are the authors’ claims, not independently verified findings."
+      }
     }
   },
   "entries": [
@@ -587,6 +603,19 @@
       "limitation": "The amount and recipients are unspecified. This is not evidence that user claims were settled.",
       "sourceIds": [
         "906505"
+      ]
+    },
+    {
+      "id": "2025-joint-statement",
+      "publishedUtc": "2025-10-08T21:43:00Z",
+      "title": "Vlad and Oana publish joint statement on roles and requests for evidence",
+      "kind": "Attributed joint statement",
+      "scope": "Former-contractor account / transparency requests",
+      "summary": "In a joint PDF, Vlad and Oana describe themselves as former independent contractors and deny access to backend systems, funds, vaults or private keys. They say their legal representatives requested payment and evidence about the funds and blacklisted vaults, but had received no substantive answers.",
+      "eventTime": "PDF dated 8 October 2025; posted that day. It describes legal proceedings as having begun several weeks earlier and proposes a further document in the coming week. Neither supplies a precise proceedings date nor establishes that a follow-up was delivered.",
+      "limitation": "This is their account of their roles and actions. Contracts, access records, legal correspondence and court filings have not been corroborated. The document identifies no restricted vault or issuer action. The retained attachment is preserved byte-for-byte; live post availability and any deletion history have not been verified.",
+      "sourceIds": [
+        "912341"
       ]
     },
     {
