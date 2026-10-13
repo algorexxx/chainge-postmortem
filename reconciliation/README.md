@@ -1,6 +1,6 @@
 # Asset reconciliation pipeline
 
-Run `./reconcile.ps1 -Asset busd` from PowerShell. It uses the existing .NET 10 SDK and reads retained public evidence without making network calls. Results go to ignored `archives/reconciliation/busd/`. The static site remains a separate publication step; running this command does not publish proposals, update reviewed case cards, or push Git.
+Run `./reconcile.ps1 -Asset busd` from PowerShell. It uses the existing .NET 10 SDK and reads retained public evidence without making network calls. Results go to ignored `archives/reconciliation/busd/`. The command leaves the site registry unchanged. After review, use `-UpdateRegistry` to copy the generated movement report into `registry/`; this does not update reviewed case cards or push Git. Start with [the contributor procedure](../CONTRIBUTING.md) and run `./verify.ps1` before submitting changes.
 
 ## Structure for each asset
 
@@ -11,6 +11,8 @@ Run `./reconcile.ps1 -Asset busd` from PowerShell. It uses the existing .NET 10 
 5. **Review output and publication**: use the generated queue to investigate exceptions, corroborate uniquely proposed pairs and record reviewed interpretations in the asset research and case registry. Keep unreviewed proposals distinct from reviewed findings. Release an asset only when its stated publication scope is ready.
 
 ## Outputs
+
+- `accounting-summary.json`: per-chain/contract/full-time-or-slice issuance totals, exhaustive movement-classification totals and candidate-address inflows/outflows, with evidence and manifest hashes. Net issuance is not consolidated outstanding claims; net flows are not observed balances. Missing rows are unknown, and slice sums are not time-normalized claims. Selected evidence and discovery inputs must match their nearest ancestor `manifest.json`; a missing entry or mismatch fails the run. The event-to-movement coverage check rejects omitted or extra operating-address rows.
 
 - `reconciliation.json`: normalized events, evidence references, input SHA-256 hashes, exact policy and configuration hash, provider/timestamp diagnostics, every movement classification and candidate link, excluded conversion event IDs, and unpaired full-time Fusion issuance/burn events.
 - `movements.csv`: one row per deduplicated event involving a configured operating address, including direction, exact amount/raw units, candidate count, flags and reconstructed balance before/after. Filter **outgoing + unmatched** to review unexplained payments; incoming unmatched events are a separate queue.
@@ -38,7 +40,7 @@ For the next asset, preserve its public evidence, identify contract versions and
 
 Reviewed interpretations remain in research and `registry/studies.json`, referenced by transaction hashes. The pipeline currently emits proposed edges only; it does not silently consume narrative case labels as accepted accounting decisions. A future review-decision store should reference event IDs, supporting evidence and reasons without duplicating amounts, and validate those IDs against each refreshed run.
 
-Validation covers exact fees, mixed decimals, clock/window boundaries, competing candidates in both directions, migration/slice exclusion, balance-reduction flags, duplicate evidence integrity, failed receipts, timestamp prioritization and conflict quarantine. Application line coverage is measured with the repository test command. No publication workflow or live refresh is enabled.
+Validation covers exact fees, mixed decimals, clock/window boundaries, competing candidates in both directions, migration/slice exclusion, balance-reduction flags, duplicate evidence integrity, failed receipts, timestamp prioritization and conflict quarantine. Application line coverage is measured with the repository test command. PR verification and Pages deployment run the offline checks; no live refresh is enabled.
 
 ## Second pass: variable fees and receipt context
 

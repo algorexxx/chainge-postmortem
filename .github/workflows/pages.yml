@@ -27,8 +27,9 @@ jobs:
         run: dotnet build Chainge.Postmortem.slnx --configuration Release
       - name: Test
         run: dotnet test --solution Chainge.Postmortem.slnx --configuration Release --no-build --filter-not-trait Category=Integration
-      - name: Generate static site
-        run: dotnet run --project Chainge.Postmortem.Site --configuration Release --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
+      - name: Verify research and generate static site
+        shell: pwsh
+        run: ./verify.ps1 -SkipBuildAndTests
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:

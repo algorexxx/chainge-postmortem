@@ -8,6 +8,7 @@ The required result for every asset is a complete ledger comparing outstanding F
 
 ## Start here
 
+- [Investigate an asset and submit a PR (people and LLMs)](CONTRIBUTING.md)
 - [Build, preview and publish the token registry UI](registry/README.md)
 - [Service timeline: sources, attribution and open questions](research/service-timeline.md)
 

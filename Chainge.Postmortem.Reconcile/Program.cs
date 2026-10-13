@@ -10,6 +10,7 @@ using Chainge.Postmortem.Reconcile.Extensions;
 using Chainge.Postmortem.Reconcile;
 using Microsoft.Extensions.DependencyInjection;
 using Chainge.Postmortem.Persistence.Json.Repositories;
+using Chainge.Postmortem.Persistence.Json;
 
 ArgumentOutOfRangeException.ThrowIfNotEqual(args.Length, 3);
 var root = Path.GetFullPath(args[0]);
@@ -20,6 +21,8 @@ var services = new ServiceCollection().AddReconciliation(settings);
 await using var provider = services.BuildServiceProvider();
 var snapshot = await provider.GetRequiredService<EvidenceRepository>().ReadEvidenceAsync(root, CancellationToken.None);
 var discovery = await provider.GetRequiredService<ExplorerDiscoveryRepository>().ReadDiscoveryAsync(root, CancellationToken.None);
+var evidenceManifestHashes = await EvidenceIntegrityVerifier.VerifyAsync(root, snapshot.InputHashes.Concat(discovery.InputHashes).GroupBy(p => p.Key, StringComparer.Ordinal).ToDictionary(g => g.Key, g => g.Select(p => p.Value).Distinct(StringComparer.Ordinal).Single(), StringComparer.Ordinal), CancellationToken.None);
+if (!snapshot.Events.Any(e => e.Chain == settings.Policy.FusionChain)) { Console.WriteLine("Coverage warning: no Fusion events supplied. Empty issuance/burn queues are not evidence of zero claims or complete settlement."); }
 var result = MovementMatcher.MatchMovements(snapshot.Events, settings.Policy);
 result = result with { Movements = MovementRiskScanner.FlagMovements(snapshot.Events, result.Movements, settings.Policy) };
 var purposes = FusionPurposeClassifier.ClassifyEvents(snapshot.Events, settings.Policy);
@@ -29,6 +32,8 @@ var payoutCandidates = PayoutAddressFinder.FindCandidates(snapshot.Events, disco
 var output = Path.GetFullPath(args[2]);
 Directory.CreateDirectory(output);
 var options = new JsonSerializerOptions(JsonSerializerOptions.Web) { WriteIndented = true };
+var accounting = EventAccountingBuilder.BuildReport(snapshot.Events, result, settings.Policy);
+await File.WriteAllTextAsync(Path.Combine(output, "accounting-summary.json"), JsonSerializer.Serialize(new { settings.Asset, Scope = "Retained events only. Net issuance is not consolidated outstanding claims; net flows are not observed vault balances. Slice totals are event sums, not time-normalized claims. Missing chain/token rows mean no retained events, not zero supply or balance.", ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), EvidenceManifestHashes = evidenceManifestHashes, snapshot.InputHashes, DiscoveryInputHashes = discovery.InputHashes, snapshot.Diagnostics, settings.Limitations, Accounting = accounting }, options));
 await File.WriteAllTextAsync(Path.Combine(output, "reconciliation.json"), JsonSerializer.Serialize(new { settings.Asset, Policy = settings.Policy, settings.Limitations, ConfigurationSha256 = Convert.ToHexStringLower(SHA256.HashData(configBytes)), snapshot.InputHashes, snapshot.Diagnostics, snapshot.Events, Review = result, FusionPurposes = purposes, DelayedReview = delayed, BurnInventory = inventory, BurnReviewQueues = inventory.GroupBy(r => r.GetReviewQueue()).ToDictionary(g => g.Key, g => g.Select(r => r.BurnEventId).ToList()), PayoutCandidates = payoutCandidates, Discovery = discovery }, options));
 var siteReport = MovementSiteBuilder.BuildReport(snapshot.Events, result);
 var terminal = TerminalOutflowReviewer.ReviewAddresses(snapshot.Events, settings.Policy);

@@ -1,0 +1,45 @@
+{
+  "asset": "USDC",
+  "policy": {
+    "fusionChain": "Fusion",
+    "operatingAddresses": {
+      "Ethereum": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039"
+      ]
+    },
+    "maximumDelay": "00:05:00",
+    "clockTolerance": "00:02:00",
+    "redemptionFeeRawHypotheses": [
+      "0"
+    ],
+    "decimals": 6,
+    "largeOutflowRaw": "10000000000",
+    "depletionBasisPoints": 9000
+  },
+  "sources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-11-busd-source-review",
+      "pattern": "ethereum-*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-13-usdc-workflow-trial",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 6
+      }
+    }
+  ],
+  "limitations": [
+    "Workflow trial using USDC logs in already retained Ethereum BUSD-context receipts. This is a transaction-selected sample, not complete USDC address history.",
+    "The two operating addresses are investigation candidates from BUSD research, not independently verified USDC vaults. Ethereum token identity follows the cited Circle list; decimals are corroborated by a retained pinned eth_call.",
+    "No Fusion USDC issuance history is supplied. No cross-chain settlement pair can be established by this run.",
+    "Both candidate Ethereum balances returned zero at block 26182536. No common-cutoff Fusion balance, opening balances or consolidated Fusion claims have been established. Missing data is unknown, never zero.",
+    "Five-minute equal-amount matching and 10000-token review threshold are trial hypotheses, not authenticated bridge rules. No BUSD fee, migration, slice or inventory rules are inherited."
+  ]
+}

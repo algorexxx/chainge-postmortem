@@ -51,6 +51,19 @@ public sealed class DelayedCandidateFinderTests
         Assert.Equivalent(expected, actual, strict: true);
     }
 
+    [Fact]
+    public void FindCandidates_ExistingSourcePair_ShouldNotRepeatNormalEdges()
+    {
+        var events = new[] { Event("in", "BSC", "holder", "vault", "100", 0), Event("out", "Ethereum", "vault", "holder", "99", 60) };
+        var policy = Policy() with { SourceChainRule = new() { MaximumFeeRaw = "1", MaximumFeeBasisPoints = 100, MaximumDelay = TimeSpan.FromMinutes(5) } };
+        var baseline = MovementMatcher.MatchMovements(events, policy);
+        var expected = Array.Empty<MovementReview>();
+
+        var actual = DelayedCandidateFinder.FindCandidates(events, policy, baseline);
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
     private static ChainEvent Event(string id, string chain, string from, string to, string amount, int seconds)
     {
         return new ChainEvent { Id = id, Chain = chain, Token = "token", Transaction = id, BlockHash = "block", Block = 1, LogIndex = 0, From = from, To = to, RawAmount = amount, Decimals = 0, Timestamp = DateTimeOffset.UnixEpoch.AddSeconds(seconds), TimestampSource = "fixture", ReceiptVerified = true, FullTime = true, Evidence = ["fixture"] };

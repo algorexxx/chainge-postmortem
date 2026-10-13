@@ -3813,5 +3813,80 @@
     "file": "README.md",
     "sha256": "72ca4b3d7649d52e16e4f7ddf0a153bf70f5f31ac2a5c47d6b26ad87d71a0abe",
     "bytes": 7005
+  },
+  {
+    "file": "fusion-deposit-fees.capture.json",
+    "sha256": "ecf2a1cf44cd6d5988a0f2bd295065b6cca9aec4fe7f0be33456196d1b9238f3",
+    "bytes": 138
+  },
+  {
+    "file": "fusion-deposit-fees.request.json",
+    "sha256": "2617dd9e5b91010d4dd3f4aee8ab53e62280faf422d7a6f660d795c1f39bf9ca",
+    "bytes": 1178
+  },
+  {
+    "file": "fusion-deposit-fees.response.json",
+    "sha256": "33207c3afdd4a6f58e7e679bfc13e4a14aa8f4a98ecd256a29f696814ea970a1",
+    "bytes": 10605
+  },
+  {
+    "file": "fusion-small-payment-0000.capture.json",
+    "sha256": "73627154a525d15e1f28390178c3297e59bf58540f71b6486218f361c6a22050",
+    "bytes": 136
+  },
+  {
+    "file": "fusion-small-payment-0000.request.json",
+    "sha256": "d6768f7b8b6e3ab4dd990cd17000e94dc69623cd8a40863b06ea1e5c246b886c",
+    "bytes": 7856
+  },
+  {
+    "file": "fusion-small-payment-0000.response.json",
+    "sha256": "48b2d31652f823789d1ab275e6938a10a86815183d0938739111ec975f7b6ebf",
+    "bytes": 161991
+  },
+  {
+    "file": "fusion-small-payment-0020.capture.json",
+    "sha256": "73627154a525d15e1f28390178c3297e59bf58540f71b6486218f361c6a22050",
+    "bytes": 136
+  },
+  {
+    "file": "fusion-small-payment-0020.request.json",
+    "sha256": "09aedf2a278888a327f6868b1fdac71f6ced6936080685b8f9e4231a1c9b3759",
+    "bytes": 7856
+  },
+  {
+    "file": "fusion-small-payment-0020.response.json",
+    "sha256": "6ab572da158343488560968d47423f40be8edbe77380f4ebc39a543dd67efdd1",
+    "bytes": 148463
+  },
+  {
+    "file": "fusion-small-payment-0040.capture.json",
+    "sha256": "73627154a525d15e1f28390178c3297e59bf58540f71b6486218f361c6a22050",
+    "bytes": 136
+  },
+  {
+    "file": "fusion-small-payment-0040.request.json",
+    "sha256": "34d7ef2fbaa448151230484b578cd5ab4000c0751064f4baf851b6b09a474953",
+    "bytes": 7856
+  },
+  {
+    "file": "fusion-small-payment-0040.response.json",
+    "sha256": "e515abc8c1b8d68575b614dfb1a9da2363c86a9b15b100836a8548acc41aae90",
+    "bytes": 184843
+  },
+  {
+    "file": "fusion-small-payment-0060.capture.json",
+    "sha256": "73627154a525d15e1f28390178c3297e59bf58540f71b6486218f361c6a22050",
+    "bytes": 136
+  },
+  {
+    "file": "fusion-small-payment-0060.request.json",
+    "sha256": "4ac4e5d1c567ed6635763493a2693a03bc29f87fde4f1f34507773c13b60f511",
+    "bytes": 3533
+  },
+  {
+    "file": "fusion-small-payment-0060.response.json",
+    "sha256": "c0bb9971b1ecde754c1a1a2cead618bcf1d2b25c63c298d1fbe02a2dcd8f609b",
+    "bytes": 46655
   }
 ]
