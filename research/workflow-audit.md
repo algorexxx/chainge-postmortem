@@ -36,3 +36,10 @@ Both asset runs also passed from a temporary export of the committed Git tree, w
 Public-source acquisition, complete range/pagination checks, contract semantics, predecessor discovery, custody attribution, common-cutoff balances and reviewed settlement decisions still require investigation. There is no automatic live collector or accepted-decision accounting store. Full private export processing is deliberately outside this workflow. New event types need a supported adapter and tests; do not force native or non-EVM assets into the ERC-20 schema.
 
 The next improvements should be driven by actual missing evidence or a demonstrated unsupported case in the next full asset investigation. Reducing the unmatched count by itself is not an acceptance criterion. The guide is a repeatable first version, not a claim that every token or investigative uncertainty is automated.
+
+
+## Routing follow-up
+
+A reusable, configuration-selected routing reviewer now emits `routing-review.json` without changing normal matching or accounting. It validates the observed burn-call layout and receipt binding, retains unsupported formats, and compares decoded destination fields against successful source receipts. USDC yielded 676 decoded memos and three exact destination/amount/time payout candidates, including the newly captured Arbitrum payout. JSON and Kaspa address variants remain unsupported; the router has no verified ABI in the retained explorer response. See the USDC assessment for evidence and limits.
+
+Follow-up validation: Release build clean, all 188 tests passed, Application line coverage 100%. Full workflow verification passed; published BUSD movement output remains byte-identical. The generated USDC site renders five reviewed cases, including the Arbitrum candidate.

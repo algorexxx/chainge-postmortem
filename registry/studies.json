@@ -785,7 +785,7 @@
         "date": "2024-09-01",
         "status": "Unmatched",
         "endpoint": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
-        "explanation": "A nearby 416,302-unit Fusion burn requests Arbitrum, a different recipient and a different output amount. It is not accepted as direct settlement for this Ethereum payment. An indirect relationship remains unproven.",
+        "explanation": "The nearby 416,302-unit Fusion burn names Arbitrum, another recipient and another output amount. An Arbitrum payment 79 seconds later matches those memo fields exactly. It is a strong candidate for that burn; this separate Ethereum payment remains unmatched.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
         "limitation": "This is a selected unresolved payment, not proof of loss. Recipient discovery is retained; a complete onward trace and economic explanation remain open.",
         "steps": [
@@ -808,6 +808,53 @@
             "time": "",
             "transaction": "https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e",
             "note": "",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ]
+      },
+      {
+        "id": "usdc-arbitrum-routing-match",
+        "title": "Arbitrum payout matches the Fusion routing memo",
+        "chain": "Arbitrum",
+        "amount": "416052.118806",
+        "date": "2024-09-01",
+        "status": "Possible redemption",
+        "endpoint": "Exact recipient named in the Fusion memo",
+        "explanation": "A 416,302-unit Fusion burn names this chain, token, recipient and output amount. The candidate address paid 416,052.118806 USDC to that recipient 79 seconds later. All four memo fields match; the 249.881194-unit difference from burned units is not an authenticated fee rule.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
+        "limitation": "Strong payout candidate, not independently authenticated bridge settlement. The cross-chain link is inferred from the memo and receipt evidence. This recipient query does not establish a complete Arbitrum vault history.",
+        "steps": [
+          {
+            "chain": "Fusion",
+            "label": "Fusion burn with routing memo",
+            "address": "0xf11b4db13148d56e2a10ad701ad0ff338c62c52c",
+            "amount": "416302",
+            "time": "2024-09-01 22:15:40 UTC",
+            "transaction": "https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802",
+            "note": "Memo names Arbitrum USDC and the recipient below. Cross-chain association is a candidate.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Candidate payout source",
+            "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+            "amount": "416052.118806",
+            "time": "2024-09-01 22:16:59 UTC",
+            "transaction": null,
+            "note": "Observed source in the successful Arbitrum receipt.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Arbitrum",
+            "label": "Memo recipient receives exact amount",
+            "address": "0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f",
+            "amount": "416052.118806",
+            "time": "2024-09-01 22:16:59 UTC",
+            "transaction": "https://arbiscan.io/tx/0x564a63fa0898a580f15770865d17e7dedf75af222f93c9e71f31773658e2447e",
+            "note": "79 seconds after the Fusion burn.",
             "kind": "verified",
             "asset": "USDC"
           }

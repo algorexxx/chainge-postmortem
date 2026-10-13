@@ -51,7 +51,7 @@ At the reference time, Ethereum **23524761** (08:43:47 UTC) and Avalanche **6990
 | January recipient, Avalanche USDC.e | 43 | All rows match 41 successful receipts; 41 headers |
 | Later 3f0e… / 66ff… candidates | Ethereum 31 / 715; Avalanche USDC.e 0 / 3; native USDC 10 / 76 | Selected largest/latest only: 18 Ethereum and 18 Avalanche receipts |
 
-Checks compare token, sender, recipient and integer amount with receipt logs. This verifies returned events, not absent events. Routescan's incomplete Ethereum discovery is demonstrated in the BUSD control query. Empty predecessor results are not accepted as no history; receipt context itself reveals predecessor activity. BSC discovery through Routescan was unsupported. BSC/Arbitrum currently have balance probes rather than full histories. No universal USDC chain/address census is claimed.
+Checks compare token, sender, recipient and integer amount with receipt logs. This verifies returned events, not absent events. Routescan's incomplete Ethereum discovery is demonstrated in the BUSD control query. Empty predecessor results are not accepted as no history; receipt context itself reveals predecessor activity. BSC discovery through Routescan was unsupported. BSC has balance probes; Arbitrum additionally has a targeted receipt-backed payout check, still not a full history. No universal USDC chain/address census is claimed.
 
 ## Reviewed movements
 
@@ -67,7 +67,7 @@ In [transaction 3e0a…217e](https://etherscan.io/tx/0x3e0a6a69ce57f3706916f04a0
 
 ### A near-amount match rejected
 
-The [416,050.404450-USDC Ethereum payment](https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e) to [584d…fea6](https://etherscan.io/address/0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6) follows a [416,302-unit Fusion burn](https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802) by **1,687 seconds**. But the burn's node-corroborated input requests **Arbitrum**, af88…5831, [35cb…e3f](https://arbiscan.io/address/0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f), and raw output **416052118806**. Chain, recipient and amount differ. Direct settlement is not accepted; an indirect relationship remains unproven.
+The [416,050.404450-USDC Ethereum payment](https://etherscan.io/tx/0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e) to [584d…fea6](https://etherscan.io/address/0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6) follows a [416,302-unit Fusion burn](https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802) by **1,687 seconds**. But the burn's node-corroborated input requests **Arbitrum**, af88…5831, [35cb…e3f](https://arbiscan.io/address/0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f), and raw output **416052118806**. Chain, recipient and amount differ. Direct settlement of that Ethereum transfer is not accepted. A subsequent targeted check found the exact memo-named Arbitrum payout, described below; an indirect relationship to the separate Ethereum payment remains unproven.
 
 Another [100,000-unit burn](https://fsnex.net/transaction/0xa86a558cafb8b11eab004832fad2f69e4d60bf3e45d23c7a3fb72e7f96a1e27f) explicitly names BNB and the BSC contract. Ethereum/Avalanche alone therefore cannot resolve all requested settlements.
 
@@ -92,3 +92,22 @@ Unpaired Fusion mints fall from **37,181 to 36,594**, and unpaired burns from **
 The **801 unmatched outgoing source events are unchanged**: Ethereum USDC 503, Avalanche USDC.e 292 and native USDC 6. No new redemption is inferred solely from these receipts. Of the 1,920 events with unresolved contract purpose, 1,897 use three selectors on the known routing target; their requested destinations and settlement paths require structured decoding and source-chain evidence. The remaining 23 events use two other targets. Public inputs contain routing strings naming more chains than the currently acquired source histories; these are research leads, not validated settlement records.
 
 Fusion receipt/transaction access is now working through the documented tunnel. Bulk acquisition/import for observed mint/burn transactions is complete. Completion still requires routing-input decoding, broader migration and time-slice review, address-one treatment, predecessor discovery, BSC/Arbitrum and other requested chains, complete later-candidate receipts, opening/closing balance checks, terminal/output tracing, dated custody roles and consolidated claims without double-counting. Beneficial owners and intent are not established by these observations.
+
+
+## Routing-input review
+
+`routing-review.json` is now generated for every asset. Configuration selects routing targets, chain-code mappings and a separate seven-day candidate-review window. The first decoder validates successful receipt context, full-time burn, caller/holder, token, amount, observed mode and canonical ABI offset/length/padding before interpreting ASCII colon memos. It does not scan arbitrary calldata for a matching string. The [interface checks](../../evidence/2026-10-13-routing-interface/README.md) found no verified router ABI, so these remain observations of an empirically established layout.
+
+USDC yields **676 decoded colon memos**, **119 unsupported JSON memos**, and **2 unsupported colon variants** containing Kaspa addresses with an additional colon. Unsupported calls remain visible. Memo destinations include 17 chain codes, demonstrating why Ethereum/Avalanche histories cannot cover all requests. Some requests name other output assets; they cannot be treated as same-token redemption by amount proximity alone.
+
+Three exact chain/token/recipient/memo-amount candidates occur in the retained evidence:
+
+| Fusion burn | Candidate payment | Burned USDC | Paid USDC | Delay |
+| --- | --- | ---: | ---: | ---: |
+| [48dc…8354](https://fsnex.net/transaction/0x48dc81e4e03d868a3b0b1ba7fa07064a67defd8fef948df4b85e81855fb28354) | [Ethereum ff9c…fa3d](https://etherscan.io/tx/0xff9ce2008d73b3bc2187acd9407871ed301e16932c16758275c071e48cfafa3d) | 8,166.613549 | 8,159.713408 | 87 seconds |
+| [f7fe…c463](https://fsnex.net/transaction/0xf7fea78db3d3f74737f7ba834560c0c3e7b73405805d10ab0c9227f83de3c463) | [Ethereum 4a7a…a540](https://etherscan.io/tx/0x4a7ae286a7dd868742339dd049c8d77e77cec053a706b498b43aef0ac1a2a540) | 76,600 | 76,552.039816 | 93 seconds |
+| [9a10…d802](https://fsnex.net/transaction/0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802) | [Arbitrum 564a…447e](https://arbiscan.io/tx/0x564a63fa0898a580f15770865d17e7dedf75af222f93c9e71f31773658e2447e) | 416,302 | 416,052.118806 | 79 seconds |
+
+The first two payments came from [8a4a…64c1](https://etherscan.io/address/0x8a4aa176007196d48d39c89402d3753c39ae64c1); the Arbitrum payment came from [3f0e…aa8e](https://arbiscan.io/address/0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e). Its [targeted evidence package](../../evidence/2026-10-13-usdc-arbitrum-routing/README.md) retains the token/recipient log query, receipt and timestamp header. This strongly supports a payout relationship for the 416,302-unit burn and is distinct from the earlier Ethereum payment.
+
+These candidate links do not establish a shared bridge identifier, authenticated fee rule or full source-chain coverage. They are reported separately and do not remove burns or source outflows from normal queues. The newly imported Arbitrum receipt adds one ledger event (191,669 retained in total); existing movement counts and Fusion issuance are unchanged. No Arbitrum operating-address history is silently promoted from one payment.
