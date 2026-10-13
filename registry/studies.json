@@ -787,7 +787,7 @@
         "endpoint": "100,000 USDC reached a Netcoins-labelled address; 316,050.300000 USDC entered Hyperliquid via Arbitrum",
         "explanation": "This Ethereum payment remains without an accepted Fusion burn match. Its recipient later sent 100,000 USDC through another address to the address Etherscan labels Netcoins 1. A separate 316,050.404450-USDC branch used Circle CCTP: 316,050.304450 USDC was minted to the same recipient address on Arbitrum, with matching message nonce and body. The Arbitrum recipient then deposited 316,050.300000 USDC into the officially documented Hyperliquid bridge. The venue ledger independently records that transaction, later withdrawals and more deposits; available fills show BTC trading activity.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
-        "limitation": "The path below shows the 100,000-USDC branch. The separate Hyperliquid branch is shown in its own card and is part of this same payment, not an additional source outflow. Current queried venue states and the pinned Arbitrum balance are zero. Ownership, customer authorization and a loss amount remain unproven.",
+        "limitation": "Both branches belong to the original payment; their amounts are not additional vault outflows. Current queried venue states and the pinned Arbitrum balance are zero. Ownership, customer authorization and a loss amount remain unproven.",
         "steps": [
           {
             "chain": "Ethereum",
@@ -810,75 +810,77 @@
             "note": "",
             "kind": "verified",
             "asset": "USDC"
-          },
-          {
-            "chain": "Ethereum",
-            "label": "100,000-USDC branch recipient",
-            "address": "0xa4b6aa5f955f3a944cca20e65b22280a47cc8673",
-            "amount": "100000",
-            "time": "2024-09-02 19:25:23 UTC",
-            "transaction": "https://etherscan.io/tx/0xaefaa10bc8b2f9a19ce384847772da89b8788a28d3a91c91445e2eb072c15dd5",
-            "note": "This is one branch of the earlier payment. Other funds and subsequent transfers are assessed separately.",
-            "kind": "verified",
-            "asset": "USDC"
-          },
-          {
-            "chain": "Ethereum",
-            "label": "Netcoins 1 — Etherscan label",
-            "address": "0x404460039499c774c48248552f802ce5dd482e32",
-            "amount": "100000",
-            "time": "2024-09-04 08:39:59 UTC",
-            "transaction": "https://etherscan.io/tx/0xe09bd19377ec43944066120535e00f8dac552fa6c37937694390a41b1705e474",
-            "note": "Observed transfer to an explorer-labelled address. The credited exchange account is not public.",
-            "kind": "verified",
-            "asset": "USDC"
           }
-        ]
-      },
-      {
-        "id": "usdc-hyperliquid-branch",
-        "title": "The Arbitrum branch entered Hyperliquid",
-        "chain": "Arbitrum",
-        "amount": "316050.300000",
-        "date": "2024-09-04",
-        "status": "Observed downstream route",
-        "endpoint": "Hyperliquid deposit followed by trading and later withdrawals",
-        "explanation": "This is the bridged branch of the 416,050.404450-USDC payment above, not an additional vault outflow. The Arbitrum receipt and Hyperliquid account ledger identify the same 316,050.300000-USDC deposit. Available API history contains BTC fills and later withdrawals. The queried account balances and pinned Arbitrum USDC balance are zero.",
-        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-hyperliquid-trace.md",
-        "limitation": "The trading API has retention limits. Later deposits and withdrawals prevent attributing every payment to the original branch. No human controller, authorization or consolidated loss is established. Hyperliquid is a venue destination, not a centralized-exchange label.",
-        "steps": [
+        ],
+        "branches": [
           {
-            "chain": "Ethereum",
-            "label": "CCTP source branch",
-            "address": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
-            "amount": "316050.404450",
-            "time": "2024-09-04",
-            "transaction": "https://etherscan.io/tx/0xd292b5ec3edc809ae826ad69db887862b9a6459fd64750c03e6c00480a7f48ac",
-            "note": "The successful route burns 316,050.304450 USDC; the difference is 0.1 USDC.",
-            "kind": "verified",
-            "asset": "USDC"
+            "title": "100,000 USDC → Netcoins-labelled address",
+            "explanation": "This branch leaves the observed recipient on Ethereum.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "100,000-USDC branch recipient",
+                "address": "0xa4b6aa5f955f3a944cca20e65b22280a47cc8673",
+                "amount": "100000",
+                "time": "2024-09-02 19:25:23 UTC",
+                "transaction": "https://etherscan.io/tx/0xaefaa10bc8b2f9a19ce384847772da89b8788a28d3a91c91445e2eb072c15dd5",
+                "note": "This is one branch of the earlier payment. Other funds and subsequent transfers are assessed separately.",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Ethereum",
+                "label": "Netcoins 1 — Etherscan label",
+                "address": "0x404460039499c774c48248552f802ce5dd482e32",
+                "amount": "100000",
+                "time": "2024-09-04 08:39:59 UTC",
+                "transaction": "https://etherscan.io/tx/0xe09bd19377ec43944066120535e00f8dac552fa6c37937694390a41b1705e474",
+                "note": "Observed transfer to an explorer-labelled address. The credited exchange account is not public.",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
           },
           {
-            "chain": "Arbitrum",
-            "label": "CCTP recipient",
-            "address": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
-            "amount": "316050.304450",
-            "time": "2024-09-04 02:57:02 UTC",
-            "transaction": "https://arbiscan.io/tx/0xc7661ff75f5b8c9db1209aabd4957441674688128ee8e7042ee60cefec588e6a",
-            "note": "Source and destination messages match.",
-            "kind": "verified",
-            "asset": "USDC"
-          },
-          {
-            "chain": "Arbitrum",
-            "label": "Hyperliquid deposit bridge",
-            "address": "0x2df1c51e09aecf9cacb7bc98cb1742757f163df7",
-            "amount": "316050.300000",
-            "time": "2024-09-04 03:09:19 UTC",
-            "transaction": "https://arbiscan.io/tx/0xea07d3f2140a9452e2e4af93ca1413d18212cd6461c6cffaaf91fe582bf9e697",
-            "note": "Official bridge documentation and the venue deposit ledger corroborate the destination. Subsequent withdrawals are in the report.",
-            "kind": "verified",
-            "asset": "USDC"
+            "title": "316,050.404450 USDC → Arbitrum → Hyperliquid",
+            "explanation": "The Arbitrum receipt and Hyperliquid account ledger identify the same 316,050.300000-USDC deposit. Available API history contains BTC fills and later withdrawals. The queried account balances and pinned Arbitrum USDC balance are zero.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "CCTP source branch",
+                "address": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
+                "amount": "316050.404450",
+                "time": "2024-09-04",
+                "transaction": "https://etherscan.io/tx/0xd292b5ec3edc809ae826ad69db887862b9a6459fd64750c03e6c00480a7f48ac",
+                "note": "The successful route burns 316,050.304450 USDC; the difference is 0.1 USDC.",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Arbitrum",
+                "label": "CCTP recipient",
+                "address": "0x584de4fe0aea85fa45f5c4d7f50e09deeeecfea6",
+                "amount": "316050.304450",
+                "time": "2024-09-04 02:57:02 UTC",
+                "transaction": "https://arbiscan.io/tx/0xc7661ff75f5b8c9db1209aabd4957441674688128ee8e7042ee60cefec588e6a",
+                "note": "Source and destination messages match.",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Arbitrum",
+                "label": "Hyperliquid deposit bridge",
+                "address": "0x2df1c51e09aecf9cacb7bc98cb1742757f163df7",
+                "amount": "316050.300000",
+                "time": "2024-09-04 03:09:19 UTC",
+                "transaction": "https://arbiscan.io/tx/0xea07d3f2140a9452e2e4af93ca1413d18212cd6461c6cffaaf91fe582bf9e697",
+                "note": "Official bridge documentation and the venue deposit ledger corroborate the destination. Subsequent withdrawals are in the report.",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ],
+            "limitation": "The trading API has retention limits. Later deposits and withdrawals prevent attributing every payment to the original branch. No human controller, authorization or consolidated loss is established. Hyperliquid is a venue destination, not a centralized-exchange label.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-hyperliquid-trace.md"
           }
         ]
       },

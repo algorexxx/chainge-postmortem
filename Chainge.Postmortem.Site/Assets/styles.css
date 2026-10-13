@@ -693,6 +693,14 @@ td strong {
   font-size:11px;
   color:var(--muted)
 }
+.trace-branch {
+  border-top: 1px solid var(--border, #dce2e8);
+  margin-top: 24px;
+  padding-top: 16px;
+}
+.trace-branch h4 {
+  margin: 0 0 10px;
+}
 .trace-path {
   list-style:none;
   padding:0;
