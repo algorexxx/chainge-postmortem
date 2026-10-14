@@ -1584,6 +1584,70 @@
         ]
       }
     ],
-    "movementsFile": "usdc-movements.json"
+    "movementsFile": "usdc-movements.json",
+    "fusionStatistics": {
+      "referenceBlock": 15130080,
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "configurationSha256": "ce491877d7bba1713741007b8909b1898e1d04e9881c36351ff158a167dd6a6b",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md#fusion-accounting",
+      "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling USDC and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
+      "tokens": [
+        {
+          "address": "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293",
+          "decimals": 6,
+          "fullTime": false,
+          "mintedRaw": "1002376622098097",
+          "burnedRaw": "0",
+          "eventCount": 147
+        },
+        {
+          "address": "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
+          "decimals": 6,
+          "fullTime": false,
+          "mintedRaw": "22413886379566",
+          "burnedRaw": "0",
+          "eventCount": 237
+        },
+        {
+          "address": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
+          "decimals": 6,
+          "fullTime": true,
+          "mintedRaw": "2185789652986973",
+          "burnedRaw": "1186689889469145",
+          "eventCount": 142178
+        },
+        {
+          "address": "0x9673123f25a3807cb6937865af7f74115d633a02",
+          "decimals": 6,
+          "fullTime": false,
+          "mintedRaw": "22413886379566",
+          "burnedRaw": "22386620761045",
+          "eventCount": 2473
+        },
+        {
+          "address": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
+          "decimals": 6,
+          "fullTime": false,
+          "mintedRaw": "1002376622098097",
+          "burnedRaw": "43640288331961",
+          "eventCount": 2319
+        },
+        {
+          "address": "0xfc9e57d7543e0591824121fda6461fe2148a5966",
+          "decimals": 6,
+          "fullTime": true,
+          "mintedRaw": "11458899022430",
+          "burnedRaw": "4397871503941",
+          "eventCount": 42183
+        }
+      ],
+      "verifiedHolderPositions": 529,
+      "addressOne": {
+        "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
+        "address": "0x0000000000000000000000000000000000000001",
+        "rawAmount": "996416657619439",
+        "decimals": 6
+      }
+    }
   }
 }
