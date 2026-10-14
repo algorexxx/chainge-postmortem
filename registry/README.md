@@ -22,6 +22,8 @@ The output uses embedded assets and hash-based token selection, so it can be ser
 
 ## GitHub Pages publication
 
+Reconciliation configuration files must use UTF-8 with LF line endings, as required by `.gitattributes` and `.editorconfig`. Reports hash the exact configuration bytes. A Windows working copy left with CRLF can therefore pass local verification but fail the Linux Pages build. Restore LF before generating reports; do not bypass the hash check. Evidence captures retain their original bytes.
+
 The [Pages workflow](../.github/workflows/pages.yml) builds and tests the solution in Release, generates the site from committed public inputs and uploads only `dist/`. It runs after pushes to `main` or through **Actions → Publish research site → Run workflow**. Deployment is restricted to `main`; failed builds or tests prevent publication. It uses GitHub's temporary workflow permissions and needs no personal access token, RPC credentials or private archive.
 
 One-time setup in the repository: **Settings → Pages → Build and deployment → Source → GitHub Actions**. Follow [GitHub's custom workflow instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). After the sanitized history and workflow are pushed, the expected address is https://algorexxx.github.io/chainge-postmortem/. If the first workflow ran before Pages was enabled, rerun it after changing the setting. GitHub's deployment result supplies the actual published URL.

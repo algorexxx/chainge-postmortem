@@ -1588,7 +1588,7 @@
     "fusionStatistics": {
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
-      "configurationSha256": "ce491877d7bba1713741007b8909b1898e1d04e9881c36351ff158a167dd6a6b",
+      "configurationSha256": "3ca63e7e1530689d54017194769b96f0fcf2092030085f72871be027ab7fa5ac",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md#fusion-accounting",
       "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling USDC and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
       "tokens": [
