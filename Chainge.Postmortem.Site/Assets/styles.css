@@ -1125,3 +1125,8 @@ main {
 .trace-panel .eyebrow { font-size:10px }
 .trace-panel { position:static }
 .vault-note { min-width:180px }
+.filters { align-items:flex-end }
+.filter-field { display:flex; flex-direction:column; gap:5px; min-width:0; max-width:100% }
+.filter-field select,.filter-field input { max-width:100% }
+.trace-panel { scroll-margin-top:20px }
+.back-to-case { margin-bottom:18px }
