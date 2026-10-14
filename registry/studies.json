@@ -1648,6 +1648,445 @@
         "rawAmount": "996416657619439",
         "decimals": 6
       }
+    },
+    "vaultComparison": {
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md#balances-aligned-to-the-fusion-reference-time",
+      "snapshotNote": "Reviewed compact site snapshot of 65 common-cutoff vault/token positions from balance-checks.json and source-positions-arbitrum.json. Full generated reports include unrelated later snapshots and large input inventories; this public subset avoids embedding those reports. Refresh with the Fusion snapshot after review. Totals are derived on display; Rollux is excluded from the comparison total.",
+      "groups": [
+        {
+          "chain": "Ethereum",
+          "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "block": 23524761,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/ethereum-031.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/ethereum-032.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "14095",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/ethereum-033.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "14318",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/ethereum-034.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "2254807663",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/ethereum-035.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Avalanche",
+          "token": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "block": 69908002,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-032.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-033.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-034.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-035.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "8035128",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-036.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Avalanche",
+          "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+          "block": 69908002,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-038.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-039.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "774669",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-040.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-041.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "1866669",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-042.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Aurora",
+          "token": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+          "block": 167240245,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/aurora-034.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/aurora-035.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "131653",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/aurora-036.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/aurora-037.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "793990",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/aurora-038.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Rollux",
+          "token": "0x368433cac2a0b8d76e64681a9835502a1f2a8a30",
+          "block": 36230694,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/rollux-032.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/rollux-033.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/rollux-034.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/rollux-035.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "2284499383095",
+              "source": "evidence/2026-10-13-usdc-common-cutoff/rollux-036.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Polygon",
+          "token": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+          "block": 77364542,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-033.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-034.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-035.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-036.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "249339821",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-037.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Polygon",
+          "token": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+          "block": 77364542,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-039.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-040.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-041.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-042.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "45370745",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-043.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Optimism",
+          "token": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "block": 142113926,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-033.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-034.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "3495",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-035.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-036.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "800343",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-037.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Optimism",
+          "token": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+          "block": 142113926,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-039.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "3933",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-040.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-041.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-042.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "111037397",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-043.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Base",
+          "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "block": 36518641,
+          "decimals": 6,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/base-031.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/base-032.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/base-033.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/base-034.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/base-035.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "BSC",
+          "token": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "block": 63769742,
+          "decimals": 18,
+          "method": "Historical balance call",
+          "positions": [
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-bsc-history/balance-cutoff-12aa8e.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-bsc-history/balance-cutoff-55e039.request.json"
+            },
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-bsc-history/balance-cutoff-92e290.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-13-usdc-bsc-history/balance-cutoff-ae64c1.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "254382949325249263627",
+              "source": "evidence/2026-10-13-usdc-bsc-history/balance-cutoff-caecf1.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Arbitrum",
+          "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          "block": 386963544,
+          "decimals": 6,
+          "method": "Reconstructed from transfer history",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "258747601"
+            }
+          ]
+        },
+        {
+          "chain": "Arbitrum",
+          "token": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+          "block": 386963544,
+          "decimals": 6,
+          "method": "Reconstructed from transfer history",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "2815"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "5600507"
+            }
+          ]
+        }
+      ]
     }
   }
 }

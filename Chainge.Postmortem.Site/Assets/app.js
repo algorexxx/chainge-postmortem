@@ -73,7 +73,7 @@ function renderFusionStatistics(study) {
   const token = stats.tokens.find(row => row.address === selected.address);
   const remaining = row => rawUnits((BigInt(row.mintedRaw) - BigInt(row.burnedRaw)).toString(),row.decimals);
   const metrics = [['Total created',rawUnits(token.mintedRaw,token.decimals)],['Total burned',rawUnits(token.burnedRaw,token.decimals)],['Remaining supply',remaining(token)]];
-  return `<div class="section-title"><h2>USDC on Fusion</h2><a href="${escape(stats.source)}">Read the accounting report ↗</a></div>
+  return `${renderVaultComparison(study,remaining(token))}<div class="section-title"><h2>USDC on Fusion</h2><a href="${escape(stats.source)}">Read the accounting report ↗</a></div>
     <p class="muted">Snapshot: ${escape(stats.referenceTime.replace('T',' ').replace('.000Z',' UTC'))} · <a href="https://fsnex.net/block/${stats.referenceBlock}">Fusion block ${stats.referenceBlock.toLocaleString()} ↗</a></p>
     <p>Newer Fusion token · ${explorerLink('Fusion',token.address,short(token.address))}. Amounts below are USDC token units.</p>
     <div class="metrics">${metrics.map(([label,value])=>`<div class="metric"><div class="metric-label">${label}</div><div class="metric-value">${amount(value)}</div><div class="amount-exact">${escape(value)}</div></div>`).join('')}</div>
@@ -82,7 +82,22 @@ function renderFusionStatistics(study) {
     <details class="panel"><summary>Older and dated Fusion tokens</summary><p>These rows are separate token contracts. Dated tokens represent rights over different periods, and migration may overlap older and newer balances. Do not add the rows into a customer total.</p>
     <div class="table-wrap"><table><thead><tr><th>Fusion token</th><th class="numeric">Created (USDC)</th><th class="numeric">Burned (USDC)</th><th class="numeric">Remaining tokens</th></tr></thead><tbody>${stats.tokens.filter(row=>row.address!==selected.address).map(row=>`<tr><td><strong>${row.fullTime ? 'Older token' : 'Dated token'}</strong>${explorerLink('Fusion',row.address,short(row.address))}</td><td class="numeric">${amount(rawUnits(row.mintedRaw,row.decimals))}</td><td class="numeric">${amount(rawUnits(row.burnedRaw,row.decimals))}</td><td class="numeric">${amount(remaining(row))}</td></tr>`).join('')}</tbody></table></div>
     <p>The older-token total includes <strong>${amount(rawUnits(stats.addressOne.rawAmount,stats.addressOne.decimals))} USDC</strong> at ${explorerLink('Fusion',stats.addressOne.address,'address one')}. This is not a zero-address burn. Its meaning for customer claims remains unresolved.</p><p>The older parent contract uses a different supply counter that does not decrease on these burns. The table uses created minus burned tokens, not that counter.</p></details>
-    <section class="panel"><h2>Supply compared with vault balances</h2><p>A reliable combined customer total and complete vault list are not yet established, so a shortfall or backing percentage is not shown.</p><button class="reset-filters" data-tab="vaults">View vault balances →</button></section>`;
+    <button class="reset-filters" data-tab="vaults">View later vault balance checks →</button>`;
+}
+
+function renderVaultComparison(study, supply) {
+  const comparison = study.vaultComparison;
+  if (!comparison || comparison.referenceTime !== study.fusionStatistics.referenceTime) return '';
+  const total = group => group.positions.reduce((sum,p) => sum + BigInt(p.rawAmount) * 10n ** BigInt(18-group.decimals),0n);
+  const found = comparison.groups.filter(g=>g.chain!=='Rollux').reduce((sum,g)=>sum+total(g),0n);
+  const rollux = comparison.groups.filter(g=>g.chain==='Rollux').reduce((sum,g)=>sum+total(g),0n);
+  const metrics = [['Fusion supply',supply,'Newer Fusion token'],['Found in vaults',rawUnits(found.toString(),18),'Identified likely vaults · excludes Rollux'],['Comparison gap',rawUnits((tokenUnits(supply)-found).toString(),18),'Supply minus the vault balances shown']];
+  return `<section class="panel"><div class="section-title"><h2>Fusion supply vs vault balances</h2><a href="${escape(comparison.source)}">Evidence and scope ↗</a></div>
+    <p class="muted">Historical snapshot · ${escape(comparison.referenceTime.replace('T',' ').replace('.000Z',' UTC'))}. Vault balances use chain blocks aligned to this time.</p>
+    <div class="metrics">${metrics.map(([label,value,note])=>`<div class="metric"><div class="metric-label">${label} · USDC</div><div class="metric-value">${amount(value)}</div><p>${note}</p></div>`).join('')}</div>
+    <p><strong>Rollux, shown separately: ${amount(rawUnits(rollux.toString(),18))} USDC-labelled tokens.</strong> Backing is unverified. Excluded from “Found in vaults” and the comparison gap. <a href="https://explorer.rollux.com/address/0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1">View Rollux vault ↗</a></p>
+    <p class="footnote">The gap is not a confirmed loss. This compares token units, including bridged tokens, rather than verified redeemable dollars. Other vaults may exist, and Fusion supply is not a confirmed customer claim total.</p>
+    <details class="reading-notes"><summary>Vault balance breakdown</summary><p>Five identified vault addresses checked for each token below. Exact amounts are available on hover; contracts, vault addresses and evidence are linked in the report.</p><div class="table-wrap"><table><thead><tr><th>Chain</th><th>Token / evidence</th><th>Cutoff block</th><th class="numeric">Balance (token units)</th></tr></thead><tbody>${comparison.groups.map(g=>`<tr><td><strong>${escape(g.chain)}</strong>${g.chain==='Rollux'?'Separate · backing unverified':''}</td><td>${explorerLink(g.chain,g.token,short(g.token))}<br>${escape(g.method)}</td><td>${g.block.toLocaleString()}</td><td class="numeric">${amount(rawUnits(total(g).toString(),18))}</td></tr>`).join('')}</tbody></table></div></details></section>`;
 }
 
 function renderVaults(study) {
@@ -377,7 +392,7 @@ document.querySelector('#copy-donation').addEventListener('click', async () => {
 });
 
 function explorerLink(chain, value, label = value) {
-  const sites = { Fusion: ['https://fsnex.net', 'transaction'], BSC: ['https://bscscan.com', 'tx'], Ethereum: ['https://etherscan.io', 'tx'], Avalanche: ['https://snowtrace.io', 'tx'], Arbitrum: ['https://arbiscan.io', 'tx'], Optimism: ['https://optimistic.etherscan.io', 'tx'] };
+  const sites = { Fusion: ['https://fsnex.net', 'transaction'], BSC: ['https://bscscan.com', 'tx'], Ethereum: ['https://etherscan.io', 'tx'], Avalanche: ['https://snowtrace.io', 'tx'], Arbitrum: ['https://arbiscan.io', 'tx'], Optimism: ['https://optimistic.etherscan.io', 'tx'], Polygon: ['https://polygonscan.com', 'tx'], Base: ['https://basescan.org', 'tx'], Aurora: ['https://explorer.aurora.dev', 'tx'], Rollux: ['https://explorer.rollux.com', 'tx'] };
   const site = sites[chain];
   if (!site || !/^0x(?:[a-fA-F0-9]{40}|[a-fA-F0-9]{64})$/.test(value)) return escape(label);
   const path = value.length === 42 ? 'address' : site[1];
