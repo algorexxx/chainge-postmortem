@@ -1130,3 +1130,6 @@ main {
 .filter-field select,.filter-field input { max-width:100% }
 .trace-panel { scroll-margin-top:20px }
 .back-to-case { margin-bottom:18px }
+.transfer-direction { display:inline-block; padding:4px 8px; margin:0 0 8px; border:1px solid #bbcbbb; border-radius:5px; background:#edf3e7; color:var(--ink); font-size:12px; font-weight:600; line-height:1.4 }
+.transfer-endpoints { overflow-wrap:anywhere; font-size:12px }
+.trace-path .transfer-endpoints strong { display:inline; font-size:12px }
