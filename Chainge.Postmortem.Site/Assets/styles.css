@@ -1107,3 +1107,21 @@ main {
 .token-row > a { padding:8px; font-size:17px }
 .movement-explorers { margin:-4px 12px 14px; font-size:12px }
 #donation-explorer { display:block; margin-top:5px; font-size:12px }
+
+.reading-notes { margin:12px 0 20px; font-size:13px; color:var(--muted) }
+.reading-notes > summary { cursor:pointer; color:var(--green); font-weight:600 }
+.reading-notes p { max-width:75ch; margin:12px 0 }
+.vault-note .reading-notes { margin:8px 0 0 }
+.token-heading > div:first-child { min-width:0 }
+.heading-meta .status { white-space:normal }
+.filters label { font-size:12px }
+.filters select,.reset-filters { font-size:12px; padding:9px }
+.flow-choice strong { font-size:14px; line-height:1.45 }
+.flow-choice small,.flow-choice .status { font-size:11px }
+.flow-choice .status { margin:8px 0 0 }
+.flow-description { font-size:12px!important; margin:8px 0 }
+.trace-panel > p,.trace-path p,.trace-unknown,.panel p { font-size:13px }
+.trace-path strong { font-size:14px }
+.trace-panel .eyebrow { font-size:10px }
+.trace-panel { position:static }
+.vault-note { min-width:180px }
