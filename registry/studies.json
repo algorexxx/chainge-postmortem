@@ -368,7 +368,7 @@
     "fusionStatistics": {
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
-      "configurationSha256": "8ade6f516eb6c1ee690e8d69d4ce7880f9406013d09eee925277bbcb6ae8202c",
+      "configurationSha256": "3d4882380fb3219de20efb1a59c016dcec65354aa9f7e4c7b8d7a644975f33aa",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-ledger-reconciliation.md",
       "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling this asset and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
       "tokens": [
@@ -4321,7 +4321,7 @@
     "fusionStatistics": {
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
-      "configurationSha256": "f462619b7719ffdbb05717d48d8d84c8b4b4abbc3f6d3b309567ce33f6cc141f",
+      "configurationSha256": "f8cc7be5a40f0c745bac2c3a06fab8b5bef17701fc6163dee616322ea291bba3",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md#fusion-accounting",
       "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling this asset and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
       "tokens": [

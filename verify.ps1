@@ -2,6 +2,7 @@ param([switch]$SkipBuildAndTests)
 $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
 try {
+    & ./registry/check-configuration-encoding.ps1 -Path @(Get-ChildItem -LiteralPath reconciliation -Filter '*.json' | ForEach-Object FullName)
     if (-not (Test-Json -Path registry/studies.json -SchemaFile registry/studies.schema.json)) { throw 'The reviewed studies do not match the standard site data format.' }
     $studies = Get-Content registry/studies.json -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
     & ./research/check-migration-state.ps1

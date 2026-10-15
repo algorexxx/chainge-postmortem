@@ -4,6 +4,7 @@ param(
     [switch]$UpdateRegistry
 )
 $ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'registry/check-configuration-encoding.ps1') -Path (Join-Path $PSScriptRoot "reconciliation/$Asset.json")
 $reportPath = Join-Path $PSScriptRoot "archives/reconciliation/$Asset"
 dotnet run --configuration Release --project (Join-Path $PSScriptRoot 'Chainge.Postmortem.Reconcile') -- $PSScriptRoot (Join-Path $PSScriptRoot "reconciliation/$Asset.json") $reportPath
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
