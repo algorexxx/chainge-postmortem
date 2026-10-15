@@ -1,5 +1,7 @@
 # Slow anonymous history capture
 
+Use [indexed vault history](indexed-history-workflow.md) first. Pacing makes an unavoidable scan reliable; it does not make scanning thousands of empty ranges the preferred discovery method. BAT's initial broad scan was stopped after a working anonymous address index returned its candidates in five calls.
+
 Use the existing capture engine with one RPC request per batch, a small pinned block range and an explicit retry policy. Do not rotate endpoints or run parallel workers to evade quotas.
 
 In the asset's `capturePolicies` entry, set `batchSize: 1`, keep `combineHolderFilters: true` where supported, and choose `maximumLogBlocks` from a successful provider test. In `template`, set `requestDelay`, `maximumRetries` and `retryDelay`, for example:

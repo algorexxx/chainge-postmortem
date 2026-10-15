@@ -79,7 +79,7 @@ For each vault, establish opening balance + receipts - payments + explicit adjus
 
 For Fusion, keep standard supply, address-one balances, blocked balances, dated rights and vault inventory separate. A block flag does not burn a token. Equal legacy/newer amounts support a migration hypothesis but do not prove extinguished rights. A holder being a vault does not establish whether its tokens are customer property, inventory or overlapping claims. Use [holder funding](research/review-holder-funding.ps1), [controller links](research/review-controller-links.ps1) and the [accounting treatment review](research/fusion-claims-review.md) where their documented formats apply. Do not sum every representation into customer liabilities or subtract balances without evidence.
 
-For anonymous sources with tight quotas, use the [paced capture procedure](research/paced-capture.md): singleton requests, provider-aware automatic retries and resumable immutable captures. A rate-limit error is not an empty history. Keep incomplete runs private until sealed and reviewed.
+Before broad RPC scans, use the [indexed vault-history workflow](research/indexed-history-workflow.md): token-filtered address history, pagination checks, then exact receipts and pinned balances. Estimate the cost of any remaining range scan before launching it. For anonymous sources with tight quotas, use the [paced capture procedure](research/paced-capture.md): singleton requests, provider-aware automatic retries and resumable immutable captures. A rate-limit error is not an empty history. Keep incomplete runs private until sealed and reviewed.
 
 ## 5. Review material outflows and their endpoints
 

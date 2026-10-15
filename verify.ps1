@@ -42,6 +42,7 @@ try {
         }
     }
     & ./research/check-workflow-review.ps1
+    & ./research/check-indexed-receipts.ps1
     dotnet run --project Chainge.Postmortem.Site --configuration Release --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
     if ($LASTEXITCODE -ne 0) { throw 'Site generation failed.' }
     node registry/check-ui.cjs

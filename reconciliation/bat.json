@@ -369,6 +369,22 @@
       "tokenDecimals": {
         "0x101d82428437127bf1608f699cd651e6abf9766e": 18
       }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-indexed-receipts",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-indexed-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
     }
   ],
   "balanceSources": [
@@ -744,6 +760,6 @@
     "Additional BAT representations on Solana, NEAR, Harmony and Energi are discovery leads, not included backing.",
     "Legacy representations and dated rights overlap; no consolidated customer liability total is established.",
     "Exact-amount matching within 24 hours is a hypothesis; no stablecoin fee rules are inherited.",
-    "BSC discrepancy localization recovers balance-consistent movements but does not establish complete two-direction history; cancelling omissions remain possible."
+    "BSC indexed discovery now supplies 47 successful transactions and 48 receipt-verified vault transfers; all five replay balances agree with pinned state. Below-limit index responses do not establish complete RPC-range coverage or exclude cancelling index omissions."
   ]
 }

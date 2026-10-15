@@ -30,15 +30,26 @@
     },
     {
       "id": "history",
-      "status": "pending",
-      "finding": "Ethereum/Avalanche retained vault histories are corroborated; full BSC incoming/outgoing coverage remains missing. A complete-history provider attempt failed identity verification. A second provider verified chain identity but rejected all three initial historical batches with its compute-unit quota.",
-      "nextAction": "Resume the generated BSC acquisition plan when anonymous historical-log access succeeds; balance agreement does not substitute for logs.",
+      "status": "evidence-boundary",
+      "finding": "Five anonymous token-filtered Binplorer histories returned 51 rows below the per-address page cap, yielding 47 successful receipts and 48 vault Transfer events. Every indexed row has a matching receipt log and all five replay positions agree with pinned state. Full RPC range coverage is not established.",
+      "nextAction": "Reopen on an independent index discrepancy, evidence of truncation, new custody, or a specific unexplained historical interval; do not automatically restart the 12754-request scan.",
       "references": [
         "research/assets/bat.md",
         "evidence/2026-10-15-bat-bsc-public-retry/manifest.json",
         "evidence/2026-10-15-bat-bsc-complete-attempt/manifest.json",
-        "evidence/2026-10-15-bat-bsc-complete-retry/manifest.json"
-      ]
+        "evidence/2026-10-15-bat-bsc-complete-retry/manifest.json",
+        "evidence/2026-10-15-bat-binplorer-discovery/manifest.json",
+        "evidence/2026-10-15-bat-indexed-receipts/manifest.json",
+        "evidence/2026-10-15-bat-indexed-context/manifest.json",
+        "research/indexed-history-workflow.md"
+      ],
+      "attemptedMethods": [
+        "Anonymous token-filtered address index for all five vaults",
+        "Successful RPC receipts and block headers for every indexed transaction",
+        "Exact replay versus all five pinned balances",
+        "Broad-range RPC and paced singleton trials"
+      ],
+      "boundaryReason": "Below-limit index responses and equal net balances cannot exclude cancelling omissions. The zero-row predecessor remains an empty index result, not independently proven inactivity."
     },
     {
       "id": "receipts",
@@ -109,9 +120,9 @@
     },
     {
       "id": "outflow-disposition",
-      "status": "evidence-boundary",
-      "finding": "All 19 retained external vault outflows assessed; all three BSC payments now have onward disposition evidence.",
-      "nextAction": "Reopen on additional recipient history, reliable attribution or settlement identifiers.",
+      "status": "pending",
+      "finding": "The original selected 19 outflows retain documented assessments. Indexed BSC history adds 17 older external vault outflows which are visible in the full ledger and need a separate disposition review.",
+      "nextAction": "Review the newly indexed older BSC outflows and their routing/settlement candidates; keep unresolved ownership and destination limits explicit.",
       "references": [
         "research/assets/bat.md",
         "research/assets/bat-closeout.json",

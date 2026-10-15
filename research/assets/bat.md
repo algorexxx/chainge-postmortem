@@ -1,5 +1,15 @@
 # BAT: partial investigation
 
+## Indexed BSC history update
+
+The anonymous Binplorer address/token index returned 0, 27, 14, 2 and 8 operations for the five configured vaults, all below its 100-row response cap. These 51 address-view rows identify **47 distinct transactions**. Successful RPC receipts and block headers recover **48 vault BAT Transfer events**, compared with 12 previously retained. Internal transfers appear in both address views; receipts also recover an additional log within a listed transaction. All indexed rows have a corresponding receipt log. Thirty-six indexed row amounts differ from the exact receipt quantities, so indexed amounts are never used in accounting.
+
+The receipt-derived nets agree with all five pinned balances at BSC block 63769742: four zeros and **161.524143066016869989 BAT** at the 66ff vault. The combined site ledger now contains 91 vault movements across the configured source chains. The newly discovered 17 older BSC external outflows remain available for review; the existing terminal-case assessment is not silently extended to certify their disposition.
+
+Evidence: [indexed histories](../../evidence/2026-10-15-bat-binplorer-discovery/), [47 successful receipts](../../evidence/2026-10-15-bat-indexed-receipts/), [headers and transaction inputs](../../evidence/2026-10-15-bat-indexed-context/). Reproduce the index/receipt comparison with `research/review-indexed-receipts.ps1`, using these first two directories, the BSC BAT contract and cutoff 63769742. See the [indexed-first procedure](../indexed-history-workflow.md).
+
+The 12,754-request broad scan was stopped. Five index calls plus targeted verification supplied the retained history in minutes. This remains indexed-history corroboration, not full RPC interval coverage or proof against index omissions. The zero-row predecessor is not independently proven inactive. Earlier sections describe the initial investigation and its evidence boundaries; this update supersedes the earlier BSC acquisition status.
+
 Reviewed 2026-10-15. [Configuration](../../reconciliation/bat.json). This is a retained-evidence investigation, not a completed reconciliation or a finding of loss. All 491 retained Fusion events now have public receipt corroboration, and all 43 positive configured standard-token positions have matching pinned state and checked restriction flags. BSC history remains incomplete, and the vault inventory is not proven exhaustive.
 
 ## Public access correction

@@ -1,5 +1,5 @@
 {
-  "scope": "Assessment of every currently retained outgoing vault payment, including small cases. Reviewed with limits does not mean completed reconciliation; BSC history and Fusion pinned-state checks remain incomplete.",
+  "scope": "Selected terminal outflows and explicitly listed earlier cases. Newly indexed older BSC outflows are visible in the ledger but are not all included in this selection. Reviewed with limits does not establish complete history or settlement.",
   "windowDays": 90,
   "extraEventIds": [
     "Avalanche:0x980a6e2741134f19a3744034f2af352c270845f84c1de960e68339680ab19a86:0",

@@ -1,0 +1,36 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "header-0xec65088e915f5192b8a0ec7d2bf5f2ac63c626dea104a30664946994b21c0263",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x932fe02df141b79b30b9df5dc96558aa84fcee6108b2f11847dc68556aefec27",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "tx-0xec65088e915f5192b8a0ec7d2bf5f2ac63c626dea104a30664946994b21c0263",
+          "method": "eth_getTransactionByHash",
+          "params": [
+            "0xec65088e915f5192b8a0ec7d2bf5f2ac63c626dea104a30664946994b21c0263"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "header-0xf8ffca1116e2f1ef055b51fb886fbf2a34309dc36d1b1cd2228de9ab75cc84da",
+          "method": "eth_getBlockByHash",
+          "params": [
+            "0x12116a7603844a21add00a969d88004fad4cf82b34e5b6e30b53aeb6b2a2d274",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "tx-0xf8ffca1116e2f1ef055b51fb886fbf2a34309dc36d1b1cd2228de9ab75cc84da",
+          "method": "eth_getTransactionByHash",
+          "params": [
+            "0xf8ffca1116e2f1ef055b51fb886fbf2a34309dc36d1b1cd2228de9ab75cc84da"
+          ]
+        }
+      ]

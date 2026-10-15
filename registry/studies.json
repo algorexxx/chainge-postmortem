@@ -10735,7 +10735,7 @@
     "title": "BAT",
     "status": "Partial investigation",
     "reviewed": "2026-10-15",
-    "scope": "All retained Fusion events have public receipt corroboration; 43 standard holder positions and their restrictions are checked at the reference block. Known vault balances remain much smaller than newer-token supply. Legacy overlap, full BSC history and exhaustive vault discovery remain unresolved; this is not a verified loss calculation.",
+    "scope": "All retained Fusion events have public receipt corroboration; 43 standard holder positions are checked. BSC indexed history now supplies 48 verified vault transfers with matching pinned balances. Older BSC outflows need further review; index completeness, legacy overlap and exhaustive vault discovery remain unresolved.",
     "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
     "movementsFile": "bat-movements.json",
     "vaults": [
@@ -11439,7 +11439,7 @@
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
-      "configurationSha256": "f11b5497142c91ff1875c4f58c8a18529b0eac3124f78417d730100e006b219f",
+      "configurationSha256": "df58dd8e32410ef680df9c1fba701d390d48d223536ee8392bbf10a81d716313",
       "snapshotNote": "Six configured standard-token ledgers at the restored Fusion reference. Holder positions agree with pinned state. Older time-aware representations are reviewed separately; these totals are not consolidated liabilities.",
       "tokens": [
         {
@@ -11493,7 +11493,7 @@
       ],
       "checks": [
         {
-          "text": "77 indexed Transfer events; 42 have successful public receipt corroboration, including the newer mint/burn context. Pinned holder state remains pending.",
+          "text": "All 77 newer-token Transfer events have public receipt corroboration. All 43 positive configured standard-token holder positions agree with pinned state; checked restriction flags are false.",
           "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
         }
       ],
