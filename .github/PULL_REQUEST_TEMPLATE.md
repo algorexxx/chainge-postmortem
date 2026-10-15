@@ -20,6 +20,9 @@ Link the investigation package (`research/assets/<asset>.md`), public evidence, 
 - [ ] No raw chat export, private community submission, local connection details or private keys are included.
 - [ ] If claiming completion, the common-cutoff claims/vault ledger and all adjustments satisfy CONTRIBUTING.md; passing CI alone is not completion.
 
+- [ ] Closing-review selection was regenerated after the last evidence change; every selected material case has findings, limits and evidence references. Reviewed is not represented as settled.
+- [ ] Capture failures, receipt gaps, balance discrepancies, unverified backing and post-Fusion-snapshot limitations remain explicit.
+
 ## Site publication
 
 State whether this PR updates the public site or only adds research. If it updates the site, describe the preview checks and link its assessment. Do not copy BUSD-specific fees or presentation into another asset.

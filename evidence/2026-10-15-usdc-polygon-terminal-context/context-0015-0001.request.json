@@ -1,0 +1,42 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "Polygon:0x4a8343cd8d3b98de015eefbbb7e3908fa1537fd1898d1b0befbcb5ccaa12e71c:48",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+              "fromBlock": "0x3935d48",
+              "toBlock": "0x3942098",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000001fd0ce44b289c662ed509c823ae5f90d874dedb3"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0x6a1fb4ad58d884c5e6021e64d0ba6b46ce0a8e3e3acba74e81821e7213183885",
+          "method": "eth_getTransactionByHash",
+          "params": [
+            "0x6a1fb4ad58d884c5e6021e64d0ba6b46ce0a8e3e3acba74e81821e7213183885"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "Polygon:0x6a1fb4ad58d884c5e6021e64d0ba6b46ce0a8e3e3acba74e81821e7213183885:34",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+              "fromBlock": "0x3936047",
+              "toBlock": "0x3942397",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000001fd0ce44b289c662ed509c823ae5f90d874dedb3"
+              ]
+            }
+          ]
+        }
+      ]

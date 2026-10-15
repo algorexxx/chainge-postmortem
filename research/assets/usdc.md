@@ -1,6 +1,19 @@
 # USDC: partial investigation
 
-Reviewed 2026-10-13. [Configuration](../../reconciliation/usdc.json), [capture inventory](../../evidence/2026-10-13-usdc-investigation/README.md). This extends the workflow trial into a retained Fusion ledger and source-chain investigation. It does **not** establish consolidated customer claims, complete custody, or a missing-asset amount. The site presents selected reviewed cases; the full retained-event reconciliation can be regenerated locally.
+Reviewed 2026-10-15. Earlier acquisition tables and event counts below describe the October 13 checkpoint unless a later date is stated. [Configuration](../../reconciliation/usdc.json), [capture inventory](../../evidence/2026-10-13-usdc-investigation/README.md). This extends the workflow trial into a retained Fusion ledger and source-chain investigation. It does **not** establish consolidated customer claims, complete custody, or a missing-asset amount. The site presents selected reviewed cases; the full retained-event reconciliation can be regenerated locally.
+
+## Current closing pass
+
+The [October 15 assessment](../closeout-assessment.md) is the current statement of completed work and remaining limits. Anonymous queries now cover the configured Ethereum and Polygon token/holder history targets; recovered Polygon events have receipt/header corroboration and material cases have transaction-input and bounded recipient follow-ups. BSC probes recover additional transfers but do not close all state/replay disagreements; BSC and Base retain history coverage gaps. A failed query is not zero activity.
+
+The [event-ID-keyed closing register](usdc-closeout.json) records findings, limits and evidence references. Use the command below from the repository root to derive the current selection; new evidence can change its size. Reviewed cases are not automatically accepted redemptions. The full retained movement list remains available through the common UI.
+
+```powershell
+./reconcile.ps1 -Asset usdc
+./research/review-closeout.ps1 -Asset usdc -RequireReviewed
+```
+
+See [accounting treatment](../fusion-claims-review.md#current-accounting-treatment-october-15-closing-pass) for migration rights, blocked balances, address-one and vault inventory. The Rollux balance remains separate because its backing is unverified. Consolidated customer claims, full vault discovery and accepted settlement of material exceptions remain unestablished.
 
 ## Fusion accounting
 
@@ -158,7 +171,7 @@ These candidate links do not establish a shared bridge identifier, authenticated
 
 ## Large late-outflow follow-up
 
-The [terminal review](../usdc-terminal-review.md) documents a near-exact routing candidate for the 69,955.999671-USDC September payment, and receipt-confirmed downstream distribution of the 17,000-USDC May 2025 payment. Later combined funds on both paths reach the Binance-14-labelled address; the larger branch of the May distribution remains unresolved beyond a further recipient. The reviewed possible-redemption label does not change strict automated classifications. The report also identifies the incoming funding immediately before the 416k payment and its separate matching Fusion issuance; that funding does not resolve the outgoing payment's purpose.
+The [terminal review](../usdc-terminal-review.md) documents a near-exact routing candidate for the 69,955.999671-USDC September payment, and receipt-confirmed downstream distribution of the 17,000-USDC May 2025 payment. Later combined funds on both paths reach the Binance-14-labelled address; the larger mixed-funds branch of the May distribution is now traced to a pinned 18,150-USDC retained balance, with ownership unresolved. The reviewed possible-redemption label does not change strict automated classifications. The report also identifies the incoming funding immediately before the 416k payment and its separate matching Fusion issuance; that funding does not resolve the outgoing payment's purpose.
 The [Arbitrum, Optimism and Avalanche follow-up](../usdc-arbitrum-optimism-avalanche.md) assesses eight further outflows: five possible same-holder burn counterparts, a native-USDC to USDC.e conversion, a full 35,993.090970-USDC transfer to an Avalanche Binance-labelled address, and a mixed-balance conversion to BTC.b after the 21,774.015699-USDC payment. These are reviewed cases, not changes to strict automated matching or proof of a consolidated deficit.
 
 ## Holder inventory and announcement context

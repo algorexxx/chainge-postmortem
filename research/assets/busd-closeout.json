@@ -1,0 +1,80 @@
+{
+  "scope": "All unmatched outflows at the configured material threshold within 90 days of each retained vault/token/chain endpoint, plus explicitly listed older and later cases.",
+  "windowDays": 90,
+  "extraEventIds": [
+    "BSC:0x18f90ba76942138254dee5b1882a4edd49ddc5f7228e72d2993afbfbed68bc3a:5",
+    "BSC:0x9f2c20e0ba037b4147f32c376bc96bbbdffb012a318a26e291b13282984f98c4:53",
+    "BSC:0xbf1e3e8fa8ec38b2911ed9f0f6dbbe601724b5a07ff9f21d2e4281ab48d2e15a:19",
+    "Ethereum:0x16e3825aec1703a48bf4b64eb70c3032f2dd562da20d73acca7ed66236596212:101",
+    "Ethereum:0x342b13a83b2e5f0e8f7dddffabdfbbb6cb63e11ebee827b8e195032ac2bdf864:61",
+    "Ethereum:0xf32d2fd024c70b88b051d744d7741c948a2fef088a247e358d72a2783d370e40:75"
+  ],
+  "decisions": [
+    {
+      "eventId": "BSC:0x18f90ba76942138254dee5b1882a4edd49ddc5f7228e72d2993afbfbed68bc3a:5",
+      "finding": "The retained case assessment documents the swap/exchange route; the bounded recipient query did not add a further original-token transfer. The earlier assessment records a near-matching Ethereum return after the exchange route, supporting possible cross-chain balancing rather than proving it.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-11-busd-source-review/bsc-receipts/batch-2760.response.json",
+        "research/busd-case-assessment.md",
+        "research/busd-source-chain-flows.md"
+      ]
+    },
+    {
+      "eventId": "BSC:0x9f2c20e0ba037b4147f32c376bc96bbbdffb012a318a26e291b13282984f98c4:53",
+      "finding": "Part of the earlier 1.2M BUSD payments to the documented Binance-labelled destination. No accepted Fusion burn pairing or exchange-account outcome has been established.",
+      "limitation": "Exchange entry is not a loss calculation or evidence of the credited account. Reopen on settlement or exchange-account evidence.",
+      "references": [
+        "research/busd-source-chain-flows.md",
+        "research/busd-case-assessment.md",
+        "evidence/2026-10-11-busd-source-review/bsc-predecessor-receipts/batch-0960.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xbf1e3e8fa8ec38b2911ed9f0f6dbbe601724b5a07ff9f21d2e4281ab48d2e15a:19",
+      "finding": "Part of the earlier 1.2M BUSD payments to the documented Binance-labelled destination. No accepted Fusion burn pairing or exchange-account outcome has been established.",
+      "limitation": "Exchange entry is not a loss calculation or evidence of the credited account. Reopen on settlement or exchange-account evidence.",
+      "references": [
+        "research/busd-source-chain-flows.md",
+        "research/busd-case-assessment.md",
+        "evidence/2026-10-11-busd-source-review/bsc-predecessor-receipts/batch-1120.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x16e3825aec1703a48bf4b64eb70c3032f2dd562da20d73acca7ed66236596212:101",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 40000 token units to 0x816db2ac0a52d8dd79ad4b8f48e8803d375dc1e8 in 0x5a5e166e0792d194887a0c9e555c160cf570d6ef219a62209329e417ff4e0654; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xcdf53407183f2a9bab570ab993b00b95ad5df007d1e10e23bb82b289c4d2e9c0:3 is 895 seconds before the payment (negative means after), with 50 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-11-busd-fusion-purpose-review/batch-104.response.json",
+        "evidence/2026-10-11-busd-source-review/ethereum-predecessor-receipts-retry.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-21ca2c-3c7c53-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-004.response.json",
+        "research/busd-case-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x342b13a83b2e5f0e8f7dddffabdfbbb6cb63e11ebee827b8e195032ac2bdf864:61",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 80000 token units to 0x51c7876adafecbf46b5d618ee8461cfdecf25dd0 in 0x3f98269d7dccf3fd2a06672623918960aca3f1bbcbe1e011c66ff7f31a30fb15; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0x83a5702b2dbff529bc0f649790fb13fe060d95a6ca5995644fa3e0ef65a52ca9:1 is 308 seconds before the payment (negative means after), with 50 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-11-busd-fusion-purpose-review/batch-066.response.json",
+        "evidence/2026-10-11-busd-source-review/ethereum-predecessor-receipts-retry.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-c18916-3c7c53-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-002.response.json",
+        "research/busd-case-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xf32d2fd024c70b88b051d744d7741c948a2fef088a247e358d72a2783d370e40:75",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 204567.658073647823395109 token units to 0x7c329d8deaeb8eb622e6b4b08dacc24d0afa94db in 0x5642dee52b6c0a6a870209f78024f99ba84af5986f0f47d97b8ee810bd1799ad; its token/from/to/amount and successful receipt/header agree. The documented full path reaches the Binance-labelled endpoint; the credited account and internal outcome remain unavailable.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-11-busd-source-review/ethereum-current-receipts-0.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-006571-3c7c53-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-003.response.json",
+        "research/busd-204k-exchange-path.md",
+        "research/busd-case-assessment.md"
+      ]
+    }
+  ]
+}

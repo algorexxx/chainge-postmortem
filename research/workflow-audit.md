@@ -54,3 +54,16 @@ Reusable additions now audit numeric log-query coverage in both directions, repl
 An anonymous second Ethereum explorer disclosed 2,960 rows for a candidate whose original provider returned 719. Paginated explorer rows are now imported without receipt-verification promotion, deduplicated against actual log identities, and checked for contradictions. All five candidate cutoff nets match historical node balances. A free BSC endpoint supplied historical state after six public endpoints failed; log access remains limited to inclusive 10,000-block windows.
 
 The updated suite passes 231 tests. Release build has no warnings or errors. Handwritten Application coverage is 618/618 lines; generated regex implementation is reported separately by the coverage tool. The final full workflow verification passed, including input-manifest checks, static-site generation and BUSD's byte-identical public movement report. Public-source acquisition scheduling, representation consolidation, custody attribution and economic interpretation remain manual. The completion status is still partial.
+
+
+## October 15 closing workflow
+
+The ordered [contributor/LLM guide](../CONTRIBUTING.md) now covers identity and rights inventory, aligned cutoffs, anonymous resumable acquisition, second-plan receipts/headers, state/replay discrepancy localization, material-case tracing, explicit stopping/reopening conditions, common UI and PR hygiene. Evidence failures and observation limits remain first-class results.
+
+The new closing-review gate uses configured exact-integer materiality and a declared per-vault terminal window, retains undated cases, includes explicit older/post-snapshot exceptions, and requires findings, limitations and evidence references. It does not change matching classifications. Verification invokes the gate for asset registers and tests amount/date boundaries, missing dates, explicit exceptions and rejection of incomplete/duplicate decisions. The receipt/state check protects the BUSD gap correction and USDC retained downstream balance.
+
+The build and 299 offline .NET tests passed during this pass. Final end-to-end verification results belong to the corresponding commit/turn; this checkpoint does not imply complete history, custody or consolidated claims. See [the current assessment](closeout-assessment.md) for the remaining public-evidence boundaries.
+
+The expanded ledger also exposed a console-summary bottleneck: membership tests scanned the full unmatched-ID list for each event. The summary now uses an ordinal hash set, preserving output while avoiding repeated linear scans. No matching or accounting rule changed.
+
+The provenance refresh helper checks unchanged published Fusion statistics and the complete known holder inventory before updating its configuration hash. This closes the manual source-configuration refresh step without accepting changed supply or balances.

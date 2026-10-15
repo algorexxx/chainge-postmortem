@@ -1,0 +1,1 @@
+[{"jsonrpc": "2.0", "id": "chain", "method": "eth_chainId", "params": []}, {"jsonrpc": "2.0", "id": "header", "method": "eth_getBlockByNumber", "params": ["0x2625a00", false]}]

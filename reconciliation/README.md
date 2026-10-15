@@ -204,10 +204,17 @@ Regression coverage includes incoming/outgoing repeated same-pool swaps, reverse
 
 ### Multi-chain coverage, positions and state audit
 
-The USDC follow-up adds configuration-driven `history-coverage.json`, `claim-positions.json`, `source-positions-<chain>.json` and `balance-checks.json`. See the [contributor guide](../CONTRIBUTING.md#coverage-and-balance-checks-for-every-asset) for required inputs. Inclusive block-range unions retain holes, failed requests and separate transfer directions. Holder replay uses exact integers and persistent negative-history flags. Dated child logs cannot enter full-time issuance matching when explicitly listed in `datedTokens`.
+The USDC follow-up adds configuration-driven `history-coverage.json`, `claim-positions.json`, `source-positions-<chain>.json` and `balance-checks.json`. See the [contributor guide](../CONTRIBUTING.md#4-check-history-and-accounting-before-interpreting-matches) for required inputs. Inclusive block-range unions retain holes, failed requests and separate transfer directions. Holder replay uses exact integers and persistent negative-history flags. Dated child logs cannot enter full-time issuance matching when explicitly listed in `datedTokens`.
 
 Pinned `balanceOf` requests and responses now drive reproducible state comparisons, including unordered batches. A matching balance is not enough for a covered status: both-direction range coverage is also required. Even that status refers to retained provider responses, not independent custody certification. Identical net balances can conceal cancelling omissions; missing balances never become zero.
 
 The routing decoder now supports the observed flat JSON layouts and colon-containing Kaspa recipients. JSON token indices do not become contract addresses. Exact receipt-backed memo candidates stay outside automatic settlement classification. The generic evidence reader supports raw Blockscout v2 ERC-20 pages as unverified events, with existing duplicate-conflict checks and node timestamp precedence. No fee/time window is relaxed.
 
-The current USDC scope and counts are maintained in the [assessment](../research/assets/usdc.md); historical checkpoints above describe earlier runs. BUSD's committed movement report remains the regression control.
+The current USDC scope and counts are maintained in the [assessment](../research/assets/usdc.md); historical checkpoints above describe earlier runs. Committed reports for both assets are checked against regeneration; historical checkpoint counts above are not current totals.
+
+
+### Closing-review gate
+
+`research/review-closeout.ps1 -Asset <asset> -RequireReviewed` selects every unmatched external outflow at or above the asset's configured large-outflow threshold in the decision register's terminal window, plus explicit older/post-snapshot exceptions. It uses exact integer scaling across decimals, retains material events with missing dates, and writes the source-report hash with the derived ignored shortlist. Each selected event needs a finding, limitation and existing evidence references in `research/assets/<asset>-closeout.json`. Verification enforces the gate for assets with a register. The register is an assessment layer: it never changes matching classifications or removes events from accounting.
+
+`research/check-closeout-selection.ps1` tests exact amount/date boundaries, missing dates, explicit exceptions and review enforcement. `research/check-closeout-evidence.ps1` checks the retained BUSD gap correction and USDC downstream balance evidence. See the [ordered procedure](../CONTRIBUTING.md) for acquisition, rights treatment, tracing stop conditions and publication.

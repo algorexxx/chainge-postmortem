@@ -32,9 +32,11 @@ The required result for every asset is a complete ledger comparing outstanding F
 
 ## Current coverage
 
-The investigation covers a small Fusion token sample, the BUSD pilot and a partial USDC assessment. USDC now includes newer/legacy Fusion histories, candidate balance probes across four source chains and selected reviewed movements; its consolidated claims and custody inventory remain unresolved. **BUSD is incomplete: the outstanding-token/vault reconciliation has not yet been delivered.** Fusion state observations use a retained block dated 2025-10-07; they do not establish present-day state. Reports document historical-query limitations and incomplete coverage. An Avalanche router's configured liquidity-address role and two subsequent changes are verified; segregated reserves and complete source-chain custody remain unconfirmed. A local static registry UI now covers all 2,184 source-listed contracts, with detailed BUSD positions, selected traced paths and a provisional ledger of all 5,710 retained operating-address movements. The offline script proposes burn/payment matches; those candidates do not establish settlement. A GitHub Pages workflow is prepared for publication after maintainer setup and push; a repeatable live chain collector is not implemented.
+BUSD and USDC have published asset pages using the same UI, supply-versus-tested-vault comparisons at an aligned reference time, complete access to their retained movement ledgers, and reviewed material cases. Both remain **partial investigations**: consolidated customer rights, complete vault discovery and some source history/disposition questions remain unresolved. See the [current closing assessment](research/closeout-assessment.md), rather than treating earlier report counts as current.
 
-Reviewed query evidence is stored under `evidence/`, with request/response pairs, capture metadata and integrity manifests where available. Some source-inventory entries refer to local archives that are not distributed in this repository. A clone therefore does not contain the complete preservation archive.
+The offline pipeline checks preserved evidence, representations, state/replay agreement, routing candidates and material closing-review decisions. A resumable anonymous RPC collector acquires missing logs, receipts and headers. GitHub Pages publication is configured. New tokens follow [one contributor/LLM procedure](CONTRIBUTING.md) and the shared study format.
+
+Reviewed public query evidence is stored under `evidence/`, with requests, responses, capture metadata and integrity manifests. Private source archives are not distributed. A clone is a reproducible public research package, not the complete preservation archive.
 
 ## History and corrections
 

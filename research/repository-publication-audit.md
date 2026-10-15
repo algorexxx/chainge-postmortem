@@ -21,3 +21,8 @@ The public joint contributor statement intentionally retains its authors’ name
 Rendered contract, vault, controller, traced-address, recipient and transaction references use chain-specific explorers: FSNEX for Fusion, BscScan for BSC, Etherscan for Ethereum and Snowtrace for Avalanche. Composite event IDs retain their log index as the visible label and link to the transaction. Receipt and delayed-candidate JSON shown in the UI receives the same contextual linking. File checksums remain checksums, and evidence filenames retain repository links. Token and movement selection controls have adjacent explorer links so navigation controls are not nested inside links.
 
 Links are constructed from validated address/hash shapes and known chains. Unknown chains are not guessed. This change covers the site’s rendered interface; downloadable raw datasets and externally rendered GitHub research documents remain evidence files, not automatically linkified web pages. Explorer route availability and index completeness are separate from correct URL construction.
+
+
+## October 15 closing-pass additions
+
+The new and modified public material was checked for private-key blocks, common hosted-service tokens, credential-bearing URLs, private IPv4 ranges, local user paths and raw Telegram identity fields. No matches were found in that bounded scan. Capture endpoints were anonymous public sources; staged paths exclude working archives, exports, screenshots and generated deployment output. Original webpage response bytes retain their whitespace and hashes. This is an additions review, not a repeat audit of every historical Git object or a guarantee against arbitrary unknown encodings.

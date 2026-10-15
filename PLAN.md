@@ -236,3 +236,10 @@ Regression coverage includes incoming/outgoing repeated same-pool swaps, reverse
 A first founder-statement chronology is published in `registry/timeline.json` and rendered in the project-wide Timeline view. Nineteen milestones reference 29 selected messages, with UTC publication/edit times, exact reviewed excerpts, conditional target dates and event-specific limitations. Raw Telegram exports remain outside the repository. Ordinary-member messages and unverified staff attributions are not published. The JSON export's hash, retained range and attribution method are recorded; export completion time and independent backup remain unknown.
 
 The March 2025 blacklisting explanation remains an attributed claim without identified issuers, restricted addresses or restriction events. The March AWS/domain interruption is separate from withdrawal settlement; the May suspension is an explicit statement but not an established first-disruption date. Earlier routes and the BUSD outflows require separate chronology. See [timeline method and next evidence needs](research/service-timeline.md).
+
+
+## Closing review and repeatable workflow (2026-10-15)
+
+The [current assessment](research/closeout-assessment.md) supersedes earlier next-step lists for BUSD/USDC. The closing pass extends public histories, reviews all selected material late outflows plus older and post-snapshot exceptions, and consolidates explicit accounting treatments without inventing customer-liability totals. Remaining rights, custody and public-data boundaries stay visible.
+
+[CONTRIBUTING.md](CONTRIBUTING.md) is the ordered procedure for people and LLMs investigating the next token. Asset packages use the updated template, a common configuration and UI, and an event-ID-keyed closing decision register. The reusable gate regenerates its selection when evidence changes and fails verification for missing assessments. A reviewed case can still have unresolved purpose; a finished bounded pass does not certify a completed reconciliation.

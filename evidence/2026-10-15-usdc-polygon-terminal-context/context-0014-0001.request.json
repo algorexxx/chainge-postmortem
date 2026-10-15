@@ -1,0 +1,34 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "0x6749be5cacb2537242866c6d6ea5cfad14f57f1e2eae886ed098e29c74a0567f",
+          "method": "eth_getTransactionByHash",
+          "params": [
+            "0x6749be5cacb2537242866c6d6ea5cfad14f57f1e2eae886ed098e29c74a0567f"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "Polygon:0x6749be5cacb2537242866c6d6ea5cfad14f57f1e2eae886ed098e29c74a0567f:5",
+          "method": "eth_getLogs",
+          "params": [
+            {
+              "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+              "fromBlock": "0x38ed346",
+              "toBlock": "0x38f9696",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x000000000000000000000000440872cfddac749d9f201234395fc20ed5480a80"
+              ]
+            }
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0x4a8343cd8d3b98de015eefbbb7e3908fa1537fd1898d1b0befbcb5ccaa12e71c",
+          "method": "eth_getTransactionByHash",
+          "params": [
+            "0x4a8343cd8d3b98de015eefbbb7e3908fa1537fd1898d1b0befbcb5ccaa12e71c"
+          ]
+        }
+      ]

@@ -12,7 +12,7 @@ Assessment and publication status:
 
 List unknown predecessor, migration, native-wrapper and time-slice relationships. Do not consolidate by symbol.
 
-## Candidate custody roles
+## Candidate vault roles
 
 | Chain | Address / explorer | Role and active interval | Supporting evidence | Confidence / alternatives |
 | --- | --- | --- | --- | --- |
@@ -37,3 +37,23 @@ Explain fee/time/threshold hypotheses and each optional rule. List event IDs and
 `./reconcile.ps1 -Asset <asset>` then `./verify.ps1`.
 
 List tested commit/platform, result changes, remaining limitations, privacy review and whether site publication is requested. To claim completion, demonstrate every completion condition in CONTRIBUTING.md with evidence; otherwise keep the status partial.
+
+
+## Closing review and reopening conditions
+
+Use `research/assets/<asset>-closeout.json` for event-ID-keyed findings, limitations and local evidence references. Do not copy generated ledger rows into the decision register. Declare the terminal window, configured material threshold, and additional older or post-announcement cases. Run `./research/review-closeout.ps1 -Asset <asset> -RequireReviewed` after the final reconciliation.
+
+| Gate | Result / evidence | Remaining uncertainty / reopening condition |
+| --- | --- | --- |
+| Exact token and representation identity | | |
+| Justified vault inventory by chain | | |
+| Numeric two-direction history coverage | | |
+| Receipt and block-header corroboration | | |
+| Opening/closing state and interval agreement | | |
+| Fusion rights, migrations, restrictions and inventory treatment | | |
+| Comparable backing at aligned cutoffs; unverified backing separated | | |
+| Every selected material outflow assessed; downstream mixing handled | | |
+| Announcement context and post-snapshot limits | | |
+| Common UI, report freshness, tests and privacy review | | |
+
+Report the status of the bounded work separately from the status of the reconciliation. An assessment may finish at an exchange-account boundary, unknown ownership or an unavailable dataset. Those are explicit limits, not settled transactions. List methods actually attempted; do not claim all public sources are exhausted.

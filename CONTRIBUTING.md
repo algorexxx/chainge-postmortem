@@ -1,113 +1,114 @@
-# Investigating one asset
+# Investigating one token
 
-This procedure is shared by people and LLMs. Start with one asset and a bounded, stated scope. Public evidence additions are welcome before the full investigation is complete. Never describe a successful script run as proof of custody, settlement or adequate backing.
+This is the shared procedure for contributors and LLMs. Work on one asset at a time, using anonymous free sources. Preserve the full ledger, publish cautious conclusions, and distinguish **a reproducible partial investigation** from **a completed reconciliation**. Passing CI does not establish custody, settlement or customer liabilities.
 
-## 1. Open an investigation package
+## 1. Define identity, scope and the cutoff
 
-Fork the repository and create a branch such as `research/usdc-ethereum`. Copy [the package template](research/assets/TEMPLATE.md) to `research/assets/<asset>.md`. Use a lowercase asset slug. See [BUSD](research/assets/busd.md) for the reference package and [USDC](research/assets/usdc.md) for a partial investigation with explicit acquisition and interpretation gaps.
+Fork the repository, create a research branch and copy [the asset template](research/assets/TEMPLATE.md) to `research/assets/<asset>.md`. Use a lowercase slug. Record the exact chain ID, contract, observed decimals, deployed code and representation relationship for every token. Equal symbols, equal addresses on different chains and similar amounts do not establish equivalence.
 
-Record exact chain IDs, contract addresses, representation relationships, observed decimals and supporting evidence. A symbol or identical address on another chain is not proof of asset equivalence or common control. Start from the Fusion catalogue, verify deployed code/getters and discover predecessors, parent/child tokens, time slices and authority changes before adding their supplies together.
+Inventory Fusion predecessors, child tokens, dated rights, migrations, controllers and mint/burn methods. Inventory candidate **vault addresses** separately on each source chain, with evidence for their role and active period. A downstream recipient is not a vault merely because it received a payment. Keep unverified candidates and alternative explanations visible.
 
-## 2. Preserve public evidence and declare coverage
+Choose a common UTC comparison time and chain-specific blocks at or before it. Preserve their hashes and adjacent headers. Record the provenance and limits of the Fusion snapshot: the highest known recovered backup is not independently proven network finality. Later source-chain payments cannot be judged against missing later Fusion burns.
 
-Save reviewed public inputs in `evidence/<date>-<asset>-<purpose>/`. Retain requests, responses (including errors), retrieval UTC, public source URLs, chain IDs, block numbers/hashes/timestamps and pagination/range boundaries. Private RPC addresses and credentials must be omitted from public metadata; describe the method and access limitation instead. Never query a credential found in third-party material.
+## 2. Preserve evidence and configure acquisition
 
-For each token/address history, record the requested and actually returned range, page size, terminal-page check, receipt/header corroboration and gaps. An empty or failed explorer response does not establish no activity. Save successful pinned `balanceOf` reads separately from transfer-history totals. Use one common UTC cutoff with chain-specific blocks at or before it; record their actual times and finality assumptions. If historical state is unavailable, keep that gap explicit.
+Use `evidence/<date>-<asset>-<purpose>/` for independently retrieved public evidence. Preserve exact requests, response bytes, failures, retrieval UTC, public URLs, chain identity, numeric blocks, pagination cursors and query filters. Add a scope README and a SHA-256 manifest covering every retained file except the manifest itself. Original evidence is immutable; corrections are new captures. Hashes establish byte integrity, not source truth.
 
-Add a `manifest.json` containing `{"algorithm":"SHA-256","files":{"response.json":"<saved-byte SHA-256>"}}`. Existing array manifests with `file` and `sha256` are also supported. Entries resolve relative to the manifest directory. Hash request/capture companions too; the pipeline enforces hashes for selected inputs, not every unselected attachment. Hashes prove byte integrity, not authenticity. Keep original evidence immutable; document sanitized derivatives and corrections.
+Keep private submissions, Telegram exports, community identities, screenshots supplied by users, keys and local infrastructure details **outside the checkout**. Public official/staff statements may be attributed; community context must be anonymized. Never query credentials discovered in someone else's material. See [ARCHIVING.md](ARCHIVING.md).
 
-Do not commit raw Telegram exports, private messages, community submissions, identifying community quotes, screenshots, API keys, wallet secrets or local infrastructure details—even under an ignored directory. Keep private working material outside the checkout. Public official/staff statements can be attributed; ordinary community context must be anonymized. Inspect URLs, binary metadata and the staged diff before committing. See [archive policy](ARCHIVING.md).
+Create `reconciliation/<asset>.json` using the [configuration reference](reconciliation/README.md), with these explicit inputs:
 
-## 3. Configure and run the common pipeline
+| Input | Required decision |
+| --- | --- |
+| `sources`, `discoverySources` | Select reviewed response files and contract-to-decimals maps; distinguish discovery from receipt evidence. |
+| `policy.operatingAddresses` | Candidate vaults by chain, justified individually. |
+| Matching and terminal policies | Document time, fee, amount and depletion hypotheses; never inherit another asset's fees as facts. |
+| `logQuerySources`, `logHistoryTargets` | Required numeric inclusive block ranges, each token/holder and both directions. |
+| `balanceSources`, `sourceCutoffBlocks` | Pinned state calls and aligned source-chain blocks. |
+| Fusion cutoff, `claimIntervals`, `datedTokens` | Snapshot and representation/time-right semantics. |
+| `capturePolicies` | Anonymous endpoint, expected chain ID, block span, batch size, delay, timeout and failure limit. |
 
-Install the .NET SDK selected in `global.json`, PowerShell 7 and Node.js 22. Add `reconciliation/<asset>.json`, using [the USDC configuration](reconciliation/usdc.json) for its structure. Replace all asset-specific inputs and hypotheses; do not copy BUSD fees, operating addresses, migration mappings or cutoffs as facts.
+The adapter supports the documented EVM/Fusion event formats. Native assets, UTXO chains, rebasing or fee-on-transfer semantics need explicit support; do not manufacture ERC-20 events.
 
-The configuration declares `asset`, `policy`, `sources`, optional `discoverySources`, and `limitations`. Each source declares `chain`, `directory`, filename `pattern` and a contract-to-decimals `tokenDecimals` map. Select response files, not arbitrary archives. The adapter supports EVM ERC-20/Fusion timed Transfer logs, receipts, transaction calls and block headers. Native assets, UTXO chains, rebasing/fee-on-transfer semantics and different event schemas require explicit support rather than fabricated ERC-20 rows.
+## 3. Acquire, resume and corroborate
 
-The minimum policy supplies the Fusion chain label, candidate operating addresses by chain, amount precision, a large-outflow threshold, depletion basis points, time/clock windows and explicit fee hypotheses. Optional rules are off unless configured. Explain every enabled rule in the package with evidence, its uncertainty and expected failure cases. Thresholds prioritize review; they must never delete small or late events.
+Install the .NET SDK from `global.json`, PowerShell 7 and Node.js 22. Planning and reconciliation are offline; capture makes read-only network requests.
 
 ```powershell
 ./reconcile.ps1 -Asset usdc
+./capture-plan.ps1 -Asset usdc
+./capture.ps1 -Plan archives/capture-plans/usdc/ethereum.json -Output evidence/YYYY-MM-DD-usdc-ethereum
 ```
 
-Outputs go to `archives/reconciliation/usdc/`; this command does not modify the site registry. The pipeline deduplicates events, checks selected-input manifest hashes and rejects missing/mismatched entries. Review `accounting-summary.json` first: it separates token/chain/interval totals, movement classifications, address inflows/outflows, provenance and diagnostics. Then inspect the full `reconciliation.json` and CSV review queues. Discovery observations remain separate from verified event accounting.
+Inspect plans before executing. Anonymous providers have different limits for logs, receipts, headers, OR-holder filters and batch sizes. Save failures, reduce batch/range size or increase delay, and resume the **same plan and output directory**. Successful hash-checked pinned requests are reused; dynamic tags are not. Do not overwrite attempts or edit the meaning of existing batches. Use a new package for a materially different plan. An interrupted capture needs a successful resume to finalize its manifest before selection.
 
-## 4. Resolve exceptions without hiding them
+After capture, add its README, update its manifest and explicitly select reviewed inputs. Reconcile and generate a **second plan**: newly found transfers introduce receipts and headers absent from the first plan. A provider may serve old headers but return null receipts; null and errors are unavailable evidence, never zero activity.
 
-Review closing outflows, large unmatched payments and their downstream destinations first, but retain the full ledger. Check missing timestamps, receipt failures, incomplete histories and negative reconstructed balances before interpreting unmatched counts. Inspect competing candidates, conversions, possible exchanges, inventory clearing and internal transfers as well as the generic unmatched queue.
+For explorer acquisition, save all pages and the terminal cursor. Explorer pagination is not RPC range coverage. Get successful receipts and block-hash-bound headers for material events. Validate exact chain, emitting contract, from/to, raw integer amount and log index; ignore zero-value lookalike transfers when following value, without deleting them from the ledger.
 
-For a selected downstream address, `./research/review-address-history.ps1 -CapturePrefix <path>` checks paired `.request.json`/`.response.json` RPC batches with IDs `in`, `out` and `balance`. Query incoming/outgoing token Transfer logs from block zero to the same numeric block and `balanceOf` there. The script checks event scope, duplicates and the closing balance, then emits exact raw totals and recipient aggregates. See [the Rollux capture example](evidence/2026-10-15-rollux-distribution/README.md). A reconciled balance does not prove ownership, backing or the absence of offsetting missing events; do not promote a downstream address to a vault based on a transfer alone.
+## 4. Check history and accounting before interpreting matches
 
-A candidate requires the actual event IDs, holder/recipient, exact amounts, timing and receipt context. An amount/time match is a hypothesis; exchange entry does not identify an account or a later withdrawal. Document accepted interpretations and rejected candidates in the assessment with source links. The current engine does not consume manual decisions as settled accounting: do not overwrite its classifications to make a report appear resolved.
+Inspect these generated files in `archives/reconciliation/<asset>/`:
 
-For each representation, establish gross issuance, destruction, holder balances and adjustments under its actual contract semantics. Separate time slices and migrations to avoid counting one claim twice. For each verified vault, reconcile opening balance + receipts - payments + explicit adjustments = closing balance at the stated cutoff. Event net flow is not a closing balance unless the opening state and full coverage are proven.
+| Report | Question |
+| --- | --- |
+| `accounting-summary.json`, `reconciliation.json` | What events, classifications, diagnostics and provenance were retained? |
+| `history-coverage.json` | Which requested intervals lack successful unrestricted incoming/outgoing logs? |
+| `balance-checks.json` | Does retained replay agree with independently pinned state? |
+| `balance-intervals.json` | Does the change between consecutive states equal intervening transfers? |
+| `claim-positions.json`, `source-positions-<chain>.json` | Which representations, dated rights, vaults and cutoffs are actually covered? |
+| `routing-review.json` | Which supported memos identify destination candidates, and which calls remain unsupported? |
 
-## 5. Verify and optionally prepare the site
+Resolve missing timestamps, failed receipts, negative reconstructed balances and state disagreements first. Historical balance bisection can locate a discrepancy; then fetch the boundary logs, receipt and before/after state. Bisection alone does not prove the first change or complete history because balances need not change monotonically. Equal endpoint balances can conceal cancelling omissions.
+
+For each vault, establish opening balance + receipts - payments + explicit adjustments = closing balance. Keep gross movements, internal transfers and amounts below review thresholds. Neither event net flow nor an absent row establishes a zero balance. Wrapped-token balances require separate backing evidence and must not be counted twice with their underlying reserves.
+
+For Fusion, keep standard supply, address-one balances, blocked balances, dated rights and vault inventory separate. A block flag does not burn a token. Equal legacy/newer amounts support a migration hypothesis but do not prove extinguished rights. A holder being a vault does not establish whether its tokens are customer property, inventory or overlapping claims. Use [holder funding](research/review-holder-funding.ps1), [controller links](research/review-controller-links.ps1) and the [accounting treatment review](research/fusion-claims-review.md) where their documented formats apply. Do not sum every representation into customer liabilities or subtract balances without evidence.
+
+## 5. Review material outflows and their endpoints
+
+Prioritize all unmatched outflows above the configured threshold in the stated terminal window for **each chain/token/vault**, plus older material cases and small post-announcement exceptions. Do not limit review to the largest two. Missing dates retain material cases for review. Check the rest of the ledger and competing candidates; a small unmatched count is not the objective.
+
+For each selected case, record the original event ID, observation, competing explanations, evidence, unresolved question and condition that would reopen it. Compare successful Fusion calls/receipts, exact holder/recipient, amounts, chronology and authenticated routing fields. A close amount/time match, assumed fee or decoded memo is a candidate, not accepted settlement. Do not widen rules merely to clear the queue. The current engine does not consume manual assessments as settled accounting.
+
+Follow value through receipts, stopping at a documented evidence boundary:
+
+| Endpoint | Defensible conclusion / next evidence needed |
+| --- | --- |
+| Retained token balance | Pin `balanceOf`; state block/time and ownership unknown. No later returned transfer is not proof of continued possession forever. |
+| Labelled exchange | Preserve the label and deposit path. Public chain data usually cannot identify the credited account or an internal conversion/withdrawal. |
+| Bridge | Bind source/destination protocol messages and token logs. For CCTP verify domains, nonce, sender and the complete message, not amount/time alone. |
+| Swap or different token | Verify actual returned token/recipient. This explains disposition, not equivalent backing or reimbursement. |
+| Mixed balance | Record pre-existing and additional funds; do not attribute every onward payment to the original outflow. |
+| Unlabelled recipient / inaccessible history | State the observed boundary and the specific missing evidence. Do not invent ownership or report an unavailable balance as zero. |
+
+Use `research/review-address-history.ps1` for its documented paired incoming/outgoing/balance RPC captures. Follow destination recipients, not the entire unrelated history of a shared protocol. Keep official announcements as dated attributed statements; chronology does not establish purpose, and general announcements may not identify an asset-specific onset.
+
+Create `research/assets/<asset>-closeout.json` with `scope`, positive `windowDays`, optional `extraEventIds`, and `decisions`. Each decision has `eventId`, `finding`, `limitation`, and repository-relative evidence `references`. Store conclusions here, not copies of generated transaction rows. Run:
 
 ```powershell
-./verify.ps1
+./research/review-closeout.ps1 -Asset usdc -RequireReviewed
 ```
 
-This builds, runs tests, executes every configured asset, verifies selected-input integrity, checks committed movement reports against regeneration, and builds the static site. It makes no chain calls. It does not certify custody, complete history, secrets absence or asset reconciliation. GitHub runs the same checks on PRs and before Pages deployment.
+This derives the material shortlist from the current report, writes an ignored report with its input hash and fails if any selected case lacks an assessment. **Reviewed does not mean resolved.** New history can change the selection; rerun after every evidence update. A documented lack of evidence is an honest result, but not proof the investigation is complete.
 
-After reviewing a proposed site report, explicitly promote it:
+## 6. Publish the assessment and common UI
+
+Update the asset package and its assessment: established observations, plausible interpretations, unresolved gaps, attempted methods, cutoff and reopening conditions. A bounded closing pass may be finished while the reconciliation remains partial. To call reconciliation complete requires justified full vault discovery, validated consolidated Fusion claims, comparable redeemable assets, aligned independently observed balances, reconciled histories and accounted material adjustments/exceptions. State which condition is unmet.
+
+Use [the standard study format](registry/STUDY-FORMAT.md) and [study template](registry/study-template.json); all assets share one UI. Show Fusion supply versus included vault balances, with unverified backing separately. Do not present the arithmetic difference as proven loss or customer liabilities. Only original likely-vault outflows get cards; put downstream payments, exchange deposits and bridge legs inside that case's `steps`/`branches`. Link exact addresses and transaction hashes to the relevant explorer. Connect `movementsFile` so every retained movement remains accessible behind the default filters.
 
 ```powershell
 ./reconcile.ps1 -Asset usdc -UpdateRegistry
 ./verify.ps1
 ```
 
-This creates `registry/usdc-movements.json`; it does not add a study or publish anything remotely. For site inclusion, follow the [standard asset page format](registry/STUDY-FORMAT.md) and copy the [empty study template](registry/study-template.json). Every asset uses the same layout; no token-specific HTML or presentation switch is needed. The schema is checked by verification. Unknown balances remain unknown, and balances with unverified backing can be shown separately. Preview every tab and follow the explorer/evidence links before including a study. Partial publication must say exactly what remains unknown.
+For an existing published Fusion snapshot whose statistics and holder positions are unchanged, run `./registry/refresh-fusion-provenance.ps1 -Asset usdc` after reconciliation and before verification. It checks the current configuration, known token inventory, exact mint/burn statistics and pinned holder positions before changing only the provenance hash. Changed statistics must be reviewed into the snapshot; do not bypass the guard.
 
-## 6. Submit a pull request
+Promote only after reviewing the regenerated output. Verification builds, tests, checks selected evidence and snapshots, regenerates reports, enforces report freshness and builds/checks the common site. It makes no chain calls and does not certify custody, privacy or completeness. Preview every changed tab and verify links where a browser is available.
 
-For a study with a published `claimReview`, run `./research/review-holder-funding.ps1 -Asset usdc` (substitute the asset name). Use `-TopCount 10` to inspect more holders. The offline report includes exact incoming/outgoing transfers and evidence references and requires their net balance to equal the published snapshot. It goes to ignored `archives/holder-funding/`; verification also runs the default three-holder review. Inspect conversion receipts before interpreting a mint as a deposit, and distinguish transfers between Fusion holders from source-chain backing. Preserve exact token/holder/block requests for restriction flags. A blocked balance remains outstanding on its contract until evidence supports another treatment.
+## 7. Review privacy and submit
 
-For calls matching the documented controller layout, `research/review-controller-links.ps1` can compare receipt-supported mints with source-event identifiers. Supply `-Asset`, a reviewed `-FusionEvidenceDirectory` and the observed `-Controller` address. See the [USDC example and limitations](research/usdc-controller-funding-links.md). This emits a separate candidate report, keeps ambiguous identifiers visible and never changes settlement classifications. Validate destination memos, source token transfers, block chronology and token backing before drawing conclusions; equal identifiers alone are insufficient.
+Stage named evidence, scripts, configuration, assessment and site files. Exclude private material, `archives/`, `dist/` and build products. Inspect staged diffs, URLs, metadata and filenames for secrets and identifying community material; ignore rules alone are insufficient. Record actual verification results and remaining gaps.
 
-Reviewed movement cards must represent outflows from likely vaults. Keep downstream transfers, bridge legs and exchange deposits inside the originating case, never as additional cards. For a split route, keep the common path in `steps` and add `branches`, each with `title`, `explanation`, `steps` and optional `limitation` and `source`. The card amount and date describe the original outflow. A later, distinct outflow from a likely vault may have its own card even if connected by earlier funding; explain that connection and never sum card values as a loss total.
-
-Connect the generated movement report using `movementsFile` so readers can inspect every retained operating-address movement, including inflows and internal transfers. The site starts with reviewed cases; the full ledger is hidden until selected. “Show all recorded movements” clears all ledger filters, with pagination retaining access to every row. The ledger is complete only for retained inputs, not necessarily for chain history; preserve coverage limitations when publishing it.
-
-Stage named evidence, configuration, assessment and reviewed site files; exclude `archives/`, `dist/`, build products and private material. Review `git diff --cached --stat` and `git diff --cached`, then commit. Push your research branch to your fork and open a PR against `algorexxx/chainge-postmortem:main`. Use the [PR template](.github/PULL_REQUEST_TEMPLATE.md): state scope, evidence, coverage gaps, rule changes and verification results. One asset or coherent correction per PR. Do not rewrite project history or force-push `main` as part of ordinary contribution work.
-
-A **reproducible partial investigation** has traceable public inputs, stated gaps, a passing offline run and cautious conclusions. A **completed reconciliation** additionally requires validated consolidated Fusion claims, a justified complete vault inventory, independently observed balances at a common cutoff, reconciled histories and every material exclusion/adjustment accounted for. Neither status is awarded automatically by CI. Maintainers decide acceptance; LLMs must report unavailable evidence and stop short of unsupported conclusions rather than silently relaxing the standard.
-
-
-Routing review is optional per asset: configure `routingCallTargets`, `routingChainNames` and `routingReviewMaximumDelay` only with documented evidence. Inspect generated `routing-review.json` for decoded and unsupported calls. The current decoder covers the observed `0x3f163c47` colon-memo layout and requires receipt/call/burn agreement. It does not authenticate the ABI, memo fee semantics or settlement. Exact destination candidates remain separate from normal matching; missing destination-chain history is unknown, not a failed payout. The observed flat JSON and colon-containing recipient variants are supported; JSON token indices remain unresolved unless independently mapped to exact destination contracts. Keep malformed and unsupported formats visible.
-
-
-## Coverage and balance checks for every asset
-
-Configure `logQuerySources` with saved numeric-block `eth_getLogs` request/response pairs and `logHistoryTargets` with the required chain, token, holder and inclusive range. Capture both directions. `history-coverage.json` merges successful overlapping retries and names every missing interval; errors, `latest` and counterparty-constrained queries earn no coverage credit. Provider-complete responses still require corroboration against state.
-
-Configure `claimCutoffBlock`, `claimCutoffUnixTime` and `claimIntervals` in the policy, plus `datedTokens` on every applicable evidence selection. Inspect `claim-positions.json`: address-one, treasury and migration positions stay visible, expired/future rights are labeled, and representations are never automatically added into customer claims.
-
-Configure `sourceCutoffBlocks` for aligned source-chain snapshots. Retain the block and adjacent header that establish each timestamp. `source-positions-<chain>.json` contains observed net positions and exact coverage gaps; absent rows are not independently proven zero balances.
-
-Configure `balanceSources` using saved `eth_call` request files. Each selection supplies `chain`, `directory`, `pattern` and `tokenDecimals` (an empty map is accepted for this state-call reader). Only canonical `balanceOf` calldata with a numeric block tag is selected. Single and unordered batched replies bind by JSON-RPC ID. `balance-checks.json` compares integer state balances to event replay at that block, records input hashes and distinguishes unavailable state, mismatches, recovered negative histories, and net agreement with or without covered log ranges. Agreement alone does not prove ownership, backing or complete discovery. Inspect mismatches before interpreting depletion.
-
-The evidence reader also supports raw Blockscout v2 ERC-20 transfer pages selected through `sources`. Follow and preserve every pagination cursor during acquisition. These rows retain explorer timestamps and remain receipt-unverified until independently corroborated; pagination is not RPC range coverage. Discovery rows sharing an actual transaction/log identity must agree with node evidence or the import fails. Keep an explicit missing-receipt queue rather than treating a successful import as verification.
-
-For a terminal window, retain pinned `balanceOf` reads immediately before its first block and at its closing block. `balance-intervals.json` compares consecutive observed balances with the intervening transfer change, excluding the opening block and including the closing block. It keeps all source observations, rejects conflicting same-block states, checks for negative intermediate balances, and reports log-range coverage separately. A matching interval can validate the observed net change while earlier history remains incomplete; cancelling omissions are still possible. These checks do not remove transfers from the ledger or classify redemptions.
-
-Use anonymous free sources for this project. Preserve throttling/range failures and resume bounded acquisition; do not introduce account requirements or credentials into the workflow.
-
-## Generate and resume anonymous RPC acquisition
-
-The .NET collector can turn configured coverage gaps into bounded log queries, then batch missing receipts and block headers. Configure `capturePolicies` per chain with a public endpoint, expected chain ID, request delay, timeout, stop threshold, maximum inclusive log span and RPC batch size. The batch size applies to log windows as well as receipts and headers. `combineHolderFilters` defaults to false: enable it only where the provider supports OR-holder filters at the configured range. Arbitrum, for example, permits a much larger span for a single holder than for an OR filter. Provider limits are observations that may change.
-
-```powershell
-./capture-plan.ps1 -Asset usdc
-./capture.ps1 -Plan archives/capture-plans/usdc/avalanche.json -Output evidence/YYYY-MM-DD-usdc-avalanche
-```
-
-Inspect the generated plan before running it. Planning and reconciliation are offline; only `capture.ps1` makes network calls. The plan is an ignored working artifact; every executed request is saved in the evidence package. Only read-only RPC methods are allowed. Each run verifies the chain ID before data acquisition. Requests, raw responses and capture metadata are appended as separate attempts, with hashes and a package manifest. A batch with an error or missing ID remains unsuccessful; its successful members still remain in the raw response for review.
-
-Rerunning the **same plan and output directory** resumes hash-checked successful pinned requests. Calls using dynamic tags such as `latest` are never reused. Existing attempts are never overwritten. Consecutive failures stop the run with a nonzero exit code and an explicit remaining count; retain the failures, respect provider limits and adjust the next plan rather than treating unavailable responses as zero. An interrupted process may lack a final manifest: resume the plan to finish it before selecting the package. No background scheduler or automatic publication is installed.
-
-After capture, add a README explaining scope and failures, include it in the SHA-256 manifest, and explicitly select reviewed request/response files through `sources`, `logQuerySources` and, where applicable, `balanceSources`. Reconcile again, then regenerate a **second plan**: newly discovered logs may introduce receipts and headers that the first plan could not know about. Keep a plan unchanged while resuming it; regenerated ordinal batch names need not match old ones, and differing request hashes are never reused. Use a new package for a materially different plan when that makes provenance clearer.
-
-Coverage, receipt verification, balance agreement, custody attribution and accepted settlement remain separate checks. The collector closes evidence gaps; it does not accept redemptions or infer ownership. Preserve public venue API traces separately from EVM RPC logs, with their API retention limits stated.
-
-For downstream bridge traces, verify the protocol contract from official documentation, then bind successful source and destination receipts using the actual message fields. For CCTP v1, check emitting contracts, source/destination domains, nonce, sender and the complete message body, plus the corresponding token burn and destination mint amount/recipient. Amount and time proximity alone are insufficient. Shared protocol contracts are transit points; tracing their entire global user history usually adds unrelated activity. Follow the destination recipient instead, and retain partial explorer discovery separately from complete bounded log coverage.
+Commit, push your branch to your fork and open a PR against `algorexxx/chainge-postmortem:main`, following [the PR template](.github/PULL_REQUEST_TEMPLATE.md). One asset or coherent correction per PR. Do not rewrite history or force-push main during ordinary contributions. Maintainers decide acceptance; LLMs must report unavailable evidence and must not lower the completion standard to finish a task.

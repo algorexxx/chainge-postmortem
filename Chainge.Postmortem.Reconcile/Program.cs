@@ -105,7 +105,8 @@ foreach (var group in result.Movements.GroupBy(m => new { byId[m.SourceEventId].
 Console.WriteLine($"{snapshot.Events.Count(e => e.Timestamp is null)} events lack timestamps; {result.Movements.Count(m => m.Candidates.Any(c => c.Competing))} movements have competing matches. All proposed pairings require review.");
 
 foreach (var group in purposes.GroupBy(p => p.Classification)) { Console.WriteLine($"Fusion purpose {group.Key}: {group.Count()}"); }
-foreach (var group in snapshot.Events.Where(e => result.UnpairedFusionEventIds.Contains(e.Id)).GroupBy(e => e.From == "0x0000000000000000000000000000000000000000" ? "mint" : "burn")) { Console.WriteLine($"Unpaired Fusion {group.Key}: {group.Count()}"); }
+var unpairedEventIds = result.UnpairedFusionEventIds.ToHashSet(StringComparer.Ordinal);
+foreach (var group in snapshot.Events.Where(e => unpairedEventIds.Contains(e.Id)).GroupBy(e => e.From == "0x0000000000000000000000000000000000000000" ? "mint" : "burn")) { Console.WriteLine($"Unpaired Fusion {group.Key}: {group.Count()}"); }
 
 foreach (var group in inventory.GroupBy(r => r.GetReviewQueue())) { Console.WriteLine($"Fusion burn queue {group.Key}: {group.Count()}"); }
 Console.WriteLine($"Total Fusion burns without an external settlement pairing: {inventory.Count}. Inventory classification explains the balance change, not the external settlement; no events removed from accounting.");

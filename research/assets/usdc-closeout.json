@@ -1,0 +1,801 @@
+{
+  "scope": "All unmatched outflows at the configured material threshold within 90 days of each retained vault/token/chain endpoint, plus explicitly listed older and later cases.",
+  "windowDays": 90,
+  "extraEventIds": [
+    "Ethereum:0x3823e138982b276b1046a6c552c7db7a2da083b5d63610751360164b8d1e1eda:346",
+    "Ethereum:0x5e4a63c30ff5e019abb98ce4c72f58d59f30b7612a3683086ac008fc4cc6cf0c:503",
+    "Ethereum:0xd15fdd43bbd24ed88ee64bf7cb92a671b7be9818f5f377cbc9f406fd5694ef50:515"
+  ],
+  "decisions": [
+    {
+      "eventId": "Arbitrum:0x0ee9b0a37d5392e84722afab1ebebaa05badd7227d80e4e9659759e8a31fd975:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 10000 token units to 0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84 in 0xdd6cc0fe504fdc6a15c24d1a692d19ae547b2b74d5e525fbb191a3bc7613e520; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xeffcad26d4ea39a2cedc72b64b6364c50799e80169610e4068e177b711e8bc51:3 is 23 seconds before the payment (negative means after), with 5.200092 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-expanded-receipts/arbitrum-receipts-0051.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-1059.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-21ca2c-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x191c1acdb037896edd1fd8fa340bdad279ade7c634f1ea5664c31c6a3ec07fbe:3",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 90000 token units to 0xe37e799d5077682fa0a244d46e5649f71457bd09 in 0xddb936f39c6aede689abedad916896fbfac76335dbfb9e753e34dd2ff9f8c1d2; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-expanded-receipts/arbitrum-receipts-0087.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-38de66-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x36b2bc945d0f6de6b4d5640cce13f36ff7c25a59eb73d0b69c7878437f1c0e45:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 52674.215432 token units to 0xe7dc10ee1a98a10353e8f756b766a7590aa8459e in 0x9c0383391d02cb56cbe6a93b23bd76ee4c7fdc57b6754fdb3182f8675342d6af; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0x4dde776c05abc620a9a68210138cfc750779bd1c2b85edde0361299e20fde717:14 is 23149 seconds before the payment (negative means after), with 26.549986 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000067-0001.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0341.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-078876-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x4497e527d88d71ecaf52a27cbaa26834fe476229c00a33f7aad6ddac416da51d:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 23081 token units to 0xdef171fe48cf0115b1d80b88dc8eab59176fee57 in 0xcd1694e91774ccf9ad869292fd7ef3d265e4f0b092aa0d983cdc7e5e5468880f; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000171-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-63aa2a-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x4da815c31dca783af1a10eef87da8ba8e1c5c54a0778bedf3df1cb06094a7694:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 180000 token units to 0xd4c7397e089da92a62a55b2ba1d7f20d161ebf7b in 0x106e2c7f75a576f2597e263062a4dcfb3b74eb9a95e9eb4f103e2999dbf83aac; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0x9efc85786f27a5dc93bd2268ebae326da44f970cefddf1129396c1a2a33a4bfe:15 is 36 seconds before the payment (negative means after), with 90.200012 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000233-0001.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0699.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-21ca2c-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x564a63fa0898a580f15770865d17e7dedf75af222f93c9e71f31773658e2447e:2",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 416151.958806 token units to 0xb38e8c17e38363af6ebdcb3dae12e0243582891d in 0x3e05214ef887af153b056b535f67be7308f452a12fc51288230909e55e9cce2a; its token/from/to/amount and successful receipt/header agree. Routing review identifies destination candidate from Fusion:0x9a10c66ba478caf32f956a69d076920494061427764dfc0612a7fb9c17eed802:1; the memo relationship remains separate from accepted settlement.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-history/8e5831-12aa8e-out-024.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-bf3e3f-8e5831.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x580d5230dcf060207717f38ebe9c216b66a45192e47530ae2a0035fe8927a10e:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 1200 token units to 0x84652bb2539513baf36e225c930fdd8eaa63ce27 in 0x4e8bbd1bbefec2db71342550d67e8a43e698ec96c5d80d12cb247019febd558a; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000307-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-7b06d7-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x794844f45e578134c455b1eafc40cef8be3a49c1ac081c6c5a8ff7d92645f56c:10",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 10341.450423 token units to 0x19f29007707989212d19d7687fb29ead1338f006 in 0x95c2ffa031b09846ebc4ade17afaa046364901b55ad1cd2c18d79cc14acbe93b; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xfb2a7863eafc7ad050bfb26d9f22fc3e54f910f0248f45772c378a36b086d01e:34 is 39 seconds before the payment (negative means after), with 5.373374 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000551-0001.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-1109.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-eab7a8-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x8e05e6146919bf81d86a8335cf156c268b60d30cf6d2581871e4e254b6f653b4:17",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 10116.524424 token units to 0x7f137d1d8d20ba54004ba358e9c229da26fa3fa9 in 0xedbe366cd5f7a32912d320e0b23d53c5b88dd3e31d7e5da5b7361ade6f8b1e39; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000700-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-eaf87a-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x98d3b8147b75730986f797c79c961cbfb5639f8ea7901b6336582c0c5437bc3d:15",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 22104.054041 token units to 0x625e7708f30ca75bfd92586e17077590c60eb4cd in 0xb7a86cc807886204f5782bb34c8f8aa735d6151ed06c1bf0100e2602e6a5186a; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000776-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-63aa2a-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xa763910b95d8c58a828f848273930b978a7e767892e5f78efe14d61e9d9dfd70:1",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 110000 token units to 0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84 in 0x3a6dee001f799895e774b520201d04eb223e1d1548eda548dab3f4da74affe89; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xac6c8d4fffbb5cd1eb5163089483e18eeb2907cbabd21eb33a42a779b4c17b10:1 is 25 seconds before the payment (negative means after), with 55.199994 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000879-0001.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0758.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-21ca2c-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xb2f997383979b7c27a84e6d36c7f0b50532cf14dd1ed42ebad5a4dc65e05d16f:12",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 14982 token units to 0xe37e799d5077682fa0a244d46e5649f71457bd09 in 0xf1c38ae4bbe6bca1ba0d72845e34ed4cc2db55dfc13ee6d3a5834bd253e928c5; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-000964-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-a571a0-8e5831.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xbc9c6e203483b00e09b6bf423aab09c2c259a12fe8f9997791eb439e8f432b6d:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 13582.080498 token units to 0x31ef83a530fde1b38ee9a18093a333d8bbbc40d5 in 0x94894564a31c02b38d081c634fd797400caebbfd87d173baf3ae5059bd6e5faf; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-001031-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-772ae1-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xf1ed5991ccc88704a4c10c198f40857197ec94f0c0ca2ef29461aa1e334140d7:2",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 15420.462654 token units to 0x31ef83a530fde1b38ee9a18093a333d8bbbc40d5 in 0xce7dec11d54646fc5cb854680c4bbb2a1502bd9b2446762ddcd5611ddd12dce7; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-001414-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-772ae1-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xfcdb1918461bcd659caf8f0889cd45aba9fc6dc5f1c4be0b8a5ebe7bfcefb0b8:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 300000 token units to 0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84 in 0x19f02883561021a50a35a88c0601e64c0151bb88fe9bf3a42f008199e5712558; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-arbitrum-capture/receipts-001492-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/arbitrum-21ca2c-db5cc8.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/arbitrum-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x0606c91961052186d254bbbf37d428673bf72ed4adb8b5e790a3aed40f20635f:3",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 35993.09097 token units to 0x9f8c163cba728e99993abe7495f06c0a3c8ac8b9 in 0xc43aa9634bf3ff2d15871df4d3a08669848582a60a7500f38721b36f6ea0f4d3; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-avalanche-capture/receipts-000000-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/avalanche-472763-c48a6e.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/avalanche-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x55bf5c8c3dc5bdddd36fff067e03e1e77909c72e59b3687beef29f701508807e:0",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 40000 token units to 0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84 in 0x164365bbb24d5ff6de7e506b4e0fd1389990861c2f0a966ad31d2f15f948fe46; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xd8629a043ba29c0ae79034a7eea506779f2eff981a2d384ba698ddad13cf9d7d:0 is 45 seconds before the payment (negative means after), with 20.044495 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link. Possible same-holder burn Fusion:0xcca526dd4d86373d5477f92d85cacf13b163b50d0f6d49e8dabe83787b7ad4bf:27 is -21659 seconds before the payment (negative means after), with 20.007582 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-avalanche-history/a4c664-55e039-out.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0902.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0952.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/avalanche-21ca2c-a4c664.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/avalanche-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x93381cd4db633e92f5cd0cfa809e9ed2d5b63872d4f885e45bb54130cdeb173e:11",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 15000 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0xcf0bdc8bca3404678a2d05a079ae30ed644913cc8e10f7c5561d6cf27a195ff6; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-avalanche-capture/receipts-000019-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/avalanche-480a80-c48a6e.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/avalanche-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xcc911ae356a702a5d60a409d8e2a143c45cfd2533576821a72a6e2ca4201467c:21",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 32522.137672 token units to 0xdef171fe48cf0115b1d80b88dc8eab59176fee57 in 0x36fb260b151e952653f85f5a6faa4f068622074447f9d636837dbf6041caf48e; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-avalanche-capture/receipts-000027-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/avalanche-dcb15a-c48a6e.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/avalanche-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xef87fb7e76a2c5369806b5467d134b420059930ca772c3bcd64685ab9c2adbf6:6",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 20000 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0xc5ca0ae25f9d767c38623170863586abae4673471f14c1d772704ec31ec33720; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-avalanche-capture/receipts-000031-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/avalanche-480a80-c48a6e.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/avalanche-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x00659d2b686235ac729c547fa9ee98f8988ada1fa2a2d21b0259c824cadfac21:237",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 25054 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x19c05cedbe585af67f7c935a50881960e2e8089bf429333f90b0411783c75211; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-480a80-06eb48-004.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-001.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x049ec91ee75835235ff1afe92ddd4c17fe8c3f88362c99e2160204a5e90d838b:555",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 60 token units to 0x03e47c6e74b35d3c5bc4f1acb3a73487ef3fe014 in 0xece4497c44bcfddb07fe38f1c8b98a833048f5bf1128feb7133e31248139e586; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-4c30de-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-008.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x31c37fe6ec2d452b91a47cbd346a62160d9a1a1452cd1f757a06ea05c9f2b474:375",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 18050 token units to 0xa161b2ecbfbd29c10988733a12d5bd7841159b90 in 0xefe8cbec92356c06b6b1b3cd59f052414ddb274c22e939ed926920961e857913; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0004.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-a99531-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-009.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x3823e138982b276b1046a6c552c7db7a2da083b5d63610751360164b8d1e1eda:346",
+      "finding": "The post-snapshot review checks this late payment and its preceding funding; the two October payments swap to ETH returned to the same vault, while the January payment reaches the documented OKX-labelled endpoint.",
+      "limitation": "This source payment occurs after the retained Fusion snapshot. Missing later Fusion burn evidence is unknown settlement, not proof no burn occurred. See the event-specific trace.",
+      "references": [
+        "research/usdc-post-snapshot-outflows.md",
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x456325f2ac7067234dd71e01bebe032b0255e039-0000.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x4a7ae286a7dd868742339dd049c8d77e77cec053a706b498b43aef0ac1a2a540:363",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 76552.039816 token units to 0x28c6c06298d514db089934071355e5743bf21d60 in 0x039bbff41ad1ad013dbb02e163ce5eba731776e06913871cc127e88cc78545db; its token/from/to/amount and successful receipt/header agree. Routing review identifies destination candidate from Fusion:0xf7fea78db3d3f74737f7ba834560c0c3e7b73405805d10ab0c9227f83de3c463:1; the memo relationship remains separate from accepted settlement.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-bf3e3f-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-000.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x5e4a63c30ff5e019abb98ce4c72f58d59f30b7612a3683086ac008fc4cc6cf0c:503",
+      "finding": "The post-snapshot review checks this late payment and its preceding funding; the two October payments swap to ETH returned to the same vault, while the January payment reaches the documented OKX-labelled endpoint.",
+      "limitation": "This source payment occurs after the retained Fusion snapshot. Missing later Fusion burn evidence is unknown settlement, not proof no burn occurred. See the event-specific trace.",
+      "references": [
+        "research/usdc-post-snapshot-outflows.md",
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x456325f2ac7067234dd71e01bebe032b0255e039-0000.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x626d2b4a805005e7556d0180233f3b2913c4d6f185a5fd7a91b6557c17e0392e:234",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 100000 token units to 0xa4b6aa5f955f3a944cca20e65b22280a47cc8673 in 0xaefaa10bc8b2f9a19ce384847772da89b8788a28d3a91c91445e2eb072c15dd5; its token/from/to/amount and successful receipt/header agree. The existing linked trace reaches the documented Netcoins/Hyperliquid route. Incoming Fusion-linked funding does not establish the outgoing payment purpose.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-ecfea6-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-007.response.json",
+        "research/usdc-hyperliquid-trace.md",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x89cbf5c73e15409f46d8b134e6ba13a8353fb643ee3f7da492770bd3bdcd8a51:304",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 14998.993851 token units to 0x28c6c06298d514db089934071355e5743bf21d60 in 0x6269d8f7ef1d8aa86b3f835bd6b650bd212e20cf834527d5a7671730c7a67daa; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-472763-06eb48-001.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-005.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x8f976ffa8c28e722914963256499b79eee131d28a67986fd1cecc7195778c391:455",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 15000 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x78c9c5b79b29e06feb887878c9573965f7fcad6a2910aafa12c6fd6a3351d617; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-480a80-06eb48-004.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-005.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xac9a1480fa6daf791dbc1071f2b004a9ca85bfa9d7f139a8e6c704decb098af8:232",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 37496.25 token units to 0xaa07b382536f9c988b045849dd059090ba80646c in 0xdab31322a1e7afc57e5bc96634f96fa3d6ad2cf13a53e880831d627110622aa0; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-62c52c-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-007.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xce5dacf2104ba536139d60bc4a1d04860b71c65ef76779d5f5c42719b97ffa2d:588",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 27317 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0xfc60445ef3df77d6576fe51cf3c26e87cae653eea0d19b70702a8d1438e52a55; its token/from/to/amount and successful receipt/header agree.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x8a4aa176007196d48d39c89402d3753c39ae64c1-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-480a80-06eb48-004.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-009.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xd061965ff4a96f2fc1eb0ef09fb3c7d70fc03ae3d6983c38b434b17cac420082:401",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 15000 token units to 0xde0a5ee32ed914c2d3f13128c2b375decdc394e0 in 0x983be5fb3858bc0ae4ead9cba0211cb8abd0257fd8d612b96dbaf743a074a4ae; its token/from/to/amount and successful receipt/header agree. The mixed-funds branch is now traced to a separately pinned 18,150-USDC retained balance; the original payment cannot be wholly allocated to it.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1-0000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-480a80-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-006.response.json",
+        "evidence/2026-10-15-usdc-terminal-closeout/final-balances.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xd15fdd43bbd24ed88ee64bf7cb92a671b7be9818f5f377cbc9f406fd5694ef50:515",
+      "finding": "The post-snapshot review checks this late payment and its preceding funding; the two October payments swap to ETH returned to the same vault, while the January payment reaches the documented OKX-labelled endpoint.",
+      "limitation": "This source payment occurs after the retained Fusion snapshot. Missing later Fusion burn evidence is unknown settlement, not proof no burn occurred. See the event-specific trace.",
+      "references": [
+        "research/usdc-post-snapshot-outflows.md",
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x456325f2ac7067234dd71e01bebe032b0255e039-0000.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xd2b58bd63e5ee5a477ed769f5ffbd68063dfb88724ee1c016686ba190709a288:77",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 2000 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x4b494d9c44b58e45e6f574a0dce43332a24cce45b349a2f5fa6819e7f412a3bf; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xe331a649aebe51fa9b341e0e38a42606a14e0fed0e89ea1976fb001c477c9250:1 is 96 seconds before the payment (negative means after), with 44.000329 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-ethereum-pagination/0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e-0000.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-1000.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/ethereum-62c52c-06eb48-000.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/ethereum-small-003.response.json",
+        "research/usdc-terminal-review.md"
+      ]
+    },
+    {
+      "eventId": "Optimism:0x11c4ace0060b8a4a82189d7a905d1864e1b50fab8d142f13dd747e330d0f7c02:0",
+      "finding": "The retained case assessment documents the swap/exchange route; the bounded recipient query did not add a further original-token transfer. Possible same-holder burn Fusion:0x9787728adb738d626f7b44bf72c9095b82b8d8970405bbfa01fdd9585bdfeb95:5 is 45 seconds before the payment (negative means after), with 30.365070 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0666.response.json",
+        "evidence/2026-10-13-usdc-optimism-batched/receipts-000029-0001.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Optimism:0xd392b9b948698fc13d18de861ecbbc36c2e66fd8960275cc02e3af1894afd7b3:2",
+      "finding": "The first retained nonzero onward payment after this vault outflow is 110000 token units to 0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84 in 0x12d11f22c7af2ddf9552d9e57d0277e95ce236f31c95f66ac204bb120a598036; its token/from/to/amount and successful receipt/header agree. Possible same-holder burn Fusion:0xdf75022c790c8ae25095b67fd32ea17caae1928ffc556cef724c73c01ef26962:13 is 42 seconds before the payment (negative means after), with 55.199975 more token units burned. This is an exploratory counterpart, not an authenticated fee or settlement link.",
+      "limitation": "Observed disposition and possible counterpart links do not establish payment purpose, beneficial ownership or accepted redemption. Earlier/additional recipient funds can prevent allocation of later payments. Reopen on a shared settlement identifier, reliable attribution or fuller history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0984.response.json",
+        "evidence/2026-10-13-usdc-optimism-batched/receipts-000861-0001.response.json",
+        "evidence/2026-10-15-terminal-recipient-discovery/optimism-21ca2c-c31607.response.json",
+        "evidence/2026-10-15-terminal-recipient-receipts/optimism-receipts.response.json",
+        "research/usdc-arbitrum-optimism-avalanche.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x0ca3edc560f4a0885c166bd4bad1c672f34dc9fb8c83c4dfc5a0438e8290fdea:31",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x8a4aa176007196d48d39c89402d3753c39ae64c1 called 0x3c499c542cef5e3811e1192ce70d8cc03d5c3359 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 10000 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x8daefd6b4718e343514a3e3a000bd5ad8dff0b18cee37d2af9fcfede94d0d1e2, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000051-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-005.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0016-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x16041d7cd10099e7a5a9a75eb09068395d25b0b19b9affd998068f178484d6f8:94",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 15204.068602 token units to 0x4309d3c5ebf9cb3c91b97decd080d9cac7835d48 in 0xef01ece35ca7fb1986c83e4b6bac8573311c8a8f634be672d6704d9c19f74a4f, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x61c0dacc55df016e3178a0c1a4b69d9cf947dd2f243c9f0bff402137850631b6:2 is 39 seconds before payment (negative means after), with 7.616717 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0428.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000089-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-008.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0005-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x1d12da17a70f3d3e9aad2a7b8353f1f879965769a2b1e2e7c2bd2c11593e2b59:25",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 10932.944427 token units to 0x1eb01678d01160b6f8dd0a582929df42e70132c2 in 0x6c65601d7233a3a3dc503de2bf44a0a0ccbe44a64bec0113f503844f07cba3d3, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x3a6fb648682a2df38dd9e4e774fe92f6b918310d9178f3774ebc3941ac207b21:1 is 39 seconds before payment (negative means after), with 5.473969 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0256.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000119-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-004.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0000-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x23abfd0e872c91aa396bee5cbdc41b5bee8fe1836722000c1c721f951f9312b7:261",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x6131b5fae19ea4f9d964eac0408e4408b66337b5 with selector 0xe21fd0e9. The same receipt returns 103558465477 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 67275 token units to 0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d in 0x23abfd0e872c91aa396bee5cbdc41b5bee8fe1836722000c1c721f951f9312b7, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0006-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x2a775ef4c2f1ab7bad6ac4c9364c37442587c9a40dab09dcceb39704aeb537f4:11",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 9998724338 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000173-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0018-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x2ecd629150c2bed90a4a2ce83a402c7f16bb104c89fef532bbf7060895dcca7a:54",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. The bounded recipient query returned no nonzero onward transfer within its 50,000-block window; this is not proof of a current retained balance. Possible same-holder burn Fusion:0x0e0cdd143d81d55585186b1d052befe772526cb147f18323e2367bf3bd584d99:1 is 6979 seconds before payment (negative means after), with 11.799995 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0063.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000192-0002.response.json",
+        "evidence/2026-10-15-usdc-polygon-context-fallback/transaction.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x49fa51fd6edcf656d5d9938788276934c0b9cdf9b10b6c88079fb2dab040ec5a:39",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 9993925113 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000305-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0017-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x4a8343cd8d3b98de015eefbbb7e3908fa1537fd1898d1b0befbcb5ccaa12e71c:48",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 50000 token units to 0xd314c0edbf8a3e7676c87c5b42427a44e7f72388 in 0x3fb58610ddf0965cc2d8fb3409959679f1248742c8707b3fb98e16a09d1ecfdf, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x32afbbb5af307cd7640a8f99980e04d9781b690842b13639542963025486680c:1 is 1152 seconds before payment (negative means after), with 30.100005 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0223.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000307-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-002.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0014-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x5099ef1f76f2e198ff6f8a4a56d054f0ef30caa56917a06af3c6f486d19f9af4:21",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 15100 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0xaa1fe4929f7a8bc564f0525325cd65baffff49a6b51c91c0d4af1bc0fcadf895, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000336-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-006.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0010-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x56f89efd7eb263551a8d85e66cca3c19065d3fcf4655ce7cd9574b1002788f41:27",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 9998679356 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000363-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0018-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x58445033aebeda81fb3feda0b2c69786b205f050042bfb8a41b0486c76c970d4:58",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 10006480915 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000367-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0016-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x6749be5cacb2537242866c6d6ea5cfad14f57f1e2eae886ed098e29c74a0567f:5",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 10004 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x6c35af9c51214c8a2fdeb79bf698e60f14f11bfa3bf0cb1ce8d5a6c1f3063d3b, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000431-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-004.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0014-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x69c5128380dc3da9c7865cc02f27ebdd40aff6e0d991b5cd01c1e3f64cd83a39:9",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 20003 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0xc3e40e676a0175ff7a64c8ed4c1ab279007c25d26d27ac674b3cf9d45cc82332, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000441-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-007.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0012-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x6a1fb4ad58d884c5e6021e64d0ba6b46ce0a8e3e3acba74e81821e7213183885:34",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 74500 token units to 0xd314c0edbf8a3e7676c87c5b42427a44e7f72388 in 0x4fa3c7a026840ff4d3f28934c7979d05153f5456e318b1db2011164ed25cdd98, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x5250daa736419ec6004f0df2a5fb3a9ac62dbe171ba76117e60d880138d9c0f5:1 is 1097 seconds before payment (negative means after), with 42.10001 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0360.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000443-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-003.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0015-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x7d7525d34ecf1f4a6196933e54fe3f85bdf5826fbfbe77d80115a7b8cb8443d6:42",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 10007864449 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000522-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0018-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x7dad7c6a0438cc816de230b2b8ca0199efae35465de067069ef447d42df3fcf1:48",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 16098 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x0029f3b5d0c9c91270b5914c1e33dc297ac05d023c8530744384b6877f41e978, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000523-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-000.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0010-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x82c10ab34850512ee1740ac2ad401046291b9fb5b2cc471c2bc793f9ea1f9ab4:118",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 12272.01862 token units to 0x68c6d38e7cba7c0067eef71014e5b45b0fdc7a9f in 0x719aa468c7ccb868eb40b6173893c64a1e30990408d29e0415a90a56688c680c, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x33074521b08f5798563024135ad5d9abdd1db6341eba3f1de98a69741bc93794:0 is 46 seconds before payment (negative means after), with 6.144691 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0225.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000546-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-005.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0006-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x84186073ee5733bc90d31baf5e4679397cffebdb954c2610acf75c9540638399:84",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 30000 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x8444ad3e3d30692a630ccfa44d687efc0ba406a30142bb2e26cda2ab92598524, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000552-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-005.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0012-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x87c8c3a03aefa529301688f8601bad4046ce6592cf70e0573d5079fa5d958425:65",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0xf935eb7a7c44dcef19567ce1c3f06eff41fd1892 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 87950.997591 token units to 0xe7804c37c13166ff0b37f5ae0bb07a3aebb6e245 in 0x4f582c391db25b4ba6f63d02dac23bf2f9b2834bba729d9f19711efc958d23a5, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000566-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-003.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0020-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x89f38b743b08b660cedaaac4bbdd30d6df2384dd88d6447c966cc89592c0dfb5:16",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 10002.009023 token units to 0x41d3d33156ae7c62c094aae2995003ae63f587b3 in 0x2e986f0284b2c5ae36716f756da41fe4bf29f1cb4c319f6bf46be5c3008664f1, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-closeout-priority-receipts/polygon-receipts-001.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000575-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-002.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x99f65f49e2545964a0c5af9789c7d20ecc039093ce0f98d2509025004e2d2ae5:57",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 40000 token units to 0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84 in 0xb6730719942b789e057d990647d2f5920d9380003eb59eeedb95a4392da12256, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0xd8629a043ba29c0ae79034a7eea506779f2eff981a2d384ba698ddad13cf9d7d:0 is 21749 seconds before payment (negative means after), with 20.044495 more units burned. Fee semantics and settlement remain unverified. Possible same-holder burn Fusion:0xcca526dd4d86373d5477f92d85cacf13b163b50d0f6d49e8dabe83787b7ad4bf:27 is 45 seconds before payment (negative means after), with 20.007582 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0902.response.json",
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0952.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000638-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-006.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0002-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x9b517c3b75f4747057cd136a40ddaf8b439d3c54918e1603979f65ce4d685f52:308",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 24987.470821 token units to 0xfc51e780fac3047ca1496af2c6db1bc3fca2c478 in 0xc0bfd375fc680949d17a321e4c936116697522a1b87995f5bbdc5c550f22dddb, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000645-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-007.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0002-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0x9b78986eb7c6c962bc64131e01c4434cf7f1909c05fc68280b029ec435deb117:85",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 10004 token units to 0x9b29937d3b1489e7142c6905bb3e61b3cd472763 in 0x691bfde27cd593f3ef27157659432899a2fe3e4f85fbd4d6c217ada96d81b31d, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000646-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-004.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0013-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xa589b981574c6c0e585826ad3d5a21b30213da0d1f3b26402504623059a7b158:113",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 26736.35659 token units to 0xe65130c719584a68d48e2968e79e19d5daf1e983 in 0xca2e3f645ff422ac4468efdbdeac3e1877ae69d4783df622e8d486daf65d5cba, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x6afc4ad6fd76f96c0fb30eaa3699fe51ae5f4ee2426d522093eac1ea575b615c:4 is 42 seconds before payment (negative means after), with 13.381192 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0468.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000685-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-008.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0001-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xa86e45334a564a327170a8989f23f9c3a5a7355126ca9d4e2c94d38cd5d88531:57",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 100 token units to 0x30472717cecb10dd3a001c9a530050f3b56e8956 in 0x09eaff8d9089ce8efa0cbe0ff742cb69a3a922fbb982aecab7b2d8a16154df9a, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000696-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-000.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0019-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xaa1c379301fda5c5348fedaaf9be8a51981c77bc1ee791173690dd5c408c5f5a:25",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 14985 token units to 0xecf98e18f23a1a4be5004bf113e1cc965d6fe4aa in 0x191bd618261974435183fefec6b06bcd72e14247030dfe041d72a4409fb8df29, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x450b5a15da11a8e6c58cc9da2a1dee05f2cc3e8ec84cd4f1a14bbc978c555cca:1 is 59 seconds before payment (negative means after), with 7.498005 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0303.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000703-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0007-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xae53f77ce8151bb33ed1dbfd9021696f57661899b8fd589efbcb3f2ffb4f66d6:16",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 9995905053 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000720-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0011-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xbc3f9f8b84523402f243a8ce332753c379088fbd97f766d280e9a80cbf65bad7:172",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 12960.019214 token units to 0xe7804c37c13166ff0b37f5ae0bb07a3aebb6e245 in 0x15ffdc6d7af067b8c5c4ec89118527e1d15799ef723e72c3a9996e16833333cb, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000778-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0017-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xc1cdaf8d6b4fc4a4513d072babea31653e9276d004ac0f87a552ef1e2b9e44b3:209",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 12567.839513 token units to 0x21abee0ebfa6d146c1cc5fd3aaf003631f36aa87 in 0xf1918033baf9ed56da8e95b8301a7a419a0bd02ad544960464fa1565505fab10, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0xde890b81a49bb46c223360f0e351f5fe0b64abe3dd046058f8445c1e36679193:1 is 57961 seconds before payment (negative means after), with 6.331201 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0980.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000800-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-008.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0003-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xc9d3613b6ad988fed78e91c98e0b64caaef879c17c570c4ff8a03df995ebe60a:18",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 99954.830019 token units to 0x46b1adc3b1ca80ae3c003649efae4039544f02e9 in 0x00b1fcb67eab3087c5ebe09c44a55c7d027e166ff8ad49d4f889cdb995c057da, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0xe8e29f9b08f57dca9a27a346adfd667a8a5f490fcb08b0b0c84b5e6015594b82:1 is 40 seconds before payment (negative means after), with 50.008184 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-1028.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000832-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-000.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0000-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xcdc239d0266d108216591f7eb6dbc22e6a7c5e2645e872512016b89d18fca884:0",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 50000 token units to 0xd314c0edbf8a3e7676c87c5b42427a44e7f72388 in 0xc1d95618754366da775c34364559805641fbc50558a117b643d3e2519ec00f9f, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x0fa7d1ed560bef274f15aa992eafa5c5348ac8d82330eb3badad0cfce715df73:1 is 28560 seconds before payment (negative means after), with 25.005184 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0070.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000849-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-007.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0004-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xd8452f0e7cb3d2f9abfd0d3a1be4df55aaf060f045ca5289af2ad727c9348cc5:105",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x8a4aa176007196d48d39c89402d3753c39ae64c1 called 0x3c499c542cef5e3811e1192ce70d8cc03d5c3359 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 144 token units to 0x33c6e799dd65a204534842a8a32760867d504696 in 0x6488d2a8aade3728acc75fa997b2e390e0ac697b37d9ef451ffbe994206eb48e, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000891-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-003.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0019-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xe2670bd65e637783e14c474bd1b2cb6c31976fbd8f0dcec84f1e99080736569b:3",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0x5b7dd1bb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 15002.009023 token units to 0x41d3d33156ae7c62c094aae2995003ae63f587b3 in 0x448a300b09b37baf57e5975c0cbb649e53a71de238a05c6557cccea4a24557da, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-000933-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-002.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0009-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xf1e5094d61e2c2e17a6135e7c0e160a277ee7bf3c8deaca0658e2a73d71ab9fc:30",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x026151a366235fb32b6bedc9f45f154f17846986 called 0x0b662d54824825725be1e76c0a2b1c8f49b7419b with selector 0xd4d5ea45. The same receipt returns 10026400385 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. The same receipt returns 200000 raw units of token 0xc2132d05d31c914a87c6611c10748aeb04b58e8f to the source vault. This supports a conversion/disposition explanation, not equivalent USDC backing or a redemption. This recipient is the called routing contract; inspect the same receipt rather than treating its unrelated global activity as the path of these funds.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-001002-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0011-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    },
+    {
+      "eventId": "Polygon:0xf3c43023996f76710bb0e0137982d235f5b8340d456ed1d605016d0732522dd5:32",
+      "finding": "Successful original receipt confirms the vault payment. Transaction sender 0x456325f2ac7067234dd71e01bebe032b0255e039 called 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 with selector 0xa9059cbb. Within the bounded 50,000-block recipient window, the first returned nonzero onward payment is 34136.116122 token units to 0x456325f2ac7067234dd71e01bebe032b0255e039 in 0x907a68a3291b56eaaafb52c0e252e8bf6385cdff6a774d00bf19efa8daf0a5e8, corroborated by its receipt/header. Allocation of mixed funds and subsequent disposition are not established. Possible same-holder burn Fusion:0x0495e3d9020f81f81a88bbf3a5b3b360961a0ccbcf53a5a57566df9fff608989:1 is 79261 seconds before payment (negative means after), with 17.120890 more units burned. Fee semantics and settlement remain unverified.",
+      "limitation": "Original payment and bounded onward observations are verified; payment purpose, ownership, full recipient history and accepted Fusion settlement remain unresolved unless separately established. Returned alternative tokens are not automatically USDC backing. Reopen on shared routing/settlement evidence or fuller recipient history.",
+      "references": [
+        "evidence/2026-10-13-usdc-fusion-receipts/transactions-0021.response.json",
+        "evidence/2026-10-15-usdc-polygon-closeout-receipts/receipts-001010-0001.response.json",
+        "evidence/2026-10-15-usdc-polygon-onward-receipts/receipts-006.response.json",
+        "evidence/2026-10-15-usdc-polygon-terminal-context/context-0004-0001.response.json",
+        "research/closeout-assessment.md"
+      ]
+    }
+  ]
+}

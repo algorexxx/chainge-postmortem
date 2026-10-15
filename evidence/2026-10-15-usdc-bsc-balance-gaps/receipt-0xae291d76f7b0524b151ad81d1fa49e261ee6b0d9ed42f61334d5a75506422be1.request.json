@@ -1,0 +1,1 @@
+[{"jsonrpc": "2.0", "id": "receipt", "method": "eth_getTransactionReceipt", "params": ["0xae291d76f7b0524b151ad81d1fa49e261ee6b0d9ed42f61334d5a75506422be1"]}, {"jsonrpc": "2.0", "id": "tx", "method": "eth_getTransactionByHash", "params": ["0xae291d76f7b0524b151ad81d1fa49e261ee6b0d9ed42f61334d5a75506422be1"]}]

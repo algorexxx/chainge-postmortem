@@ -50,7 +50,7 @@ All three are **after the Fusion reference block**. Their lack of automatic matc
 
 ## Remaining work
 
-Establish migration replacement semantics and the rights associated with large holder positions before publishing a consolidated claim figure. Extend Fusion history beyond the late source-chain transfers before assessing their settlement. Continue to distinguish unknown vault coverage, token backing and beneficiary ownership from observed balances. See the [BUSD](assets/busd.md) and [USDC](assets/usdc.md) investigations for the source-chain scope and unresolved cases.
+The contract/state reviews below establish the observed migration mechanism and blocking flags. Establish the rights extinguished or preserved by that mechanism, and the beneficial ownership of large positions, before publishing a consolidated customer-claim figure. Extend Fusion history beyond the late source-chain transfers before assessing their settlement. Continue to distinguish unknown vault coverage, token backing and beneficiary ownership from observed balances. See the [BUSD](assets/busd.md) and [USDC](assets/usdc.md) investigations for the source-chain scope and unresolved cases.
 
 ## Post-snapshot follow-up
 
@@ -61,3 +61,20 @@ The [three-case review](usdc-post-snapshot-outflows.md) identifies new funding b
 The [contract and state review](fusion-migration-semantics.md) confirms coordinated BUSD/USDC blocking, matches both legacy runtimes to source, and checks all positive legacy-holder flags. Blocked balances remain recorded and reversible; no additional overlap deduction is applied. The reviewed UI separates the blocked subset from other balances.
 
 The [newer-holder follow-up](newer-holder-funding-and-restrictions.md) checks every positive newer position, identifies the account-specific block on 622376.614316 USDC, and reconciles the funding of the three largest holders of each asset. The same UI now shows independently verified newer blocking flags. Neither these flags nor the newly located migration guidance establishes a consolidated customer-claim figure.
+
+
+## Current accounting treatment (October 15 closing pass)
+
+| Position / event | Treatment in this investigation | Evidence needed to change it |
+| --- | --- | --- |
+| Newer standard-token supply | Display separately at the retained Fusion reference block; do not label it consolidated customer debt. | Proven rights and beneficial ownership of included positions. |
+| Address-one legacy balances | Show separately; neither automatically circulating claims nor automatically extinguished. | Contract/issuance semantics establishing the balance's economic rights. |
+| Blocked legacy and newer balances | Remain recorded balances. A restriction is not a burn and may be reversible. | Actual destruction, irrevocable replacement or documented treatment of those rights. |
+| Equal legacy positions and newer issuance | Report the supported migration relationship, without a second unsupported deduction or addition. | Evidence that the old rights cease to exist, and whether every relevant position is included. |
+| Fusion balances held by candidate vaults | Visible inventory with unknown customer/inventory ownership. | Evidence resolving ownership and overlap with externally backed claims. |
+| Dated/sliced representations | Separate by interval and contract; never add overlapping rights at face value. | Validated time-aware accounting and redemption semantics. |
+| Source-chain included balances | Independently observed token positions at aligned blocks, limited to the tested vault inventory. | Further vault discovery or evidence changing token equivalence/redeemability. |
+| Rollux USDC-labelled balance | Separate because backing remains unverified. Controller minting and round trips do not establish independent reserves. | Identifiable redeemable backing without counting the same collateral twice. |
+| Source flows after the Fusion snapshot | Trace disposition, but leave corresponding later Fusion settlement unknown. | A later reliable Fusion snapshot/history. |
+
+These treatments avoid converting a mechanical supply comparison into an unsupported liabilities or loss figure. The supported migration, restriction and controller findings are incorporated; the remaining uncertainty concerns rights, ownership and backing, rather than whether those observed contract operations occurred. Reopen the assessment on new contract semantics, rights documentation, vault evidence or a later independently supported snapshot.

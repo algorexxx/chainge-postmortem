@@ -11,6 +11,8 @@ try {
     & ./research/check-rollux-roundtrip.ps1
     & ./research/check-rollux-distribution.ps1
     & ./research/check-rollux-earlier-route.ps1
+    & ./research/check-closeout-evidence.ps1
+    & ./research/check-closeout-selection.ps1
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
@@ -22,6 +24,9 @@ try {
         $outputPath = Join-Path 'archives/workflow-check' $assetName
         dotnet run --project Chainge.Postmortem.Reconcile --configuration Release --no-build -- . $config.FullName $outputPath
         if ($LASTEXITCODE -ne 0) { throw "Reconciliation failed: $assetName" }
+        if (Test-Path "research/assets/$assetName-closeout.json") {
+            & ./research/review-closeout.ps1 -Asset $assetName -ReportDirectory $outputPath -RequireReviewed
+        }
         foreach ($study in $studies.Values | Where-Object { $_.movementsFile -eq "$assetName-movements.json" }) {
             & ./registry/verify-claim-snapshot.ps1 -ReportDirectory $outputPath -Study $study
             if ($study.claimReview) { & ./research/review-holder-funding.ps1 -Asset $assetName }

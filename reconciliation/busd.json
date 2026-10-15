@@ -247,6 +247,30 @@
         "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
         "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725"
       ]
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-busd-gap-localization",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xe9e7cea3dedca5984780bafc599bd69add087d56": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-coverage-extension",
+      "pattern": "busd-ethereum.response.json",
+      "tokenDecimals": {
+        "0x4fabb145d64652a948d72533023f6e7a623c7c53": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-busd-new-log-receipts",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x4fabb145d64652a948d72533023f6e7a623c7c53": 18
+      }
     }
   ],
   "limitations": [
@@ -340,6 +364,174 @@
         "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3": 18,
         "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725": 18
       }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-busd-gap-localization",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {
+        "0xe9e7cea3dedca5984780bafc599bd69add087d56": 18
+      }
     }
-  ]
+  ],
+  "logQuerySources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-coverage-extension",
+      "pattern": "busd-ethereum.request.json",
+      "tokenDecimals": {
+        "0x4fabb145d64652a948d72533023f6e7a623c7c53": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-busd-gap-localization",
+      "pattern": "boundary-logs.request.json",
+      "tokenDecimals": {
+        "0xe9e7cea3dedca5984780bafc599bd69add087d56": 18
+      }
+    }
+  ],
+  "logHistoryTargets": [
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    }
+  ],
+  "sourceCutoffBlocks": {
+    "Ethereum": 23524761,
+    "BSC": 63769742,
+    "Avalanche": 69908002
+  }
 }

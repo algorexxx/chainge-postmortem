@@ -90,3 +90,12 @@ The [case assessment](research/busd-case-assessment.md) consolidates Fusion acco
 The public Chainge group's privately held JSON export was inspected for the first founder-statement timeline. [Reviewed timeline data](registry/timeline.json) records its retained range, counts, original SHA-256, attribution basis and selected public excerpts; [the derivative manifest](registry/timeline.sha256) records the public file's integrity. Raw exports and participant metadata are excluded from the checkout. Export completion time and an independent backup have not been confirmed. The Fusion HTML export is present but was not analyzed for this first pass. See [method and coverage gaps](research/service-timeline.md). Live Telegram content could not be reverified through the web tool.
 
 The [joint Vlad/Oana statement](evidence/2026-10-13-chainge-joint-statement/official-statement.pdf) is a reviewed exception for a public attachment: preserved byte-for-byte from public message 912341, with its hash and attribution in the timeline. It is evidence of the authors’ account, not proof of their claimed access limitations or legal steps. Private profile screenshots remain excluded.
+
+
+## BUSD/USDC closing evidence (2026-10-15)
+
+The [closing assessment](research/closeout-assessment.md) links the current findings and remaining gaps. New packages preserve anonymous Ethereum/Polygon log histories, resumable receipt/header corroboration, bounded BSC state/replay localization, material-recipient traces and the pinned USDC downstream balance. Exact endpoint URLs, numeric ranges, request IDs, retrieval times and failures are in each package's request/capture companions; SHA-256 manifests cover the retained bytes. The asset configurations select the inputs used by reconciliation.
+
+Polygon's initial broad recipient query exceeded the result limit and was replaced by short, explicitly bounded windows. BSC/Base full-history acquisition remains incomplete. Provider errors, null results and a failed redundant Polygon tail query remain preserved; overlapping successful range captures are credited independently. No account, paid API or new private data source was used for these additions.
+
+Use [the contributor procedure](CONTRIBUTING.md) for the current acquisition and review process. Earlier dated inventories above describe their original checkpoints, not the current ledger size or completeness.

@@ -368,7 +368,7 @@
     "fusionStatistics": {
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
-      "configurationSha256": "926ad95c360743d23db4eb5c4c99efb9e230ed07a70495e3ba39a527e9eefca8",
+      "configurationSha256": "8ade6f516eb6c1ee690e8d69d4ce7880f9406013d09eee925277bbcb6ae8202c",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-ledger-reconciliation.md",
       "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling this asset and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
       "tokens": [
@@ -3546,10 +3546,10 @@
         "amount": "17000",
         "date": "2025-05-22",
         "status": "Unmatched",
-        "endpoint": "2,700 later reached Binance 14; 15,000 followed a separate onward route",
+        "endpoint": "2,700 later reached Binance 14; the mixed-funds 18,150 branch remains at an unlabelled address",
         "explanation": "A direct USDC transfer one day before the latest retained vault outflow. No accepted Fusion settlement link. The recipient already had a reconstructed 720.651071 USDC, so the subsequent 15,000 and 2,700 payments distribute mixed funds.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-terminal-review.md",
-        "limitation": "Do not add the downstream amounts as new vault outflows. Prior funds prevent attributing the 17,700 total solely to the 17,000 payment. Exchange credit ownership and the final use of the larger branch remain unknown.",
+        "limitation": "The 18,150 balance includes additional funds and is not wholly attributable to the original 17,000. Ownership and exchange account credit remain unknown. The final balance is pinned at Ethereum block 26,198,056 (2026-10-15 12:56:59 UTC).",
         "steps": [
           {
             "chain": "Ethereum",
@@ -3592,12 +3592,34 @@
               },
               {
                 "chain": "Ethereum",
-                "label": "Later recipient; further route unresolved",
+                "label": "Intermediary",
                 "address": "0x53e2cb064e2de9594584c9dba24ef071f110dd28",
                 "amount": "18150.000000",
                 "time": "2025-08-14T14:25:35.000000Z",
                 "transaction": "https://etherscan.io/tx/0xbca797ac32f1ac29c76bdb6c72794cfb5ded19667214e9d4c67fc93255650128",
                 "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Ethereum",
+                "label": "Further intermediary",
+                "address": "0x16a37f695c797ffd0c0215756a5c3ceb4d5e59c9",
+                "amount": "18150.000000",
+                "time": "2025-08-14T14:27:23Z",
+                "transaction": "https://etherscan.io/tx/0x5215e0d6f88bfd1ab376f9ff8511d1a5a1e9b8e385ce4096d303444078fdb7dc",
+                "note": "",
+                "kind": "verified",
+                "asset": "USDC"
+              },
+              {
+                "chain": "Ethereum",
+                "label": "18,150 USDC retained at pinned observation",
+                "address": "0x859bfc94624f1f36ae6aed248ee5347f4ee86552",
+                "amount": "18150.000000",
+                "time": "2025-12-17T16:34:47Z",
+                "transaction": "https://etherscan.io/tx/0x0709eeaa2135b716b4b8f6bed292a3780df32ec169781d08d590fa2d25bf5eba",
+                "note": "Balance 18,150 USDC at Ethereum block 26,198,056; owner and exchange status unknown.",
                 "kind": "verified",
                 "asset": "USDC"
               }
@@ -4299,7 +4321,7 @@
     "fusionStatistics": {
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
-      "configurationSha256": "3ca63e7e1530689d54017194769b96f0fcf2092030085f72871be027ab7fa5ac",
+      "configurationSha256": "f462619b7719ffdbb05717d48d8d84c8b4b4abbc3f6d3b309567ce33f6cc141f",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md#fusion-accounting",
       "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling this asset and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
       "tokens": [
