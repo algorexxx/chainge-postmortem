@@ -110,3 +110,16 @@ for(const [key,study] of Object.entries(published)){
  if(study.title==='USDC')assert(element('#detail').innerHTML.includes('After the Fusion snapshot.'));
 }
 console.log('Verified holder inventory display, announcement references, exact-time boundaries, uncertain ranges and post-suspension filters.');
+
+for(const [key,study] of Object.entries(published)){
+ if(!study.claimReview?.positions.some(p=>typeof p.blocked==='boolean'))continue;
+ context.location.hash='#token='+key;run("tabName='overview';renderSelection();");
+ const output=element('#detail').innerHTML;
+ assert(output.includes('Of those, blocked'));
+ assert(output.includes('Not checked'));
+ assert(output.includes('not an extra balance or a deduction'));
+ assert(study.claimReview.positions.some(p=>p.blocked===true));
+ assert(study.claimReview.positions.some(p=>p.blocked===false));
+ assert(study.claimReview.positions.filter(p=>p.token===key).every(p=>p.blocked===undefined));
+}
+console.log('Legacy blocked subsets remain separate from unknown newer restrictions and do not alter supply comparisons.');

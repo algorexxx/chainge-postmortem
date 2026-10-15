@@ -4,6 +4,7 @@ Push-Location $PSScriptRoot
 try {
     if (-not (Test-Json -Path registry/studies.json -SchemaFile registry/studies.schema.json)) { throw 'The reviewed studies do not match the standard site data format.' }
     $studies = Get-Content registry/studies.json -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
+    & ./research/check-migration-state.ps1
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }

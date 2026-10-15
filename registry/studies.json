@@ -573,6 +573,10 @@
       {
         "label": "Fusion snapshot provenance and limits",
         "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-snapshot-provenance.md"
+      },
+      {
+        "label": "Migration review: blocked balances are not cancelled claims",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-migration-semantics.md"
       }
     ],
     "claimReview": {
@@ -587,7 +591,9 @@
           "rawAmount": "1007499579438009673238337766",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -596,7 +602,9 @@
           "rawAmount": "41416425688210",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -605,7 +613,9 @@
           "rawAmount": "115077911814563",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -614,7 +624,9 @@
           "rawAmount": "3077201786261147415",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -623,7 +635,9 @@
           "rawAmount": "23570524419383077",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -632,7 +646,9 @@
           "rawAmount": "60136001",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -641,7 +657,9 @@
           "rawAmount": "1009741533236357",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -650,7 +668,9 @@
           "rawAmount": "29790000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-1.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -659,7 +679,9 @@
           "rawAmount": "5733905331352187",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -668,7 +690,9 @@
           "rawAmount": "64483610465520417",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -677,7 +701,9 @@
           "rawAmount": "1000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -686,7 +712,9 @@
           "rawAmount": "37396437058706542",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -695,7 +723,9 @@
           "rawAmount": "1015755879747197321472",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -704,7 +734,9 @@
           "rawAmount": "2142382626205612",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -713,7 +745,9 @@
           "rawAmount": "32997483932000170",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -722,7 +756,9 @@
           "rawAmount": "859506153700000000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -731,7 +767,9 @@
           "rawAmount": "1066649347500000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -740,7 +778,9 @@
           "rawAmount": "4469613390807035784",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-3.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -749,7 +789,9 @@
           "rawAmount": "53342",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -758,7 +800,9 @@
           "rawAmount": "4898685876029342019342",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -767,7 +811,9 @@
           "rawAmount": "15444926200000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -776,7 +822,9 @@
           "rawAmount": "29457836380391169448",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
@@ -785,7 +833,9 @@
           "rawAmount": "657003180108090709828",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-2.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-ledger-review/legacy-balances-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9d7005f9175856bda5deb153f86a11153d9d0fa7",
@@ -1802,7 +1852,9 @@
           "rawAmount": "997192220334117881416744",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725",
@@ -1811,7 +1863,9 @@
           "rawAmount": "355654864960978824315717",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725",
@@ -1820,7 +1874,9 @@
           "rawAmount": "10000000000000000000000000",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xba212492dd4b1d89e86fd97faadca3b519629618",
@@ -1829,7 +1885,9 @@
           "rawAmount": "1000000000000000000000000000",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xba212492dd4b1d89e86fd97faadca3b519629618",
@@ -1838,7 +1896,9 @@
           "rawAmount": "9916187276170590699049682",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xba212492dd4b1d89e86fd97faadca3b519629618",
@@ -1847,7 +1907,9 @@
           "rawAmount": "72292105979415459276540",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1856,7 +1918,9 @@
           "rawAmount": "958841470311324212309837958",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1865,7 +1929,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1874,7 +1940,9 @@
           "rawAmount": "60000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1883,7 +1951,9 @@
           "rawAmount": "100",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1892,7 +1962,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1901,7 +1973,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1910,7 +1984,9 @@
           "rawAmount": "109790684995750201830",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1919,7 +1995,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1928,7 +2006,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1937,7 +2017,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1946,7 +2028,9 @@
           "rawAmount": "30",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1955,7 +2039,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1964,7 +2050,9 @@
           "rawAmount": "746799687437169463",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1973,7 +2061,9 @@
           "rawAmount": "6471305984",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1982,7 +2072,9 @@
           "rawAmount": "1024482896526310025941",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -1991,7 +2083,9 @@
           "rawAmount": "11034225391703290980",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2000,7 +2094,9 @@
           "rawAmount": "1876747052678536819",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2009,7 +2105,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2018,7 +2116,9 @@
           "rawAmount": "825392797992238526",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2027,7 +2127,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2036,7 +2138,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2045,7 +2149,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2054,7 +2160,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2063,7 +2171,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2072,7 +2182,9 @@
           "rawAmount": "493690970228399967",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2081,7 +2193,9 @@
           "rawAmount": "551032968344301037000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2090,7 +2204,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2099,7 +2215,9 @@
           "rawAmount": "4",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2108,7 +2226,9 @@
           "rawAmount": "1035",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2117,7 +2237,9 @@
           "rawAmount": "1105383686220",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2126,7 +2248,9 @@
           "rawAmount": "1000000000000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2135,7 +2259,9 @@
           "rawAmount": "4",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2144,7 +2270,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2153,7 +2281,9 @@
           "rawAmount": "60",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
@@ -2162,7 +2292,9 @@
           "rawAmount": "90",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2171,7 +2303,9 @@
           "rawAmount": "8",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2180,7 +2314,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2189,7 +2325,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2198,7 +2336,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2207,7 +2347,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2216,7 +2358,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2225,7 +2369,9 @@
           "rawAmount": "8",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2234,7 +2380,9 @@
           "rawAmount": "476302752388490992",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2243,7 +2391,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2252,7 +2402,9 @@
           "rawAmount": "1644294936963901251",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2261,7 +2413,9 @@
           "rawAmount": "4",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2270,7 +2424,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2279,7 +2435,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2288,7 +2446,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2297,7 +2457,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2306,7 +2468,9 @@
           "rawAmount": "1997847221397239633451",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-0.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2315,7 +2479,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2324,7 +2490,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2333,7 +2501,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2342,7 +2512,9 @@
           "rawAmount": "101",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2351,7 +2523,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2360,7 +2534,9 @@
           "rawAmount": "662056208130799879",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2369,7 +2545,9 @@
           "rawAmount": "95404666904656675644",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2378,7 +2556,9 @@
           "rawAmount": "8",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2387,7 +2567,9 @@
           "rawAmount": "40",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2396,7 +2578,9 @@
           "rawAmount": "11031033736059820",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2405,7 +2589,9 @@
           "rawAmount": "66192171937949106400000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2414,7 +2600,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2423,7 +2611,9 @@
           "rawAmount": "10000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-1.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2432,7 +2622,9 @@
           "rawAmount": "581830099233178521",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2441,7 +2633,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2450,7 +2644,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2459,7 +2655,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
@@ -2468,13 +2666,16 @@
           "rawAmount": "687706575731880956214",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json"
+          "balanceSource": "evidence/2026-10-11-busd-slices-review/slice-balances.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         }
       ],
       "notes": [
         "Address-one balances remain on the ledger. They are displayed separately, not written off as burns or accepted as customer claims.",
         "Expired intervals still have token balances; those balances do not represent unexpired rights at this snapshot. Active dated rights and full-time rights are not summed across contracts.",
-        "Large matching old/new amounts are possible migration overlaps. No deduction is made without proof that one extinguished or replaced the other."
+        "Large matching old/new amounts are possible migration overlaps. No deduction is made without proof that one extinguished or replaced the other.",
+        "Legacy blocking flags are checked at the reference block. Blocking prevents transfers but does not burn the balance and can be reversed by a controller; blocked amounts are not deducted from claims. Newer-token flags are not assumed from legacy state."
       ]
     },
     "announcementIds": [
@@ -4414,6 +4615,10 @@
       {
         "label": "Fusion snapshot provenance and limits",
         "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-snapshot-provenance.md"
+      },
+      {
+        "label": "Migration review: blocked balances are not cancelled claims",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-migration-semantics.md"
       }
     ],
     "claimReview": {
@@ -4428,7 +4633,9 @@
           "rawAmount": "1000000000000000",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293",
@@ -4437,7 +4644,9 @@
           "rawAmount": "2138083760352",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x544b0bb334eb34dd4e69d1722abd79fdecdf9293",
@@ -4446,7 +4655,9 @@
           "rawAmount": "238538337745",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
@@ -4455,7 +4666,9 @@
           "rawAmount": "187502909157",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
@@ -4464,7 +4677,9 @@
           "rawAmount": "1226383470409",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x55be5afdbd9e9cb8be10385d02da6d7e56ec70cf",
@@ -4473,7 +4688,9 @@
           "rawAmount": "21000000000000",
           "intervalStatus": "expired-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4482,7 +4699,9 @@
           "rawAmount": "996416657619439",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4491,7 +4710,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4500,7 +4721,9 @@
           "rawAmount": "127325",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4509,7 +4732,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4518,7 +4743,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4527,7 +4754,9 @@
           "rawAmount": "847",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4536,7 +4765,9 @@
           "rawAmount": "17581064",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4545,7 +4776,9 @@
           "rawAmount": "2140133",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4554,7 +4787,9 @@
           "rawAmount": "33",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4563,7 +4798,9 @@
           "rawAmount": "13417",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4572,7 +4809,9 @@
           "rawAmount": "193767",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4581,7 +4820,9 @@
           "rawAmount": "1000000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4590,7 +4831,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4599,7 +4842,9 @@
           "rawAmount": "402491208",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4608,7 +4853,9 @@
           "rawAmount": "18801",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4617,7 +4864,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4626,7 +4875,9 @@
           "rawAmount": "740637",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4635,7 +4886,9 @@
           "rawAmount": "1649",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4644,7 +4897,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4653,7 +4908,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4662,7 +4919,9 @@
           "rawAmount": "27032",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4671,7 +4930,9 @@
           "rawAmount": "91995358",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4680,7 +4941,9 @@
           "rawAmount": "2677846972295",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4689,7 +4952,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4698,7 +4963,9 @@
           "rawAmount": "327",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4707,7 +4974,9 @@
           "rawAmount": "122417752",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4716,7 +4985,9 @@
           "rawAmount": "3166140349",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4725,7 +4996,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4734,7 +5007,9 @@
           "rawAmount": "9922",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4743,7 +5018,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4752,7 +5029,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4761,7 +5040,9 @@
           "rawAmount": "825081",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4770,7 +5051,9 @@
           "rawAmount": "3440",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4779,7 +5062,9 @@
           "rawAmount": "11018",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4788,7 +5073,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4797,7 +5084,9 @@
           "rawAmount": "574439",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4806,7 +5095,9 @@
           "rawAmount": "452640085",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4815,7 +5106,9 @@
           "rawAmount": "10",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4824,7 +5117,9 @@
           "rawAmount": "12528",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4833,7 +5128,9 @@
           "rawAmount": "959835",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4842,7 +5139,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4851,7 +5150,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-5.response.json"
         },
         {
           "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
@@ -4860,7 +5161,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-5.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4869,7 +5172,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4878,7 +5183,9 @@
           "rawAmount": "1103401",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4887,7 +5194,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4896,7 +5205,9 @@
           "rawAmount": "12442003",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4905,7 +5216,9 @@
           "rawAmount": "1634336",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4914,7 +5227,9 @@
           "rawAmount": "2189570911",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4923,7 +5238,9 @@
           "rawAmount": "4",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4932,7 +5249,9 @@
           "rawAmount": "9854718",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4941,7 +5260,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4950,7 +5271,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4959,7 +5282,9 @@
           "rawAmount": "50",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4968,7 +5293,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4977,7 +5304,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4986,7 +5315,9 @@
           "rawAmount": "15077240",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -4995,7 +5326,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5004,7 +5337,9 @@
           "rawAmount": "15076188569",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5013,7 +5348,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5022,7 +5359,9 @@
           "rawAmount": "22303192",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5031,7 +5370,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5040,7 +5381,9 @@
           "rawAmount": "366614",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5049,7 +5392,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5058,7 +5403,9 @@
           "rawAmount": "1101911242",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5067,7 +5414,9 @@
           "rawAmount": "150324739",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5076,7 +5425,9 @@
           "rawAmount": "806105",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5085,7 +5436,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5094,7 +5447,9 @@
           "rawAmount": "525925011",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5103,7 +5458,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5112,7 +5469,9 @@
           "rawAmount": "8",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5121,7 +5480,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5130,7 +5491,9 @@
           "rawAmount": "3182262579",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5139,7 +5502,9 @@
           "rawAmount": "70",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5148,7 +5513,9 @@
           "rawAmount": "101701212",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5157,7 +5524,9 @@
           "rawAmount": "10688073",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5166,7 +5535,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5175,7 +5546,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5184,7 +5557,9 @@
           "rawAmount": "5",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5193,7 +5568,9 @@
           "rawAmount": "343003979",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5202,7 +5579,9 @@
           "rawAmount": "322471756",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5211,7 +5590,9 @@
           "rawAmount": "3",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5220,7 +5601,9 @@
           "rawAmount": "2",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5229,7 +5612,9 @@
           "rawAmount": "7",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5238,7 +5623,9 @@
           "rawAmount": "368",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5247,7 +5634,9 @@
           "rawAmount": "1037624593",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5256,7 +5645,9 @@
           "rawAmount": "50",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5265,7 +5656,9 @@
           "rawAmount": "9",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5274,7 +5667,9 @@
           "rawAmount": "3159818051",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5283,7 +5678,9 @@
           "rawAmount": "90",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5292,7 +5689,9 @@
           "rawAmount": "4",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5301,7 +5700,9 @@
           "rawAmount": "6",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-5.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5310,7 +5711,9 @@
           "rawAmount": "4",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-006.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-5.response.json"
         },
         {
           "token": "0x9673123f25a3807cb6937865af7f74115d633a02",
@@ -5319,7 +5722,9 @@
           "rawAmount": "539445",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-5.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5328,7 +5733,9 @@
           "rawAmount": "958730698006388",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5337,7 +5744,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5346,7 +5755,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5355,7 +5766,9 @@
           "rawAmount": "2968335046",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5364,7 +5777,9 @@
           "rawAmount": "1295591551",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5373,7 +5788,9 @@
           "rawAmount": "2189024",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-2.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5382,7 +5799,9 @@
           "rawAmount": "404895747",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5391,7 +5810,9 @@
           "rawAmount": "285000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5400,7 +5821,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5409,7 +5832,9 @@
           "rawAmount": "1112474",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-3.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5418,7 +5843,9 @@
           "rawAmount": "100000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5427,7 +5854,9 @@
           "rawAmount": "302280400",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5436,7 +5865,9 @@
           "rawAmount": "1",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5445,7 +5876,9 @@
           "rawAmount": "100000000",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5454,7 +5887,9 @@
           "rawAmount": "428995",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5463,7 +5898,9 @@
           "rawAmount": "454514480",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": true,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5472,7 +5909,9 @@
           "rawAmount": "5933924",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-4.response.json"
         },
         {
           "token": "0xdcc0978e684acc8ea1abc135bb7b3905b5dbca98",
@@ -5481,7 +5920,9 @@
           "rawAmount": "193103",
           "intervalStatus": "remaining-perpetual-interval",
           "historyConsistent": true,
-          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json"
+          "balanceSource": "evidence/2026-10-13-usdc-fusion-claims/balances-007.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-fusion-migration-state/holder-flags-5.response.json"
         },
         {
           "token": "0xfc9e57d7543e0591824121fda6461fe2148a5966",
@@ -9186,7 +9627,8 @@
       "notes": [
         "Address-one balances remain on the ledger. They are displayed separately, not written off as burns or accepted as customer claims.",
         "Expired intervals still have token balances; those balances do not represent unexpired rights at this snapshot. Active dated rights and full-time rights are not summed across contracts.",
-        "Large matching old/new amounts are possible migration overlaps. No deduction is made without proof that one extinguished or replaced the other."
+        "Large matching old/new amounts are possible migration overlaps. No deduction is made without proof that one extinguished or replaced the other.",
+        "Legacy blocking flags are checked at the reference block. Blocking prevents transfers but does not burn the balance and can be reversed by a controller; blocked amounts are not deducted from claims. Newer-token flags are not assumed from legacy state."
       ]
     },
     "announcementIds": [

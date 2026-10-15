@@ -63,3 +63,7 @@ At the retained block, the dated slice's `parent()` points to legacy BUSD; its s
 Administrative-event times were checked against headers in this pass. Other dates are explorer observations unless explicitly stated otherwise. Receipts were checked for the nine administrative events, the January 2024 mint, first incoming transfer, one direct burn, the slice conversion and the residual burn. Remaining address-history logs were checked for shape, ordering, uniqueness and balance arithmetic, not individually against receipts. Node and explorer may share upstream data.
 
 The next contract leads are the first incoming transfer's top-level target and the residual-burn target. Their roles must be established before using their counterparties for source-chain correlations. A collector needs separate classifications for direct mint/burn, slice conversion, migration, ordinary transfer and unresolved contract interactions. No source-chain vault or collateral total is established here.
+
+## Migration semantics follow-up
+
+The [contract and state review](fusion-migration-semantics.md) confirms coordinated BUSD/USDC blocking, matches both legacy runtimes to source, and checks all positive legacy-holder flags. Blocked balances remain recorded and reversible; no additional overlap deduction is applied. The reviewed UI separates the blocked subset from other balances.

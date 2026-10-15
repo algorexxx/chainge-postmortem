@@ -1,0 +1,298 @@
+[
+  {
+    "id": "busd-code-0xd169bfa08ae2c9bea4123a8760ba058afd647ed2",
+    "response": "state-00.response.json",
+    "contract": "FRC759Token",
+    "compiler": "0.8.12+commit.f00d7308.Emscripten.clang",
+    "source": "evidence/2026-10-13-usdc-fusion-claims/comparison-frc759.sol",
+    "sourceSha256": "84ee503d5e73baf807c6f3d718ce78d9f8756e6433fedf2ec1f49b619f7278c7",
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object"
+          ]
+        }
+      }
+    },
+    "bytes": 15419,
+    "exact": false,
+    "metadataDigestNormalizedMatch": true,
+    "differingByteOffsets": [
+      15323,
+      15324,
+      15325,
+      15326,
+      15327,
+      15328,
+      15329,
+      15330,
+      15331,
+      15332,
+      15333,
+      15334,
+      15335,
+      15336,
+      15337,
+      15338,
+      15339,
+      15340,
+      15341,
+      15342,
+      15343,
+      15344,
+      15345,
+      15346,
+      15347,
+      15348,
+      15349,
+      15350,
+      15351,
+      15352,
+      15353,
+      15354,
+      15376,
+      15377,
+      15378,
+      15379,
+      15380,
+      15381,
+      15382,
+      15383,
+      15384,
+      15385,
+      15386,
+      15387,
+      15388,
+      15389,
+      15390,
+      15391,
+      15392,
+      15393,
+      15394,
+      15395,
+      15396,
+      15397,
+      15398,
+      15399,
+      15400,
+      15401,
+      15402,
+      15403,
+      15404,
+      15405,
+      15406,
+      15407
+    ]
+  },
+  {
+    "id": "busd-code-0x8f8c247a300312b805692a3bc49414e35dec64ce",
+    "response": "state-00.response.json",
+    "contract": "Slice",
+    "compiler": "0.8.12+commit.f00d7308.Emscripten.clang",
+    "source": "evidence/2026-10-13-usdc-fusion-claims/comparison-frc759.sol",
+    "sourceSha256": "84ee503d5e73baf807c6f3d718ce78d9f8756e6433fedf2ec1f49b619f7278c7",
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object"
+          ]
+        }
+      }
+    },
+    "bytes": 5513,
+    "exact": false,
+    "metadataDigestNormalizedMatch": true,
+    "differingByteOffsets": [
+      5470,
+      5471,
+      5472,
+      5473,
+      5474,
+      5475,
+      5476,
+      5477,
+      5478,
+      5479,
+      5480,
+      5481,
+      5482,
+      5483,
+      5484,
+      5485,
+      5486,
+      5487,
+      5488,
+      5489,
+      5490,
+      5491,
+      5492,
+      5493,
+      5494,
+      5495,
+      5496,
+      5497,
+      5498,
+      5499,
+      5500,
+      5501
+    ]
+  },
+  {
+    "id": "usdc-code-0x6b52048a01c41d1625a6893c80fbe4aa2c22bb54",
+    "response": "state-01.response.json",
+    "contract": "FRC759Token",
+    "compiler": "0.8.12+commit.f00d7308.Emscripten.clang",
+    "source": "evidence/2026-10-13-usdc-fusion-claims/comparison-frc759.sol",
+    "sourceSha256": "84ee503d5e73baf807c6f3d718ce78d9f8756e6433fedf2ec1f49b619f7278c7",
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object"
+          ]
+        }
+      }
+    },
+    "bytes": 15419,
+    "exact": false,
+    "metadataDigestNormalizedMatch": true,
+    "differingByteOffsets": [
+      15323,
+      15324,
+      15325,
+      15326,
+      15327,
+      15328,
+      15329,
+      15330,
+      15331,
+      15332,
+      15333,
+      15334,
+      15335,
+      15336,
+      15337,
+      15338,
+      15339,
+      15340,
+      15341,
+      15342,
+      15343,
+      15344,
+      15345,
+      15346,
+      15347,
+      15348,
+      15349,
+      15350,
+      15351,
+      15352,
+      15353,
+      15354,
+      15376,
+      15377,
+      15378,
+      15379,
+      15380,
+      15381,
+      15382,
+      15383,
+      15384,
+      15385,
+      15386,
+      15387,
+      15388,
+      15389,
+      15390,
+      15391,
+      15392,
+      15393,
+      15394,
+      15395,
+      15396,
+      15397,
+      15398,
+      15399,
+      15400,
+      15401,
+      15402,
+      15403,
+      15404,
+      15405,
+      15406,
+      15407
+    ]
+  },
+  {
+    "id": "usdc-code-0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
+    "response": "state-01.response.json",
+    "contract": "Slice",
+    "compiler": "0.8.12+commit.f00d7308.Emscripten.clang",
+    "source": "evidence/2026-10-13-usdc-fusion-claims/comparison-frc759.sol",
+    "sourceSha256": "84ee503d5e73baf807c6f3d718ce78d9f8756e6433fedf2ec1f49b619f7278c7",
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object"
+          ]
+        }
+      }
+    },
+    "bytes": 5513,
+    "exact": false,
+    "metadataDigestNormalizedMatch": true,
+    "differingByteOffsets": [
+      5470,
+      5471,
+      5472,
+      5473,
+      5474,
+      5475,
+      5476,
+      5477,
+      5478,
+      5479,
+      5480,
+      5481,
+      5482,
+      5483,
+      5484,
+      5485,
+      5486,
+      5487,
+      5488,
+      5489,
+      5490,
+      5491,
+      5492,
+      5493,
+      5494,
+      5495,
+      5496,
+      5497,
+      5498,
+      5499,
+      5500,
+      5501
+    ]
+  }
+]

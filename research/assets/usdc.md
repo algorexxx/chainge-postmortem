@@ -166,3 +166,7 @@ See [Fusion holder review](../fusion-claims-review.md) for checked positive posi
 ## Post-snapshot follow-up
 
 The [three-case review](../usdc-post-snapshot-outflows.md) identifies new funding before each late USDC payment, two swaps returning ETH to the same vault, and the full January payment reaching an OKX-labelled endpoint. See [snapshot provenance](../fusion-snapshot-provenance.md) for why later Fusion settlement remains unknown.
+
+## Migration semantics follow-up
+
+The [contract and state review](../fusion-migration-semantics.md) confirms coordinated BUSD/USDC blocking, matches both legacy runtimes to source, and checks all positive legacy-holder flags. Blocked balances remain recorded and reversible; no additional overlap deduction is applied. The reviewed UI separates the blocked subset from other balances.

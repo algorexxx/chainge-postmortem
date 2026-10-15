@@ -638,7 +638,22 @@
         "balanceSource": {
           "type": "string",
           "pattern": "^evidence/[^\\\\]+\\.request\\.json$"
+        },
+        "blocked": {
+          "type": "boolean"
+        },
+        "restrictionSource": {
+          "type": "string",
+          "pattern": "^evidence/"
         }
+      },
+      "dependencies": {
+        "blocked": [
+          "restrictionSource"
+        ],
+        "restrictionSource": [
+          "blocked"
+        ]
       }
     },
     "claimReview": {

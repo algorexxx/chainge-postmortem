@@ -45,3 +45,7 @@ Completion still requires a justified full custody inventory, validated consolid
 ## Holder inventory and announcement context
 
 See [Fusion holder review](../fusion-claims-review.md) for checked positive positions, address-one separation, unresolved migration overlap and outgoing-transfer timing against the reviewed Chainge statements. Consolidated customer liabilities remain unestablished.
+
+## Migration semantics follow-up
+
+The [contract and state review](../fusion-migration-semantics.md) confirms coordinated BUSD/USDC blocking, matches both legacy runtimes to source, and checks all positive legacy-holder flags. Blocked balances remain recorded and reversible; no additional overlap deduction is applied. The reviewed UI separates the blocked subset from other balances.

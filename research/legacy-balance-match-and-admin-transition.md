@@ -61,3 +61,7 @@ Follow-up: [legacy authority and time-slice accounting](legacy-authority-and-sli
 Seek public records explaining the January legacy blocking sequence and February newer-token issuance, preserving attributed statements separately from chain facts. Source-chain correlation should begin with a specific independently verifiable transaction or historical order record, not the assumption that every mint was an external deposit. The collector must keep legacy parent/child roles, newer tokens, blocked balances and incomplete query coverage distinct.
 
 Receipt checks cover the eight selected transactions saved in `verification.*`, not every transaction in the two windows. No pre/post historical state traces were obtained. Node and explorer may share the same upstream data. No source-chain vault is confirmed.
+
+## Migration semantics follow-up
+
+The [contract and state review](fusion-migration-semantics.md) confirms coordinated BUSD/USDC blocking, matches both legacy runtimes to source, and checks all positive legacy-holder flags. Blocked balances remain recorded and reversible; no additional overlap deduction is applied. The reviewed UI separates the blocked subset from other balances.
