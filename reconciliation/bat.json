@@ -267,6 +267,49 @@
       "tokenDecimals": {
         "0x101d82428437127bf1608f699cd651e6abf9766e": 18
       }
+    },
+    {
+      "chain": "Fusion",
+      "format": "fsnex-transaction",
+      "directory": "evidence/2026-10-15-bat-fsnex-receipts",
+      "pattern": "0x*.response.json",
+      "tokenDecimals": {
+        "0x0dc14b42527538a37f0fa27b8d150b58a9a99d3b": 18,
+        "0x2318e2a12946390386460780add17a3b82aad2c5": 18,
+        "0x3a28a0e473cccae138e542846151384b28e5aefd": 18,
+        "0x6bfdfd67d3917750c63a51e4aa6e2050ad9dca22": 18,
+        "0x8083d1465ea684ce18888bd58b182a33b52a6647": 18,
+        "0x8dc3e00463296c839acba116bf6ffc93557e0145": 18,
+        "0xa7357c06aa73558d5927a83f24fe7f9075fdf048": 18,
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66": 18,
+        "0xe1df6e934f287ef2e44942342f089d97c191602e": 18,
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18
+      },
+      "datedTokens": [
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66",
+        "0xe1df6e934f287ef2e44942342f089d97c191602e",
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71"
+      ]
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-fsnex-public-capabilities",
+      "pattern": "reference-block.response.json",
+      "tokenDecimals": {
+        "0x0dc14b42527538a37f0fa27b8d150b58a9a99d3b": 18,
+        "0x2318e2a12946390386460780add17a3b82aad2c5": 18,
+        "0x3a28a0e473cccae138e542846151384b28e5aefd": 18,
+        "0x6bfdfd67d3917750c63a51e4aa6e2050ad9dca22": 18,
+        "0x8083d1465ea684ce18888bd58b182a33b52a6647": 18,
+        "0x8dc3e00463296c839acba116bf6ffc93557e0145": 18,
+        "0xa7357c06aa73558d5927a83f24fe7f9075fdf048": 18,
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66": 18,
+        "0xe1df6e934f287ef2e44942342f089d97c191602e": 18,
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18
+      }
     }
   ],
   "balanceSources": [
@@ -610,7 +653,7 @@
     }
   },
   "limitations": [
-    "Partial investigation: Fusion RPC currently unavailable; public indexed logs do not substitute for pinned state or receipt verification.",
+    "Partial investigation: public FSNEX receipt details are imported explicitly; pinned Fusion holder-state and restriction checks remain outstanding. Private RPC access is available as a fallback.",
     "Known vault addresses are candidates per asset and do not establish a complete vault inventory.",
     "Additional BAT representations on Solana, NEAR, Harmony and Energi are discovery leads, not included backing.",
     "Legacy representations and dated rights overlap; no consolidated customer liability total is established.",

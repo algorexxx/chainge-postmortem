@@ -41,6 +41,12 @@ public sealed class EvidenceRepository
                     continue;
                 }
                 using var document = JsonDocument.Parse(text);
+                if (selection.Format == "fsnex-transaction")
+                {
+                    ReadFsnexTransaction(document.RootElement, selection, source, events, timestamps, calls, diagnostics);
+                    continue;
+                }
+                if (selection.Format != "auto") { throw new InvalidDataException($"Unknown evidence format: {selection.Format}"); }
                 ReadElement(document.RootElement, selection, source, false, events, timestamps, calls, diagnostics);
             }
         }
@@ -51,6 +57,37 @@ public sealed class EvidenceRepository
             InputHashes = hashes,
             Diagnostics = diagnostics
         };
+    }
+
+    private static void ReadFsnexTransaction(JsonElement element, EvidenceSelection selection, string source, Dictionary<string, ChainEvent> events, Dictionary<string, TimestampObservation> timestamps, Dictionary<string, TransactionCall> calls, List<string> diagnostics)
+    {
+        if (!element.TryGetProperty("succeeded", out var succeeded) || succeeded.ValueKind != JsonValueKind.True)
+        {
+            diagnostics.Add($"{source}: unsuccessful or unavailable FSNEX transaction");
+            return;
+        }
+        var logs = element.GetProperty("logs");
+        if (element.GetProperty("logCount").GetInt32() != logs.GetArrayLength()) { throw new InvalidDataException($"Incomplete FSNEX receipt: {source}"); }
+        var transaction = GetText(element, "hash");
+        var blockHash = GetText(element, "blockHash");
+        var block = element.GetProperty("blockNumber").GetInt64();
+        var indexes = logs.EnumerateArray().Select(l => l.GetProperty("logIndex").GetInt64()).ToList();
+        if (transaction.Length == 0 || blockHash.Length == 0 || block < 0 || indexes.Any(i => i < 0) || indexes.Distinct().Count() != indexes.Count || logs.EnumerateArray().Any(l => l.GetProperty("removed").GetBoolean()))
+        { throw new InvalidDataException($"Invalid FSNEX receipt identity or logs: {source}"); }
+        var input = element.GetProperty("input").GetString();
+        if (input is null || !input.StartsWith("0x", StringComparison.Ordinal)) { throw new InvalidDataException($"Missing FSNEX transaction input: {source}"); }
+        StoreTransaction(selection.Chain + ":" + transaction, new TransactionCall { Target = GetText(element, "to"), Sender = GetText(element, "from"), Input = input.ToLowerInvariant(), BlockHash = blockHash, Evidence = source }, calls);
+        ReadTimestamp(element, selection.Chain, source, false, timestamps, diagnostics);
+        var normalized = JsonSerializer.SerializeToElement(logs.EnumerateArray().Select(l => new
+        {
+            address = GetText(l, "address"), topics = l.GetProperty("topics"), data = GetText(l, "data"),
+            transactionHash = transaction, blockHash, blockNumber = block, logIndex = l.GetProperty("logIndex").GetInt64(), removed = false
+        }).ToList());
+        foreach (var log in normalized.EnumerateArray())
+        {
+            if (selection.TokenDecimals.ContainsKey(GetText(log, "address"))) { ReadLog(log, selection, source, true, events); }
+        }
+        AttachReceiptContext(normalized, selection.Chain, GetText(element, "to"), events);
     }
 
     private static void ReadElement(JsonElement element, EvidenceSelection selection, string source, bool verified, Dictionary<string, ChainEvent> events, Dictionary<string, TimestampObservation> timestamps, Dictionary<string, TransactionCall> calls, List<string> diagnostics)
@@ -117,7 +154,12 @@ public sealed class EvidenceRepository
         if (!element.TryGetProperty("input", out _) || !element.TryGetProperty("hash", out _) || !element.TryGetProperty("r", out _) || !element.TryGetProperty("s", out _)) { return; }
         var key = chain + ":" + GetText(element, "hash");
         var call = new TransactionCall { Target = GetText(element, "to"), Sender = GetText(element, "from"), Input = GetText(element, "input"), BlockHash = GetText(element, "blockHash"), Evidence = source };
-        if (calls.TryGetValue(key, out var previous) && previous with { Evidence = source } != call) { throw new InvalidDataException($"Conflicting transaction: {key}"); }
+        StoreTransaction(key, call, calls);
+    }
+
+    private static void StoreTransaction(string key, TransactionCall call, Dictionary<string, TransactionCall> calls)
+    {
+        if (calls.TryGetValue(key, out var previous) && previous with { Evidence = call.Evidence } != call) { throw new InvalidDataException($"Conflicting transaction: {key}"); }
         calls[key] = call;
     }
 

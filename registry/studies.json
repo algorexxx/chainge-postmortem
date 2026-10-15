@@ -10735,7 +10735,7 @@
     "title": "BAT",
     "status": "Partial investigation",
     "reviewed": "2026-10-15",
-    "scope": "Ethereum, Avalanche, BSC and Polygon candidates; Fusion receipt/state verification pending",
+    "scope": "Public Fusion receipt analysis with Ethereum, Avalanche, BSC and Polygon candidates; pinned Fusion state checks pending",
     "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
     "movementsFile": "bat-movements.json",
     "vaults": [
@@ -11027,7 +11027,7 @@
         "date": "2024-06-06T14:20:59+00:00",
         "status": "Possible redemption",
         "endpoint": "Recipient retains BAT",
-        "explanation": "An equal-amount Fusion burn by the same holder is indexed 63 seconds earlier. Fusion receipt verification is pending.",
+        "explanation": "An equal-amount Fusion burn by the same holder is recorded 63 seconds earlier and corroborated by the public FSNEX receipt. It remains a possible redemption, not authenticated settlement.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
         "limitation": "Destination and amount evidence do not establish beneficial ownership or accepted redemption. See assessment for observation blocks and trace limits.",
         "steps": [
@@ -11314,8 +11314,8 @@
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
-      "configurationSha256": "b78490e729fe0d5993662acbd7f86121f375939046d5b9d3b8029111a2a295af",
-      "snapshotNote": "Provisional indexed-log accounting; Fusion RPC receipts and pinned holder state are unavailable. Derived from accounting-summary; refresh only after review.",
+      "configurationSha256": "bd9f96775367c9f8e16d45747042022b4a77dd00c86827bcf2c082c2329cabf5",
+      "snapshotNote": "Indexed-log accounting with explicitly imported public FSNEX receipt context. Pinned Fusion holder-state and restriction checks are pending. Derived from accounting-summary; refresh after review.",
       "tokens": [
         {
           "address": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
@@ -11328,7 +11328,7 @@
       ],
       "checks": [
         {
-          "text": "77 public indexed Transfer events; direct Fusion receipt and state checks remain pending.",
+          "text": "77 indexed Transfer events; 42 have successful public receipt corroboration, including the newer mint/burn context. Pinned holder state remains pending.",
           "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
         }
       ],

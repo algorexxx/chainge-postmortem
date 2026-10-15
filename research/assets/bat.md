@@ -1,6 +1,10 @@
 # BAT: partial investigation
 
-Reviewed 2026-10-15. [Configuration](../../reconciliation/bat.json). This is a retained-evidence investigation, not a completed reconciliation or a finding of loss. Fusion RPC access is unavailable during this pass, BSC history remains incomplete, and the vault inventory is not proven exhaustive.
+Reviewed 2026-10-15. [Configuration](../../reconciliation/bat.json). This is a retained-evidence investigation, not a completed reconciliation or a finding of loss. Public FSNEX receipt import is now supported; pinned Fusion state checks remain outstanding, BSC history remains incomplete, and the vault inventory is not proven exhaustive.
+
+## Public access correction
+
+The earlier claim that Fusion access was unavailable was too broad. Public FSNEX already exposed receipt-derived data; this repository lacked its importer. Existing SSH access and node chain/head queries also succeed. The [public-first workflow](../fsnex-public-workflow.md) now supports anonymous receipt capture and explicit import, without requiring contributors to have private RPC. Receipt-aware classification identifies 48 migration mint/burn events; the unresolved Fusion burn queue falls from 99 to 50 without relaxing matching rules.
 
 ## Identity and scope
 
@@ -17,9 +21,9 @@ Solana, NEAR, Harmony, Energi and BNB Beacon representations remain discovery le
 
 ## Fusion ledger
 
-Reference: [block 15130080](https://fsnex.net/block/15130080), 2025-10-07 08:43:50 UTC. This is the highest known recovered backup, not independently established network finality. The [115-page catalogue](../../evidence/2026-10-15-bat-token-inventory/) and [token/log/holder responses](../../evidence/2026-10-15-bat-fusion-public/) preserve discovery. Public indexed transaction details are [retained separately](../../evidence/2026-10-15-bat-fusion-context/). They are not presented as successful RPC receipts.
+Reference: [block 15130080](https://fsnex.net/block/15130080), 2025-10-07 08:43:50 UTC. This is the highest known recovered backup, not independently established network finality. The [115-page catalogue](../../evidence/2026-10-15-bat-token-inventory/) and [token/log/holder responses](../../evidence/2026-10-15-bat-fusion-public/) preserve discovery. Public indexed transaction details are [retained separately](../../evidence/2026-10-15-bat-fusion-context/). They are not presented as independently obtained RPC receipts. A later [public receipt package](../../evidence/2026-10-15-bat-fsnex-receipts/) supplies 204 complete transaction details, corroborating 316 retained Fusion events.
 
-The [newer token](https://fsnex.net/address/0x8083d1465ea684ce18888bd58b182a33b52a6647) has 77 indexed Transfer events and reported supply **6,483.855833284028158463 BAT**. This is token supply, not a USD valuation or consolidated customer liability. Direct receipt, pinned holder-balance and restriction checks remain pending node access.
+The [newer token](https://fsnex.net/address/0x8083d1465ea684ce18888bd58b182a33b52a6647) has 77 indexed Transfer events and reported supply **6,483.855833284028158463 BAT**. This is token supply, not a USD valuation or consolidated customer liability. Public receipt context is now imported; pinned holder-balance and restriction checks remain pending. Existing private RPC access was confirmed working, and is a fallback for state unavailable through the public API.
 
 The [legacy full-time child](https://fsnex.net/address/0x3a28a0e473cccae138e542846151384b28e5aefd) belongs to [parent a735…f048](https://fsnex.net/address/0xa7357c06aa73558d5927a83f24fe7f9075fdf048). Its indexed balances include **10,188,476.534765708790214724** at address one. Address one is not the zero-address burn mechanism. Four dated children represent overlapping rights; neither those balances nor the parent's supply counter can be added to newer supply as independent customer claims. Earlier FRC758 parents and apparently unused FRC759 families are retained for further semantic review.
 
@@ -44,7 +48,7 @@ Ethereum and Avalanche two-direction numeric log captures and receipt/header che
 
 ## Ethereum outflows
 
-The [271.441796283111524564 BAT payment](https://etherscan.io/tx/0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b) follows an exact-amount indexed Fusion burn by the same holder by 63 seconds. It is a possible redemption, pending Fusion receipt and call verification. The recipient still holds that BAT at the later pinned Ethereum observation.
+The [271.441796283111524564 BAT payment](https://etherscan.io/tx/0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b) follows an exact-amount indexed Fusion burn by the same holder by 63 seconds. It is a possible redemption, with successful public Fusion receipt and call corroboration; an authenticated settlement identifier remains unavailable. The recipient still holds that BAT at the later pinned Ethereum observation.
 
 The [1,000 BAT payment on August 23, 2024](https://etherscan.io/tx/0xde9bc7f0bfcdabe891c77239886a55414982f244794a6e0a18b25e4fc1da0f8b) has no matched burn in the retained Fusion data. Its recipient had zero BAT immediately before the payment. Four later swaps spend 300, 300, 190 and 200 BAT; **10 BAT remains** at the pinned later observation. The swap receipts show BAT entering pools and wrapped ETH routing. Public Blockscout internal-transaction records show native ETH delivered back to the recipient after fees; anonymous RPC trace requests failed. No exchange-deposit endpoint or beneficial owner is established. Later native-asset spending is outside this trace, so the ETH is not described as still retained.
 
@@ -77,4 +81,4 @@ Generated accounting, coverage, balance checks, matching candidates and complete
 
 The [case register](bat-closeout.json) records each retained external vault payment, including smaller Avalanche/BSC cases. Its reviewed-with-limits status records the evidence boundary; it does not certify that missing history or settlement questions are resolved.
 
-Completion still requires Fusion receipt/input/state and restriction checks, resolution of older representation and migration semantics, broader vault discovery, and fuller BSC coverage. General Chainge announcements provide chronology, not a BAT-specific freeze date or explanation for a transfer. Reopen individual conclusions on authenticated settlement identifiers, verified additional custody, new receipt/state evidence or reliable destination attribution.
+Completion still requires remaining Fusion receipt coverage, pinned state and restriction checks, resolution of older representation and migration semantics, broader vault discovery, and fuller BSC coverage. General Chainge announcements provide chronology, not a BAT-specific freeze date or explanation for a transfer. Reopen individual conclusions on authenticated settlement identifiers, verified additional custody, new receipt/state evidence or reliable destination attribution.

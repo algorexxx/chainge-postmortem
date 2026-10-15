@@ -8,6 +8,77 @@ namespace Chainge.Postmortem.Persistence.Json.Tests;
 
 public sealed class EvidenceRepositoryTests
 {
+    [Fact]
+    public async Task ReadEvidenceAsync_FsnexDetail_ShouldRetainReceiptAndInputWithoutClaimingNodeHeader()
+    {
+        var root = await CreateFixture(FsnexDetail(true, 1, false), "[]");
+        var reader = CreateReader("fsnex-transaction");
+        var expected = new { Id = "BSC:tx:0", RawAmount = "100", ReceiptVerified = true, ReceiptContextCaptured = true, TransactionInput = "0x1234", TransactionSender = "sender", ReceiptTarget = "target", BlockHeaderSource = "", Timestamp = DateTimeOffset.FromUnixTimeSeconds(100) };
+
+        var result = await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Events.Select(e => new { e.Id, e.RawAmount, e.ReceiptVerified, e.ReceiptContextCaptured, e.TransactionInput, e.TransactionSender, e.ReceiptTarget, e.BlockHeaderSource, e.Timestamp }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Theory]
+    [InlineData(2, false)]
+    [InlineData(1, true)]
+    public async Task ReadEvidenceAsync_IncompleteOrRemovedFsnexLogs_ShouldReject(int count, bool removed)
+    {
+        var root = await CreateFixture(FsnexDetail(true, count, removed), "[]");
+        var reader = CreateReader("fsnex-transaction");
+
+        var actual = await Record.ExceptionAsync(() => reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_FailedFsnexTransaction_ShouldNotImportEvents()
+    {
+        var root = await CreateFixture(FsnexDetail(false, 1, false), "[]");
+        var reader = CreateReader("fsnex-transaction");
+        ChainEvent[] expected = [];
+
+        var result = await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+
+        Assert.Equivalent(expected, result.Events);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_FsnexAndRpcAgree_ShouldDeduplicateAndKeepBothSources()
+    {
+        var rpc = System.Text.Json.Nodes.JsonNode.Parse(Receipt("0x1", "0x64"))!;
+        rpc[0]!["result"]!["to"] = "target";
+        var root = await CreateFixture(FsnexDetail(true, 1, false), rpc.ToJsonString());
+        var reader = CreateReader("fsnex-transaction");
+        var expected = new { Id = "BSC:tx:0", RawAmount = "100", Evidence = new[] { "a.json", "b.json" }, TransactionInput = "0x1234" };
+
+        var result = await reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Events.Select(e => new { e.Id, e.RawAmount, e.Evidence, e.TransactionInput }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_FsnexAndRpcDisagree_ShouldReject()
+    {
+        var root = await CreateFixture(FsnexDetail(true, 1, false), Receipt("0x1", "0x64", 101));
+        var reader = CreateReader("fsnex-transaction");
+
+        var actual = await Record.ExceptionAsync(() => reader.ReadEvidenceAsync(root, TestContext.Current.CancellationToken));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
+    private static string FsnexDetail(bool succeeded, int logCount, bool removed)
+    {
+        using var receipt = JsonDocument.Parse(Receipt("0x1", "0x64"));
+        var log = receipt.RootElement[0].GetProperty("result").GetProperty("logs")[0];
+        return JsonSerializer.Serialize(new { hash = "tx", blockHash = "block", blockNumber = 1, timestamp = 100, from = "sender", to = "target", input = "0x1234", succeeded, logCount, logs = new[] { new { address = "token", logIndex = 0, removed, topics = log.GetProperty("topics"), data = log.GetProperty("data") } } });
+    }
+
     [Theory]
     [InlineData(false)]
     [InlineData(true)]
@@ -304,12 +375,14 @@ public sealed class EvidenceRepositoryTests
         return receipt.ToJsonString();
     }
 
-    private static EvidenceRepository CreateReader()
+    private static EvidenceRepository CreateReader(string format = "auto")
     {
         var json = """
         {"asset":"fixture","policy":{"largeOutflowRaw":"10000000000000000000000","depletionBasisPoints":9000,"decimals":18,"fusionChain":"Fusion","operatingAddresses":{},"maximumDelay":"1.00:00:00","clockTolerance":"00:02:00","redemptionFeeRawHypotheses":["0"]},"sources":[{"chain":"BSC","directory":".","pattern":"*.json","tokenDecimals":{"token":18}}],"limitations":[]}
         """;
-        return new EvidenceRepository(JsonSerializer.Deserialize<EvidenceSettings>(json, JsonSerializerOptions.Web)!);
+        var settings = JsonSerializer.Deserialize<EvidenceSettings>(json, JsonSerializerOptions.Web)!;
+        if (format != "auto") { settings = settings with { Sources = [settings.Sources[0] with { Format = format, Pattern = "a.json" }, settings.Sources[0] with { Pattern = "b.json" }] }; }
+        return new EvidenceRepository(settings);
     }
 
     private static async Task<string> CreateFixture(string first, string second)

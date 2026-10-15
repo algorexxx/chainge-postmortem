@@ -50,6 +50,8 @@ After capture, add its README, update its manifest and explicitly select reviewe
 
 For explorer acquisition, save all pages and the terminal cursor. Explorer pagination is not RPC range coverage. Get successful receipts and block-hash-bound headers for material events. Validate exact chain, emitting contract, from/to, raw integer amount and log index; ignore zero-value lookalike transfers when following value, without deleting them from the ledger.
 
+For Fusion, start with the [public FSNEX workflow](research/fsnex-public-workflow.md) and `research/capture-fsnex-transactions.ps1`. Select complete transaction details with `format: "fsnex-transaction"`; the importer preserves public receipt provenance and checks conflicts. Private RPC is not required for indexed logs, receipt context or calldata. Historical state and unavailable traces remain separate requirements.
+
 ## 4. Check history and accounting before interpreting matches
 
 Inspect these generated files in `archives/reconciliation/<asset>/`:
