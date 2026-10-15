@@ -117,8 +117,14 @@ for(const [key,study] of Object.entries(published)){
  const output=element('#detail').innerHTML;
  assert(output.includes('Of those, blocked'));
  assert(output.includes('not an extra balance or a deduction'));
- assert(study.claimReview.positions.some(p=>p.blocked===true));
- assert(study.claimReview.positions.some(p=>p.blocked===false));
+ if(study.claimReview.positions.some(p=>p.blocked===true))assert(output.includes('>Blocked ↗</a>'));
+ if(study.claimReview.positions.some(p=>p.blocked===false))assert(output.includes('>Not blocklisted ↗</a>'));
+ if(study.claimReview.positions.every(p=>p.blocked===false)){
+  assert(!output.includes('>Blocked ↗</a>'));
+  const tokenCount=new Set(study.claimReview.positions.map(p=>p.token)).size;
+  const holderTable=output.split('Of those, blocked')[1].split('</tbody>')[0];
+  assert.equal((holderTable.match(/<td class="numeric"><span title="0(?:\.0+)?">0(?:\.0+)?<\/span><\/td><\/tr>/g)||[]).length,tokenCount);
+ }
  assert(study.claimReview.positions.filter(p=>p.token===key).every(p=>typeof p.blocked==='boolean'));
 }
 console.log('Legacy and newer blocked subsets are supported by separate evidence and do not alter supply comparisons.');

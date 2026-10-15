@@ -1,5 +1,13 @@
 # Per-asset workflow audit
 
+## BAT follow-through correction, 2026-10-15
+
+The written workflow already required state, semantic and funding reviews, but a reviewed outflow shortlist was incorrectly treated as a stopping point. `review-workflow.ps1` now reports all required stages, refuses a finished status while any stage is pending, checks positive Fusion positions against pinned observations, rejects verified history with known coverage gaps, and flags observed routing targets omitted from configuration. Evidence boundaries require attempted methods, retained references and reopening conditions. This is a work checklist, not a factual certification.
+
+BAT exposed three reusable omissions: public FSNEX receipts were unsupported by the holder-funding/controller-link helpers; ordinary transfers were absent from the default receipt pass; and verified routing/slice relationships had not been configured. The helpers now support native receipts, capture can include all transfers, and the guide requires inspecting/configuring those mechanisms before closure. This reduces BAT's unresolved burn count from 50 to 40 without changing matching tolerances. It also reveals an exact memo-supported BSC payment that unequal mint/burn amounts alone could not explain.
+
+`plan-fusion-state.ps1` generates pinned state requests from the current inventory, while `check-fusion-restrictions.ps1` checks published flags and deployed runtime comparisons. Snapshot provenance refresh now replaces the file atomically to handle Windows readers mapping the existing file. BAT remains partial: complete BSC history is still a pending acquisition stage, not a passed gate. Negative regression checks reject both omitted stages and falsely verified history.
+
 Reviewed 2026-10-13. Scope: offline pipeline, input integrity, accounting coverage, publication handoff and contribution procedure. This is a code/workflow audit, not a new certification of the underlying BUSD findings.
 
 ## Findings and changes

@@ -54,6 +54,14 @@ For Fusion, start with the [public FSNEX workflow](research/fsnex-public-workflo
 
 ## 4. Check history and accounting before interpreting matches
 
+An instruction to investigate an asset authorizes this entire workflow. Continue through every stage, repair reusable tooling when a stage fails, and rerun downstream stages after adding evidence. Do not stop merely because a shortlist is reviewed, a page renders, or an unmatched count has fallen. Ask only for a genuinely missing decision or access that cannot be obtained within the authorized scope.
+
+Keep `research/assets/<asset>-workflow.json` alongside the case register. Run `./research/review-workflow.ps1 -Asset <asset>` to see unfinished stages, missing pinned Fusion positions, history gaps and observed routing targets omitted from configuration. Before describing the bounded investigation work as finished, run it with `-RequireFinished`. Each required stage must be `verified` or an explicit `evidence-boundary`, with retained references, methods actually attempted, a reason for the boundary and a reopening condition. `pending` means work still to do. An evidence boundary is not a successful reconciliation. Time-consuming work and an untried existing tool are not evidence boundaries.
+
+For Fusion, enumerate every known representation and verify the parent/child relationships and deployed code before setting `sliceCounterparts`. An absent mapping silently leaves genuine slice conversions in the burn queue. Review observed controller targets and chain codes before setting `routingCallTargets` and `routingChainNames`; inspect `routing-review.json` even when amount matching found nothing. A memo can specify a different delivered amount or asset. Do not infer a fee from the difference.
+
+Capture all retained Fusion transactions when the bounded dataset is manageable: `./research/capture-fsnex-transactions.ps1 -Asset <asset> -OutputDirectory <evidence-directory> -IncludeAllTransfers`. The default captures mint/burn transactions; the switch also captures ordinary transfers needed for holder funding and inventory interpretation. Both the holder-funding and controller-link reviewers accept native public FSNEX transaction details. Preserve public block headers separately and verify pinned balances and restrictions through an available historical-state source. Public receipt access does not imply public historical-state access.
+
 Inspect these generated files in `archives/reconciliation/<asset>/`:
 
 | Report | Question |

@@ -10735,7 +10735,7 @@
     "title": "BAT",
     "status": "Partial investigation",
     "reviewed": "2026-10-15",
-    "scope": "Public Fusion receipt analysis with Ethereum, Avalanche, BSC and Polygon candidates; pinned Fusion state checks pending",
+    "scope": "All retained Fusion events have public receipt corroboration; 43 standard holder positions and their restrictions are checked at the reference block. Known vault balances remain much smaller than newer-token supply. Legacy overlap, full BSC history and exhaustive vault discovery remain unresolved; this is not a verified loss calculation.",
     "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
     "movementsFile": "bat-movements.json",
     "vaults": [
@@ -11148,6 +11148,131 @@
             ]
           }
         ]
+      },
+      {
+        "id": "BSC:0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42:29",
+        "title": "Onward BAT holding",
+        "amount": "74.270413138824698715",
+        "chain": "BSC",
+        "date": "2024-10-22T16:54:12+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward BAT holding",
+        "explanation": "The recipient later sends 74.270422978164807171 BAT to 0xea5412ed90053a07054ddeba55f3ef4215ac4ba6, slightly more than the vault payment. The onward address holds 87.510970592236726368 BAT at BSC block 63769742. Additional funds prevent assigning that whole balance to this payment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "BSC history remains incomplete despite balance-consistent localization. No beneficial owner or exchange-account attribution is established. Mixed inputs and later native-asset spending prevent a complete original-value allocation.",
+        "steps": [
+          {
+            "label": "Vault outflow",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "chain": "BSC",
+            "time": "2024-10-22T16:54:12+00:00",
+            "transaction": "https://bscscan.com/tx/0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42",
+            "amount": "74.270413138824698715",
+            "asset": "BAT"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "time": "2024-10-22T16:54:12+00:00",
+            "transaction": "https://bscscan.com/tx/0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42",
+            "amount": "74.270413138824698715",
+            "asset": "BAT"
+          },
+          {
+            "label": "Onward transfer or swap",
+            "address": "0xea5412ed90053a07054ddeba55f3ef4215ac4ba6",
+            "chain": "BSC",
+            "transaction": "https://bscscan.com/tx/0x2148f3bfaa983e89b3a764ade14e1a078866ace7fa2421fb400ebd2a5e21c767",
+            "time": "2024-10-22T17:01:24+00:00",
+            "amount": "74.270422978164807171",
+            "asset": "BAT"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d:162",
+        "title": "Memo-supported payment; later mixed swap",
+        "amount": "11.590329225544257336",
+        "chain": "BSC",
+        "date": "2024-12-04T06:50:12+00:00",
+        "status": "Unmatched",
+        "endpoint": "Memo-supported payment; later mixed swap",
+        "explanation": "The Fusion burn memo explicitly requests BNB-chain BAT, this recipient and exactly 11.590329225544257336 BAT. The successful BSC payment follows 58 seconds later. A later transaction spends that amount alongside three other assets and returns 38.018570699797398603 Binance-Peg USDT to the recipient; that combined output is not solely attributable to BAT.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "BSC history remains incomplete despite balance-consistent localization. No beneficial owner or exchange-account attribution is established. Mixed inputs and later native-asset spending prevent a complete original-value allocation.",
+        "steps": [
+          {
+            "label": "Vault outflow",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "chain": "BSC",
+            "time": "2024-12-04T06:50:12+00:00",
+            "transaction": "https://bscscan.com/tx/0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d",
+            "amount": "11.590329225544257336",
+            "asset": "BAT"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "time": "2024-12-04T06:50:12+00:00",
+            "transaction": "https://bscscan.com/tx/0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d",
+            "amount": "11.590329225544257336",
+            "asset": "BAT"
+          },
+          {
+            "label": "Onward transfer or swap",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "transaction": "https://bscscan.com/tx/0xfee8a1861a04465b7e1fc9a25a8b3651d0567a9c01e419d18bc91d872d1caf24",
+            "time": "2024-12-04T07:35:39+00:00",
+            "amount": "38.018570699797398603",
+            "asset": "Binance-Peg USDT",
+            "note": "Combined output from BAT and three other input assets; not solely BAT proceeds."
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69:62",
+        "title": "Recipient swaps BAT for BNB",
+        "amount": "39.34171706138300481",
+        "chain": "BSC",
+        "date": "2024-12-06T04:33:28+00:00",
+        "status": "Unmatched",
+        "endpoint": "Recipient swaps BAT for BNB",
+        "explanation": "The recipient later swaps exactly 39.341717061383004810 BAT. The successful call trace records 0.018626786348580600 native BNB returned to the same recipient. This establishes observed disposition, not equivalent BAT backing or repayment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "BSC history remains incomplete despite balance-consistent localization. No beneficial owner or exchange-account attribution is established. Mixed inputs and later native-asset spending prevent a complete original-value allocation.",
+        "steps": [
+          {
+            "label": "Vault outflow",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "chain": "BSC",
+            "time": "2024-12-06T04:33:28+00:00",
+            "transaction": "https://bscscan.com/tx/0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69",
+            "amount": "39.34171706138300481",
+            "asset": "BAT"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "time": "2024-12-06T04:33:28+00:00",
+            "transaction": "https://bscscan.com/tx/0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69",
+            "amount": "39.34171706138300481",
+            "asset": "BAT"
+          },
+          {
+            "label": "Onward transfer or swap",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "transaction": "https://bscscan.com/tx/0x83389d6c9616a71c202b4aba9b9bf44e2378c331f560ec673c8db35234a1f901",
+            "time": "2024-12-06T05:03:43+00:00",
+            "amount": "0.018626786348580600",
+            "asset": "BNB",
+            "note": "Native BNB returned to the recipient, corroborated by the successful call trace."
+          }
+        ]
       }
     ],
     "overviewLinks": [
@@ -11314,9 +11439,41 @@
       "referenceBlock": 15130080,
       "referenceTime": "2025-10-07T08:43:50.000Z",
       "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
-      "configurationSha256": "bd9f96775367c9f8e16d45747042022b4a77dd00c86827bcf2c082c2329cabf5",
-      "snapshotNote": "Indexed-log accounting with explicitly imported public FSNEX receipt context. Pinned Fusion holder-state and restriction checks are pending. Derived from accounting-summary; refresh after review.",
+      "configurationSha256": "f11b5497142c91ff1875c4f58c8a18529b0eac3124f78417d730100e006b219f",
+      "snapshotNote": "Six configured standard-token ledgers at the restored Fusion reference. Holder positions agree with pinned state. Older time-aware representations are reviewed separately; these totals are not consolidated liabilities.",
       "tokens": [
+        {
+          "address": "0xcabda6310e5e60905809386bc3e535fbf3f57a66",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 1,
+          "mintedRaw": "79990363574735882263134",
+          "burnedRaw": "0"
+        },
+        {
+          "address": "0xe1df6e934f287ef2e44942342f089d97c191602e",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 2,
+          "mintedRaw": "79990363574735882263134",
+          "burnedRaw": "79990363574735882263134"
+        },
+        {
+          "address": "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 9,
+          "mintedRaw": "10002226717694580187019252",
+          "burnedRaw": "0"
+        },
+        {
+          "address": "0xf9b94140097a0cdb519409950934fc6b38b73e71",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 55,
+          "mintedRaw": "10002226717694580187019252",
+          "burnedRaw": "572806193123068547362463"
+        },
         {
           "address": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
           "decimals": 18,
@@ -11324,6 +11481,14 @@
           "mintedRaw": "6807122443331173578691",
           "burnedRaw": "323266610047145420228",
           "eventCount": 77
+        },
+        {
+          "address": "0x3a28a0e473cccae138e542846151384b28e5aefd",
+          "decimals": 18,
+          "fullTime": true,
+          "eventCount": 195,
+          "mintedRaw": "20289505662882318483019058",
+          "burnedRaw": "10100976657456393989778996"
         }
       ],
       "checks": [
@@ -11341,6 +11506,490 @@
       "2025-blacklisting",
       "2025-suspension"
     ],
-    "announcementScopeNote": "General Chainge statements only. No BAT-specific issuer freeze or incident onset is established; publication dates do not explain these payments."
+    "announcementScopeNote": "General Chainge statements only. No BAT-specific issuer freeze or incident onset is established; publication dates do not explain these payments.",
+    "claimReview": {
+      "referenceBlock": 15130080,
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+      "snapshotNote": "All 43 positive configured standard-token positions agree with pinned balance reads. Earlier FRC758 interval-event totals are excluded from this standard inventory and reviewed separately.",
+      "positions": [
+        {
+          "token": "0x3a28a0e473cccae138e542846151384b28e5aefd",
+          "holder": "0x0000000000000000000000000000000000000001",
+          "decimals": 18,
+          "rawAmount": "10188476534765708790214724",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json"
+        },
+        {
+          "token": "0x3a28a0e473cccae138e542846151384b28e5aefd",
+          "holder": "0x1180529eda6d95a0331714912e55eb70302405fe",
+          "decimals": 18,
+          "rawAmount": "687822425136384521",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json"
+        },
+        {
+          "token": "0x3a28a0e473cccae138e542846151384b28e5aefd",
+          "holder": "0x3b9ce9c88cd56214d71072672e25785e9ba4db44",
+          "decimals": 18,
+          "rawAmount": "765000000000",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json"
+        },
+        {
+          "token": "0x3a28a0e473cccae138e542846151384b28e5aefd",
+          "holder": "0x4f9ba4b78637f1ea6ab03a14e4fde03fb1794724",
+          "decimals": 18,
+          "rawAmount": "24087200260065436",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json"
+        },
+        {
+          "token": "0x3a28a0e473cccae138e542846151384b28e5aefd",
+          "holder": "0xa7cb87630f4f43906423db09d9e7edcf42ae7a45",
+          "decimals": 18,
+          "rawAmount": "51758749825306575381",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x05d8d08ef14fa12fef140f81734e6cf2b3b586a6",
+          "decimals": 18,
+          "rawAmount": "3495865849470520717329",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-0.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x0ebb0b83aa852800e7aa93814986ba80f75d7d09",
+          "decimals": 18,
+          "rawAmount": "23514454671765806905",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x13eb69629317724e8c8cbc4cba09b9ffea74b0c7",
+          "decimals": 18,
+          "rawAmount": "821221580834616099",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x3aa117e57c10482f1b44ed96a93cd1c4ed8e6ea4",
+          "decimals": 18,
+          "rawAmount": "1000752706744697653",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x3edb371878c6354e7e0d2debb5e1f5b3eaa76990",
+          "decimals": 18,
+          "rawAmount": "3463205178227991",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x425bd4bdda30be7deed6d599dbf881caa59525f7",
+          "decimals": 18,
+          "rawAmount": "16124547690728459210",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x4403d5f56ba8b16ecf0d7702459ca4b6e9d14bd9",
+          "decimals": 18,
+          "rawAmount": "5190063960488056837",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x577feabca88b3e336f188fdf7974659dacc4fe03",
+          "decimals": 18,
+          "rawAmount": "25980442369655523",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x63970cf7ddc0e3a8627e45e68db63a1c3a7a338a",
+          "decimals": 18,
+          "rawAmount": "1033223781522869",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x658c2e9fb2b3e773c2373a0d30d5285161b059cf",
+          "decimals": 18,
+          "rawAmount": "3456941864847149",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+          "decimals": 18,
+          "rawAmount": "25197519788433269153",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x73c1e5704d05ed93eb5f90bc70dca81566671d62",
+          "decimals": 18,
+          "rawAmount": "62332651878",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x829a3efcd90d237bbcd9a021d748705ae05b188e",
+          "decimals": 18,
+          "rawAmount": "60499",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x868d7cd0fea1547bfabe465164490d804952736f",
+          "decimals": 18,
+          "rawAmount": "454188190",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0x96dcc6705c2b320db3bc4e904719caa60a32629f",
+          "decimals": 18,
+          "rawAmount": "864023529251224772",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xa34438514a6c13157abcf7e8477f0e42774b4da4",
+          "decimals": 18,
+          "rawAmount": "55881295074030868924",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-1.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xa7bc1692b7dc451a61eeddd0ceec75d6aa481c36",
+          "decimals": 18,
+          "rawAmount": "857232189232003",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xa9d393b0f9eb0047f3389ead324ef021d32f4657",
+          "decimals": 18,
+          "rawAmount": "833198942854360333",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xaba18a18151c12b22c18636febfe7ae2152fff16",
+          "decimals": 18,
+          "rawAmount": "112417265913965349909",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xac71256138ff12843f698b828f9dfe47057f41b7",
+          "decimals": 18,
+          "rawAmount": "51754113536038234983",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xaea36f0ef4e17aa716691cda259823fe18393c42",
+          "decimals": 18,
+          "rawAmount": "12054923916218355",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xb0c04e66137ebda17f8300b245aaa6dfd0479ea1",
+          "decimals": 18,
+          "rawAmount": "9117119059976683265",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xbd4e18ce1d0869fbf831ae3c4d8e6763e8c243a8",
+          "decimals": 18,
+          "rawAmount": "51754113543961765017",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xbe9d67daf28df71e1573bb9085f1deb3203f31b6",
+          "decimals": 18,
+          "rawAmount": "783390391386025545",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xcb14ef2851d963590fed441b9f30685513e48751",
+          "decimals": 18,
+          "rawAmount": "398901695569260784",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xe47de19563392a7aa5360ffb51352d0c1444abdd",
+          "decimals": 18,
+          "rawAmount": "2622273258479123134403",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xe687a5638936e915d5b6c308dd4b1da3a3197498",
+          "decimals": 18,
+          "rawAmount": "765000000000",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xeaa71f50e238ac1a5924a1d5d7d66b11cf447f8b",
+          "decimals": 18,
+          "rawAmount": "8",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xeb22497275efbc68666c817e65ecec300d45b267",
+          "decimals": 18,
+          "rawAmount": "10000000000000000000",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "holder": "0xfa9ac633d772a17418c5305eed8bc90821d3ea20",
+          "decimals": 18,
+          "rawAmount": "17896451269022877",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-2.response.json"
+        },
+        {
+          "token": "0xcabda6310e5e60905809386bc3e535fbf3f57a66",
+          "holder": "0x716daec7a67036a509d8786a7c4115f80b5cc92e",
+          "decimals": 18,
+          "rawAmount": "79990363574735882263134",
+          "intervalStatus": "expired-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.response.json"
+        },
+        {
+          "token": "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+          "holder": "0x716daec7a67036a509d8786a7c4115f80b5cc92e",
+          "decimals": 18,
+          "rawAmount": "10000000000000000000000000",
+          "intervalStatus": "expired-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.response.json"
+        },
+        {
+          "token": "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+          "holder": "0x829a3efcd90d237bbcd9a021d748705ae05b188e",
+          "decimals": 18,
+          "rawAmount": "1613260026800259434267",
+          "intervalStatus": "expired-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.response.json"
+        },
+        {
+          "token": "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+          "holder": "0x8844d7dd81032c6832d95cc69196350d93b6a07a",
+          "decimals": 18,
+          "rawAmount": "613457667779927584985",
+          "intervalStatus": "expired-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.response.json"
+        },
+        {
+          "token": "0xf9b94140097a0cdb519409950934fc6b38b73e71",
+          "holder": "0x0000000000000000000000000000000000000001",
+          "decimals": 18,
+          "rawAmount": "9429419816532924595766168",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.response.json"
+        },
+        {
+          "token": "0xf9b94140097a0cdb519409950934fc6b38b73e71",
+          "holder": "0x1180529eda6d95a0331714912e55eb70302405fe",
+          "decimals": 18,
+          "rawAmount": "708038586992128748",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.response.json"
+        },
+        {
+          "token": "0xf9b94140097a0cdb519409950934fc6b38b73e71",
+          "holder": "0x5b548ac8387c166081d33e57eea2fbe4602665d0",
+          "decimals": 18,
+          "rawAmount": "51761871",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-6.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-7.response.json"
+        },
+        {
+          "token": "0xf9b94140097a0cdb519409950934fc6b38b73e71",
+          "holder": "0xbc69a586fe8f7a17d21482c7418c280f4e5aaa49",
+          "decimals": 18,
+          "rawAmount": "2",
+          "intervalStatus": "remaining-perpetual-interval",
+          "historyConsistent": true,
+          "balanceSource": "evidence/2026-10-15-bat-pinned-fusion/state-7.request.json",
+          "blocked": false,
+          "restrictionSource": "evidence/2026-10-15-bat-pinned-fusion/state-7.response.json"
+        }
+      ],
+      "notes": [
+        "Legacy parent and child runtimes match preserved source after compiler metadata normalization. All published holder blocking flags are false at the reference; this does not establish ownership, redemption access or backing.",
+        "Address-one inventory, expired and remaining dated rights are separate. Overlapping representations are not summed into customer liabilities. No migration deduction is applied."
+      ]
+    }
   }
 }

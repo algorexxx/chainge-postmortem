@@ -1,0 +1,62 @@
+{
+  "referenceBlock": 15130080,
+  "factorySelector": "0x86c58d3e",
+  "contracts": {
+    "0xcabda6310e5e60905809386bc3e535fbf3f57a66": {
+      "kind": "legacy-parent",
+      "address": "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
+    },
+    "0xe1df6e934f287ef2e44942342f089d97c191602e": {
+      "kind": "legacy-parent",
+      "address": "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
+    },
+    "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": {
+      "kind": "legacy-parent",
+      "address": "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
+    },
+    "0xf9b94140097a0cdb519409950934fc6b38b73e71": {
+      "kind": "legacy-parent",
+      "address": "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
+    },
+    "0x8083d1465ea684ce18888bd58b182a33b52a6647": {
+      "kind": "newer-factory",
+      "address": "0xda30862467559b8b6e46d587aa9af5f48088c98b"
+    },
+    "0x3a28a0e473cccae138e542846151384b28e5aefd": {
+      "kind": "legacy-parent",
+      "address": "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
+    }
+  },
+  "runtimeComparisons": [
+    {
+      "response": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json",
+      "id": "parent-code",
+      "compiled": "evidence/2026-10-13-usdc-fusion-source-match/compiled-runtime.hex"
+    },
+    {
+      "response": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json",
+      "id": "code-0xcabda6310e5e60905809386bc3e535fbf3f57a66",
+      "compiled": "evidence/2026-10-13-usdc-fusion-child-code/compiled-slice-runtime.hex"
+    },
+    {
+      "response": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json",
+      "id": "code-0xe1df6e934f287ef2e44942342f089d97c191602e",
+      "compiled": "evidence/2026-10-13-usdc-fusion-child-code/compiled-slice-runtime.hex"
+    },
+    {
+      "response": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json",
+      "id": "code-0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+      "compiled": "evidence/2026-10-13-usdc-fusion-child-code/compiled-slice-runtime.hex"
+    },
+    {
+      "response": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json",
+      "id": "code-0xf9b94140097a0cdb519409950934fc6b38b73e71",
+      "compiled": "evidence/2026-10-13-usdc-fusion-child-code/compiled-slice-runtime.hex"
+    },
+    {
+      "response": "evidence/2026-10-15-bat-pinned-fusion/state-0.response.json",
+      "id": "code-0x3a28a0e473cccae138e542846151384b28e5aefd",
+      "compiled": "evidence/2026-10-13-usdc-fusion-child-code/compiled-slice-runtime.hex"
+    }
+  ]
+}

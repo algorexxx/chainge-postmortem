@@ -1,0 +1,148 @@
+{
+  "gates": [
+    {
+      "id": "identity",
+      "status": "verified",
+      "finding": "Full public Fusion catalogue, parent/child interval getters and source-chain contracts reviewed.",
+      "nextAction": "Reopen on another representation or changed identity evidence.",
+      "references": [
+        "research/assets/bat.md",
+        "evidence/2026-10-15-bat-token-inventory/manifest.json",
+        "evidence/2026-10-15-bat-pinned-fusion/manifest.json"
+      ]
+    },
+    {
+      "id": "vault-discovery",
+      "status": "evidence-boundary",
+      "finding": "Five tested candidate vaults per configured chain; additional bridged representations remain leads, not assumed balances.",
+      "nextAction": "Reopen on authenticated additional custody or source-chain transaction identifiers.",
+      "references": [
+        "research/assets/bat.md",
+        "evidence/2026-10-15-bat-public-discovery/manifest.json",
+        "evidence/2026-10-15-bat-other-chains/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Full Fusion catalogue review",
+        "Known-vault address reuse and token history screening",
+        "Issuer and public representation discovery"
+      ],
+      "boundaryReason": "Address reuse and public token lists cannot establish exhaustive custody or beneficial ownership."
+    },
+    {
+      "id": "history",
+      "status": "pending",
+      "finding": "Ethereum/Avalanche retained vault histories are corroborated; full BSC incoming/outgoing coverage remains missing. A complete-history provider attempt failed identity verification. A second provider verified chain identity but rejected all three initial historical batches with its compute-unit quota.",
+      "nextAction": "Resume the generated BSC acquisition plan when anonymous historical-log access succeeds; balance agreement does not substitute for logs.",
+      "references": [
+        "research/assets/bat.md",
+        "evidence/2026-10-15-bat-bsc-public-retry/manifest.json",
+        "evidence/2026-10-15-bat-bsc-complete-attempt/manifest.json",
+        "evidence/2026-10-15-bat-bsc-complete-retry/manifest.json"
+      ]
+    },
+    {
+      "id": "receipts",
+      "status": "verified",
+      "finding": "All 491 retained Fusion events have successful public receipt and block-header context. Known source-chain vault flows have retained receipts and headers.",
+      "nextAction": "Rerun receipt/header capture after adding any history.",
+      "references": [
+        "evidence/2026-10-15-bat-fsnex-receipts/manifest.json",
+        "evidence/2026-10-15-bat-public-headers/manifest.json",
+        "research/assets/bat.md"
+      ]
+    },
+    {
+      "id": "source-balances",
+      "status": "verified",
+      "finding": "All five tested addresses on four configured chains have pinned common-cutoff balances. Bridged backing is kept separate.",
+      "nextAction": "Recheck new vaults or cutoffs; do not treat this inventory as exhaustive.",
+      "references": [
+        "research/assets/bat.md",
+        "evidence/2026-10-15-bat-avalanche-state-single/manifest.json",
+        "evidence/2026-10-15-bat-bsc-discovery/manifest.json",
+        "evidence/2026-10-15-bat-state-retry/manifest.json"
+      ]
+    },
+    {
+      "id": "fusion-state",
+      "status": "verified",
+      "finding": "43 positive configured standard positions match pinned balances; all published blocking flags are false. Parent and child runtime/getter relationships checked.",
+      "nextAction": "Reopen on a later snapshot, new representation or restriction mechanism.",
+      "references": [
+        "evidence/2026-10-15-bat-pinned-fusion/manifest.json",
+        "research/assets/bat-fusion-state.json"
+      ]
+    },
+    {
+      "id": "fusion-semantics",
+      "status": "evidence-boundary",
+      "finding": "Verified same-receipt conversions and configured dated rights; no unsupported deduction for legacy overlaps. Earlier FRC758 replay is not a standard ledger.",
+      "nextAction": "A validated FRC758 historical model or authenticated rights/ownership evidence can change the treatment.",
+      "references": [
+        "research/assets/bat.md",
+        "evidence/2026-10-15-bat-pinned-fusion/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Full retained receipt import",
+        "Source/runtime comparison",
+        "Pinned ordinary and slice state",
+        "Routing memo decoding"
+      ],
+      "boundaryReason": "Storage and events do not establish beneficial ownership or consolidated claims; the earlier interval-event replay remains unvalidated."
+    },
+    {
+      "id": "holder-funding",
+      "status": "evidence-boundary",
+      "finding": "Largest three newer holders reconcile; two originate in verified legacy conversions and one receives vault inventory. Controller source identifier candidate found.",
+      "nextAction": "Reopen on source settlement records for direct inventory mints or proof of ownership.",
+      "references": [
+        "research/assets/bat.md",
+        "evidence/2026-10-15-bat-fsnex-receipts/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Replay of all 77 newer transfers",
+        "Same-receipt conversion checks",
+        "Exact-amount upstream burn search",
+        "Receipt-supported controller identifier search"
+      ],
+      "boundaryReason": "Direct inventory mints do not carry enough authenticated external-funding evidence to establish reserve equivalence."
+    },
+    {
+      "id": "outflow-disposition",
+      "status": "evidence-boundary",
+      "finding": "All 19 retained external vault outflows assessed; all three BSC payments now have onward disposition evidence.",
+      "nextAction": "Reopen on additional recipient history, reliable attribution or settlement identifiers.",
+      "references": [
+        "research/assets/bat.md",
+        "research/assets/bat-closeout.json",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Recipient histories and pinned balances",
+        "Receipt/log paths",
+        "Anonymous native call trace",
+        "Fusion counterpart and routing memo review"
+      ],
+      "boundaryReason": "Mixed funds, unidentified owners and incomplete BSC history prevent full value attribution; reviewed does not mean settled."
+    },
+    {
+      "id": "announcements",
+      "status": "verified",
+      "finding": "General announcement dates retained with explicit non-BAT-specific scope.",
+      "nextAction": "Reopen on an authenticated BAT-specific incident date.",
+      "references": [
+        "research/assets/bat.md",
+        "registry/timeline.json"
+      ]
+    },
+    {
+      "id": "publication",
+      "status": "verified",
+      "finding": "Build has zero warnings/errors; 310 tests pass. All asset report/snapshot checks passed. The shared UI check was corrected to accept genuinely zero blocked balances and now passes, as do workflow negative regressions.",
+      "nextAction": "Rerun verification and privacy review whenever evidence, policy, assessment or UI changes.",
+      "references": [
+        "research/assets/bat.md"
+      ]
+    }
+  ]
+}

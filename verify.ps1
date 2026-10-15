@@ -27,6 +27,8 @@ try {
         if (Test-Path "research/assets/$assetName-closeout.json") {
             & ./research/review-closeout.ps1 -Asset $assetName -ReportDirectory $outputPath -RequireReviewed
         }
+        if (Test-Path "research/assets/$assetName-fusion-state.json") { & ./research/check-fusion-restrictions.ps1 -Asset $assetName }
+        if (Test-Path "research/assets/$assetName-workflow.json") { & ./research/review-workflow.ps1 -Asset $assetName -ReportDirectory $outputPath }
         foreach ($study in $studies.Values | Where-Object { $_.movementsFile -eq "$assetName-movements.json" }) {
             & ./registry/verify-claim-snapshot.ps1 -ReportDirectory $outputPath -Study $study
             if ($study.claimReview) { & ./research/review-holder-funding.ps1 -Asset $assetName }
@@ -39,6 +41,7 @@ try {
             if ($generatedHash -ne $publishedHash) { throw "Stale public report: $publishedPath. Review the changes, then run ./reconcile.ps1 -Asset $assetName -UpdateRegistry." }
         }
     }
+    & ./research/check-workflow-review.ps1
     dotnet run --project Chainge.Postmortem.Site --configuration Release --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
     if ($LASTEXITCODE -ne 0) { throw 'Site generation failed.' }
     node registry/check-ui.cjs

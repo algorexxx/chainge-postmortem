@@ -11,6 +11,12 @@ try {
     function Read-HexInteger([string]$Value) { [System.Numerics.BigInteger]::Parse(('0' + $Value.Replace('0x','')), [System.Globalization.NumberStyles]::AllowHexSpecifier) }
     function Get-Results($Value) {
         if ($Value -is [array]) { foreach ($entry in $Value) { Get-Results $entry }; return }
+        if ($Value -is [System.Collections.IDictionary] -and $Value.Contains('succeeded') -and $Value.Contains('logCount') -and $Value.hash) {
+            if ($Value.succeeded -ne $true -or $Value.logCount -ne $Value.logs.Count) { throw 'Failed or incomplete FSNEX receipt in controller evidence.' }
+            $Value
+            @{ transactionHash = $Value.hash; blockHash = $Value.blockHash; status = '0x1'; logs = $Value.logs }
+            return
+        }
         if ($Value -is [System.Collections.IDictionary] -and $Value.Contains('result')) { $Value.result }
     }
     $transactions = @{}

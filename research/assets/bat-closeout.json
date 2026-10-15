@@ -199,32 +199,39 @@
     },
     {
       "eventId": "BSC:0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42:29",
-      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. BSC coverage remains incomplete and downstream disposition has not been established.",
-      "limitation": "Public FSNEX receipts are available; pinned Fusion state, matching and beneficial ownership remain unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, pinned Fusion state, fuller source history or verified destination attribution.",
+      "finding": "The recipient later sends 74.270422978164807171 BAT to 0xea5412ed90053a07054ddeba55f3ef4215ac4ba6, slightly more than the vault payment. The onward address holds 87.510970592236726368 BAT at BSC block 63769742. Additional funds prevent assigning that whole balance to this payment.",
+      "limitation": "BSC history remains incomplete despite balance-consistent localization. No beneficial owner or exchange-account attribution is established. Mixed inputs and later native-asset spending prevent a complete original-value allocation.",
       "references": [
         "evidence/2026-10-15-bat-bsc-balance-gaps/caecf1-boundary-43345370.response.json",
         "evidence/2026-10-15-bat-bsc-balance-gaps/receipt-0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42.response.json",
-        "research/fsnex-public-workflow.md"
+        "research/fsnex-public-workflow.md",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/receipt-0x2148f3bfaa983e89b3a764ade14e1a078866ace7fa2421fb400ebd2a5e21c767.response.json",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/onward-balance.response.json"
       ]
     },
     {
       "eventId": "BSC:0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d:162",
-      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. BSC coverage remains incomplete and downstream disposition has not been established. Same recipient burns 12.461221548641540416 newer Fusion BAT 58 seconds before receiving 11.590329225544257336 BAT. The difference is not an authenticated fee; classification remains unmatched.",
-      "limitation": "Public FSNEX receipts are available; pinned Fusion state, matching and beneficial ownership remain unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, pinned Fusion state, fuller source history or verified destination attribution.",
+      "finding": "The Fusion burn memo explicitly requests BNB-chain BAT, this recipient and exactly 11.590329225544257336 BAT. The successful BSC payment follows 58 seconds later. A later transaction spends that amount alongside three other assets and returns 38.018570699797398603 Binance-Peg USDT to the recipient; that combined output is not solely attributable to BAT.",
+      "limitation": "BSC history remains incomplete despite balance-consistent localization. No beneficial owner or exchange-account attribution is established. Mixed inputs and later native-asset spending prevent a complete original-value allocation.",
       "references": [
         "evidence/2026-10-15-bat-bsc-balance-gaps/caecf1-boundary-44571395.response.json",
         "evidence/2026-10-15-bat-bsc-balance-gaps/receipt-0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d.response.json",
-        "research/fsnex-public-workflow.md"
+        "research/fsnex-public-workflow.md",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/receipt-0xfee8a1861a04465b7e1fc9a25a8b3651d0567a9c01e419d18bc91d872d1caf24.response.json",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/onward-balance.response.json"
       ]
     },
     {
       "eventId": "BSC:0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69:62",
-      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. BSC coverage remains incomplete and downstream disposition has not been established.",
-      "limitation": "Public FSNEX receipts are available; pinned Fusion state, matching and beneficial ownership remain unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, pinned Fusion state, fuller source history or verified destination attribution.",
+      "finding": "The recipient later swaps exactly 39.341717061383004810 BAT. The successful call trace records 0.018626786348580600 native BNB returned to the same recipient. This establishes observed disposition, not equivalent BAT backing or repayment.",
+      "limitation": "BSC history remains incomplete despite balance-consistent localization. No beneficial owner or exchange-account attribution is established. Mixed inputs and later native-asset spending prevent a complete original-value allocation.",
       "references": [
         "evidence/2026-10-15-bat-bsc-balance-gaps/caecf1-boundary-44626249.response.json",
         "evidence/2026-10-15-bat-bsc-balance-gaps/receipt-0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69.response.json",
-        "research/fsnex-public-workflow.md"
+        "research/fsnex-public-workflow.md",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/receipt-0x83389d6c9616a71c202b4aba9b9bf44e2378c331f560ec673c8db35234a1f901.response.json",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/onward-balance.response.json",
+        "evidence/2026-10-15-bat-bsc-recipient-followup/onward-trace-dec6.response.json"
       ]
     },
     {

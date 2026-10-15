@@ -2,6 +2,10 @@
 
 Use the anonymous public API by default. No account, API key, private gateway or SSH connection is needed for indexed Fusion history. FSNEX and the recovered node share infrastructure; agreement between them is not independent-provider corroboration.
 
+For bounded datasets, add `-IncludeAllTransfers` to `capture-fsnex-transactions.ps1` to capture ordinary transfers as well as mint/burn transactions. This matters for identifying inventory conversions and tracing large holders. The holder-funding and controller-link reviewers now consume the native public response format too. Reuse successful immutable captures; regenerate manifests after additions, and finish acquisition before reconciling a selected evidence directory.
+
+For state the public API cannot supply, `research/plan-fusion-state.ps1 -Asset <asset> -Endpoint <authorized-rpc>` generates pinned balance/code queries from the current configured standard-token inventory. Its plan stays under ignored `archives/` because the endpoint may be private. Existing reviewed `<asset>-fusion-state.json` mappings also generate restriction queries; missing mappings are explicitly warned about. Execute using `capture.ps1` and run `check-fusion-restrictions.ps1` where applicable. For a private endpoint, the capture output must also stay under `archives/`: the runner records the endpoint in capture metadata. Publish a separate reviewed copy containing unchanged public RPC request/response bytes, capture UTC and hashes, but explicitly omitted connection details; regenerate its public manifest and retain the original privately. Never infer unsupported predecessor/slice balances from the standard inventory. Connection setup remains local; publish only the chain evidence.
+
 ## Public endpoints
 
 | Evidence | GET endpoint |

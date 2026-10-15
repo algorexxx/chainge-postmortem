@@ -1,7 +1,8 @@
 param(
     [Parameter(Mandatory)][ValidatePattern('^[a-z0-9-]+$')][string]$Asset,
     [Parameter(Mandatory)][string]$OutputDirectory,
-    [ValidateRange(1000, 60000)][int]$DelayMilliseconds = 1100
+    [ValidateRange(1000, 60000)][int]$DelayMilliseconds = 1100,
+    [switch]$IncludeAllTransfers
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
@@ -10,6 +11,22 @@ $transactions = @(Import-Csv -LiteralPath $purposes | ForEach-Object {
     if ($_.event_id -notmatch '^Fusion:(0x[0-9a-f]{64}):[0-9]+$') { throw 'Invalid Fusion event identity.' }
     $Matches[1]
 } | Sort-Object -Unique)
+if ($IncludeAllTransfers) {
+    function Get-TransactionHashes($Value) {
+        if ($Value -is [array]) { foreach ($entry in $Value) { Get-TransactionHashes $entry }; return }
+        if ($Value -isnot [System.Collections.IDictionary]) { return }
+        if ($Value.transactionHash -match '^0x[0-9a-f]{64}$' -and $Value.topics) { $Value.transactionHash }
+        if ($Value.succeeded -eq $true -and $Value.hash -match '^0x[0-9a-f]{64}$' -and $Value.Contains('logs')) { $Value.hash }
+        foreach ($key in @('result','logs')) { if ($Value.Contains($key)) { Get-TransactionHashes $Value[$key] } }
+    }
+    $configuration = Get-Content (Join-Path $root "reconciliation/$Asset.json") -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
+    $additional = foreach ($source in $configuration.sources | Where-Object chain -EQ Fusion) {
+        foreach ($file in Get-ChildItem -LiteralPath (Join-Path $root $source.directory) -Filter $source.pattern) {
+            Get-TransactionHashes (Get-Content $file.FullName -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable)
+        }
+    }
+    $transactions = @(@($transactions) + @($additional) | Sort-Object -Unique)
+}
 $output = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Force -Path $output | Out-Null
 $client = [Net.Http.HttpClient]::new()

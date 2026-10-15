@@ -10,6 +10,17 @@ try {
     function Convert-HexInteger([string]$Value) { [System.Numerics.BigInteger]::Parse(('0' + $Value.Substring(2)), [System.Globalization.NumberStyles]::AllowHexSpecifier) }
     function Get-TransferLogs($Value) {
         if ($Value -is [System.Collections.IDictionary]) {
+            if ($Value.Contains('succeeded') -and $Value.Contains('logCount') -and $Value.Contains('hash')) {
+                if ($Value.succeeded -ne $true -or $Value.logCount -ne $Value.logs.Count) { throw 'Failed or incomplete FSNEX receipt in holder funding evidence.' }
+                foreach ($nativeLog in $Value.logs) {
+                    $log = @{} + $nativeLog
+                    $log.transactionHash = $Value.hash
+                    $log.blockNumber = '0x' + ([long]$Value.blockNumber).ToString('x')
+                    $log.logIndex = '0x' + ([long]$nativeLog.logIndex).ToString('x')
+                    Get-TransferLogs $log
+                }
+                return
+            }
             if ($Value.topics -and $Value.topics.Count -eq 3 -and $Value.topics[0] -eq '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef') { $Value; return }
             foreach ($key in @('result','logs')) { if ($Value.Contains($key)) { Get-TransferLogs $Value[$key] } }
             return

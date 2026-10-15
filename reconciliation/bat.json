@@ -73,7 +73,27 @@
         "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
       ]
     },
-    "delayedReviewMaximumDelay": "7.00:00:00"
+    "delayedReviewMaximumDelay": "7.00:00:00",
+    "routingCallTargets": [
+      "0x3668c219b1fa8fe8175158f6ce91ded36fde9152"
+    ],
+    "routingChainNames": {
+      "ETH": "Ethereum",
+      "BSC": "BSC",
+      "AVAX": "Avalanche",
+      "MATIC": "Polygon",
+      "BNB": "BSC",
+      "FSN": "Fusion"
+    },
+    "routingReviewMaximumDelay": "7.00:00:00",
+    "sliceCounterparts": {
+      "0x3a28a0e473cccae138e542846151384b28e5aefd": [
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66",
+        "0xe1df6e934f287ef2e44942342f089d97c191602e",
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71"
+      ]
+    }
   },
   "sources": [
     {
@@ -310,6 +330,45 @@
         "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
         "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18
       }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-bat-pinned-fusion",
+      "pattern": "identity.response.json",
+      "tokenDecimals": {
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66": 18,
+        "0xe1df6e934f287ef2e44942342f089d97c191602e": 18,
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18,
+        "0x8083d1465ea684ce18888bd58b182a33b52a6647": 18,
+        "0x3a28a0e473cccae138e542846151384b28e5aefd": 18
+      }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-bat-public-headers",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x0dc14b42527538a37f0fa27b8d150b58a9a99d3b": 18,
+        "0x2318e2a12946390386460780add17a3b82aad2c5": 18,
+        "0x3a28a0e473cccae138e542846151384b28e5aefd": 18,
+        "0x6bfdfd67d3917750c63a51e4aa6e2050ad9dca22": 18,
+        "0x8083d1465ea684ce18888bd58b182a33b52a6647": 18,
+        "0x8dc3e00463296c839acba116bf6ffc93557e0145": 18,
+        "0xa7357c06aa73558d5927a83f24fe7f9075fdf048": 18,
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66": 18,
+        "0xe1df6e934f287ef2e44942342f089d97c191602e": 18,
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-bsc-recipient-followup",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
     }
   ],
   "balanceSources": [
@@ -351,6 +410,19 @@
       "pattern": "state-*.request.json",
       "tokenDecimals": {
         "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-bat-pinned-fusion",
+      "pattern": "state-*.request.json",
+      "tokenDecimals": {
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66": 18,
+        "0xe1df6e934f287ef2e44942342f089d97c191602e": 18,
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18,
+        "0x8083d1465ea684ce18888bd58b182a33b52a6647": 18,
+        "0x3a28a0e473cccae138e542846151384b28e5aefd": 18
       }
     }
   ],
@@ -650,10 +722,24 @@
       "maximumLogBlocks": 5000000,
       "batchSize": 3,
       "combineHolderFilters": true
+    },
+    "BSC": {
+      "template": {
+        "endpoint": "https://bsc.drpc.org",
+        "expectedChainId": "0x38",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:00:40",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 10000,
+      "batchSize": 3,
+      "combineHolderFilters": true
     }
   },
   "limitations": [
-    "Partial investigation: public FSNEX receipt details are imported explicitly; pinned Fusion holder-state and restriction checks remain outstanding. Private RPC access is available as a fallback.",
+    "Partial investigation: all positive configured standard Fusion holder positions and restriction flags are checked at the reference block. Earlier FRC758 event sums are not a validated balance model; BSC history and broader vault discovery remain incomplete.",
     "Known vault addresses are candidates per asset and do not establish a complete vault inventory.",
     "Additional BAT representations on Solana, NEAR, Harmony and Energi are discovery leads, not included backing.",
     "Legacy representations and dated rights overlap; no consolidated customer liability total is established.",

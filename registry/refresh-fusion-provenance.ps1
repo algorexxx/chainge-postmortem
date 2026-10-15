@@ -31,7 +31,13 @@ try {
     $old = '"configurationSha256": "' + $oldHash + '"'
     $replacement = '"configurationSha256": "' + $hash + '"'
     if ([regex]::Matches($text, [regex]::Escape($old)).Count -ne 1) { throw 'Expected exactly one provenance hash; preserve the file and review its format.' }
-    [IO.File]::WriteAllText((Join-Path (Get-Location) $path), $text.Replace($old, $replacement), [Text.UTF8Encoding]::new($false))
+    $destination = Join-Path (Get-Location) $path
+    $temporary = $destination + '.' + [Guid]::NewGuid().ToString('N') + '.tmp'
+    try {
+        [IO.File]::WriteAllText($temporary, $text.Replace($old, $replacement), [Text.UTF8Encoding]::new($false))
+        [IO.File]::Move($temporary, $destination, $true)
+    }
+    finally { if (Test-Path -LiteralPath $temporary) { Remove-Item -LiteralPath $temporary } }
     Write-Output "$Asset provenance refreshed after checking unchanged Fusion statistics and pinned holder positions."
 }
 finally { Pop-Location }
