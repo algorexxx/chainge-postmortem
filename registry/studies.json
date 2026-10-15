@@ -4552,7 +4552,7 @@
             }
           ],
           "treatment": "separate",
-          "reason": "Backing is unverified. The Syscoin parent token has not been established as independently redeemable USDC."
+          "reason": "Backing is unverified. A traced deposit originated as Fusion tokens routed through Syscoin and Rollux. Independent USDC reserves have not been established."
         },
         {
           "chain": "Polygon",
@@ -4855,6 +4855,10 @@
       {
         "label": "USDC mint funding links",
         "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-controller-funding-links.md"
+      },
+      {
+        "label": "USDC route through Syscoin and Rollux",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-rollux-roundtrip.md"
       }
     ],
     "claimReview": {

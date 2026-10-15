@@ -22,6 +22,8 @@ Amounts use six decimals for the specific source token contracts in these receip
 
 ## Two large mints
 
+Follow-up: the Rollux deposit now has a documented [Fusion → Syscoin → Rollux → Fusion route](usdc-rollux-roundtrip.md). Its traced input was a Fusion token transfer, not an independently verified USDC deposit.
+
 The **2006806.415910** mint to [f11b…c52c](https://fsnex.net/address/0xf11b4db13148d56e2a10ad701ad0ff338c62c52c) follows a **2008011.232650** deposit on Rollux. The receipt transfers the [Rollux token](https://explorer.rollux.com/address/0x368433cac2a0b8d76e64681a9835502a1f2a8a30) from [8a85…4e84](https://explorer.rollux.com/address/0x8a85c29369ac6a12bfad9da45b9c9311d1e14e84) into [66ff…ecf1](https://explorer.rollux.com/address/0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1). Its router event carries the same identifier as the Fusion controller call. The memo names FSN, the exact newer USDC contract, f11b, and the exact minted amount. Block timestamps put the mint 50 seconds later.
 
 **This explains a source of Fusion issuance, not reserve quality.** The Rollux asset has unverified backing and remains excluded from the main vault total. Its receipt does not prove Circle-issued USDC was deposited, nor does it establish an independent economic claim to add to the Fusion supply. No claim that the same deposit remains wholly in the current Rollux balance follows after subsequent mixing and transfers.

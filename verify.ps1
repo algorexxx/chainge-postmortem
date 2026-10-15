@@ -8,6 +8,7 @@ try {
     & ./research/check-newer-holders.ps1
     & ./research/review-controller-links.ps1 -Asset usdc -FusionEvidenceDirectory evidence/2026-10-15-newer-holder-review -Controller 0x3668c219b1fa8fe8175158f6ce91ded36fde9152
     & ./research/check-controller-links.ps1
+    & ./research/check-rollux-roundtrip.ps1
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }

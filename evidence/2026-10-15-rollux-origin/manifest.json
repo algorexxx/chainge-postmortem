@@ -1,0 +1,32 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "rollux-funding-headers.capture.json": "249d60dbf3e400b3f09a73626af2178e1390d42612219673b0b97e750cfdcdb1",
+    "rollux-funding-headers.request.json": "5d67fac404b2da403e83de2edb70e2b80f7ded6d2ff9529c83578989bad1f7fe",
+    "rollux-funding-headers.response.json": "a201322d1f482e5aac3c012334c7cf80f894d3b3f72e147136ac41c451562886",
+    "rollux-funding-receipts.capture.json": "ef22aca2ebb1fc10a08e6876d0fadfad47990971c0a876ed3bc8656c64e2664a",
+    "rollux-funding-receipts.request.json": "5f9fd5a3fcd28d88de663726013f7d7e056a7850f1ea6ebc5fde624d4b1c8b64",
+    "rollux-funding-receipts.response.json": "61946c60edb2578f2a57cb2985753a17ba7db06c752a0e17b8e7128c4d50e825",
+    "rollux-holder-history.capture.json": "72726053fd63b1c26934a26571f2e7ec64101bb14289dfd5228f2dab6ca92cc8",
+    "rollux-holder-history.request.json": "8e0fbcb54bca014e31b6bab5a2c9892d30736bd092a6f23a73149f50a105575b",
+    "rollux-holder-history.response.json": "65794323ea4cc684ef6c6c17937e381498044f2338b3527a53a8ff025e1aeb12",
+    "syscoin-creation.capture.json": "b2572500948fd49cc002ac22011e1760363b14a884474a743ccd62d5e000bb0a",
+    "syscoin-creation.response.json": "4e2494f870f5664187b54c05d18dc6ab7815206c26925ca44c131a217bc38c73",
+    "syscoin-head.capture.json": "74390e59462c078a0d592357afaceb2a278f7e9cccadc8f73dfce2c63a83cdde",
+    "syscoin-head.request.json": "155ee421188368588fbd35b8a47a53d5532c8893537068305fc983e741357aa9",
+    "syscoin-head.response.json": "81f16db4b1867728e877c62a38723277d8ce2ad1f1e0dac0f321e0de1caf453b",
+    "syscoin-mint-context.capture.json": "a0c2bb6452ea0da075683ec06e4223c6b38b8f9900623f79e56c08d6e35753d4",
+    "syscoin-mint-context.request.json": "109c9ede102b93a2e7aab060e2d693e978add86ba3343427278375b432c655d0",
+    "syscoin-mint-context.response.json": "c0cdb51e5909b22d461f8d40c2400b4a7fe0f5a16dff9215bdaba96c2f51e3da",
+    "syscoin-mint-headers.capture.json": "6a685085f7e6c485007ec4b267e4b9eb7e512383d1514d20b99b75d6471de72a",
+    "syscoin-mint-headers.request.json": "da25ac78cdd7cabe9c8253a4ed702d3615217f96a7a32e56ff6b692b5c8c681b",
+    "syscoin-mint-headers.response.json": "d8ead8b9fb0f6838294e64badd4ae062d58e1549bc6b4eab29ad392b5b18ceec",
+    "syscoin-parent.capture.json": "0ed1ee6bf3a71048c199a63821f9609a6177668be1912056859b1e9b954b0187",
+    "syscoin-parent.response.json": "7347190279586165b856d0011c5041a4d4cf2ee154181e4d151300f902521017",
+    "syscoin-state.capture.json": "5f0a351f5dfad13d1a1e59b89c4f0a2b12f662282a18476a2b1d71edfd69af42",
+    "syscoin-state.request.json": "a017abeafab581ee68f503ec1dbe4985b7a5d49e1b9ac6470ced1905935b6955",
+    "syscoin-state.response.json": "2205ef11bfe52ded0c0e76cb3e83be30f94b99cd56a949d32fb5685faec2bd25",
+    "syscoin-token-history.capture.json": "eddb442d67358a943060255e22abcbc5d9356c0dfb9ccbb70f6c158108ef12e4",
+    "syscoin-token-history.response.json": "a222d7559f67788810897fdaa11a4d3a08eb5fdeff2a76558a4fc32160488a76"
+  }
+}

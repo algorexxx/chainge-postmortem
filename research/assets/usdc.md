@@ -4,6 +4,8 @@ Reviewed 2026-10-13. [Configuration](../../reconciliation/usdc.json), [capture i
 
 ## Fusion accounting
 
+The [2026-10-15 Rollux origin review](../usdc-rollux-roundtrip.md) links a large Fusion mint back through Rollux and Syscoin to an earlier Fusion transfer. This strengthens the reason to keep Rollux separate from verified backing; it changes no reported balances or customer-claim assumptions.
+
 Reference time: **2025-10-07 08:43:50 UTC**, [Fusion block 15130080](https://fsnex.net/block/15130080), hash `0xe93ffded087a79097d4309c7831690161db6ed136f4b1a22c4c83a99db80f99f`. FSNEX and the previously retained node baseline share infrastructure. The first acquisition attempted the LAN listener, which intentionally does not accept this PC. The documented local SSH tunnel was subsequently restored and two transactions were corroborated directly; see the [access correction](../../evidence/2026-10-13-fusion-rpc-recovery/README.md). The [bulk receipt package](../../evidence/2026-10-13-usdc-fusion-receipts/README.md) now corroborates all 45,544 observed mint/burn events in 45,149 transactions, with 43,345 block headers. Ordinary transfers outside those transactions still use explorer logs.
 
 | Representation | Transfer events | Gross minted | Gross burned | Mint minus burn |
