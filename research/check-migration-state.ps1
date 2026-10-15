@@ -30,7 +30,7 @@ try {
         if (-not $study.claimReview) { continue }
         Assert-Condition ($study.claimReview.referenceBlock -eq 15130080) 'Restriction snapshot no longer matches claims.'
         foreach ($position in $study.claimReview.positions) {
-            if ($position.token -eq $item.Key) { Assert-Condition (-not $position.ContainsKey('blocked')) 'Do not infer newer flags from legacy state.'; continue }
+            if ($position.token -eq $item.Key) { continue }
             $id = $study.title + '-blocked-' + $position.holder
             $response = @(Read-Json $position.restrictionSource | Where-Object id -EQ $id)
             Assert-Condition ($response.Count -eq 1 -and $response[0].result -in @(('0x' + ('0' * 64)), ('0x' + ('0' * 63) + '1'))) 'Missing or invalid flag evidence.'

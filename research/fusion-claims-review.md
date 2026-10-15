@@ -59,3 +59,5 @@ The [three-case review](usdc-post-snapshot-outflows.md) identifies new funding b
 ## Migration semantics follow-up
 
 The [contract and state review](fusion-migration-semantics.md) confirms coordinated BUSD/USDC blocking, matches both legacy runtimes to source, and checks all positive legacy-holder flags. Blocked balances remain recorded and reversible; no additional overlap deduction is applied. The reviewed UI separates the blocked subset from other balances.
+
+The [newer-holder follow-up](newer-holder-funding-and-restrictions.md) checks every positive newer position, identifies the account-specific block on 622376.614316 USDC, and reconciles the funding of the three largest holders of each asset. The same UI now shows independently verified newer blocking flags. Neither these flags nor the newly located migration guidance establishes a consolidated customer-claim figure.

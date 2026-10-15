@@ -5,6 +5,7 @@ try {
     if (-not (Test-Json -Path registry/studies.json -SchemaFile registry/studies.schema.json)) { throw 'The reviewed studies do not match the standard site data format.' }
     $studies = Get-Content registry/studies.json -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
     & ./research/check-migration-state.ps1
+    & ./research/check-newer-holders.ps1
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
@@ -18,6 +19,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "Reconciliation failed: $assetName" }
         foreach ($study in $studies.Values | Where-Object { $_.movementsFile -eq "$assetName-movements.json" }) {
             & ./registry/verify-claim-snapshot.ps1 -ReportDirectory $outputPath -Study $study
+            if ($study.claimReview) { & ./research/review-holder-funding.ps1 -Asset $assetName }
         }
         if ($assetName -eq 'usdc') { & ./research/check-usdc-post-snapshot.ps1 -ReportDirectory $outputPath }
         $publishedPath = Join-Path registry "$assetName-movements.json"

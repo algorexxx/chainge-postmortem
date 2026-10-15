@@ -116,10 +116,9 @@ for(const [key,study] of Object.entries(published)){
  context.location.hash='#token='+key;run("tabName='overview';renderSelection();");
  const output=element('#detail').innerHTML;
  assert(output.includes('Of those, blocked'));
- assert(output.includes('Not checked'));
  assert(output.includes('not an extra balance or a deduction'));
  assert(study.claimReview.positions.some(p=>p.blocked===true));
  assert(study.claimReview.positions.some(p=>p.blocked===false));
- assert(study.claimReview.positions.filter(p=>p.token===key).every(p=>p.blocked===undefined));
+ assert(study.claimReview.positions.filter(p=>p.token===key).every(p=>typeof p.blocked==='boolean'));
 }
-console.log('Legacy blocked subsets remain separate from unknown newer restrictions and do not alter supply comparisons.');
+console.log('Legacy and newer blocked subsets are supported by separate evidence and do not alter supply comparisons.');
