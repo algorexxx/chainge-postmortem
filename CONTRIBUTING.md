@@ -8,6 +8,8 @@ Fork the repository, create a research branch and copy [the asset template](rese
 
 Inventory Fusion predecessors, child tokens, dated rights, migrations, controllers and mint/burn methods. Inventory candidate **vault addresses** separately on each source chain, with evidence for their role and active period. A downstream recipient is not a vault merely because it received a payment. Keep unverified candidates and alternative explanations visible.
 
+Screen the full retained token catalogue for predecessor and dated representations, and test known vault candidates on each plausible source chain. An issuer FAQ or market-data chain list is a discovery lead, not an exhaustive bridge inventory; BAT screening missed BSC and older Fusion representations until this wider check.
+
 Choose a common UTC comparison time and chain-specific blocks at or before it. Preserve their hashes and adjacent headers. Record the provenance and limits of the Fusion snapshot: the highest known recovered backup is not independently proven network finality. Later source-chain payments cannot be judged against missing later Fusion burns.
 
 ## 2. Preserve evidence and configure acquisition
@@ -42,7 +44,9 @@ Install the .NET SDK from `global.json`, PowerShell 7 and Node.js 22. Planning a
 
 Inspect plans before executing. Anonymous providers have different limits for logs, receipts, headers, OR-holder filters and batch sizes. Save failures, reduce batch/range size or increase delay, and resume the **same plan and output directory**. Successful hash-checked pinned requests are reused; dynamic tags are not. Do not overwrite attempts or edit the meaning of existing batches. Use a new package for a materially different plan. An interrupted capture needs a successful resume to finalize its manifest before selection.
 
-After capture, add its README, update its manifest and explicitly select reviewed inputs. Reconcile and generate a **second plan**: newly found transfers introduce receipts and headers absent from the first plan. A provider may serve old headers but return null receipts; null and errors are unavailable evidence, never zero activity.
+Save reconciliation configuration files as UTF-8 with LF line endings before generating reports. Their hashes refer to exact bytes; Git normalizes these configuration files to LF, so generating from CRLF working files can produce stale provenance after a Linux checkout. Preserve raw evidence bytes under the existing evidence attributes.
+
+After capture, add its README, update its manifest and explicitly select reviewed inputs. Reconcile and generate a **second plan**: newly found transfers introduce receipts, transaction inputs and headers absent from the first plan. The planner requests transaction inputs even when a receipt exists, and a retained explorer timestamp does not replace a hash-bound block header. A provider may serve old headers but return null receipts; null and errors are unavailable evidence, never zero activity.
 
 For explorer acquisition, save all pages and the terminal cursor. Explorer pagination is not RPC range coverage. Get successful receipts and block-hash-bound headers for material events. Validate exact chain, emitting contract, from/to, raw integer amount and log index; ignore zero-value lookalike transfers when following value, without deleting them from the ledger.
 

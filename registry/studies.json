@@ -10729,5 +10729,618 @@
       "2025-suspension"
     ],
     "announcementScopeNote": "These are general Chainge statements. Neither establishes an asset-specific incident onset or an exact technical shutdown time for this token."
+  },
+  "0x8083d1465ea684ce18888bd58b182a33b52a6647": {
+    "schemaVersion": 1,
+    "title": "BAT",
+    "status": "Partial investigation",
+    "reviewed": "2026-10-15",
+    "scope": "Ethereum, Avalanche, BSC and Polygon candidates; Fusion receipt/state verification pending",
+    "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+    "movementsFile": "bat-movements.json",
+    "vaults": [
+      {
+        "chain": "Ethereum",
+        "token": "BAT",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BAT",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BAT",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BAT",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "BAT",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "285.066027757181258231",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BAT.e",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "9.877548098291534566",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BAT.e",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BAT.e",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BAT.e",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "BAT.e",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BAT",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Tested address, not proof of segregated custody. History coverage remains incomplete.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BAT",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Tested address, not proof of segregated custody. History coverage remains incomplete.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BAT",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Tested address, not proof of segregated custody. History coverage remains incomplete.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BAT",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Tested address, not proof of segregated custody. History coverage remains incomplete.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Binance-Peg BAT",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "161.524143066016869989",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Tested address, not proof of segregated custody. History coverage remains incomplete.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Polygon BAT",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Polygon BAT",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Polygon BAT",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Polygon BAT",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Polygon BAT",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Tested address, not proof of segregated custody. See assessment for observed activity and coverage.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Avalanche:0x179bd656af754bc518e7b13cf6e271da6aabd490cd1a9e9fb4c14b9112b99661:9",
+        "title": "BAT.e retained by recipient",
+        "amount": "52.497553137772762957",
+        "chain": "Avalanche",
+        "date": "2024-12-06T04:34:06+00:00",
+        "status": "Unmatched",
+        "endpoint": "52.49755314 BAT.e retained",
+        "explanation": "The full payment remains at the recipient at the pinned later observation. This is not an additional vault balance.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "Destination and amount evidence do not establish beneficial ownership or accepted redemption. See assessment for observation blocks and trace limits.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "chain": "Avalanche",
+            "amount": "52.497553137772762957",
+            "time": "2024-12-06T04:34:06+00:00",
+            "transaction": "https://snowtrace.io/tx/0x179bd656af754bc518e7b13cf6e271da6aabd490cd1a9e9fb4c14b9112b99661"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Avalanche",
+            "amount": "52.497553137772762957",
+            "time": "2024-12-06T04:34:06+00:00",
+            "transaction": "https://snowtrace.io/tx/0x179bd656af754bc518e7b13cf6e271da6aabd490cd1a9e9fb4c14b9112b99661"
+          }
+        ]
+      },
+      {
+        "id": "Avalanche:0x904be1e4e7630491466ad974e3772ab57917232abd0a6bdab9ff21bd63cd00e6:14",
+        "title": "BAT.e withdrawal followed by USDC swap",
+        "amount": "41.92711185",
+        "chain": "Avalanche",
+        "date": "2025-05-01T01:47:38+00:00",
+        "status": "Unmatched",
+        "endpoint": "18.500521 USDC delivered to recipient",
+        "explanation": "The subsequent swap receipt records 18.500521 USDC delivered to the same recipient after fees. Purpose and Fusion settlement are not established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "Destination and amount evidence do not establish beneficial ownership or accepted redemption. See assessment for observation blocks and trace limits.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+            "chain": "Avalanche",
+            "amount": "41.92711185",
+            "time": "2025-05-01T01:47:38+00:00",
+            "transaction": "https://snowtrace.io/tx/0x904be1e4e7630491466ad974e3772ab57917232abd0a6bdab9ff21bd63cd00e6"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x8dffbbec4c40913596083deb813318d919843ffd",
+            "chain": "Avalanche",
+            "amount": "41.92711185",
+            "time": "2025-05-01T01:47:38+00:00",
+            "transaction": "https://snowtrace.io/tx/0x904be1e4e7630491466ad974e3772ab57917232abd0a6bdab9ff21bd63cd00e6"
+          }
+        ],
+        "branches": [
+          {
+            "title": "USDC swap output",
+            "explanation": "The later swap receipt records USDC delivered to the same recipient.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+            "steps": [
+              {
+                "label": "Recipient receives USDC",
+                "address": "0x8dffbbec4c40913596083deb813318d919843ffd",
+                "chain": "Avalanche",
+                "amount": "18.500521",
+                "asset": "USDC",
+                "time": "After the original withdrawal; see transaction",
+                "transaction": "https://snowtrace.io/tx/0xb2832d235cbdbd3b893049dc3aa7be9c78784bfec7d60fc565d972ff5169b33c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b:292",
+        "title": "Possible same-holder redemption",
+        "amount": "271.441796283111524564",
+        "chain": "Ethereum",
+        "date": "2024-06-06T14:20:59+00:00",
+        "status": "Possible redemption",
+        "endpoint": "Recipient retains BAT",
+        "explanation": "An equal-amount Fusion burn by the same holder is indexed 63 seconds earlier. Fusion receipt verification is pending.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "Destination and amount evidence do not establish beneficial ownership or accepted redemption. See assessment for observation blocks and trace limits.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Ethereum",
+            "amount": "271.441796283111524564",
+            "time": "2024-06-06T14:20:59+00:00",
+            "transaction": "https://etherscan.io/tx/0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x20016d98fd6cf2b8bf75908e5827351b1ce76533",
+            "chain": "Ethereum",
+            "amount": "271.441796283111524564",
+            "time": "2024-06-06T14:20:59+00:00",
+            "transaction": "https://etherscan.io/tx/0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b"
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0xde9bc7f0bfcdabe891c77239886a55414982f244794a6e0a18b25e4fc1da0f8b:555",
+        "title": "1,000 BAT withdrawal and later swaps",
+        "amount": "1000",
+        "chain": "Ethereum",
+        "date": "2024-08-23T19:21:11+00:00",
+        "status": "Unmatched",
+        "endpoint": "990 BAT swapped; 10 BAT retained",
+        "explanation": "Four later swaps spend 300, 300, 190 and 200 BAT. Public indexed internal transactions show ETH returned to the recipient; direct RPC traces were unavailable. No exchange endpoint or matched Fusion burn is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+        "limitation": "Destination and amount evidence do not establish beneficial ownership or accepted redemption. See assessment for observation blocks and trace limits.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Ethereum",
+            "amount": "1000",
+            "time": "2024-08-23T19:21:11+00:00",
+            "transaction": "https://etherscan.io/tx/0xde9bc7f0bfcdabe891c77239886a55414982f244794a6e0a18b25e4fc1da0f8b"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+            "chain": "Ethereum",
+            "amount": "1000",
+            "time": "2024-08-23T19:21:11+00:00",
+            "transaction": "https://etherscan.io/tx/0xde9bc7f0bfcdabe891c77239886a55414982f244794a6e0a18b25e4fc1da0f8b"
+          }
+        ],
+        "branches": [
+          {
+            "title": "300 BAT swap",
+            "explanation": "Receipt records BAT routed into liquidity pools; public indexed internal transfers report ETH returned to the recipient.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+            "limitation": "Native delivery is explorer-indexed; no independently verified RPC trace. Do not add swap amounts to the original outflow.",
+            "steps": [
+              {
+                "label": "Recipient spends BAT",
+                "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+                "chain": "Ethereum",
+                "amount": "300",
+                "asset": "BAT",
+                "time": "After the original withdrawal; see transaction",
+                "transaction": "https://etherscan.io/tx/0x2ca7a6ac2da35a24d65cdeafb555c26ab1db209e28a336c8c5f9af0fe1e6569a"
+              }
+            ]
+          },
+          {
+            "title": "300 BAT swap",
+            "explanation": "Receipt records BAT routed into liquidity pools; public indexed internal transfers report ETH returned to the recipient.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+            "limitation": "Native delivery is explorer-indexed; no independently verified RPC trace. Do not add swap amounts to the original outflow.",
+            "steps": [
+              {
+                "label": "Recipient spends BAT",
+                "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+                "chain": "Ethereum",
+                "amount": "300",
+                "asset": "BAT",
+                "time": "After the original withdrawal; see transaction",
+                "transaction": "https://etherscan.io/tx/0xf90de37029925b99840c37a8ee8c309e07e1b322ffc0aa40a234632a0f26c93a"
+              }
+            ]
+          },
+          {
+            "title": "190 BAT swap",
+            "explanation": "Receipt records BAT routed into liquidity pools; public indexed internal transfers report ETH returned to the recipient.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+            "limitation": "Native delivery is explorer-indexed; no independently verified RPC trace. Do not add swap amounts to the original outflow.",
+            "steps": [
+              {
+                "label": "Recipient spends BAT",
+                "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+                "chain": "Ethereum",
+                "amount": "190",
+                "asset": "BAT",
+                "time": "After the original withdrawal; see transaction",
+                "transaction": "https://etherscan.io/tx/0x73e8a4fb81ec4880553b1146e23db68a796ccc2ca93502709f658a62a86c7305"
+              }
+            ]
+          },
+          {
+            "title": "200 BAT swap",
+            "explanation": "Receipt records BAT routed into liquidity pools; public indexed internal transfers report ETH returned to the recipient.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+            "limitation": "Native delivery is explorer-indexed; no independently verified RPC trace. Do not add swap amounts to the original outflow.",
+            "steps": [
+              {
+                "label": "Recipient spends BAT",
+                "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+                "chain": "Ethereum",
+                "amount": "200",
+                "asset": "BAT",
+                "time": "After the original withdrawal; see transaction",
+                "transaction": "https://etherscan.io/tx/0x5fd213f455caa793671deb334e375aa2065554288e5a3719f171a42539730b80"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "overviewLinks": [
+      {
+        "label": "Evidence and remaining gaps",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+      }
+    ],
+    "vaultComparison": {
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+      "snapshotNote": "Reviewed compact snapshot of pinned balance observations. Reconcile and review the balance-checks report before refreshing. Unknown vaults are outside this total.",
+      "groups": [
+        {
+          "chain": "Ethereum",
+          "token": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+          "tokenLabel": "BAT",
+          "block": 23524761,
+          "decimals": 18,
+          "method": "Pinned historical balanceOf calls",
+          "treatment": "included",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-ethereum/context-3.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-ethereum/context-3.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-ethereum/context-4.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-ethereum/context-4.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "285066027757181258231",
+              "source": "evidence/2026-10-15-bat-ethereum/context-4.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Avalanche",
+          "token": "0x98443b96ea4b0858fdf3219cd13e98c7a4690588",
+          "tokenLabel": "BAT.e",
+          "block": 69908002,
+          "decimals": 18,
+          "method": "Pinned historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "9877548098291534566",
+              "source": "evidence/2026-10-15-bat-avalanche-state-single/state-10.request.json"
+            },
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-avalanche-state-single/state-6.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-avalanche-state-single/state-7.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-avalanche-state-single/state-8.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-avalanche-state-single/state-9.request.json"
+            }
+          ],
+          "reason": "Bridged or pegged representation; backing and redemption equivalence are unverified."
+        },
+        {
+          "chain": "BSC",
+          "token": "0x101d82428437127bf1608f699cd651e6abf9766e",
+          "tokenLabel": "Binance-Peg BAT",
+          "block": 63769742,
+          "decimals": 18,
+          "method": "Pinned historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-bsc-discovery/state-4.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-bsc-discovery/state-5.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-bsc-discovery/state-6.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-bsc-discovery/state-7.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "161524143066016869989",
+              "source": "evidence/2026-10-15-bat-bsc-discovery/state-8.request.json"
+            }
+          ],
+          "reason": "Bridged or pegged representation; backing and redemption equivalence are unverified."
+        },
+        {
+          "chain": "Polygon",
+          "token": "0x3cef98bb43d732e2f285ee605a8158cde967d219",
+          "tokenLabel": "Polygon BAT",
+          "block": 77364542,
+          "decimals": 18,
+          "method": "Pinned historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-state-retry/polygon-2.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-state-retry/polygon-2.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-state-retry/polygon-2.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-state-retry/polygon-3.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-bat-state-retry/polygon-3.request.json"
+            }
+          ],
+          "reason": "Bridged or pegged representation; backing and redemption equivalence are unverified."
+        }
+      ]
+    },
+    "fusionStatistics": {
+      "referenceBlock": 15130080,
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
+      "configurationSha256": "b78490e729fe0d5993662acbd7f86121f375939046d5b9d3b8029111a2a295af",
+      "snapshotNote": "Provisional indexed-log accounting; Fusion RPC receipts and pinned holder state are unavailable. Derived from accounting-summary; refresh only after review.",
+      "tokens": [
+        {
+          "address": "0x8083d1465ea684ce18888bd58b182a33b52a6647",
+          "decimals": 18,
+          "fullTime": true,
+          "mintedRaw": "6807122443331173578691",
+          "burnedRaw": "323266610047145420228",
+          "eventCount": 77
+        }
+      ],
+      "checks": [
+        {
+          "text": "77 public indexed Transfer events; direct Fusion receipt and state checks remain pending.",
+          "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md"
+        }
+      ],
+      "notes": [
+        "This newer representation is not a consolidated customer-liability ledger. Legacy parents and overlapping dated rights remain under review.",
+        "The displayed difference compares provisional newer-token supply with known original Ethereum BAT holdings; it is not a verified loss. Bridged balances are separate."
+      ]
+    },
+    "announcementIds": [
+      "2025-blacklisting",
+      "2025-suspension"
+    ],
+    "announcementScopeNote": "General Chainge statements only. No BAT-specific issuer freeze or incident onset is established; publication dates do not explain these payments."
   }
 }

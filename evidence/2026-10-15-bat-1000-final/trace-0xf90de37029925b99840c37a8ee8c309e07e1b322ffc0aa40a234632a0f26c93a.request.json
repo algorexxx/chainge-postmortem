@@ -1,0 +1,1 @@
+{"jsonrpc": "2.0", "id": "trace", "method": "debug_traceTransaction", "params": ["0xf90de37029925b99840c37a8ee8c309e07e1b322ffc0aa40a234632a0f26c93a", {"tracer": "callTracer", "timeout": "10s"}]}

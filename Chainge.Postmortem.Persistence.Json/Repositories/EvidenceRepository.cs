@@ -46,7 +46,7 @@ public sealed class EvidenceRepository
         }
         return new EvidenceSnapshot
         {
-            Events = events.Values.Select(e => AttachTransaction(e, calls)).Select(e => timestamps.TryGetValue(e.Chain + ":" + e.BlockHash, out var timestamp) ? e with { Timestamp = timestamp.Value, TimestampSource = timestamp.Source } : e)
+            Events = events.Values.Select(e => AttachTransaction(e, calls)).Select(e => timestamps.TryGetValue(e.Chain + ":" + e.BlockHash, out var timestamp) ? e with { Timestamp = timestamp.Value, TimestampSource = timestamp.Source, BlockHeaderSource = timestamp.Value is null ? string.Empty : timestamp.HeaderSource } : e)
                 .OrderBy(e => e.Chain, StringComparer.Ordinal).ThenBy(e => e.Block).ThenBy(e => e.LogIndex).ToList(),
             InputHashes = hashes,
             Diagnostics = diagnostics
@@ -197,7 +197,7 @@ public sealed class EvidenceRepository
         var key = chain + ":" + blockHash;
         var timestamp = DateTimeOffset.FromUnixTimeSeconds((long)ReadInteger(raw));
         var node = verified || element.TryGetProperty("number", out _);
-        var observation = new TimestampObservation { Value = timestamp, Source = source, Node = node };
+        var observation = new TimestampObservation { Value = timestamp, Source = source, Node = node, HeaderSource = element.TryGetProperty("number", out _) && GetText(element, "hash") == blockHash ? source : string.Empty };
         if (timestamps.TryGetValue(key, out var previous))
         {
             if (previous.Value != timestamp)
@@ -206,6 +206,7 @@ public sealed class EvidenceRepository
                 if (previous.Node == node) { observation = observation with { Value = null, Source = previous.Source + "; " + source }; }
             }
             if (previous.Node && !node) { return; }
+            if (previous.Value == timestamp && observation.HeaderSource.Length == 0) { observation = observation with { HeaderSource = previous.HeaderSource }; }
         }
         timestamps[key] = observation;
     }

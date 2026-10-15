@@ -1,0 +1,240 @@
+{
+  "scope": "Assessment of every currently retained outgoing vault payment, including small cases. Reviewed with limits does not mean completed reconciliation; BSC history and Fusion RPC evidence remain incomplete.",
+  "windowDays": 90,
+  "extraEventIds": [
+    "Avalanche:0x980a6e2741134f19a3744034f2af352c270845f84c1de960e68339680ab19a86:0",
+    "Avalanche:0xfe96912159ba559326cdf115e2506f562730fc66cd063586555789683d77bc73:0",
+    "Avalanche:0xf892202dfcf34ffe127a845b224456bcff512eb0c83d9defef86d13d9ef99f7b:9",
+    "Avalanche:0xeb5d7bb818caf6a5e1d5799a570a77d5b4f8133bb138aa486c160da36e038091:23",
+    "Avalanche:0xaa90aa5621e3af6a9e479a4ccb1227b3c34718b37d1002e3157479b94205496f:20",
+    "Avalanche:0xe58070516d29003688f7723ce77ddc3dc0eaa219982316f17b08be1d7e9c3497:27",
+    "Avalanche:0xae67197847028d88be8641b32b0898cc04957666bf06d3bd797b915a37d5cca9:9",
+    "Avalanche:0x84ebf6d312eedb08ea385557c7292bf230e37329a8fe53a77e87b0f8bd422839:32",
+    "Avalanche:0x179bd656af754bc518e7b13cf6e271da6aabd490cd1a9e9fb4c14b9112b99661:9",
+    "Avalanche:0x48bd099d3fd3459ecf95a21c34573fe0478a6441b70a45d734ebe2721e18842e:7",
+    "Avalanche:0xdc5edbf214702316f653eb9ccf20f4b711faa073592264443fccda892d885a89:18",
+    "Avalanche:0x4d2494f04422735113f8187d760bc6ab62a549d881c0b0842dea6b43c3a2566b:28",
+    "Avalanche:0x904be1e4e7630491466ad974e3772ab57917232abd0a6bdab9ff21bd63cd00e6:14",
+    "Avalanche:0x91163691bbc83352cf6332f4b56d4f4683f41915c63a69586b02df85f316dbbb:11",
+    "BSC:0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42:29",
+    "BSC:0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d:162",
+    "BSC:0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69:62",
+    "Ethereum:0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b:292",
+    "Ethereum:0xde9bc7f0bfcdabe891c77239886a55414982f244794a6e0a18b25e4fc1da0f8b:555"
+  ],
+  "decisions": [
+    {
+      "eventId": "Avalanche:0x980a6e2741134f19a3744034f2af352c270845f84c1de960e68339680ab19a86:0",
+      "finding": "Successful receipt records the vault payment to 0xceb2699242dc52f8dcd2cfdf8892dc87c150784d. The selected later recipient swap is receipt-corroborated in 0xe13731b10a89b84bd0d3a3cc9670b814ff96ad4223edb617cfc91898c17134dc. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x980a6e2741134f19a3744034f2af352c270845f84c1de960e68339680ab19a86.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0xe13731b10a89b84bd0d3a3cc9670b814ff96ad4223edb617cfc91898c17134dc.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-17.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xfe96912159ba559326cdf115e2506f562730fc66cd063586555789683d77bc73:0",
+      "finding": "Successful receipt records the vault payment to 0xceb2699242dc52f8dcd2cfdf8892dc87c150784d. The selected later recipient swap is receipt-corroborated in 0xd416b2f3a181d5cf5506267e79ef56239bdcc594c169e365de3a17275fbfab87. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xfe96912159ba559326cdf115e2506f562730fc66cd063586555789683d77bc73.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0xd416b2f3a181d5cf5506267e79ef56239bdcc594c169e365de3a17275fbfab87.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-30.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xf892202dfcf34ffe127a845b224456bcff512eb0c83d9defef86d13d9ef99f7b:9",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. The selected later recipient swap is receipt-corroborated in 0x57c51be96f70f57a87ad25e03293905a64a5783cb7d0036c5aa4424125418a59. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xf892202dfcf34ffe127a845b224456bcff512eb0c83d9defef86d13d9ef99f7b.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0x57c51be96f70f57a87ad25e03293905a64a5783cb7d0036c5aa4424125418a59.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-29.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xeb5d7bb818caf6a5e1d5799a570a77d5b4f8133bb138aa486c160da36e038091:23",
+      "finding": "Successful receipt records the vault payment to 0xa74d49d38df7092688686973c468c94a542294b3. Receipt exchange events identify routed asset-exchange activity. This is not an accepted external redemption.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xeb5d7bb818caf6a5e1d5799a570a77d5b4f8133bb138aa486c160da36e038091.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-28.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xaa90aa5621e3af6a9e479a4ccb1227b3c34718b37d1002e3157479b94205496f:20",
+      "finding": "Successful receipt records the vault payment to 0xa74d49d38df7092688686973c468c94a542294b3. Receipt exchange events identify routed asset-exchange activity. This is not an accepted external redemption.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xaa90aa5621e3af6a9e479a4ccb1227b3c34718b37d1002e3157479b94205496f.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-21.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xe58070516d29003688f7723ce77ddc3dc0eaa219982316f17b08be1d7e9c3497:27",
+      "finding": "Successful receipt records the vault payment to 0x0b662d54824825725be1e76c0a2b1c8f49b7419b. Receipt exchange events identify routed asset-exchange activity. This is not an accepted external redemption. A newer Fusion burn of the same amount occurs within two minutes; the router recipient differs from the burning holder.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xe58070516d29003688f7723ce77ddc3dc0eaa219982316f17b08be1d7e9c3497.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-26.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xae67197847028d88be8641b32b0898cc04957666bf06d3bd797b915a37d5cca9:9",
+      "finding": "Successful receipt records the vault payment to 0x0b662d54824825725be1e76c0a2b1c8f49b7419b. Receipt exchange events identify routed asset-exchange activity. This is not an accepted external redemption. A newer Fusion burn of the same amount occurs within two minutes; the router recipient differs from the burning holder.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xae67197847028d88be8641b32b0898cc04957666bf06d3bd797b915a37d5cca9.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-22.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x84ebf6d312eedb08ea385557c7292bf230e37329a8fe53a77e87b0f8bd422839:32",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. The selected later recipient swap is receipt-corroborated in 0x15dfd1c5f47084cc4b0e419cc798fe4b5ecf3983701a3e2b4f5c7210326bbddd. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x84ebf6d312eedb08ea385557c7292bf230e37329a8fe53a77e87b0f8bd422839.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0x15dfd1c5f47084cc4b0e419cc798fe4b5ecf3983701a3e2b4f5c7210326bbddd.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-13.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x179bd656af754bc518e7b13cf6e271da6aabd490cd1a9e9fb4c14b9112b99661:9",
+      "finding": "Successful receipt records the vault payment to 0x440872cfddac749d9f201234395fc20ed5480a80. Recipient retains 52.497553137772762957 BAT.e at the later pinned observation; no outgoing BAT.e is returned in the retained recipient history.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x179bd656af754bc518e7b13cf6e271da6aabd490cd1a9e9fb4c14b9112b99661.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/balance-0x440872cfddac749d9f201234395fc20ed5480a80.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-2.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x48bd099d3fd3459ecf95a21c34573fe0478a6441b70a45d734ebe2721e18842e:7",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. The selected later recipient swap is receipt-corroborated in 0x9358d634ef34b90668b5fee89da25eea1f7f09e6e1bee62515271a4b4a153436. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x48bd099d3fd3459ecf95a21c34573fe0478a6441b70a45d734ebe2721e18842e.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0x9358d634ef34b90668b5fee89da25eea1f7f09e6e1bee62515271a4b4a153436.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-5.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xdc5edbf214702316f653eb9ccf20f4b711faa073592264443fccda892d885a89:18",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. The selected later recipient swap is receipt-corroborated in 0x5c73ed53a017ba8e91ec9b649ca2b154bbaf55479c6693ae37d7569d02388520. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0xdc5edbf214702316f653eb9ccf20f4b711faa073592264443fccda892d885a89.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0x5c73ed53a017ba8e91ec9b649ca2b154bbaf55479c6693ae37d7569d02388520.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-25.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x4d2494f04422735113f8187d760bc6ab62a549d881c0b0842dea6b43c3a2566b:28",
+      "finding": "Successful receipt records the vault payment to 0x8dffbbec4c40913596083deb813318d919843ffd. The selected later recipient swap is receipt-corroborated in 0x65741875d9bd278ba6e202f779b77585c1937cbd75fdd0a47ec9f053869af821. The swapped amount exceeds this payment slightly, demonstrating other balance/dust; allocation is not exact.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x4d2494f04422735113f8187d760bc6ab62a549d881c0b0842dea6b43c3a2566b.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0x65741875d9bd278ba6e202f779b77585c1937cbd75fdd0a47ec9f053869af821.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-8.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x904be1e4e7630491466ad974e3772ab57917232abd0a6bdab9ff21bd63cd00e6:14",
+      "finding": "Successful receipt records the vault payment to 0x8dffbbec4c40913596083deb813318d919843ffd. The selected later recipient swap is receipt-corroborated in 0xb2832d235cbdbd3b893049dc3aa7be9c78784bfec7d60fc565d972ff5169b33c. The swap delivers 18.500521 USDC to the same recipient.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x904be1e4e7630491466ad974e3772ab57917232abd0a6bdab9ff21bd63cd00e6.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0xb2832d235cbdbd3b893049dc3aa7be9c78784bfec7d60fc565d972ff5169b33c.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-15.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x91163691bbc83352cf6332f4b56d4f4683f41915c63a69586b02df85f316dbbb:11",
+      "finding": "Successful receipt records the vault payment to 0x8dffbbec4c40913596083deb813318d919843ffd. The selected later recipient swap is receipt-corroborated in 0xd383c7cd633a2ce364bf6d85eaf62c9b80cf239fbf3b190ba91e618b15defcfe. Swap logs show wrapped-AVAX routing; final native delivery is not inferred without a trace.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-avalanche-context/tx-0x91163691bbc83352cf6332f4b56d4f4683f41915c63a69586b02df85f316dbbb.response.json",
+        "evidence/2026-10-15-bat-avalanche-followup/recipients-in.response.json",
+        "evidence/2026-10-15-bat-avalanche-onward/receipt-0xd383c7cd633a2ce364bf6d85eaf62c9b80cf239fbf3b190ba91e618b15defcfe.response.json",
+        "evidence/2026-10-15-bat-avalanche-routescan/query-16.response.json",
+        "evidence/2026-10-15-bat-other-chains/avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42:29",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. BSC coverage remains incomplete and downstream disposition has not been established.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-bsc-balance-gaps/caecf1-boundary-43345370.response.json",
+        "evidence/2026-10-15-bat-bsc-balance-gaps/receipt-0x14f3c5808f60f77c064700620a1dd348bc2c48a38c7ca019d7acea5a77f26f42.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d:162",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. BSC coverage remains incomplete and downstream disposition has not been established. Same recipient burns 12.461221548641540416 newer Fusion BAT 58 seconds before receiving 11.590329225544257336 BAT. The difference is not an authenticated fee; classification remains unmatched.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-bsc-balance-gaps/caecf1-boundary-44571395.response.json",
+        "evidence/2026-10-15-bat-bsc-balance-gaps/receipt-0x6bfcf9663b0d558fa70d1f8e6be156450bebc80ddc49fea1fc4f42c31d49f46d.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69:62",
+      "finding": "Successful receipt records the vault payment to 0x6a01dd8e6384fe7835cb5cf124201bbd8a670056. BSC coverage remains incomplete and downstream disposition has not been established.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-bsc-balance-gaps/caecf1-boundary-44626249.response.json",
+        "evidence/2026-10-15-bat-bsc-balance-gaps/receipt-0x493384e579ac000281ad3cb7060508e4315d171301a846c47968fba78105ea69.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0x5140207400b30e9ebec50ec768bda57976bbf565813924dd190c9c650423c58b:292",
+      "finding": "Successful receipt records the vault payment to 0x20016d98fd6cf2b8bf75908e5827351b1ce76533. Equal-amount same-holder indexed Fusion burn is 63 seconds earlier; the recipient retains this BAT at the later pinned observation.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-ethereum-followup/in.response.json",
+        "evidence/2026-10-15-bat-ethereum-followup/out.response.json",
+        "evidence/2026-10-15-bat-ethereum/context-0.response.json",
+        "evidence/2026-10-15-bat-ethereum/context-2.response.json",
+        "evidence/2026-10-15-next-token-vault-screen/bat-out.response.json",
+        "research/assets/bat.md"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xde9bc7f0bfcdabe891c77239886a55414982f244794a6e0a18b25e4fc1da0f8b:555",
+      "finding": "Successful receipt records the vault payment to 0xbac20528aceee277cdd02600f06e767f7094fc8e. Recipient spends 990 BAT across four swaps and retains 10 BAT. Public indexed internal records report ETH returned after fees; RPC trace verification failed. No CEX endpoint is established.",
+      "limitation": "Fusion receipts/state are unavailable; matching and beneficial ownership are unestablished. Recipient mixing may prevent allocation. Reopen on authenticated settlement evidence, restored Fusion access, fuller source history or verified destination attribution.",
+      "references": [
+        "evidence/2026-10-15-bat-ethereum-followup/in.response.json",
+        "evidence/2026-10-15-bat-ethereum-followup/out.response.json",
+        "evidence/2026-10-15-bat-ethereum/context-1.response.json",
+        "evidence/2026-10-15-bat-ethereum/context-2.response.json",
+        "evidence/2026-10-15-next-token-vault-screen/bat-out.response.json",
+        "research/assets/bat.md"
+      ]
+    }
+  ]
+}

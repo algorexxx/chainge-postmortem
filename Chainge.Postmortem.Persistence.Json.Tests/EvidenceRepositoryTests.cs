@@ -8,6 +8,34 @@ namespace Chainge.Postmortem.Persistence.Json.Tests;
 
 public sealed class EvidenceRepositoryTests
 {
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task ReadEvidenceAsync_HeaderAndReceiptInEitherOrder_ShouldPreserveHeaderProvenance(bool headerFirst)
+    {
+        var header = """{"result":{"hash":"block","number":"0x1","timestamp":"0x64"}}""";
+        var receipt = Receipt("0x1", "0x64");
+        var root = await CreateFixture(headerFirst ? header : receipt, headerFirst ? receipt : header);
+        var expected = new { BlockHeaderSource = headerFirst ? "a.json" : "b.json", ReceiptVerified = true };
+
+        var result = await CreateReader().ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Events.Select(e => new { e.BlockHeaderSource, e.ReceiptVerified }).Single();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public async Task ReadEvidenceAsync_ReceiptTimestampWithoutHeader_ShouldNotClaimHeaderEvidence()
+    {
+        var root = await CreateFixture(Receipt("0x1", "0x64"), "[]");
+        var expected = string.Empty;
+
+        var result = await CreateReader().ReadEvidenceAsync(root, TestContext.Current.CancellationToken);
+        var actual = result.Events.Single().BlockHeaderSource;
+
+        Assert.Equivalent(expected, actual);
+    }
+
     [Fact]
     public async Task ReadEvidenceAsync_PaginatedExplorerRows_ShouldRetainUnverifiedEvents()
     {

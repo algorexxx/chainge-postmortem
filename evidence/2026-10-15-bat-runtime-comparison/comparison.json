@@ -1,0 +1,62 @@
+{
+  "method": "Remove final two-byte big-endian CBOR length plus that many metadata bytes, compare all preceding runtime bytes. Does not compare parent embedded metadata or verify pinned state.",
+  "reference": "evidence/2026-10-13-usdc-fusion-child-code/compiled-slice-runtime.hex",
+  "referenceSha256": "e5824a8dce850af3d8ed7ccb706ac127f66a79550332ac33012e88c51a215777",
+  "results": [
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0x0dc14b42527538a37f0fa27b8d150b58a9a99d3b-code.response.json",
+      "sourceSha256": "fd11ce6012ad3a384d17527c475601995270f5adc4e1f4ac795af5b75fd8f78c",
+      "matchesSliceBody": false
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0x2318e2a12946390386460780add17a3b82aad2c5-code.response.json",
+      "sourceSha256": "f727b843cacf2bc14023b81d4881450474988ced8670e229c20a419cc6ba1194",
+      "matchesSliceBody": false
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0x3a28a0e473cccae138e542846151384b28e5aefd-code.response.json",
+      "sourceSha256": "72328f59a4f4b27cb20b8d573a3971f9565538e3b9c3b3d4733bb2579e5b2c70",
+      "matchesSliceBody": true
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0x6bfdfd67d3917750c63a51e4aa6e2050ad9dca22-code.response.json",
+      "sourceSha256": "af22b44a303dfc3cbd5fadf32b17daa9340c5a82ec53eddac10c381c150a16b6",
+      "matchesSliceBody": false
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0x8083d1465ea684ce18888bd58b182a33b52a6647-code.response.json",
+      "sourceSha256": "0410a1708e282e23dc17e63469a4509a51d27eaae0645d2fea42c8fb4e3d4c73",
+      "matchesSliceBody": false
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0x8dc3e00463296c839acba116bf6ffc93557e0145-code.response.json",
+      "sourceSha256": "831a237501632bb07495f8a85bfbd7a9200ed7a6d9709415a13b876a8ba92554",
+      "matchesSliceBody": false
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0xa7357c06aa73558d5927a83f24fe7f9075fdf048-code.response.json",
+      "sourceSha256": "8c5dab9dac6ed49c4bb096f2c792cdb76a9decf3e7bd5df28051a7a265375244",
+      "matchesSliceBody": false
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0xcabda6310e5e60905809386bc3e535fbf3f57a66-code.response.json",
+      "sourceSha256": "72328f59a4f4b27cb20b8d573a3971f9565538e3b9c3b3d4733bb2579e5b2c70",
+      "matchesSliceBody": true
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0xe1df6e934f287ef2e44942342f089d97c191602e-code.response.json",
+      "sourceSha256": "72328f59a4f4b27cb20b8d573a3971f9565538e3b9c3b3d4733bb2579e5b2c70",
+      "matchesSliceBody": true
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0xe406d18d1cd381d22ba5b3a664e243150ea98f66-code.response.json",
+      "sourceSha256": "72328f59a4f4b27cb20b8d573a3971f9565538e3b9c3b3d4733bb2579e5b2c70",
+      "matchesSliceBody": true
+    },
+    {
+      "source": "evidence/2026-10-15-bat-fusion-public/0xf9b94140097a0cdb519409950934fc6b38b73e71-code.response.json",
+      "sourceSha256": "72328f59a4f4b27cb20b8d573a3971f9565538e3b9c3b3d4733bb2579e5b2c70",
+      "matchesSliceBody": true
+    }
+  ]
+}

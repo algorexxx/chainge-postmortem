@@ -1,5 +1,7 @@
 # Next-token screening: 2026-10-15
 
+Follow-up: the [BAT investigation](assets/bat.md) found active Avalanche and BSC representations and multiple older Fusion families. The narrow-footprint premise below was a screening hypothesis and did not survive full discovery. The activity counts below remain observations for the named newer contracts, not whole-asset counts.
+
 Recommendation: BAT is the next bounded workflow trial. This is a screening decision, not a completed asset investigation or a market-adoption ranking. ENS was the initial candidate, but its listed Fusion contract has little activity. LQTY's listed address has no indexed metadata or transfers. Older representations may change either picture.
 
 ## Fusion activity

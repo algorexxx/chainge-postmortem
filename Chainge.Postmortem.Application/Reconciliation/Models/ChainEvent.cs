@@ -2,6 +2,7 @@ namespace Chainge.Postmortem.Application.Reconciliation.Models;
 
 public sealed record ChainEvent
 {
+    public string BlockHeaderSource { get; init; } = string.Empty;
     public string TransactionInput { get; init; } = string.Empty;
     public string TransactionSender { get; init; } = string.Empty;
     public string ReceiptTarget { get; init; } = string.Empty;

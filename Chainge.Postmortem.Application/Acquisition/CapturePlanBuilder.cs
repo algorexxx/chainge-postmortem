@@ -19,8 +19,9 @@ public static class CapturePlanBuilder
             var selected = events.Where(e => e.Chain == pair.Key).ToList();
             var logs = BatchLogQueries(PlanLogQueries(coverage.Where(c => c.Target.Chain == pair.Key).ToList(), pair.Value), pair.Value.BatchSize);
             var receipts = PlanBatches(selected.Where(e => !e.ReceiptVerified).Select(e => e.Transaction).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), "receipts", "eth_getTransactionReceipt", pair.Value.BatchSize);
-            var headers = PlanBatches(selected.Where(e => e.Timestamp is null).Select(e => e.BlockHash).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), "headers", "eth_getBlockByHash", pair.Value.BatchSize);
-            result[pair.Key] = pair.Value.Template with { Queries = logs.Concat(receipts).Concat(headers).ToList() };
+            var headers = PlanBatches(selected.Where(e => e.Timestamp is null || e.BlockHeaderSource.Length == 0).Select(e => e.BlockHash).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), "headers", "eth_getBlockByHash", pair.Value.BatchSize);
+            var transactions = PlanBatches(selected.Where(e => e.TransactionInput.Length == 0).Select(e => e.Transaction).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToList(), "transactions", "eth_getTransactionByHash", pair.Value.BatchSize);
+            result[pair.Key] = pair.Value.Template with { Queries = logs.Concat(receipts).Concat(headers).Concat(transactions).ToList() };
         }
         return result;
     }

@@ -26,3 +26,5 @@ Links are constructed from validated address/hash shapes and known chains. Unkno
 ## October 15 closing-pass additions
 
 The new and modified public material was checked for private-key blocks, common hosted-service tokens, credential-bearing URLs, private IPv4 ranges, local user paths and raw Telegram identity fields. No matches were found in that bounded scan. Capture endpoints were anonymous public sources; staged paths exclude working archives, exports, screenshots and generated deployment output. Original webpage response bytes retain their whitespace and hashes. This is an additions review, not a repeat audit of every historical Git object or a guarantee against arbitrary unknown encodings.
+
+The BAT additions received the same bounded pattern review with no matches. All 1,878 newly retained evidence files covered by manifests matched both SHA-256 manifests and exact staged Git blob bytes. Failed private Fusion connection probes omit their endpoint; working connection scripts remain ignored. BAT configuration/report/site hashes agree with LF configuration bytes. No community submissions or raw exports were added, and no remote push was performed.

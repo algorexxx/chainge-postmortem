@@ -1,0 +1,1 @@
+[{"jsonrpc": "2.0", "id": "chain", "method": "eth_chainId", "params": []}, {"jsonrpc": "2.0", "id": "cutoff", "method": "eth_getBlockByNumber", "params": ["0x42ab622", false]}, {"jsonrpc": "2.0", "id": "cutoff-next", "method": "eth_getBlockByNumber", "params": ["0x42ab623", false]}]

@@ -6,7 +6,8 @@ function element(key){if(!elements.has(key))elements.set(key,{textContent:key===
 const context=vm.createContext({document:{querySelector:element,getElementById:id=>element('#'+id)},location:{hash:''},window:{addEventListener(){}},URLSearchParams,console});
 vm.runInContext(fs.readFileSync('Chainge.Postmortem.Site/Assets/app.js','utf8'),context);
 const run=s=>vm.runInContext(s,context);
-for(const token of ['0xfc9e57d7543e0591824121fda6461fe2148a5966','0x9d7005f9175856bda5deb153f86a11153d9d0fa7']){
+const published = JSON.parse(fs.readFileSync('registry/studies.json','utf8'));
+for(const [token,study] of Object.entries(published)){
  context.location.hash='#token='+token;
  for(const tab of ['overview','vaults','movements']){
   run(`tabName='${tab}';renderSelection();`);
@@ -18,12 +19,12 @@ for(const token of ['0xfc9e57d7543e0591824121fda6461fe2148a5966','0x9d7005f91758
   assert(element('#detail').innerHTML.includes('View'));
  }
  run("movementView='reviewed';flowFilter='all';renderSelection();");
- assert(element('#detail').innerHTML.includes('Possible redemption'));
+ if(study.flows.some(flow=>flow.status==='Possible redemption'))assert(element('#detail').innerHTML.includes('Possible redemption'));
  run("flowFilter='hide-redemptions';renderSelection();");
  assert(!/class="flow-choice"[^]*?class="status[^>]*">Possible redemption/.test(element('#detail').innerHTML.split('class="trace-panel"')[0]));
 }
 context.location.hash='#timeline';run('renderSelection()');assert(element('#detail').innerHTML.includes('About the sources'));
-console.log('Rendered BUSD and USDC overview, vaults, all three transfer views, redemption filters and timeline successfully.');
+console.log('Rendered every published asset overview, vaults, all three transfer views, redemption filters and timeline successfully.');
 context.location.hash='#token=0xfc9e57d7543e0591824121fda6461fe2148a5966';
 run("tabName='movements';movementView='reviewed';flowFilter='all';renderSelection();");
 const reviewedHtml=element('#detail').innerHTML;
@@ -54,7 +55,6 @@ for(const [direction,label] of [['incoming','↓ Into vault'],['outgoing','↑ O
 assert(run("traceTransferDetails({chain:'Fusion',transaction:'https://fsnex.net/transaction/0x123'})").includes('not a vault transfer'));
 assert(run("traceTransferDetails({chain:'Ethereum',transaction:'https://etherscan.io/tx/0x123',address:'0x'+'a'.repeat(40),amount:'1000'})").includes('Transfer details in linked transaction'));
 console.log('Checked incoming, outgoing, between-vault labels, endpoint visibility and unknown/Fusion distinctions.');
-const published = JSON.parse(fs.readFileSync('registry/studies.json','utf8'));
 for(const [key,study] of Object.entries(published)) {
   assert.equal(study.schemaVersion,1);
   const groupKeys = new Set();

@@ -67,3 +67,13 @@ The build and 299 offline .NET tests passed during this pass. Final end-to-end v
 The expanded ledger also exposed a console-summary bottleneck: membership tests scanned the full unmatched-ID list for each event. The summary now uses an ordinal hash set, preserving output while avoiding repeated linear scans. No matching or accounting rule changed.
 
 The provenance refresh helper checks unchanged published Fusion statistics and the complete known holder inventory before updating its configuration hash. This closes the manual source-configuration refresh step without accepting changed supply or balances.
+
+## BAT workflow trial
+
+BAT exposed two missing acquisition-plan checks. A successful receipt did not ensure transaction input was retained, and an explorer timestamp prevented a block-header request. The planner now requests missing transaction inputs and tracks header provenance separately from timestamp provenance. Equal timestamps preserve existing header evidence regardless of file order; conflicting timestamps remain subject to the existing quarantine rule. Empty calldata (`0x`) is valid retained input. Regression tests cover these cases; no matching rule is relaxed.
+
+The full catalogue and source-chain screen also overturned the initial narrow-chain assumption. Future tokens must inventory predecessor and dated representations and test plausible bridge contracts rather than treating an issuer FAQ or market-data list as exhaustive. BAT's node-access and BSC coverage gaps remain explicit; source-chain balance agreement alone does not close them.
+
+Full regression verification then ran out of memory while serializing USDC's reconciliation JSON to a single string. That report now streams directly to a file with the same serializer options, removing the full intermediate string without changing accounting or the report schema. The build and 304 offline tests pass after this change; the complete asset verification also checks generated public-report freshness.
+
+The final full verification passed for BAT, BUSD and USDC. The streamed BAT reconciliation is byte-identical to the former serializer output, and the 1,074,883,289-byte USDC report was written successfully. Shared UI smoke checks now enumerate every published asset rather than only BUSD and USDC. These are workflow checks, not evidence of a completed BAT reconciliation.

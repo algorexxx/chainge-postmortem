@@ -1,0 +1,620 @@
+{
+  "asset": "BAT",
+  "policy": {
+    "fusionChain": "Fusion",
+    "operatingAddresses": {
+      "Ethereum": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Polygon": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Avalanche": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "BSC": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ]
+    },
+    "maximumDelay": "1.00:00:00",
+    "clockTolerance": "00:02:00",
+    "redemptionFeeRawHypotheses": [
+      "0"
+    ],
+    "decimals": 18,
+    "largeOutflowRaw": "100000000000000000000",
+    "depletionBasisPoints": 9000,
+    "claimCutoffBlock": 15130080,
+    "claimCutoffUnixTime": 1759826630,
+    "claimIntervals": {
+      "0xcabda6310e5e60905809386bc3e535fbf3f57a66": {
+        "start": 0,
+        "end": 1704067199
+      },
+      "0xe1df6e934f287ef2e44942342f089d97c191602e": {
+        "start": 1704067199,
+        "end": 18446744073709551615
+      },
+      "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": {
+        "start": 0,
+        "end": 1672531199
+      },
+      "0xf9b94140097a0cdb519409950934fc6b38b73e71": {
+        "start": 1672531199,
+        "end": 18446744073709551615
+      },
+      "0x8083d1465ea684ce18888bd58b182a33b52a6647": {
+        "start": 0,
+        "end": 18446744073709551615
+      },
+      "0x3a28a0e473cccae138e542846151384b28e5aefd": {
+        "start": 0,
+        "end": 18446744073709551615
+      }
+    },
+    "issuanceCallTargets": {
+      "0x3a28a0e473cccae138e542846151384b28e5aefd": [
+        "0xa7357c06aa73558d5927a83f24fe7f9075fdf048"
+      ]
+    },
+    "delayedReviewMaximumDelay": "7.00:00:00"
+  },
+  "sources": [
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-bat-fusion-public",
+      "pattern": "*-logs-*.response.json",
+      "tokenDecimals": {
+        "0x0dc14b42527538a37f0fa27b8d150b58a9a99d3b": 18,
+        "0x2318e2a12946390386460780add17a3b82aad2c5": 18,
+        "0x3a28a0e473cccae138e542846151384b28e5aefd": 18,
+        "0x6bfdfd67d3917750c63a51e4aa6e2050ad9dca22": 18,
+        "0x8083d1465ea684ce18888bd58b182a33b52a6647": 18,
+        "0x8dc3e00463296c839acba116bf6ffc93557e0145": 18,
+        "0xa7357c06aa73558d5927a83f24fe7f9075fdf048": 18,
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66": 18,
+        "0xe1df6e934f287ef2e44942342f089d97c191602e": 18,
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66": 18,
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71": 18
+      },
+      "datedTokens": [
+        "0xcabda6310e5e60905809386bc3e535fbf3f57a66",
+        "0xe1df6e934f287ef2e44942342f089d97c191602e",
+        "0xe406d18d1cd381d22ba5b3a664e243150ea98f66",
+        "0xf9b94140097a0cdb519409950934fc6b38b73e71"
+      ]
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "bat-in.response.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "bat-out.response.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "polygon-in.response.json",
+      "tokenDecimals": {
+        "0x3cef98bb43d732e2f285ee605a8158cde967d219": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "polygon-out.response.json",
+      "tokenDecimals": {
+        "0x3cef98bb43d732e2f285ee605a8158cde967d219": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "avalanche-in.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "avalanche-out.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-ethereum",
+      "pattern": "context-*.response.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-ethereum-followup",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-1000-path",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-1000-final",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-routescan",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-headers",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-bat-state-retry",
+      "pattern": "polygon-*.response.json",
+      "tokenDecimals": {
+        "0x3cef98bb43d732e2f285ee605a8158cde967d219": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-bsc-discovery",
+      "pattern": "state-*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-state-single",
+      "pattern": "state-*.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-bsc-balance-gaps",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-followup",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-onward",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-bsc-earlier-gaps",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-bsc-middle-gaps",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
+    }
+  ],
+  "balanceSources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-ethereum",
+      "pattern": "context-*.request.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-ethereum-followup",
+      "pattern": "state-*.request.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-bat-state-retry",
+      "pattern": "polygon-*.request.json",
+      "tokenDecimals": {
+        "0x3cef98bb43d732e2f285ee605a8158cde967d219": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-bat-bsc-discovery",
+      "pattern": "state-*.request.json",
+      "tokenDecimals": {
+        "0x101d82428437127bf1608f699cd651e6abf9766e": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-avalanche-state-single",
+      "pattern": "state-*.request.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    }
+  ],
+  "logQuerySources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "bat-in.request.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "bat-out.request.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "polygon-in.request.json",
+      "tokenDecimals": {
+        "0x3cef98bb43d732e2f285ee605a8158cde967d219": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "polygon-out.request.json",
+      "tokenDecimals": {
+        "0x3cef98bb43d732e2f285ee605a8158cde967d219": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "avalanche-in.request.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-bat-other-chains",
+      "pattern": "avalanche-out.request.json",
+      "tokenDecimals": {
+        "0x98443b96ea4b0858fdf3219cd13e98c7a4690588": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-ethereum-followup",
+      "pattern": "in.request.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-bat-ethereum-followup",
+      "pattern": "out.request.json",
+      "tokenDecimals": {
+        "0x0d8775f648430679a709e98d2b0cb6250d2887ef": 18
+      }
+    }
+  ],
+  "logHistoryTargets": [
+    {
+      "chain": "Ethereum",
+      "token": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3cef98bb43d732e2f285ee605a8158cde967d219",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3cef98bb43d732e2f285ee605a8158cde967d219",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3cef98bb43d732e2f285ee605a8158cde967d219",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3cef98bb43d732e2f285ee605a8158cde967d219",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x3cef98bb43d732e2f285ee605a8158cde967d219",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x98443b96ea4b0858fdf3219cd13e98c7a4690588",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x98443b96ea4b0858fdf3219cd13e98c7a4690588",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x98443b96ea4b0858fdf3219cd13e98c7a4690588",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x98443b96ea4b0858fdf3219cd13e98c7a4690588",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0x98443b96ea4b0858fdf3219cd13e98c7a4690588",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    }
+  ],
+  "sourceCutoffBlocks": {
+    "Ethereum": 23524761,
+    "Polygon": 77364542,
+    "Avalanche": 69908002,
+    "BSC": 63769742
+  },
+  "capturePolicies": {
+    "Ethereum": {
+      "template": {
+        "endpoint": "https://mainnet.gateway.tenderly.co",
+        "expectedChainId": "0x1",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:01:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 30000000,
+      "batchSize": 20,
+      "combineHolderFilters": true
+    },
+    "Polygon": {
+      "template": {
+        "endpoint": "https://polygon.gateway.tenderly.co",
+        "expectedChainId": "0x89",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:01:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 5000000,
+      "batchSize": 20,
+      "combineHolderFilters": true
+    },
+    "Avalanche": {
+      "template": {
+        "endpoint": "https://avalanche-c-chain-rpc.publicnode.com",
+        "expectedChainId": "0xa86a",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:00:40",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 5000000,
+      "batchSize": 3,
+      "combineHolderFilters": true
+    }
+  },
+  "limitations": [
+    "Partial investigation: Fusion RPC currently unavailable; public indexed logs do not substitute for pinned state or receipt verification.",
+    "Known vault addresses are candidates per asset and do not establish a complete vault inventory.",
+    "Additional BAT representations on Solana, NEAR, Harmony and Energi are discovery leads, not included backing.",
+    "Legacy representations and dated rights overlap; no consolidated customer liability total is established.",
+    "Exact-amount matching within 24 hours is a hypothesis; no stablecoin fee rules are inherited.",
+    "BSC discrepancy localization recovers balance-consistent movements but does not establish complete two-direction history; cancelling omissions remain possible."
+  ]
+}

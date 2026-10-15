@@ -8,6 +8,32 @@ namespace Chainge.Postmortem.Application.Tests.Acquisition;
 public sealed class CapturePlanBuilderTests
 {
     [Fact]
+    public void BuildPlans_ReceiptAndExplorerTimeWithoutInputOrHeader_ShouldRequestMissingContext()
+    {
+        var e = new ChainEvent { Id = "one", Chain = "chain", Token = "token", Transaction = "tx1", BlockHash = "block1", Block = 1, LogIndex = 0, From = "sender", To = "holder", RawAmount = "100", Decimals = 6, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "explorer.json", ReceiptVerified = true, FullTime = true, Evidence = [] };
+        var policy = new CapturePolicy { Template = CaptureFixture.Plan(), MaximumLogBlocks = 10, BatchSize = 1 };
+        var expected = new[] { new { Method = "eth_getBlockByHash", Identifier = "block1" }, new { Method = "eth_getTransactionByHash", Identifier = "tx1" } };
+
+        var result = CapturePlanBuilder.BuildPlans([e, e with { Id = "duplicate" }], [], new Dictionary<string, CapturePolicy> { ["chain"] = policy });
+        var actual = result["chain"].Queries.Select(q => new { Method = q.Request.GetProperty("method").GetString(), Identifier = q.Request.GetProperty("params")[0].GetString() }).ToArray();
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
+    public void BuildPlans_CompleteContextWithEmptyCalldata_ShouldRequestNothing()
+    {
+        var e = new ChainEvent { Id = "one", Chain = "chain", Token = "token", Transaction = "tx1", BlockHash = "block1", Block = 1, LogIndex = 0, From = "sender", To = "holder", RawAmount = "100", Decimals = 6, Timestamp = DateTimeOffset.UnixEpoch, TimestampSource = "header.json", BlockHeaderSource = "header.json", TransactionInput = "0x", ReceiptVerified = true, FullTime = true, Evidence = [] };
+        var policy = new CapturePolicy { Template = CaptureFixture.Plan(), MaximumLogBlocks = 10, BatchSize = 1 };
+        CaptureQuery[] expected = [];
+
+        var result = CapturePlanBuilder.BuildPlans([e], [], new Dictionary<string, CapturePolicy> { ["chain"] = policy });
+        var actual = result["chain"].Queries;
+
+        Assert.Equivalent(expected, actual, strict: true);
+    }
+
+    [Fact]
     public void BuildPlans_SharedGapsAndMissingContext_ShouldSplitInclusiveWindowsAndBatchUniqueHashes()
     {
         var first = new LogHistoryTarget { Chain = "chain", Token = "token", Holder = "0x1111111111111111111111111111111111111111", Range = new BlockRange { From = 0, Through = 4 } };
@@ -16,7 +42,7 @@ public sealed class CapturePlanBuilderTests
         var outgoing = incoming with { Direction = "outgoing", MissingRanges = [new BlockRange { From = 4, Through = 4 }] };
         var e = new ChainEvent { Id = "one", Chain = "chain", Token = "token", Transaction = "tx1", BlockHash = "block1", Block = 1, LogIndex = 0, From = "sender", To = "holder", RawAmount = "100", Decimals = 6, TimestampSource = "missing", ReceiptVerified = false, FullTime = true, Evidence = [] };
         var policy = new CapturePolicy { Template = CaptureFixture.Plan(), MaximumLogBlocks = 3, BatchSize = 2, CombineHolderFilters = true };
-        var expectedNames = new[] { "log-batch-000000", "log-batch-000001", "receipts-000000", "receipts-000001", "headers-000000" };
+        var expectedNames = new[] { "log-batch-000000", "log-batch-000001", "receipts-000000", "receipts-000001", "headers-000000", "transactions-000000", "transactions-000001" };
         var expectedBounds = new[] { "0x0:0x2", "0x3:0x4", "0x4:0x4" };
         var expectedBatch = new[] { "tx1", "tx2" };
         var expectedHeader = "block1";
