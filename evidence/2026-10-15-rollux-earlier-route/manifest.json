@@ -1,0 +1,20 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "intermediate-history.capture.json": "c42b6fb982277d185f521da64c91b4fe55c170ec0c0d92a33ec7a4b6df8b8cce",
+    "intermediate-history.request.json": "0d8dbf5e8975f883338f711c5fd144f06337e23c32e57719119973b445df071b",
+    "intermediate-history.response.json": "d9dc04601173991c0df1db981daab8683f3b5648cf3b4fb44555239140816d41",
+    "rollux-headers.capture.json": "0618eb7f89b9294c4a51780497e34a02f579f8e9c608347817a828d76e3d0c87",
+    "rollux-headers.request.json": "7c24ccccf9750b7fdaa65718579eba75897f404b24becfd61f6e35b94ee3433d",
+    "rollux-headers.response.json": "5f68d0e1117ae62653cf4cf9145021e1adb7f78dbd1af8222642cd51a84f4c7b",
+    "rollux-receipts.capture.json": "0a5324e426d81216395170ff98de42c9d2abb4785405041ef9b25ea4237b812a",
+    "rollux-receipts.request.json": "c1bb9efe609ba79e04c311366aa05fc10c83d347670d7e9c1c638f2aa2e575f8",
+    "rollux-receipts.response.json": "b58e59dedf090c51a7d00c40cdd01d9a13dcc8f0bcb3e091f5704dec600cf84c",
+    "syscoin-headers.capture.json": "c3a54550ec99415627d7051e4beaa5f1008231b54e553bf69ffacb34ea57eb3e",
+    "syscoin-headers.request.json": "ba964fa24b4b68124546a1841d86fbc5cf0dfbd1e224957f86ba2576c84aa9eb",
+    "syscoin-headers.response.json": "b4e131553718a0cd7b4adcdf9e7c2d2335402aec338be36c0a1f8dd517d8468e",
+    "syscoin-receipts.capture.json": "b50a3a2c48fb7c110202acb535442abaef88cf87e809e87234186fc7f8b238ef",
+    "syscoin-receipts.request.json": "c6740f197b2926a875290a080ff35628d74199f2a30dfdb3e57096fb848ba523",
+    "syscoin-receipts.response.json": "a19ef59bbd811b21b2ca8f38f2b91ca1dc1aed5eb721467256984294c121c435"
+  }
+}

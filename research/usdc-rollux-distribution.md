@@ -20,6 +20,8 @@ One large earlier input into [8a4a…64c1](https://explorer.rollux.com/address/0
 
 ## Current comparison and remaining scope
 
+Follow-up: the [199,899.699967 input is traced to a direct Syscoin mint and bridge lock](usdc-rollux-earlier-route.md). Its intermediate address has a verified one-in/one-out history, but no Fusion funding source is established for that mint.
+
 Vault 66ff has **2,284,499.383095** at the new block, equal to the previously published snapshot amount. Its retained history has 285 incoming and 183 outgoing events; net transfers agree exactly with `balanceOf`. This later check does not replace the site's aligned historical comparison or establish dollar backing.
 
 The 50,000 recipient is not promoted to a vault: no evidence here establishes that role. Its remaining balance is not added to the vault total. Likewise, transfers between the three vault addresses are not new external reserves. Independent backing of the Syscoin parent and beneficial ownership remain unresolved.

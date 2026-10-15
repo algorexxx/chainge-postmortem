@@ -10,6 +10,7 @@ try {
     & ./research/check-controller-links.ps1
     & ./research/check-rollux-roundtrip.ps1
     & ./research/check-rollux-distribution.ps1
+    & ./research/check-rollux-earlier-route.ps1
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
