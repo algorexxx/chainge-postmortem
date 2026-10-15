@@ -96,3 +96,17 @@ synthetic.vaultComparison.groups=[];assert(render().includes('No aligned vault b
 delete synthetic.fusionStatistics;delete synthetic.vaultComparison;assert(render().includes('No supply is assumed'));
 for(const view of ['vaults','movements']){run(`tabName='${view}';movementView='reviewed';`);assert(!render().includes('undefined'));}
 console.log('Shared layout verified for BUSD, USDC and a synthetic asset; unknown, zero, differing precision, separate balances, missing evidence and mismatched dates remain distinct.');
+const cutoff='2025-05-27T13:35:10Z';
+for(const [date,expected] of [['2025-05-27T13:35:09Z','Before publication'],['2025-05-27T13:35:11Z','After publication'],[cutoff,'At publication time'],[null,'Unknown date'],['invalid','Unknown date']])assert.equal(run(`announcementTiming(${JSON.stringify(date)},'${cutoff}')`),expected);
+for(const [date,expected] of [['2025-05-26','Before publication'],['2025-05-28','After publication'],['2025-05-27','Date range overlaps publication'],['2025-05-01 to 2025-06-01','Date range overlaps publication']])assert.equal(run(`announcementTiming('${date}','${cutoff}',true)`),expected);
+for(const [key,study] of Object.entries(published)){
+ if(!study.claimReview)continue;
+ context.location.hash='#token='+key;run("tabName='overview';renderSelection();");
+ assert(element('#detail').innerHTML.includes(`Inspect ${study.claimReview.positions.length} holder positions`));
+ assert(element('#detail').innerHTML.includes('Outstanding claims: not established'));
+ for(const id of study.announcementIds){assert(run(`registry.timeline.entries.some(e=>e.id==='${id}')`));}
+ run("tabName='movements';movementView='ledger';ledgerDirection='outgoing';ledgerClassification='all';ledgerChain='all';ledgerToken='all';ledgerDestination='';flowMinimum='0';ledgerAnnouncement='After publication:2025-suspension';renderSelection();");
+ assert(element('#detail').innerHTML.includes(study.title==='USDC'?'Showing 3 of 3 matching transfers':'Showing 0 of 0 matching transfers'));
+ if(study.title==='USDC')assert(element('#detail').innerHTML.includes('After the Fusion snapshot.'));
+}
+console.log('Verified holder inventory display, announcement references, exact-time boundaries, uncertain ranges and post-suspension filters.');

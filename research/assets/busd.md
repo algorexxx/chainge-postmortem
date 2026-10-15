@@ -41,3 +41,7 @@ The [January exchange path](../busd-204k-exchange-path.md) and [FDUSD follow-up]
 The new manifest gate found five previously selected response files absent from the source-review manifest: `fusion-deposit-fees.response.json` and the four `fusion-small-payment-*.response.json` batches. Their existing bytes and request/capture companions were added to the manifest on 2026-10-13 (15 new entries); no original entry or capture was replaced. No mismatched existing checksum was found.
 
 Completion still requires a justified full custody inventory, validated consolidated Fusion claims, extension beyond the tested common-cutoff positions, opening/closing balance reconciliation and disposition of material exceptions. Passing verification does not satisfy those missing conditions. See [the workflow audit](../workflow-audit.md).
+
+## Holder inventory and announcement context
+
+See [Fusion holder review](../fusion-claims-review.md) for checked positive positions, address-one separation, unresolved migration overlap and outgoing-transfer timing against the reviewed Chainge statements. Consolidated customer liabilities remain unestablished.

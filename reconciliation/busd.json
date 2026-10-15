@@ -78,6 +78,34 @@
       "0x8f8c247a300312b805692a3bc49414e35dec64ce": [
         "0x456325f2ac7067234dd71e01bebe032b0255e039"
       ]
+    },
+    "claimCutoffBlock": 15130080,
+    "claimCutoffUnixTime": 1759826630,
+    "claimIntervals": {
+      "0x8f8c247a300312b805692a3bc49414e35dec64ce": {
+        "start": 0,
+        "end": 18446744073709551615
+      },
+      "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": {
+        "start": 0,
+        "end": 18446744073709551615
+      },
+      "0xba212492dd4b1d89e86fd97faadca3b519629618": {
+        "start": 0,
+        "end": 1672531199
+      },
+      "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d": {
+        "start": 1672531199,
+        "end": 18446744073709551615
+      },
+      "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3": {
+        "start": 1704067199,
+        "end": 18446744073709551615
+      },
+      "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725": {
+        "start": 0,
+        "end": 1704067199
+      }
     }
   },
   "sources": [
@@ -202,6 +230,23 @@
         "0x8f8c247a300312b805692a3bc49414e35dec64ce": 18,
         "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": 18
       }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-11-busd-slices-review",
+      "pattern": "slice-0x*-page*.response.json",
+      "tokenDecimals": {
+        "0xba212492dd4b1d89e86fd97faadca3b519629618": 18,
+        "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d": 18,
+        "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3": 18,
+        "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725": 18
+      },
+      "datedTokens": [
+        "0xba212492dd4b1d89e86fd97faadca3b519629618",
+        "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d",
+        "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3",
+        "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725"
+      ]
     }
   ],
   "limitations": [
@@ -268,6 +313,32 @@
       "pattern": "balance-*.request.json",
       "tokenDecimals": {
         "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98": 18
+      }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-11-busd-ledger-review",
+      "pattern": "*balances*.request.json",
+      "tokenDecimals": {
+        "0x8f8c247a300312b805692a3bc49414e35dec64ce": 18,
+        "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": 18,
+        "0xba212492dd4b1d89e86fd97faadca3b519629618": 18,
+        "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d": 18,
+        "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3": 18,
+        "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725": 18
+      }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-11-busd-slices-review",
+      "pattern": "slice-balances.request.json",
+      "tokenDecimals": {
+        "0x8f8c247a300312b805692a3bc49414e35dec64ce": 18,
+        "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": 18,
+        "0xba212492dd4b1d89e86fd97faadca3b519629618": 18,
+        "0xcb637ddc0731e9a6b721715c7c6fe058695aa08d": 18,
+        "0xd25377c665b37f2098e89ba39bf1bb8e5fe5e3b3": 18,
+        "0xabd59013a7e4e54e8346e0be9b2b1f3fd250e725": 18
       }
     }
   ]

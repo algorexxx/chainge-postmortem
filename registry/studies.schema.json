@@ -556,6 +556,21 @@
         },
         "vaultComparison": {
           "$ref": "#/definitions/comparison"
+        },
+        "claimReview": {
+          "$ref": "#/definitions/claimReview"
+        },
+        "announcementIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "announcementScopeNote": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [
@@ -569,7 +584,100 @@
         "flows",
         "overviewLinks"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "dependencies": {
+        "announcementIds": [
+          "announcementScopeNote"
+        ],
+        "claimReview": [
+          "fusionStatistics"
+        ]
+      }
+    },
+    "claimPosition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "token",
+        "holder",
+        "decimals",
+        "rawAmount",
+        "intervalStatus",
+        "historyConsistent",
+        "balanceSource"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "holder": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "rawAmount": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]*$"
+        },
+        "intervalStatus": {
+          "enum": [
+            "remaining-perpetual-interval",
+            "expired-interval",
+            "future-interval",
+            "active-finite-interval"
+          ]
+        },
+        "historyConsistent": {
+          "const": true
+        },
+        "balanceSource": {
+          "type": "string",
+          "pattern": "^evidence/[^\\\\]+\\.request\\.json$"
+        }
+      }
+    },
+    "claimReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "referenceBlock",
+        "source",
+        "snapshotNote",
+        "positions",
+        "notes"
+      ],
+      "properties": {
+        "referenceBlock": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "snapshotNote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "positions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/claimPosition"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
     }
   }
 }

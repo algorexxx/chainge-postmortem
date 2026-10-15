@@ -3,6 +3,7 @@ $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
 try {
     if (-not (Test-Json -Path registry/studies.json -SchemaFile registry/studies.schema.json)) { throw 'The reviewed studies do not match the standard site data format.' }
+    $studies = Get-Content registry/studies.json -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
@@ -14,6 +15,9 @@ try {
         $outputPath = Join-Path 'archives/workflow-check' $assetName
         dotnet run --project Chainge.Postmortem.Reconcile --configuration Release --no-build -- . $config.FullName $outputPath
         if ($LASTEXITCODE -ne 0) { throw "Reconciliation failed: $assetName" }
+        foreach ($study in $studies.Values | Where-Object { $_.movementsFile -eq "$assetName-movements.json" }) {
+            & ./registry/verify-claim-snapshot.ps1 -ReportDirectory $outputPath -Study $study
+        }
         $publishedPath = Join-Path registry "$assetName-movements.json"
         if (Test-Path -LiteralPath $publishedPath) {
             $generatedHash = (Get-FileHash -LiteralPath (Join-Path $outputPath 'site-movements.json') -Algorithm SHA256).Hash

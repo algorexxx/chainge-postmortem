@@ -18,6 +18,7 @@ let flowFilter = 'hide-redemptions';
 let flowSort = 'review';
 let flowMinimum = '0';
 let movementView = 'reviewed';
+let ledgerAnnouncement = '';
 let ledgerDirection = 'outgoing';
 let ledgerClassification = 'hide-redemptions';
 let ledgerChain = 'all';
@@ -63,7 +64,7 @@ function renderUnassessed() {
 function renderStudy(study) {
   if (tabName === 'vaults') return renderVaults(study);
   if (tabName === 'movements') return renderMovements(study);
-  return renderVaultComparison(study) + renderFusionStatistics(study) + `<section class="panel"><h2>Investigation notes</h2><p>${escape(study.scope)}</p>${(study.overviewLinks ?? []).map(link=>`<p><a href="${escape(link.url)}">${escape(link.label)} ↗</a></p>`).join('')}</section>`;
+  return renderVaultComparison(study) + renderFusionStatistics(study) + renderClaimReview(study) + renderAnnouncementContext(study) + `<section class="panel"><h2>Investigation notes</h2><p>${escape(study.scope)}</p>${(study.overviewLinks ?? []).map(link=>`<p><a href="${escape(link.url)}">${escape(link.label)} ↗</a></p>`).join('')}</section>`;
 }
 
 function renderFusionStatistics(study) {
@@ -107,13 +108,64 @@ function renderVaultComparison(study) {
     ${groups.length ? `<details class="reading-notes"><summary>Vault balance breakdown</summary><p>Exact amounts are available on hover. Expand a row to see every checked address, including zero and unknown balances.</p><div class="table-wrap"><table><thead><tr><th>Chain / token</th><th>Cutoff block / method</th><th class="numeric">Balance (token units)</th></tr></thead><tbody>${groups.map(g=>`<tr><td><strong>${escape(g.chain)} · ${escape(g.tokenLabel ?? study.title)}</strong>${explorerLink(g.chain,g.token,short(g.token))}${g.treatment==='separate'?'<p>Shown separately</p>':''}<details><summary>${g.positions.length} vault addresses</summary>${g.positions.map(p=>`<p>${explorerLink(g.chain,p.holder,short(p.holder))}: ${p.rawAmount===null?'Unknown':amount(rawUnits(p.rawAmount,g.decimals))}${p.source?` · <a href="${repo}${escape(p.source)}">Evidence ↗</a>`:''}</p>`).join('')}</details></td><td>${g.block.toLocaleString()}<br>${escape(g.method)}</td><td class="numeric">${total(g)===null?'Unknown':amount(units(total(g)))}</td></tr>`).join('')}</tbody></table></div></details>` : '<p>No aligned vault balance checks have been published.</p>'}</section>`;
 }
 
+function renderClaimReview(study) {
+  const review = study.claimReview;
+  if (!review) return '';
+  if (review.referenceBlock !== study.fusionStatistics?.referenceBlock) return '<section class="panel"><h2>Outstanding claims</h2><p>Holder review does not match the supply snapshot. Consolidated claims are not established.</p></section>';
+  const one = '0x0000000000000000000000000000000000000001';
+  const tokens = [...new Set(review.positions.map(p=>p.token))];
+  const statuses = {'expired-interval':'Expired period','future-interval':'Future period','remaining-perpetual-interval':'Unexpired rights','active-finite-interval':'Active finite period'};
+  return `<section class="panel"><div class="section-title"><h2>Outstanding claims: not established</h2><a href="${escape(review.source)}">Read the holder review ↗</a></div><p>These are checked token balances, not confirmed amounts owed to customers. Address-one holdings, expired rights and possible migration overlaps remain distinct.</p><details class="reading-notes"><summary>Inspect ${review.positions.length.toLocaleString()} holder positions</summary><div class="table-wrap"><table><thead><tr><th>Fusion contract / period</th><th class="numeric">At address one</th><th class="numeric">At other addresses</th></tr></thead><tbody>${tokens.map(token=>{
+    const positions=review.positions.filter(p=>p.token===token);
+    const total=predicate=>positions.filter(predicate).reduce((sum,p)=>sum+BigInt(p.rawAmount),0n).toString();
+    const metadata=study.fusionStatistics.tokens.find(t=>t.address===token);
+    return `<tr><td><strong>${token===selected.address?'Selected token':metadata?.fullTime?'Legacy full-time token':'Dated token'} · ${escape(statuses[positions[0].intervalStatus]??'Period not assessed')}</strong>${explorerLink('Fusion',token,short(token))}<details><summary>${positions.length} positive positions</summary>${positions.slice().sort((a,b)=>compareInteger(BigInt(b.rawAmount),BigInt(a.rawAmount))).map(p=>`<p>${explorerLink('Fusion',p.holder,short(p.holder))}: ${amount(rawUnits(p.rawAmount,p.decimals))} · <a href="${repo}${escape(p.balanceSource)}">Balance evidence ↗</a></p>`).join('')}</details></td><td class="numeric">${amount(rawUnits(total(p=>p.holder===one),positions[0].decimals))}</td><td class="numeric">${amount(rawUnits(total(p=>p.holder!==one),positions[0].decimals))}</td></tr>`;
+  }).join('')}</tbody></table></div><p>Amounts are ${escape(study.title)} token units. Do not add rows across contracts or treat “other addresses” as customer-owned balances.</p>${review.notes.map(note=>`<p>${escape(note)}</p>`).join('')}</details></section>`;
+}
+
+function announcementEntries(study) {
+  return (study.announcementIds ?? []).map(id=>registry.timeline?.entries.find(entry=>entry.id===id)).filter(Boolean);
+}
+
+function announcementTiming(value, publishedUtc, dateOnly = false) {
+  const point=Date.parse(publishedUtc);
+  if (!value || !Number.isFinite(point)) return 'Unknown date';
+  if (!dateOnly) {
+    const instant=Date.parse(value);
+    return !Number.isFinite(instant)?'Unknown date':instant<point?'Before publication':instant>point?'After publication':'At publication time';
+  }
+  const dates=[...String(value).matchAll(/\d{4}-\d{2}-\d{2}/g)].map(match=>match[0]).sort();
+  if (!dates.length) return 'Unknown date';
+  const start=Date.parse(dates[0]+'T00:00:00Z'),end=Date.parse(dates.at(-1)+'T00:00:00Z')+86400000;
+  if (!Number.isFinite(start)||!Number.isFinite(end)) return 'Unknown date';
+  return end<=point?'Before publication':start>point?'After publication':'Date range overlaps publication';
+}
+
+function renderAnnouncementContext(study) {
+  const entries=announcementEntries(study);
+  if (!entries.length) return '';
+  const outflows=study.automatedMovements?.cases.filter(c=>c.review.direction==='outgoing') ?? [];
+  return `<details class="panel"><summary>Transfers and Chainge announcements</summary><p>${escape(study.announcementScopeNote)}</p><p>Counts cover retained outgoing transfer events, including small transfers and possible redemptions. They are not a count of customers or unexplained payments.</p>${entries.map(entry=>{
+    const counts=new Map();for(const c of outflows){const label=announcementTiming(c.timestamp,entry.publishedUtc);counts.set(label,(counts.get(label)??0)+1);}
+    return `<h3>${escape(entry.title)}</h3><p>${escape(entry.publishedUtc)} · ${entry.sourceIds.map(id=>`<a href="${escape(registry.timeline.sources[id].url)}">Statement ↗</a>`).join(' · ')}</p><p>${escape(entry.summary)}</p><p>${outflows.length?['Before publication','After publication','At publication time','Unknown date'].map(label=>`${label}: ${(counts.get(label)??0).toLocaleString()}`).join(' · '):'No retained outflow ledger is connected.'}</p><p class="footnote">${escape(entry.limitation)}</p>`;
+  }).join('')}<p>Timing compares publication timestamps, not verified incident onset or the cause of a transfer. The statements are attributed claims; retained text may include later edits. <a href="#timeline">Full timeline and edit details →</a></p></details>`;
+}
+
+function renderAnnouncementTiming(value, dateOnly = false) {
+  const study=registry.studies[selected.address];
+  const entries=study?announcementEntries(study):[];
+  if (!entries.length) return '';
+  const beyondSnapshot = !dateOnly && Date.parse(value)>Date.parse(study.fusionStatistics?.referenceTime);
+  return `<details class="reading-notes"><summary>Timing against announcements</summary>${beyondSnapshot?'<p><strong>After the Fusion snapshot.</strong> This review cannot establish whether a corresponding burn occurred beyond the retained Fusion cutoff.</p>':''}${entries.map(entry=>`<p><strong>${escape(announcementTiming(value,entry.publishedUtc,dateOnly))}</strong> · ${escape(entry.title)} (${escape(entry.publishedUtc)}) · <a href="${escape(registry.timeline.sources[entry.sourceIds[0]].url)}">Statement ↗</a></p>`).join('')}<p>Publication is a reference point, not a verified start of asset problems. Edited text and grouped case dates limit precision. <a href="#timeline">Read the full context →</a></p></details>`;
+}
+
 function renderVaults(study) {
   return `<div class="section-title"><h2>Vault addresses</h2><a href="${study.assessment}">Read the report ↗</a></div><div class="notice"><strong>These are likely vaults. The list may be incomplete.</strong>Each row shows one token on one chain. A vault address alone does not prove the assets were held for customers.</div><section class="panel table-wrap"><table><thead><tr><th>Chain / token</th><th>Vault address</th><th class="numeric">Balance (tokens)</th><th>Source / date</th></tr></thead><tbody>${study.vaults.map(v=>`<tr><td><strong>${escape(v.chain)}</strong>${escape(v.token)}</td><td class="address-cell"><strong>${escape(v.role)}</strong><code>${explorerLink(v.chain, v.address)}</code></td><td class="numeric"><strong>${v.balance == null ? 'Unknown' : v.balance === '0' ? '0' : amount(v.balance)}</strong>${v.balance != null && v.balance !== '0' ? `<div class="amount-exact">${v.balance}</div>` : ''}</td><td class="vault-note">${escape(v.cutoff)}<details class="reading-notes"><summary>Evidence and limits</summary><p>${escape(v.note)}</p><a class="evidence-link" href="${v.source}">View evidence ↗</a></details></td></tr>`).join('')}</tbody></table></section><p class="muted">A zero balance is an observation at a stated cutoff. An unknown balance would be shown as unknown. Small nonzero balances retain their exact value.</p>`;
 }
 
 function renderMovements(study) {
   const switcher = study.automatedMovements ? `<div class="filters"><div class="filter-field"><label for="movement-view">View</label><select id="movement-view"><option value="terminal" ${movementView === 'terminal' ? 'selected' : ''}>Latest vault transfers</option><option value="ledger" ${movementView === 'ledger' ? 'selected' : ''}>All transfers · ${study.automatedMovements.cases.length} transfers</option><option value="reviewed" ${movementView === 'reviewed' ? 'selected' : ''}>Reviewed cases · ${study.flows.length}</option></select></div></div>` : '';
-  return switcher + (study.automatedMovements && movementView !== 'ledger' ? `<p class="muted">${study.automatedMovements.cases.length.toLocaleString()} transfers recorded. <button class="reset-filters" data-show-all-movements="true">Show all recorded transfers</button></p>` : '') + (study.automatedMovements && movementView === 'terminal' ? renderTerminalReview(study.automatedMovements) : study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
+  return switcher + renderAnnouncementContext(study) + (study.automatedMovements && movementView !== 'ledger' ? `<p class="muted">${study.automatedMovements.cases.length.toLocaleString()} transfers recorded. <button class="reset-filters" data-show-all-movements="true">Show all recorded transfers</button></p>` : '') + (study.automatedMovements && movementView === 'terminal' ? renderTerminalReview(study.automatedMovements) : study.automatedMovements && movementView === 'ledger' ? renderMovementLedger(study.automatedMovements) : renderReviewedMovements(study));
 }
 
 function renderReviewedMovements(study) {
@@ -171,7 +223,7 @@ function renderTraceSteps(steps, asset) {
 }
 
 function renderTrace(flow, asset) {
-  return `<section class="trace-panel" aria-label="Selected transfer path" tabindex="-1"><button class="reset-filters back-to-case" data-back-case="true">← Back to selected case</button><p class="eyebrow">Transfer details</p><h3>${escape(flow.title)}</h3>${directionBadge(reviewedDirection(flow))}<p>${escape(flow.explanation)}</p><p><strong>Last known destination:</strong> ${linkedText(flow.endpoint, flow.steps.at(-1)?.chain)}</p><p class="muted">Direction is relative to the likely vault. Follow the path from top to bottom. Solid line: verified transfer · Dashed line: possible link</p>${renderTraceSteps(flow.steps, asset)}${(flow.branches ?? []).map(branch => `<section class="trace-branch"><h4>${escape(branch.title)}</h4><p>${escape(branch.explanation)}</p>${renderTraceSteps(branch.steps, asset)}${branch.limitation ? `<p class="muted">${escape(branch.limitation)}</p>` : ''}${branch.source ? `<a class="evidence-link" href="${escape(branch.source)}">Evidence and later transfers ↗</a>` : ''}</section>`).join('')}<div class="trace-unknown">${flow.limitation ? escape(flow.limitation) : flow.status === 'Possible redemption' ? 'The burn/payment relationship is inferred. Later combined-balance transfers require the accompanying report.' : flow.status === 'Possible rebalancing' ? 'The exchange-internal connection is not visible on-chain.' : 'Tracing stops here. The credited exchange account, retained funds and later withdrawals are unknown.'}</div><a class="evidence-link" href="${flow.source}">Open evidence and exact transaction history ↗</a></section>`;
+  return `<section class="trace-panel" aria-label="Selected transfer path" tabindex="-1"><button class="reset-filters back-to-case" data-back-case="true">← Back to selected case</button><p class="eyebrow">Transfer details</p><h3>${escape(flow.title)}</h3>${directionBadge(reviewedDirection(flow))}<p>${escape(flow.explanation)}</p>${renderAnnouncementTiming(flow.date,true)}<p><strong>Last known destination:</strong> ${linkedText(flow.endpoint, flow.steps.at(-1)?.chain)}</p><p class="muted">Direction is relative to the likely vault. Follow the path from top to bottom. Solid line: verified transfer · Dashed line: possible link</p>${renderTraceSteps(flow.steps, asset)}${(flow.branches ?? []).map(branch => `<section class="trace-branch"><h4>${escape(branch.title)}</h4><p>${escape(branch.explanation)}</p>${renderTraceSteps(branch.steps, asset)}${branch.limitation ? `<p class="muted">${escape(branch.limitation)}</p>` : ''}${branch.source ? `<a class="evidence-link" href="${escape(branch.source)}">Evidence and later transfers ↗</a>` : ''}</section>`).join('')}<div class="trace-unknown">${flow.limitation ? escape(flow.limitation) : flow.status === 'Possible redemption' ? 'The burn/payment relationship is inferred. Later combined-balance transfers require the accompanying report.' : flow.status === 'Possible rebalancing' ? 'The exchange-internal connection is not visible on-chain.' : 'Tracing stops here. The credited exchange account, retained funds and later withdrawals are unknown.'}</div><a class="evidence-link" href="${flow.source}">Open evidence and exact transaction history ↗</a></section>`;
 }
 
 function focusTransferDetails() {
@@ -189,13 +241,13 @@ detail.addEventListener('click', async event => {
   const button = event.target.closest('button');
   if (!button) return;
   if (button.dataset.tab) { tabName = button.dataset.tab; renderSelection(); document.querySelector(`#tab-${tabName}`).focus(); }
-  if (button.dataset.showAllMovements) { movementView = 'ledger'; ledgerDirection = 'all'; ledgerClassification = 'all'; ledgerChain = 'all'; ledgerToken = 'all'; ledgerDestination = ''; flowMinimum = '0'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#movement-view').focus(); }
+  if (button.dataset.showAllMovements) { ledgerAnnouncement = '';  movementView = 'ledger'; ledgerDirection = 'all'; ledgerClassification = 'all'; ledgerChain = 'all'; ledgerToken = 'all'; ledgerDestination = ''; flowMinimum = '0'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#movement-view').focus(); }
   if (button.dataset.flow) { flowId = button.dataset.flow; renderSelection(); focusTransferDetails(); }
   if (button.dataset.openFlow) { movementView = 'reviewed'; flowId = button.dataset.openFlow; flowFilter = 'all'; flowMinimum = '0'; tabName = 'movements'; renderSelection(); focusTransferDetails(); }
   if (button.dataset.ledgerId) { ledgerId = button.dataset.ledgerId; renderSelection(); focusTransferDetails(); }
   if (button.dataset.ledgerMore) { ledgerCount += 50; renderSelection(); document.querySelector('[data-ledger-more]')?.focus(); }
   if (button.dataset.destination) { ledgerDestination = button.dataset.destination; ledgerChain = button.dataset.chain; ledgerToken = button.dataset.token; ledgerDirection = 'outgoing'; ledgerClassification = 'all'; flowMinimum = '0'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#ledger-destination').focus(); }
-  if (button.dataset.resetLedger) { ledgerDirection = 'outgoing'; ledgerClassification = 'hide-redemptions'; ledgerChain = 'all'; ledgerToken = 'all'; ledgerDestination = ''; flowMinimum = '0'; flowSort = 'review'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#ledger-classification').focus(); }
+  if (button.dataset.resetLedger) { ledgerAnnouncement = '';  ledgerDirection = 'outgoing'; ledgerClassification = 'hide-redemptions'; ledgerChain = 'all'; ledgerToken = 'all'; ledgerDestination = ''; flowMinimum = '0'; flowSort = 'review'; ledgerCount = 50; ledgerId = ''; renderSelection(); document.querySelector('#ledger-classification').focus(); }
   if (button.dataset.resetFlows) { flowFilter = 'hide-redemptions'; flowSort = 'review'; flowMinimum = '0'; flowId = ''; renderSelection(); document.querySelector('#flow-filter').focus(); }
   if (button.dataset.backCase) {
     const card = document.querySelector('[data-flow][aria-pressed="true"], [data-ledger-id][aria-pressed="true"]');
@@ -216,6 +268,7 @@ detail.addEventListener('change', event => {
   const id = event.target.id;
   if (id === 'movement-view') { movementView = event.target.value; if (movementView === 'reviewed' && !['review','newest','largest'].includes(flowSort)) flowSort = 'review'; renderSelection(); document.getElementById(id).focus(); return; }
   if (id.startsWith('ledger-')) {
+    if (id === 'ledger-announcement') ledgerAnnouncement = event.target.value;
     if (id === 'ledger-direction') ledgerDirection = event.target.value;
     if (id === 'ledger-classification') ledgerClassification = event.target.value;
     if (id === 'ledger-chain') { ledgerChain = event.target.value; ledgerToken = 'all'; }
@@ -272,10 +325,15 @@ function ledgerSelect(id, label, options, selectedValue) {
 function renderMovementLedger(report) {
   const destinations = new Map(report.destinations.map(d => [destinationKey(d.chain, d.token, d.address), d]));
   const minimum = comparableRaw(flowMinimum, 0);
+  const announcements = announcementEntries(registry.studies[selected.address] ?? {});
+  const [timing, announcementId] = ledgerAnnouncement.split(':');
+  const announcement = announcements.find(entry=>entry.id===announcementId);
+  if (!announcement) ledgerAnnouncement = '';
   const matches = report.cases.filter(c => (ledgerDirection === 'all' || c.review.direction === ledgerDirection)
     && (ledgerClassification === 'all' || (ledgerClassification === 'hide-redemptions' ? c.review.classification !== 'possible-redemption' : c.review.classification === ledgerClassification))
     && (ledgerChain === 'all' || c.chain === ledgerChain)
     && (ledgerToken === 'all' || c.token === ledgerToken)
+    && (!announcement || announcementTiming(c.timestamp,announcement.publishedUtc) === timing)
     && (!ledgerDestination || c.to.includes(ledgerDestination))
     && comparableRaw(c.rawAmount, c.decimals) >= minimum);
   matches.sort((a,b) => {
@@ -295,6 +353,7 @@ function renderMovementLedger(report) {
   return `<div class="section-title"><h2>All transfers</h2><span class="status neutral">Automatic matches</span></div>
     <p class="muted">Showing ${visible.length} of ${matches.length.toLocaleString()} matching transfers · ${report.cases.length.toLocaleString()} recorded in total.</p><details class="reading-notes"><summary>About automatic matches</summary><p>These labels come from the matching script and may differ from reviewed cases. “No automatic match” means the script found no match under its rules. Possible redemptions are hidden by default. The saved history may be incomplete.</p></details>
     <div class="filters ledger-filters">
+    ${announcements.length ? ledgerSelect('ledger-announcement','Announcement timing',[['','Any date'],...announcements.flatMap(entry=>['Before publication','After publication'].map(timing=>[timing+':'+entry.id,timing+' · '+entry.title]))],ledgerAnnouncement) : ''}
     ${ledgerSelect('ledger-direction','Direction',[['outgoing','Out of vaults'],['incoming','Into vaults'],['internal','Between vaults'],['all','All transfers']],ledgerDirection)}
     ${ledgerSelect('ledger-classification','Status',[['hide-redemptions','Hide possible redemptions'],['all','All results'],...classifications.map(c=>[c,classificationLabel(c)])],ledgerClassification)}
     ${ledgerSelect('ledger-chain','Chain',[['all','All chains'],...[...new Set(report.cases.map(c=>c.chain))].sort().map(c=>[c,c])],ledgerChain)}
@@ -318,7 +377,7 @@ function renderLedgerDetail(c, destination, report) {
   return `<section class="trace-panel ledger-detail" aria-label="Selected transfer" tabindex="-1">${movementView === 'ledger' ? '<button class="reset-filters back-to-case" data-back-case="true">← Back to selected transfer</button>' : ''}<p class="eyebrow">Automatic match · needs review</p><h3>${escape(classificationLabel(c.review.classification))}</h3>${directionBadge(c.review.direction)}<p>One source-chain transfer event. The recipient shown is the immediate recipient, not a traced final destination.</p><code class="address-text">${eventLink(c.id)}</code><p>${escape(c.timestamp ?? 'Unknown date')} · ${escape(c.chain)}</p><p><strong>${amount(rawUnits(c.rawAmount,c.decimals))} ${escape(report.asset)}</strong></p><code class="address-text">Token: ${explorerLink(c.chain, c.token)}<br>From: ${explorerLink(c.chain, c.from)}<br>To: ${explorerLink(c.chain, c.to)}</code>${explorerLink(c.chain, c.transaction, "View source transaction ↗")}<p>Receipt verification: ${c.receiptVerified ? 'verified' : 'not verified'}.</p><h3>Estimated vault balance</h3><p>${c.review.direction === 'outgoing' ? `Before: ${c.review.reconstructedBalanceBeforeRaw === null ? 'Unavailable' : amount(rawUnits(c.review.reconstructedBalanceBeforeRaw,c.decimals))}<br>After: ${c.review.reconstructedBalanceAfterRaw === null ? 'Unavailable' : amount(rawUnits(c.review.reconstructedBalanceAfterRaw,c.decimals))}<br>Reduction: ${depletionLabel(c.depletionBasisPoints)}. Conditional on retained history and zero opening balance.` : 'Balance-depletion comparison applies to outflows only.'}</p>
     ${destination ? `<h3>Same recipient · ${escape(c.chain)}</h3><p>Across the complete retained outflow history for this token:<br>${destination.count} payments · ${amount(rawUnits(destination.grossOutflowRaw,destination.decimals))} gross token units.<br>${destination.unmatchedCount} without a match · ${amount(rawUnits(destination.unmatchedOutflowRaw,destination.decimals))} token units.<br>Includes payments hidden by filters. Returns are not deducted.</p>` : ''}
     ${traced.length ? `<h3>Related traced cases</h3><p>These reports may contain explanations beyond the automated matching rules.</p>${traced.map(flow=>`<button class="reset-filters" data-open-flow="${escape(flow.id)}">${escape(flow.title)} →</button>`).join('')}` : ''}
-    <h3>Possible matches</h3><p>${c.review.candidates.length} Fusion candidates · ${c.review.sourceCandidates.length} source-chain candidates. Candidates are hypotheses; competing candidates are not independently settled payments.</p>
+    ${renderAnnouncementTiming(c.timestamp)}<h3>Possible matches</h3><p>${c.review.candidates.length} Fusion candidates · ${c.review.sourceCandidates.length} source-chain candidates. Candidates are hypotheses; competing candidates are not independently settled payments.</p>
     ${c.review.candidates.map(p=>`<div class="candidate"><code class="address-text">${eventLink(p.fusionEventId)}</code><p>${escape(p.rule)} · delay ${escape(p.delay)} · fee hypothesis ${escape(p.feeRawHypothesis)} raw units · ${p.competing ? 'competing' : 'no competing normal candidate'}</p></div>`).join('')}
     ${c.review.sourceCandidates.map(p=>`<div class="candidate"><code class="address-text">${eventLink(p.otherEventId)}</code><p>Delay ${escape(p.delay)} · fee ${escape(p.feeRawHypothesis)} raw units · ${p.competing ? 'competing' : 'no competing normal candidate'}</p></div>`).join('')}
     <h3>Possible matches over a longer period</h3><p>${delayed?.candidates.length ?? 0} Fusion candidates · ${delayed?.sourceCandidates.length ?? 0} source-chain candidates. Wider-window hypotheses are kept separate and do not change the normal classification.</p>${delayed ? `<pre class="json-evidence">${linkedEvidence({fusion:delayed.candidates,sourceChain:delayed.sourceCandidates}, c.chain)}</pre>` : ''}
