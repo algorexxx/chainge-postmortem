@@ -2,6 +2,7 @@ param([switch]$SkipBuildAndTests)
 $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
 try {
+    if (-not (Test-Json -Path registry/studies.json -SchemaFile registry/studies.schema.json)) { throw 'The reviewed studies do not match the standard site data format.' }
     if (-not $SkipBuildAndTests) {
         dotnet build Chainge.Postmortem.slnx --configuration Release
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
@@ -22,6 +23,8 @@ try {
     }
     dotnet run --project Chainge.Postmortem.Site --configuration Release --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
     if ($LASTEXITCODE -ne 0) { throw 'Site generation failed.' }
+    node registry/check-ui.cjs
+    if ($LASTEXITCODE -ne 0) { throw 'Shared asset UI checks failed.' }
     Write-Output 'Verification passed. Generated reports are reproducible; this does not certify evidence completeness or custody.'
 }
 finally {

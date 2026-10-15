@@ -1,18 +1,11 @@
 {
   "0x9d7005f9175856bda5deb153f86a11153d9d0fa7": {
     "title": "BUSD",
-    "presentation": "busd-pilot",
     "movementsFile": "busd-movements.json",
     "status": "Reconciliation incomplete",
-    "reviewed": "2026-10-11",
+    "reviewed": "2026-10-15",
     "scope": "Newer Fusion representation with linked historical BUSD research",
-    "fusionCutoff": "2025-10-07 08:43:50 UTC Â· block 15130080",
-    "minted": "1901947.310901214866171924",
-    "burned": "859866.890200848809065438",
-    "supply": "1042080.420700366057106486",
-    "ledgerSource": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/factory-history-and-busd-supply.md",
     "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-case-assessment.md",
-    "fdusdSource": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-fdusd-followup.md",
     "vaults": [
       {
         "chain": "BSC",
@@ -50,7 +43,7 @@
         "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
         "role": "Later likely vault",
         "balance": "23.724135682808759163",
-        "cutoff": "2026-10-11 16:19:11 UTC Â· block 26170361",
+        "cutoff": "2026-10-11 16:19:11 UTC · block 26170361",
         "note": "Observed holding; no verified segregated-vault role on Ethereum.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
       },
@@ -60,7 +53,7 @@
         "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
         "role": "Former vault address (from configuration)",
         "balance": "0.000000000000087769",
-        "cutoff": "2026-10-11 16:12:49 UTC Â· block 97292331",
+        "cutoff": "2026-10-11 16:12:49 UTC · block 97292331",
         "note": "Role verified on Avalanche in May 2024. Dust balance is nonzero.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
       },
@@ -70,7 +63,7 @@
         "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
         "role": "Vault address (from configuration)",
         "balance": "0",
-        "cutoff": "2026-10-11 16:12:49 UTC Â· block 97292331",
+        "cutoff": "2026-10-11 16:12:49 UTC · block 97292331",
         "note": "Configuration verified. Segregated backing and complete custody remain unconfirmed.",
         "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-source-chain-flows.md"
       }
@@ -372,37 +365,176 @@
         ]
       }
     ],
-    "activity": [
+    "fusionStatistics": {
+      "referenceBlock": 15130080,
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "configurationSha256": "ae0a015af890b3a34da46eab355bac4ee8862d8b6001323765e4db0527ee39bc",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-ledger-reconciliation.md",
+      "snapshotNote": "Compact reviewed site snapshot of the generated accounting-summary and claim-positions reports; avoids embedding their full input-hash inventory. Refresh after reconciling USDC and reviewing the Fusion accounting report. Net totals are derived from raw created/burned amounts when displayed.",
+      "tokens": [
+        {
+          "address": "0x8f8c247a300312b805692a3bc49414e35dec64ce",
+          "decimals": 18,
+          "fullTime": true,
+          "mintedRaw": "2067759285380510419997278380",
+          "burnedRaw": "1059392509077419234905439847",
+          "eventCount": 35552
+        },
+        {
+          "address": "0x9d7005f9175856bda5deb153f86a11153d9d0fa7",
+          "decimals": 18,
+          "fullTime": true,
+          "mintedRaw": "1901947310901214866171924",
+          "burnedRaw": "859866890200848809065438",
+          "eventCount": 1756
+        }
+      ],
+      "checks": [
+        {
+          "text": "All 125 newer-token mint/burn transactions have successful receipts. Created minus burned agrees with the checked newer-token supply.",
+          "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-ledger-reconciliation.md"
+        },
+        {
+          "text": "Reconstructed balances for 134 newer-token and 776 legacy-token addresses agree with node balance checks at this block, including zero balances. These are address/token positions, not people.",
+          "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-ledger-reconciliation.md"
+        }
+      ],
+      "notes": [
+        "The older-token balance and dated rights cannot be added to the newer supply as independent customer claims. The older parent supply counter does not decrease on the observed burns.",
+        "Only the two reviewed full-time ledgers are displayed here. Earlier and dated representations remain unresolved; see the accounting report."
+      ]
+    },
+    "vaultComparison": {
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/busd.md#balances-aligned-to-the-fusion-reference-time",
+      "snapshotNote": "Reviewed compact site snapshot of 15 historical balance calls with adjacent block headers. Full original RPC requests, responses, capture metadata and SHA-256 manifests remain in evidence/2026-10-15-busd-cutoff-*. Totals are derived on display rather than persisted.",
+      "groups": [
+        {
+          "chain": "Ethereum",
+          "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+          "tokenLabel": "BUSD",
+          "block": 23524761,
+          "decimals": 18,
+          "method": "Historical balance call",
+          "treatment": "included",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-ethereum/balance-92e290-0001.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-ethereum/balance-55e039-0001.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-ethereum/balance-ae64c1-0001.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-ethereum/balance-12aa8e-0001.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "23724135682808759163",
+              "source": "evidence/2026-10-15-busd-cutoff-ethereum/balance-caecf1-0001.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "BSC",
+          "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+          "tokenLabel": "Binance-Peg BUSD",
+          "block": 63769742,
+          "decimals": 18,
+          "method": "Historical balance call",
+          "treatment": "included",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-bsc/balance-92e290-0001.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-bsc/balance-55e039-0001.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "80222660182393847",
+              "source": "evidence/2026-10-15-busd-cutoff-bsc/balance-ae64c1-0001.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-bsc/balance-12aa8e-0001.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-bsc/balance-caecf1-0001.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Avalanche",
+          "token": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+          "tokenLabel": "BUSD.e",
+          "block": 69908002,
+          "decimals": 18,
+          "method": "Historical balance call",
+          "treatment": "included",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-avalanche/balance-92e290-0001.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-avalanche/balance-55e039-0001.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "87769",
+              "source": "evidence/2026-10-15-busd-cutoff-avalanche/balance-ae64c1-0001.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-avalanche/balance-12aa8e-0001.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-busd-cutoff-avalanche/balance-caecf1-0001.request.json"
+            }
+          ]
+        }
+      ]
+    },
+    "schemaVersion": 1,
+    "overviewLinks": [
       {
-        "chain": "BSC",
-        "token": "Binance-Peg BUSD",
-        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
-        "inflow": "5627912.884153641388215982",
-        "outflow": "5627912.884153641388215982",
-        "period": "2022-07-12 â†’ 2024-01-23"
+        "label": "Full investigation and open questions",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-case-assessment.md"
       },
       {
-        "chain": "Ethereum",
-        "token": "BUSD",
-        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
-        "inflow": "878608.060806010088336945",
-        "outflow": "878608.060806010088336945",
-        "period": "2022-07-12 â†’ 2024-01-20"
-      },
-      {
-        "chain": "Avalanche",
-        "token": "BUSD.e",
-        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
-        "inflow": "19569.129245861096569942",
-        "outflow": "19569.129245861096569942",
-        "period": "Returned history through 2023-11-02"
+        "label": "FDUSD follow-up: no replacement reserve identified",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/busd-fdusd-followup.md"
       }
     ]
   },
   "0xfc9e57d7543e0591824121fda6461fe2148a5966": {
     "title": "USDC",
     "status": "Partial investigation",
-    "reviewed": "2026-10-13",
+    "reviewed": "2026-10-15",
     "scope": "Partial investigation: Fusion holder replay checked against node balances; expanded source histories and common-cutoff balances. Selected reviewed cases are shown. Consolidated customer claims, complete custody and all source histories remain unresolved.",
     "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md",
     "vaults": [
@@ -1641,13 +1773,25 @@
           "eventCount": 42183
         }
       ],
-      "verifiedHolderPositions": 529,
       "addressOne": {
         "token": "0x7f0a22b5d7b3a9a52b83e955c1d7f127b3b9ee89",
         "address": "0x0000000000000000000000000000000000000001",
         "rawAmount": "996416657619439",
         "decimals": 6
-      }
+      },
+      "checks": [
+        {
+          "text": "42,183 transfer events recorded for the newer token. Created minus burned agrees with the reported contract supply.",
+          "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md#fusion-accounting"
+        },
+        {
+          "text": "529 positive address/token balances across all six Fusion contracts match node balance checks at this block. These are positions, not a count of people.",
+          "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/evidence/2026-10-13-usdc-fusion-claims/README.md"
+        }
+      ],
+      "notes": [
+        "The older parent contract uses a different supply counter that does not decrease on these burns. The table uses created minus burned tokens, not that counter."
+      ]
     },
     "vaultComparison": {
       "referenceTime": "2025-10-07T08:43:50.000Z",
@@ -1686,7 +1830,8 @@
               "rawAmount": "2254807663",
               "source": "evidence/2026-10-13-usdc-common-cutoff/ethereum-035.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Avalanche",
@@ -1720,7 +1865,8 @@
               "rawAmount": "8035128",
               "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-036.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Avalanche",
@@ -1754,7 +1900,8 @@
               "rawAmount": "1866669",
               "source": "evidence/2026-10-13-usdc-common-cutoff/avalanche-042.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Aurora",
@@ -1788,7 +1935,8 @@
               "rawAmount": "793990",
               "source": "evidence/2026-10-13-usdc-common-cutoff/aurora-038.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Rollux",
@@ -1822,7 +1970,9 @@
               "rawAmount": "2284499383095",
               "source": "evidence/2026-10-13-usdc-common-cutoff/rollux-036.request.json"
             }
-          ]
+          ],
+          "treatment": "separate",
+          "reason": "Backing is unverified. The Syscoin parent token has not been established as independently redeemable USDC."
         },
         {
           "chain": "Polygon",
@@ -1856,7 +2006,8 @@
               "rawAmount": "249339821",
               "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-037.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Polygon",
@@ -1890,7 +2041,8 @@
               "rawAmount": "45370745",
               "source": "evidence/2026-10-13-usdc-common-cutoff-retry/polygon-043.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Optimism",
@@ -1924,7 +2076,8 @@
               "rawAmount": "800343",
               "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-037.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Optimism",
@@ -1958,7 +2111,8 @@
               "rawAmount": "111037397",
               "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/optimism-043.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Base",
@@ -1992,7 +2146,8 @@
               "rawAmount": "0",
               "source": "evidence/2026-10-13-usdc-common-cutoff-retry2/base-035.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "BSC",
@@ -2026,7 +2181,8 @@
               "rawAmount": "254382949325249263627",
               "source": "evidence/2026-10-13-usdc-bsc-history/balance-cutoff-caecf1.request.json"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Arbitrum",
@@ -2055,7 +2211,8 @@
               "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
               "rawAmount": "258747601"
             }
-          ]
+          ],
+          "treatment": "included"
         },
         {
           "chain": "Arbitrum",
@@ -2084,9 +2241,17 @@
               "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
               "rawAmount": "5600507"
             }
-          ]
+          ],
+          "treatment": "included"
         }
       ]
-    }
+    },
+    "schemaVersion": 1,
+    "overviewLinks": [
+      {
+        "label": "Full investigation and open questions",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/usdc.md"
+      }
+    ]
   }
 }

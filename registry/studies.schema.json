@@ -1,0 +1,575 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reviewed asset studies, version 1",
+  "type": "object",
+  "patternProperties": {
+    "^0x[0-9a-f]{40}$": {
+      "$ref": "#/definitions/study"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "link": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        }
+      },
+      "required": [
+        "label",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "check": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        }
+      },
+      "required": [
+        "text",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "token": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "fullTime": {
+          "type": "boolean"
+        },
+        "mintedRaw": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "burnedRaw": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "eventCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "address",
+        "decimals",
+        "fullTime",
+        "mintedRaw",
+        "burnedRaw",
+        "eventCount"
+      ],
+      "additionalProperties": false
+    },
+    "fusion": {
+      "type": "object",
+      "properties": {
+        "referenceBlock": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "referenceTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "configurationSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "snapshotNote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/token"
+          }
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/check"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "addressOne": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            },
+            "address": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            },
+            "rawAmount": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            },
+            "decimals": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          },
+          "required": [
+            "token",
+            "address",
+            "rawAmount",
+            "decimals"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "referenceBlock",
+        "referenceTime",
+        "source",
+        "snapshotNote",
+        "tokens",
+        "checks",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "position": {
+      "type": "object",
+      "properties": {
+        "holder": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "rawAmount": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^evidence/[^\\\\]+\\.request\\.json$"
+        }
+      },
+      "required": [
+        "holder",
+        "rawAmount"
+      ],
+      "additionalProperties": false
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "chain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "token": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "tokenLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "block": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "treatment": {
+          "enum": [
+            "included",
+            "separate"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "positions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/position"
+          }
+        }
+      },
+      "required": [
+        "chain",
+        "token",
+        "block",
+        "decimals",
+        "method",
+        "treatment",
+        "positions"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "treatment": {
+                "const": "separate"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason"
+            ]
+          }
+        }
+      ]
+    },
+    "comparison": {
+      "type": "object",
+      "properties": {
+        "referenceTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "snapshotNote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/group"
+          }
+        }
+      },
+      "required": [
+        "referenceTime",
+        "source",
+        "snapshotNote",
+        "groups"
+      ],
+      "additionalProperties": false
+    },
+    "vault": {
+      "type": "object",
+      "properties": {
+        "chain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "token": {
+          "type": "string",
+          "minLength": 1
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "balance": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "cutoff": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        }
+      },
+      "required": [
+        "chain",
+        "token",
+        "address",
+        "role",
+        "balance",
+        "cutoff",
+        "note",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "step": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "chain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "time": {
+          "type": "string"
+        },
+        "transaction": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^https://"
+        },
+        "note": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "label",
+        "address",
+        "chain",
+        "amount",
+        "time"
+      ],
+      "additionalProperties": false
+    },
+    "branch": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/step"
+          }
+        },
+        "limitation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        }
+      },
+      "required": [
+        "title",
+        "explanation",
+        "steps"
+      ],
+      "additionalProperties": false
+    },
+    "flow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "chain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "Unmatched",
+            "Possible redemption",
+            "Possible rebalancing",
+            "Possible operating transition",
+            "Observed asset exchange"
+          ]
+        },
+        "endpoint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/step"
+          }
+        },
+        "limitation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "branches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/branch"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "amount",
+        "chain",
+        "date",
+        "status",
+        "endpoint",
+        "explanation",
+        "source",
+        "steps"
+      ],
+      "additionalProperties": false
+    },
+    "study": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessment": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "vaults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vault"
+          }
+        },
+        "flows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/flow"
+          }
+        },
+        "overviewLinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/link"
+          }
+        },
+        "movementsFile": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+-movements\\.json$"
+        },
+        "fusionStatistics": {
+          "$ref": "#/definitions/fusion"
+        },
+        "vaultComparison": {
+          "$ref": "#/definitions/comparison"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "title",
+        "status",
+        "reviewed",
+        "scope",
+        "assessment",
+        "vaults",
+        "flows",
+        "overviewLinks"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

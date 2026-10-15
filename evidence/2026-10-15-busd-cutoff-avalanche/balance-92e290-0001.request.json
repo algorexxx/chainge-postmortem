@@ -1,0 +1,12 @@
+{
+        "jsonrpc": "2.0",
+        "id": "balance-92e290",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",
+            "data": "0x70a08231000000000000000000000000874de5761900ee526950d707d8cbd4b93092e290"
+          },
+          "0x42ab622"
+        ]
+      }

@@ -244,5 +244,31 @@
         "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98": 18
       }
     }
+  ],
+  "balanceSources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-busd-cutoff-ethereum",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {
+        "0x4fabb145d64652a948d72533023f6e7a623c7c53": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-busd-cutoff-bsc",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {
+        "0xe9e7cea3dedca5984780bafc599bd69add087d56": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-busd-cutoff-avalanche",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {
+        "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98": 18
+      }
+    }
   ]
 }

@@ -4,6 +4,8 @@ Assessment date: **2026-10-11**. **Status: incomplete.** The required ledger com
 
 Correction: the earlier description of this report as closing the investigation pass was too broad. Reconciled controller histories do not establish total outstanding tokens, a complete vault inventory or matched backing.
 
+Update 2026-10-15: [a common-date comparison of 15 tested source-chain balances](assets/busd.md#balances-aligned-to-the-fusion-reference-time) is now available. It closes the date mismatch for those positions, not the full custody or consolidated-claims gaps described below.
+
 ## Work required to complete BUSD
 
 1. Finish the Fusion representation inventory and validate the earlier representation's accounting model. Publish all gross holder balances and evidence-backed adjustments separately, including the unresolved relationship between the large legacy and newer positions, address-one holdings and time slices.

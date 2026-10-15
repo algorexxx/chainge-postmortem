@@ -20,7 +20,7 @@ Do not commit raw Telegram exports, private messages, community submissions, ide
 
 ## 3. Configure and run the common pipeline
 
-Install the .NET SDK selected in `global.json` and PowerShell 7. Add `reconciliation/<asset>.json`, using [the USDC configuration](reconciliation/usdc.json) for its structure. Replace all asset-specific inputs and hypotheses; do not copy BUSD fees, operating addresses, migration mappings or cutoffs as facts.
+Install the .NET SDK selected in `global.json`, PowerShell 7 and Node.js 22. Add `reconciliation/<asset>.json`, using [the USDC configuration](reconciliation/usdc.json) for its structure. Replace all asset-specific inputs and hypotheses; do not copy BUSD fees, operating addresses, migration mappings or cutoffs as facts.
 
 The configuration declares `asset`, `policy`, `sources`, optional `discoverySources`, and `limitations`. Each source declares `chain`, `directory`, filename `pattern` and a contract-to-decimals `tokenDecimals` map. Select response files, not arbitrary archives. The adapter supports EVM ERC-20/Fusion timed Transfer logs, receipts, transaction calls and block headers. Native assets, UTXO chains, rebasing/fee-on-transfer semantics and different event schemas require explicit support rather than fabricated ERC-20 rows.
 
@@ -55,7 +55,7 @@ After reviewing a proposed site report, explicitly promote it:
 ./verify.ps1
 ```
 
-This creates `registry/usdc-movements.json`; it does not add a study or publish anything remotely. For site inclusion, add a study keyed by the Fusion contract in `registry/studies.json` with `title`, `reviewed` (date), `status`, `scope`, `assessment` (public report URL), `vaults`, `flows`, and optional `movementsFile`. Empty arrays and unknown balances (`null`) are valid; invented zeros are not. Generic studies get a scope/assessment overview. Do not set BUSD's `presentation: "busd-pilot"`. Preview every tab and follow the explorer/evidence links before including a study. Partial publication must say exactly what remains unknown.
+This creates `registry/usdc-movements.json`; it does not add a study or publish anything remotely. For site inclusion, follow the [standard asset page format](registry/STUDY-FORMAT.md) and copy the [empty study template](registry/study-template.json). Every asset uses the same layout; no token-specific HTML or presentation switch is needed. The schema is checked by verification. Unknown balances remain unknown, and balances with unverified backing can be shown separately. Preview every tab and follow the explorer/evidence links before including a study. Partial publication must say exactly what remains unknown.
 
 ## 6. Submit a pull request
 

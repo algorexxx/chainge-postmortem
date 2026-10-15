@@ -22,6 +22,8 @@ The output uses embedded assets and hash-based token selection, so it can be ser
 
 ## GitHub Pages publication
 
+All assets use one shared Overview, Vaults and Transfers layout in the generated HTML. Follow [STUDY-FORMAT.md](STUDY-FORMAT.md) and the JSON schema when adding data; no asset-specific presentation branch is needed. Verification includes the schema and Node.js 22 rendering checks for unknown balances, separate balances, mixed precision and mismatched dates.
+
 Reconciliation configuration files must use UTF-8 with LF line endings, as required by `.gitattributes` and `.editorconfig`. Reports hash the exact configuration bytes. A Windows working copy left with CRLF can therefore pass local verification but fail the Linux Pages build. Restore LF before generating reports; do not bypass the hash check. Evidence captures retain their original bytes.
 
 The [Pages workflow](../.github/workflows/pages.yml) builds and tests the solution in Release, generates the site from committed public inputs and uploads only `dist/`. It runs after pushes to `main` or through **Actions → Publish research site → Run workflow**. Deployment is restricted to `main`; failed builds or tests prevent publication. It uses GitHub's temporary workflow permissions and needs no personal access token, RPC credentials or private archive.

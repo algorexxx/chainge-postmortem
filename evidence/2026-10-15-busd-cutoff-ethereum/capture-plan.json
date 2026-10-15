@@ -1,0 +1,124 @@
+{
+  "endpoint": "https://eth.drpc.org",
+  "expectedChainId": "0x1",
+  "userAgent": "Chainge-public-research/1.0",
+  "requestDelay": "00:00:01",
+  "timeout": "00:00:30",
+  "maximumConsecutiveFailures": 3,
+  "queries": [
+    {
+      "name": "header-23524761",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "header-23524761",
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x166f599",
+          false
+        ]
+      }
+    },
+    {
+      "name": "header-23524762",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "header-23524762",
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x166f59a",
+          false
+        ]
+      }
+    },
+    {
+      "name": "decimals",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "decimals",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "data": "0x313ce567"
+          },
+          "0x166f599"
+        ]
+      }
+    },
+    {
+      "name": "balance-92e290",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "balance-92e290",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "data": "0x70a08231000000000000000000000000874de5761900ee526950d707d8cbd4b93092e290"
+          },
+          "0x166f599"
+        ]
+      }
+    },
+    {
+      "name": "balance-55e039",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "balance-55e039",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "data": "0x70a08231000000000000000000000000456325f2ac7067234dd71e01bebe032b0255e039"
+          },
+          "0x166f599"
+        ]
+      }
+    },
+    {
+      "name": "balance-ae64c1",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "balance-ae64c1",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "data": "0x70a082310000000000000000000000008a4aa176007196d48d39c89402d3753c39ae64c1"
+          },
+          "0x166f599"
+        ]
+      }
+    },
+    {
+      "name": "balance-12aa8e",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "balance-12aa8e",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "data": "0x70a082310000000000000000000000003f0e40bc7e9cb5f46e906daed18651fb6212aa8e"
+          },
+          "0x166f599"
+        ]
+      }
+    },
+    {
+      "name": "balance-caecf1",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "balance-caecf1",
+        "method": "eth_call",
+        "params": [
+          {
+            "to": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "data": "0x70a0823100000000000000000000000066ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+          },
+          "0x166f599"
+        ]
+      }
+    }
+  ]
+}
