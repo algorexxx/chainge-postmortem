@@ -6,6 +6,7 @@ public static class CapturePlanInspector
 {
     public static void ValidatePlan(CapturePlan plan)
     {
+        if (plan.MaximumRetries < 0 || plan.RetryDelay < TimeSpan.Zero) { throw new InvalidDataException("Invalid retry settings."); }
         if (plan.Endpoint.Scheme != "https" || plan.Endpoint.UserInfo.Length != 0 || plan.Endpoint.Query.Length != 0) { throw new InvalidDataException("Capture requires an anonymous HTTPS endpoint without credentials or query parameters."); }
         if (plan.MaximumConsecutiveFailures < 1 || plan.Timeout <= TimeSpan.Zero || plan.RequestDelay < TimeSpan.Zero || string.IsNullOrWhiteSpace(plan.UserAgent) || !plan.ExpectedChainId.StartsWith("0x", StringComparison.Ordinal)) { throw new InvalidDataException("Invalid capture limits or identity settings."); }
         if (plan.Queries.Select(q => q.Name).Distinct(StringComparer.OrdinalIgnoreCase).Count() != plan.Queries.Count) { throw new InvalidDataException("Duplicate capture names."); }

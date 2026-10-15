@@ -9,6 +9,42 @@ namespace Chainge.Postmortem.Application.Tests.Acquisition;
 public sealed class EvidenceCapturerTests
 {
     [Fact]
+    public async Task CaptureEvidence_TransientFailure_ShouldRetrySameQueryAndSaveBothAttempts()
+    {
+        var query = CaptureFixture.Query();
+        var plan = CaptureFixture.Plan(query) with { MaximumRetries = 2, RetryDelay = TimeSpan.Zero };
+        var client = Substitute.For<ICaptureClient>();
+        var repository = Substitute.For<ICaptureRepository>();
+        client.PostAsync(Arg.Is<CaptureQuery>(q => q.Name == "chain-id"), Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("{\"id\":\"chain-id\",\"result\":\"0x1\"}"));
+        client.PostAsync(query, Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("busy", 429, false), CaptureFixture.Response("{\"id\":\"query\",\"result\":[]}"));
+        var capturer = new EvidenceCapturer(client, repository, TimeProvider.System);
+        var expected = new CaptureSummary { IdentityVerified = true, Captured = 1, Reused = 0, Failed = 0, Remaining = 0 };
+
+        var actual = await capturer.CaptureEvidence(plan, null, TestContext.Current.CancellationToken);
+
+        Assert.Equivalent(expected, actual, strict: true);
+        await repository.Received(1).SaveAttemptAsync(query, Arg.Any<CaptureResponse>(), false, Arg.Any<CancellationToken>());
+        await repository.Received(1).SaveAttemptAsync(query, Arg.Any<CaptureResponse>(), true, Arg.Any<CancellationToken>());
+    }
+
+    [Fact]
+    public async Task CaptureEvidence_PermanentFailure_ShouldNotRetry()
+    {
+        var query = CaptureFixture.Query();
+        var plan = CaptureFixture.Plan(query) with { MaximumRetries = 2, RetryDelay = TimeSpan.Zero };
+        var client = Substitute.For<ICaptureClient>();
+        var repository = Substitute.For<ICaptureRepository>();
+        client.PostAsync(Arg.Any<CaptureQuery>(), Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("{\"id\":\"chain-id\",\"result\":\"0x2\"}"));
+        var capturer = new EvidenceCapturer(client, repository, TimeProvider.System);
+        var expected = new CaptureSummary { IdentityVerified = false, Captured = 0, Reused = 0, Failed = 0, Remaining = 1 };
+
+        var actual = await capturer.CaptureEvidence(plan, null, TestContext.Current.CancellationToken);
+
+        Assert.Equivalent(expected, actual, strict: true);
+        await client.Received(1).PostAsync(Arg.Any<CaptureQuery>(), Arg.Any<CancellationToken>());
+    }
+
+    [Fact]
     public async Task CaptureEvidence_CachedAndNewResponses_ShouldResumeWithoutRepeatingSuccess()
     {
         var cached = CaptureFixture.Query("cached");
@@ -20,7 +56,7 @@ public sealed class EvidenceCapturerTests
         repository.HasSuccessfulCaptureAsync(cached, Arg.Any<CancellationToken>()).Returns(true);
         client.PostAsync(Arg.Is<CaptureQuery>(q => q.Name == "chain-id"), Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("{\"id\":\"chain-id\",\"result\":\"0x1\"}"));
         client.PostAsync(fresh, Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("{\"id\":\"fresh\",\"result\":[]}"));
-        var capturer = new EvidenceCapturer(client, repository);
+        var capturer = new EvidenceCapturer(client, repository, TimeProvider.System);
         var expected = new CaptureSummary { IdentityVerified = true, Captured = 1, Reused = 1, Failed = 0, Remaining = 0 };
 
         var actual = await capturer.CaptureEvidence(plan, progress, TestContext.Current.CancellationToken);
@@ -38,7 +74,7 @@ public sealed class EvidenceCapturerTests
         var client = Substitute.For<ICaptureClient>();
         var repository = Substitute.For<ICaptureRepository>();
         client.PostAsync(Arg.Any<CaptureQuery>(), Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("{\"id\":\"chain-id\",\"result\":\"0x2\"}"));
-        var capturer = new EvidenceCapturer(client, repository);
+        var capturer = new EvidenceCapturer(client, repository, TimeProvider.System);
         var expected = new CaptureSummary { IdentityVerified = false, Captured = 0, Reused = 0, Failed = 0, Remaining = 1 };
 
         var actual = await capturer.CaptureEvidence(plan, null, TestContext.Current.CancellationToken);
@@ -59,7 +95,7 @@ public sealed class EvidenceCapturerTests
         var repository = Substitute.For<ICaptureRepository>();
         client.PostAsync(Arg.Any<CaptureQuery>(), Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("rate limited", 429, false));
         client.PostAsync(Arg.Is<CaptureQuery>(q => q.Name == "chain-id"), Arg.Any<CancellationToken>()).Returns(CaptureFixture.Response("{\"id\":\"chain-id\",\"result\":\"0x1\"}"));
-        var capturer = new EvidenceCapturer(client, repository);
+        var capturer = new EvidenceCapturer(client, repository, TimeProvider.System);
         var expected = new CaptureSummary { IdentityVerified = true, Captured = 0, Reused = 0, Failed = 2, Remaining = 3 };
 
         var actual = await capturer.CaptureEvidence(plan, null, TestContext.Current.CancellationToken);

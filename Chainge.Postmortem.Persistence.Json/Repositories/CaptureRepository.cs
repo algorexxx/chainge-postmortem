@@ -46,7 +46,7 @@ public sealed class CaptureRepository : ICaptureRepository
         var request = Encoding.UTF8.GetBytes(query.Request.GetRawText());
         await WriteNewFile(prefix + ".request.json", request, cancellationToken);
         await WriteNewFile(prefix + ".response.json", response.Body, cancellationToken);
-        var metadata = new CaptureMetadata { SourceUrl = settings.Endpoint, CapturedUtc = clock.GetUtcNow(), HttpStatus = response.HttpStatus, ValidJson = response.ValidJson, Succeeded = succeeded, RequestSha256 = Convert.ToHexStringLower(SHA256.HashData(request)), ResponseSha256 = Convert.ToHexStringLower(SHA256.HashData(response.Body)) };
+        var metadata = new CaptureMetadata { SourceUrl = settings.Endpoint, CapturedUtc = clock.GetUtcNow(), HttpStatus = response.HttpStatus, ValidJson = response.ValidJson, Succeeded = succeeded, RetryAfter = response.RetryAfter, RequestSha256 = Convert.ToHexStringLower(SHA256.HashData(request)), ResponseSha256 = Convert.ToHexStringLower(SHA256.HashData(response.Body)) };
         await WriteNewFile(prefix + ".capture.json", JsonSerializer.SerializeToUtf8Bytes(metadata, JsonSerializerOptions.Web), cancellationToken);
     }
 
