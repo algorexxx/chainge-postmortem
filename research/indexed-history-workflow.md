@@ -17,6 +17,20 @@ The planner explicitly flags a full 100-row result as possibly truncated. It sti
 
 Below-limit results mean the index did not fill the requested page, not independent completeness. Check that known transactions are present, that each listed transfer is corroborated by receipt logs, and that the reconstructed net agrees with pinned balances at the same cutoff. An empty result remains an empty index response, not proof of no activity. Index agreement and balance agreement cannot exclude cancelling omissions. Do not turn indexed discoveries into artificial successful `eth_getLogs` coverage windows.
 
-Use broad block-range RPC scans only for a specific remaining completeness question. Estimate request count before launching: inclusive block span divided by permitted range, multiplied by directions and independent filters. Compare that cost with indexed discovery first. A multi-day scan is not the default token workflow.
+## Before any broad scan
+
+This acquisition order is required for human contributors and LLMs:
+
+1. Reuse preserved, verified requests and receipts.
+2. Fetch token-filtered transfers to and from each vault from an index. Check pagination, truncation and known transactions.
+3. If that source fails, try another anonymous index or a reviewed public explorer export. A failed BscScan request does not establish that indexed discovery is unavailable.
+4. Verify discovered transactions through exact receipts and block headers, then compare replay with pinned balances.
+5. Use targeted RPC queries for specific discrepancies or missing transactions. Consider broad ranges only for a clearly stated remaining evidence gap.
+
+Before launching a broad scan, record in the asset's acquisition section: alternatives actually tried, exact remaining gap, number of uncached requests, measured requests per minute, estimated elapsed time including provider cooldowns, and the proposed stopping/reassessment condition. Estimate log requests by summing `ceil(inclusive missing block span / permitted range)` across directions and independent filters; count individual RPC calls even when batched. Add receipt/header requests and account for their different quota costs. A small successful pilot establishes realistic throughput; configured delay alone is only a lower bound.
+
+**Do not launch or automatically resume a scan estimated at 24 hours or longer unless the user explicitly approves that particular exception after seeing the estimate and alternatives.** General authorization to finish an investigation, automate retries or work autonomously does not waive this rule. Do not evade it by splitting work into smaller jobs, switching endpoints to evade quotas, or scheduling a heartbeat. If observed throughput pushes an existing scan over the limit, preserve progress, stop the broad scan and reassess the acquisition method. Continue useful indexed and targeted work independently.
+
+Do not lower the evidence standard to avoid a slow scan: keep an unresolved coverage gap visible, distinguish indexed-history corroboration from full RPC range coverage, and document the specific evidence boundary. A generated capture plan is a list of possible requests, not an instruction to execute all of them.
 
 BAT validation on 2026-10-15: five vault queries returned 0, 27, 14, 2 and 8 operations, containing 47 distinct transactions. This replaced the proposed 12,754-request discovery scan with five index calls and targeted receipt/header verification. The old scan was stopped and retained under ignored archives. This does not establish exhaustive custody or independently complete BSC coverage.

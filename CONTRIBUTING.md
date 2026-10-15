@@ -36,6 +36,12 @@ The adapter supports the documented EVM/Fusion event formats. Native assets, UTX
 
 Install the .NET SDK from `global.json`, PowerShell 7 and Node.js 22. Planning and reconciliation are offline; capture makes read-only network requests.
 
+**Acquisition order is mandatory for people and LLMs:** reuse preserved evidence; query token-filtered incoming/outgoing vault histories from an index; check pagination and corroborate discovered transactions with exact receipts, headers and pinned balances. Try another anonymous index or a reviewed public explorer export if the first source fails. Follow the [indexed-history procedure](research/indexed-history-workflow.md#before-any-broad-scan).
+
+Broad block scans are a last resort for a named remaining gap, not the default response to rate limits or missing RPC coverage. Before launching one, record request count, measured throughput, expected elapsed time including cooldowns, alternatives tried and the specific evidence it would add. Do not launch or automatically resume a scan estimated at 24 hours or longer without an explicit user-approved exception for that plan. A general instruction to finish an investigation or automate retries is not that exception. Reassess if measured performance crosses this limit; splitting the same scan into chunks or scheduling a heartbeat does not change the rule.
+
+The commands below generate and execute fallback plans; generating a plan does not authorize running it without the acquisition review above.
+
 ```powershell
 ./reconcile.ps1 -Asset usdc
 ./capture-plan.ps1 -Asset usdc

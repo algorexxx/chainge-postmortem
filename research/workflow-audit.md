@@ -1,5 +1,11 @@
 # Per-asset workflow audit
 
+## BAT acquisition-cost correction, 2026-10-15
+
+A 12,754-request BSC block scan was started before adequately testing indexed vault histories. Automatic retries made it reliable but did not make its days-long runtime reasonable. Five anonymous Binplorer calls instead identified 47 transactions; successful receipts recovered 48 vault transfers with exact net balances agreeing with pinned state. The broad scan was stopped. Indexed quantities were rounded and were used only for transaction discovery, never accounting.
+
+The contribution guide, asset template and acquisition guides now require indexed discovery first, an explicit cost/benefit review before broad scans, and specific user approval for any exception estimated at 24 hours or longer. General autonomous-work authorization does not waive this requirement. Captures remain subject to pagination, receipt, state and evidence-boundary checks. These are procedural safeguards; the capture executable itself does not enforce an elapsed-time budget.
+
 ## BAT follow-through correction, 2026-10-15
 
 The written workflow already required state, semantic and funding reviews, but a reviewed outflow shortlist was incorrectly treated as a stopping point. `review-workflow.ps1` now reports all required stages, refuses a finished status while any stage is pending, checks positive Fusion positions against pinned observations, rejects verified history with known coverage gaps, and flags observed routing targets omitted from configuration. Evidence boundaries require attempted methods, retained references and reopening conditions. This is a work checklist, not a factual certification.

@@ -17,6 +17,12 @@ List unknown predecessor, migration, native-wrapper and time-slice relationships
 | Chain | Address / explorer | Role and active interval | Supporting evidence | Confidence / alternatives |
 | --- | --- | --- | --- | --- |
 
+## Acquisition method and cost
+
+Follow the mandatory [indexed-first acquisition order](../indexed-history-workflow.md#before-any-broad-scan). Record reused evidence, indexed vault/token sources tried, pagination limits, targeted receipt/header checks and any remaining gap. Do not start with a full-chain block scan.
+
+For any proposed broad fallback scan, record uncached request count, measured throughput, estimated elapsed time including cooldowns, evidence expected, alternatives tried and a stopping/reassessment condition. A scan estimated at 24 hours or longer requires explicit user approval of that specific exception before launch or automatic resumption. Keep approval details private if they contain user information; do not infer approval from a general request to complete the investigation.
+
 ## Coverage and cutoffs
 
 | Dataset / scope | Requested range | Returned range / pages | Block hashes and actual UTC cutoffs | Verification / gaps |
