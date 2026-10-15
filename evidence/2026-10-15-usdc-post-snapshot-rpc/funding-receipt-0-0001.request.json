@@ -1,0 +1,8 @@
+{
+        "jsonrpc": "2.0",
+        "id": "funding-receipt-0",
+        "method": "eth_getTransactionReceipt",
+        "params": [
+          "0xe36ea02898a36e0d3c5c627d3efc04864fc3835d5e356113204df3fe4e1f23cc"
+        ]
+      }

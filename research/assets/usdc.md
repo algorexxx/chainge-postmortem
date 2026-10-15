@@ -162,3 +162,7 @@ The [Arbitrum, Optimism and Avalanche follow-up](../usdc-arbitrum-optimism-avala
 ## Holder inventory and announcement context
 
 See [Fusion holder review](../fusion-claims-review.md) for checked positive positions, address-one separation, unresolved migration overlap and outgoing-transfer timing against the reviewed Chainge statements. Consolidated customer liabilities remain unestablished.
+
+## Post-snapshot follow-up
+
+The [three-case review](../usdc-post-snapshot-outflows.md) identifies new funding before each late USDC payment, two swaps returning ETH to the same vault, and the full January payment reaching an OKX-labelled endpoint. See [snapshot provenance](../fusion-snapshot-provenance.md) for why later Fusion settlement remains unknown.

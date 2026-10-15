@@ -51,3 +51,7 @@ All three are **after the Fusion reference block**. Their lack of automatic matc
 ## Remaining work
 
 Establish migration replacement semantics and the rights associated with large holder positions before publishing a consolidated claim figure. Extend Fusion history beyond the late source-chain transfers before assessing their settlement. Continue to distinguish unknown vault coverage, token backing and beneficiary ownership from observed balances. See the [BUSD](assets/busd.md) and [USDC](assets/usdc.md) investigations for the source-chain scope and unresolved cases.
+
+## Post-snapshot follow-up
+
+The [three-case review](usdc-post-snapshot-outflows.md) identifies new funding before each late USDC payment, two swaps returning ETH to the same vault, and the full January payment reaching an OKX-labelled endpoint. See [snapshot provenance](fusion-snapshot-provenance.md) for why later Fusion settlement remains unknown.

@@ -18,6 +18,7 @@ try {
         foreach ($study in $studies.Values | Where-Object { $_.movementsFile -eq "$assetName-movements.json" }) {
             & ./registry/verify-claim-snapshot.ps1 -ReportDirectory $outputPath -Study $study
         }
+        if ($assetName -eq 'usdc') { & ./research/check-usdc-post-snapshot.ps1 -ReportDirectory $outputPath }
         $publishedPath = Join-Path registry "$assetName-movements.json"
         if (Test-Path -LiteralPath $publishedPath) {
             $generatedHash = (Get-FileHash -LiteralPath (Join-Path $outputPath 'site-movements.json') -Algorithm SHA256).Hash

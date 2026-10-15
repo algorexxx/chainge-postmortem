@@ -437,7 +437,8 @@
       ],
       "notes": [
         "Six standard child/newer ledgers are shown. The earlier time-aware BUSD representation has separate ordinary and time-slice state and remains outside this model.",
-        "Legacy parent supply counters and overlapping migrations do not establish consolidated customer claims."
+        "Legacy parent supply counters and overlapping migrations do not establish consolidated customer claims.",
+        "The available Fusion history is backup-derived. This is the highest preserved reference available to the project, not a verified final network block; later burns remain unknown."
       ]
     },
     "vaultComparison": {
@@ -568,6 +569,10 @@
       {
         "label": "Fusion claims: holder balances and unresolved overlaps",
         "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-claims-review.md"
+      },
+      {
+        "label": "Fusion snapshot provenance and limits",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-snapshot-provenance.md"
       }
     ],
     "claimReview": {
@@ -3661,6 +3666,204 @@
             "asset": "USDC.e"
           }
         ]
+      },
+      {
+        "id": "usdc-post-snapshot-1",
+        "title": "Small USDC balance converted to ETH",
+        "chain": "Ethereum",
+        "amount": "12.938852",
+        "date": "2025-10-10",
+        "status": "Observed asset exchange",
+        "endpoint": "ETH returned to the same vault",
+        "explanation": "The same vault sold another token and received exactly this USDC amount 13 minutes 36 seconds earlier. It then swapped the USDC for ETH, returned to the same vault according to the retained explorer call trace.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-post-snapshot-outflows.md",
+        "limitation": "After the preserved Fusion cutoff: later burns cannot be checked. No exact amount was found among 8,250 retained burns or matching destination/amount among 797 decoded memos. Earlier queued withdrawals and other settlement mechanisms are not excluded. Newly received USDC does not establish ownership of the assets used to fund it. Automatic classifications are unchanged.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Vault sends USDC",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "12.938852",
+            "time": "2025-10-10T14:47:35+00:00",
+            "transaction": null,
+            "note": "New funding arrived after the Fusion snapshot.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Swap pool",
+            "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+            "amount": "12.938852",
+            "time": "2025-10-10T14:47:35+00:00",
+            "transaction": "https://etherscan.io/tx/0x3823e138982b276b1046a6c552c7db7a2da083b5d63610751360164b8d1e1eda",
+            "note": "Receipt-confirmed USDC outflow.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "ETH returned to the same vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "0.002989706321703827",
+            "time": "2025-10-10T14:47:35+00:00",
+            "transaction": "https://etherscan.io/tx/0x3823e138982b276b1046a6c552c7db7a2da083b5d63610751360164b8d1e1eda",
+            "note": "Native ETH return is explorer trace evidence; WETH transfers and unwrap are receipt-corroborated. Later ETH use is not traced here.",
+            "kind": "inferred",
+            "asset": "ETH"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Earlier funding — not an additional vault outflow",
+            "explanation": "Receipt-confirmed USDC received after the Fusion snapshot, following a different-token sale or burn. This explains immediate funding, not customer ownership.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "USDC arrives at vault",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "amount": "12.938852",
+                "time": "2025-10-10T14:33:59+00:00",
+                "transaction": "https://etherscan.io/tx/0xe36ea02898a36e0d3c5c627d3efc04864fc3835d5e356113204df3fe4e1f23cc",
+                "note": "Exact amount later sent out.",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "usdc-post-snapshot-2",
+        "title": "Newly received USDC converted to ETH",
+        "chain": "Ethereum",
+        "amount": "542.761951",
+        "date": "2025-10-10",
+        "status": "Observed asset exchange",
+        "endpoint": "ETH returned to the same vault",
+        "explanation": "A token burn returned exactly this USDC amount to the vault 108 seconds earlier. The vault then swapped it through USDT into ETH, returned to the same address according to the retained explorer call trace.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-post-snapshot-outflows.md",
+        "limitation": "After the preserved Fusion cutoff: later burns cannot be checked. No exact amount was found among 8,250 retained burns or matching destination/amount among 797 decoded memos. Earlier queued withdrawals and other settlement mechanisms are not excluded. Newly received USDC does not establish ownership of the assets used to fund it. Automatic classifications are unchanged.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Vault sends USDC",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "542.761951",
+            "time": "2025-10-10T15:49:11+00:00",
+            "transaction": null,
+            "note": "New funding arrived after the Fusion snapshot.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Swap pool",
+            "address": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
+            "amount": "542.761951",
+            "time": "2025-10-10T15:49:11+00:00",
+            "transaction": "https://etherscan.io/tx/0xd15fdd43bbd24ed88ee64bf7cb92a671b7be9818f5f377cbc9f406fd5694ef50",
+            "note": "Receipt-confirmed USDC outflow.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "ETH returned to the same vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "0.131560072533994001",
+            "time": "2025-10-10T15:49:11+00:00",
+            "transaction": "https://etherscan.io/tx/0xd15fdd43bbd24ed88ee64bf7cb92a671b7be9818f5f377cbc9f406fd5694ef50",
+            "note": "Native ETH return is explorer trace evidence; WETH transfers and unwrap are receipt-corroborated. Later ETH use is not traced here.",
+            "kind": "inferred",
+            "asset": "ETH"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Earlier funding — not an additional vault outflow",
+            "explanation": "Receipt-confirmed USDC received after the Fusion snapshot, following a different-token sale or burn. This explains immediate funding, not customer ownership.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "USDC arrives at vault",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "amount": "542.761951",
+                "time": "2025-10-10T15:47:23+00:00",
+                "transaction": "https://etherscan.io/tx/0x0feaa3dd06e963afddb344ff04cca33048d0af39ec5da6a4259c54b384632985",
+                "note": "Exact amount later sent out.",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "usdc-post-snapshot-3",
+        "title": "Full USDC payment reaches an OKX-labelled address",
+        "chain": "Ethereum",
+        "amount": "634.222907",
+        "date": "2026-01-27",
+        "status": "Unmatched",
+        "endpoint": "Full amount forwarded to OKX 225-labelled address",
+        "explanation": "The vault received this exact USDC amount from a token sale seven days earlier, after the Fusion snapshot. The recipient forwarded the entire payment 108 seconds later to an address Etherscan labels OKX 225. A pinned balance call shows zero USDC remaining at the intermediary.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-post-snapshot-outflows.md",
+        "limitation": "After the preserved Fusion cutoff: later burns cannot be checked. No exact amount was found among 8,250 retained burns or matching destination/amount among 797 decoded memos. Earlier queued withdrawals and other settlement mechanisms are not excluded. Newly received USDC does not establish ownership of the assets used to fund it. Automatic classifications are unchanged.",
+        "steps": [
+          {
+            "chain": "Ethereum",
+            "label": "Vault sends USDC",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "amount": "634.222907",
+            "time": "2026-01-27T16:03:11+00:00",
+            "transaction": null,
+            "note": "New funding arrived after the Fusion snapshot.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "Intermediary",
+            "address": "0x186fa8ffffb1b744f875e99239716b3f6acddfc8",
+            "amount": "634.222907",
+            "time": "2026-01-27T16:03:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x5e4a63c30ff5e019abb98ce4c72f58d59f30b7612a3683086ac008fc4cc6cf0c",
+            "note": "Receipt-confirmed USDC outflow.",
+            "kind": "verified",
+            "asset": "USDC"
+          },
+          {
+            "chain": "Ethereum",
+            "label": "OKX 225 — Etherscan label",
+            "address": "0x445f16314284b43dfa1fd3cd77b9dea4a1bebd97",
+            "amount": "634.222907",
+            "time": "2026-01-27T16:04:59Z",
+            "transaction": "https://etherscan.io/tx/0x307b499de8fe35227fa974b683ef37d26e2b9caa2e09e235b2865b85aa011853",
+            "note": "Full amount forwarded in 108 seconds. Exchange customer and off-chain disposition are unknown.",
+            "kind": "verified",
+            "asset": "USDC"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Earlier funding — not an additional vault outflow",
+            "explanation": "Receipt-confirmed USDC received after the Fusion snapshot, following a different-token sale or burn. This explains immediate funding, not customer ownership.",
+            "steps": [
+              {
+                "chain": "Ethereum",
+                "label": "USDC arrives at vault",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "amount": "634.222907",
+                "time": "2026-01-20T14:22:59+00:00",
+                "transaction": "https://etherscan.io/tx/0x23f813b10b6024314064a9d230beda43df8a7c2456b2ffeb74e29d5d4533285c",
+                "note": "Exact amount later sent out.",
+                "kind": "verified",
+                "asset": "USDC"
+              }
+            ]
+          }
+        ]
       }
     ],
     "movementsFile": "usdc-movements.json",
@@ -3737,7 +3940,8 @@
         }
       ],
       "notes": [
-        "The older parent contract uses a different supply counter that does not decrease on these burns. The table uses created minus burned tokens, not that counter."
+        "The older parent contract uses a different supply counter that does not decrease on these burns. The table uses created minus burned tokens, not that counter.",
+        "The available Fusion history is backup-derived. This is the highest preserved reference available to the project, not a verified final network block; later burns remain unknown."
       ]
     },
     "vaultComparison": {
@@ -4202,6 +4406,14 @@
       {
         "label": "Fusion claims: holder balances and unresolved overlaps",
         "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-claims-review.md"
+      },
+      {
+        "label": "Post-snapshot outflows: conversions and OKX-labelled endpoint",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/usdc-post-snapshot-outflows.md"
+      },
+      {
+        "label": "Fusion snapshot provenance and limits",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/fusion-snapshot-provenance.md"
       }
     ],
     "claimReview": {
