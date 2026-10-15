@@ -106,7 +106,7 @@ Follow value through receipts, stopping at a documented evidence boundary:
 
 Use `research/review-address-history.ps1` for its documented paired incoming/outgoing/balance RPC captures. Follow destination recipients, not the entire unrelated history of a shared protocol. Keep official announcements as dated attributed statements; chronology does not establish purpose, and general announcements may not identify an asset-specific onset.
 
-Create `research/assets/<asset>-closeout.json` with `scope`, positive `windowDays`, optional `extraEventIds`, and `decisions`. Each decision has `eventId`, `finding`, `limitation`, and repository-relative evidence `references`. Store conclusions here, not copies of generated transaction rows. Run:
+Create `research/assets/<asset>-closeout.json` with `scope`, positive `windowDays`, optional `extraEventIds`, and `decisions`. For a small retained ledger use `selection: "all-outflows"`: every external vault outflow must have a decision, including old, small, swap and possible-redemption cases. This automatically includes newly discovered payments. Larger investigations may use `selection: "terminal-unmatched"` (the default); disclose that narrower scope and explicitly include important older cases. Each decision has `eventId`, `finding`, `limitation`, and repository-relative evidence `references`. Store conclusions here, not copies of generated transaction rows. Run:
 
 ```powershell
 ./research/review-closeout.ps1 -Asset usdc -RequireReviewed

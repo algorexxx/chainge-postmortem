@@ -34,3 +34,10 @@ Before launching a broad scan, record in the asset's acquisition section: altern
 Do not lower the evidence standard to avoid a slow scan: keep an unresolved coverage gap visible, distinguish indexed-history corroboration from full RPC range coverage, and document the specific evidence boundary. A generated capture plan is a list of possible requests, not an instruction to execute all of them.
 
 BAT validation on 2026-10-15: five vault queries returned 0, 27, 14, 2 and 8 operations, containing 47 distinct transactions. This replaced the proposed 12,754-request discovery scan with five index calls and targeted receipt/header verification. The old scan was stopped and retained under ignored archives. This does not establish exhaustive custody or independently complete BSC coverage.
+
+
+## Recipient follow-up
+
+Use `capture-binplorer.ps1 -Addresses <address1>,<address2>` for explicit downstream recipients; omitted addresses still select the configured vaults. Index amounts remain discovery hints only. Preserve exact onward receipts and block headers, check pinned balances and keep mixed funds explicit. Walk all receipt transfers to identify the actual output recipient; an intermediate WBNB or pool transfer is not the final destination. Native delivery requires a successful trace, including absence of errors in its ancestor calls. Do not count downstream transfers as additional vault outflows or assign one mixed balance to multiple cases.
+
+Probe one historical request before batching a provider/method combination: support for headers does not imply archive receipt/state support. Stop that method on an explicit access denial and use a permitted anonymous source; retries are for transient errors. A below-cap index is not independent completeness, and a full page requires a visible truncation boundary. For small ledgers, use closeout `selection: "all-outflows"` so swaps, old payments and small cases cannot fall outside review.

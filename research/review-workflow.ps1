@@ -62,5 +62,8 @@ try {
     foreach ($gate in $pending) { Write-Output "  $($gate.id): $($gate.nextAction)" }
     if ($routingTargets.Count) { Write-Output "Routing calls need target review/configuration: $($routingTargets -join ', ')" }
     if ($RequireFinished -and ($pending.Count -or $routingTargets.Count)) { throw 'Investigation work remains pending. A reviewed outflow shortlist alone is not workflow completion.' }
+    if ($RequireFinished) {
+        & ./research/review-closeout.ps1 -Asset $Asset -ReportDirectory $ReportDirectory -RequireReviewed
+    }
 }
 finally { Pop-Location }

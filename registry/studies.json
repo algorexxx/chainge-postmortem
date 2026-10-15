@@ -10735,7 +10735,7 @@
     "title": "BAT",
     "status": "Partial investigation",
     "reviewed": "2026-10-15",
-    "scope": "All retained Fusion events have public receipt corroboration; 43 standard holder positions are checked. BSC indexed history now supplies 48 verified vault transfers with matching pinned balances. Older BSC outflows need further review; index completeness, legacy overlap and exhaustive vault discovery remain unresolved.",
+    "scope": "Bounded review completed for all 36 retained external vault outflows. All retained Fusion events have public receipt corroboration; 43 standard holder positions are checked. BSC indexed history supplies 48 verified vault transfers with matching pinned balances. Index completeness, legacy rights and exhaustive vault discovery remain unresolved.",
     "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat.md",
     "movementsFile": "bat-movements.json",
     "vaults": [
@@ -11271,6 +11271,939 @@
             "amount": "0.018626786348580600",
             "asset": "BNB",
             "note": "Native BNB returned to the recipient, corroborated by the successful call trace."
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x43b00a03c71232fad71567033c6876e844591f773ad4ca9e7326482cfa1efdd9:1",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "47.587836785521894",
+        "chain": "BSC",
+        "date": "2022-08-23T14:26:49+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "17.50068619948119654 USDT returned to vault",
+        "explanation": "The successful receipt records 47.587836785521894 BAT leaving the vault and 17.50068619948119654 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "47.587836785521894",
+            "time": "2022-08-23T14:26:49+00:00",
+            "transaction": "https://bscscan.com/tx/0x43b00a03c71232fad71567033c6876e844591f773ad4ca9e7326482cfa1efdd9"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "47.587836785521894",
+            "time": "2022-08-23T14:26:49+00:00",
+            "transaction": "https://bscscan.com/tx/0x43b00a03c71232fad71567033c6876e844591f773ad4ca9e7326482cfa1efdd9"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "17.50068619948119654",
+                "asset": "Binance-Peg USDT",
+                "time": "2022-08-23T14:26:49+00:00",
+                "transaction": "https://bscscan.com/tx/0x43b00a03c71232fad71567033c6876e844591f773ad4ca9e7326482cfa1efdd9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x95fc740e0ee47a71eede66d17e1008b147517d580c0f4616801312ac8e69343c:0",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "32.852469859949345",
+        "chain": "BSC",
+        "date": "2022-08-23T14:31:55+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "12.082018583422354761 USDT returned to vault",
+        "explanation": "The successful receipt records 32.852469859949345 BAT leaving the vault and 12.082018583422354761 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "32.852469859949345",
+            "time": "2022-08-23T14:31:55+00:00",
+            "transaction": "https://bscscan.com/tx/0x95fc740e0ee47a71eede66d17e1008b147517d580c0f4616801312ac8e69343c"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "32.852469859949345",
+            "time": "2022-08-23T14:31:55+00:00",
+            "transaction": "https://bscscan.com/tx/0x95fc740e0ee47a71eede66d17e1008b147517d580c0f4616801312ac8e69343c"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "12.082018583422354761",
+                "asset": "Binance-Peg USDT",
+                "time": "2022-08-23T14:31:55+00:00",
+                "transaction": "https://bscscan.com/tx/0x95fc740e0ee47a71eede66d17e1008b147517d580c0f4616801312ac8e69343c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x9972ba3fb2d05fa48f80581d60ad08e306153f1114e8e4a18e645d9ffc0c727d:5",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "31.292616820015848",
+        "chain": "BSC",
+        "date": "2022-08-23T14:39:16+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "11.493447885871185398 USDT returned to vault",
+        "explanation": "The successful receipt records 31.292616820015848 BAT leaving the vault and 11.493447885871185398 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "31.292616820015848",
+            "time": "2022-08-23T14:39:16+00:00",
+            "transaction": "https://bscscan.com/tx/0x9972ba3fb2d05fa48f80581d60ad08e306153f1114e8e4a18e645d9ffc0c727d"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "31.292616820015848",
+            "time": "2022-08-23T14:39:16+00:00",
+            "transaction": "https://bscscan.com/tx/0x9972ba3fb2d05fa48f80581d60ad08e306153f1114e8e4a18e645d9ffc0c727d"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "11.493447885871185398",
+                "asset": "Binance-Peg USDT",
+                "time": "2022-08-23T14:39:16+00:00",
+                "transaction": "https://bscscan.com/tx/0x9972ba3fb2d05fa48f80581d60ad08e306153f1114e8e4a18e645d9ffc0c727d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x181573271853a64d38d4e30eba89b740a3bfc6daea9f6fd5f796f8f899dc46a6:6",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "19.31607751427592",
+        "chain": "BSC",
+        "date": "2022-08-23T14:42:58+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "7.08312821634155357 USDT returned to vault",
+        "explanation": "The successful receipt records 19.31607751427592 BAT leaving the vault and 7.08312821634155357 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "19.31607751427592",
+            "time": "2022-08-23T14:42:58+00:00",
+            "transaction": "https://bscscan.com/tx/0x181573271853a64d38d4e30eba89b740a3bfc6daea9f6fd5f796f8f899dc46a6"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "19.31607751427592",
+            "time": "2022-08-23T14:42:58+00:00",
+            "transaction": "https://bscscan.com/tx/0x181573271853a64d38d4e30eba89b740a3bfc6daea9f6fd5f796f8f899dc46a6"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "7.08312821634155357",
+                "asset": "Binance-Peg USDT",
+                "time": "2022-08-23T14:42:58+00:00",
+                "transaction": "https://bscscan.com/tx/0x181573271853a64d38d4e30eba89b740a3bfc6daea9f6fd5f796f8f899dc46a6"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0xae8741af6e43f7cef1aaef1f0b8cead81ab84c26ced1606266a29f5082d626cf:5",
+        "title": "BAT forwarded to exchange-labelled endpoint",
+        "amount": "1128.278737819847633439",
+        "chain": "BSC",
+        "date": "2023-01-02T08:18:32+00:00",
+        "status": "Unmatched",
+        "endpoint": "BAT forwarded to exchange-labelled endpoint",
+        "explanation": "The recipient forwards the exact payment to 0x4d88ebff7864dc7986eb4a6b9de4fca5d472406b. That address later forwards a mixed 1238.107587428685357177 BAT to 0x8894e0a0c962cb723c1976a4421c95949be2d4e3, labelled Binance 51 by BscScan. The larger final amount includes prior funds. Nearby Fusion burns within ten minutes are investigation leads only: Fusion:0x81c5ef36b4dc693db0e2babdc881e81a01ffab5f5f46513018acf30d51a6123b:12 (1128.725751262967148735 BAT). Their amounts differ; no authenticated fee or settlement relationship is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "1128.278737819847633439",
+            "time": "2023-01-02T08:18:32+00:00",
+            "transaction": "https://bscscan.com/tx/0xae8741af6e43f7cef1aaef1f0b8cead81ab84c26ced1606266a29f5082d626cf"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x91362ba7fc98120398646d51b5ea4ad9ae34ee76",
+            "chain": "BSC",
+            "amount": "1128.278737819847633439",
+            "time": "2023-01-02T08:18:32+00:00",
+            "transaction": "https://bscscan.com/tx/0xae8741af6e43f7cef1aaef1f0b8cead81ab84c26ced1606266a29f5082d626cf"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x4d88ebff7864dc7986eb4a6b9de4fca5d472406b",
+                "chain": "BSC",
+                "amount": "1128.278737819847633439",
+                "asset": "BAT",
+                "time": "2023-01-02T08:19:32+00:00",
+                "transaction": "https://bscscan.com/tx/0x582b6927054e84f356eb57f750ac733ca9a7f6ec0e7ac881163d9060c2d04a1b"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+                "chain": "BSC",
+                "amount": "1238.107587428685357177",
+                "asset": "BAT",
+                "time": "2023-01-02T09:00:08+00:00",
+                "transaction": "https://bscscan.com/tx/0xf0fa4653559cbca33be1ecec34dc2ae3b59d18dfb6e93c6a6dfbf73acb06e9ea"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x44a4d76cd6cb75a697547210eff0112d6795f934259403ca1342c5cdd9345e5e:0",
+        "title": "BAT forwarded to exchange-labelled endpoint",
+        "amount": "529.497341015268153586",
+        "chain": "BSC",
+        "date": "2023-01-06T01:50:38+00:00",
+        "status": "Unmatched",
+        "endpoint": "Exact BAT amount reaches Binance-labelled endpoint",
+        "explanation": "The exact payment is forwarded through 0xcaeb8fab448ac21fd99e70aa4365655789130bda and 0xf8fa0b4c39e7791ec71725894661fded09e72d1d, then reaches 0x8894e0a0c962cb723c1976a4421c95949be2d4e3 in transaction 0x44256ee6dc23c56915205c5e34cdcfa6ff9a6305cc0e10c3d522dc0b1a5ad26e. BscScan labels that endpoint Binance 51; credited account and purpose remain unverified. Nearby Fusion burns within ten minutes are investigation leads only: Fusion:0x212ae248c952b4cff7f543f8405bffb1ebae65ca02fdd600ed5f28e92b124080:1 (529.936048232282081235 BAT). Their amounts differ; no authenticated fee or settlement relationship is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "529.497341015268153586",
+            "time": "2023-01-06T01:50:38+00:00",
+            "transaction": "https://bscscan.com/tx/0x44a4d76cd6cb75a697547210eff0112d6795f934259403ca1342c5cdd9345e5e"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0xbbb2fa6e6f8d2b04d1d462edbc81aa38ce3493a6",
+            "chain": "BSC",
+            "amount": "529.497341015268153586",
+            "time": "2023-01-06T01:50:38+00:00",
+            "transaction": "https://bscscan.com/tx/0x44a4d76cd6cb75a697547210eff0112d6795f934259403ca1342c5cdd9345e5e"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xcaeb8fab448ac21fd99e70aa4365655789130bda",
+                "chain": "BSC",
+                "amount": "529.497341015268153586",
+                "asset": "BAT",
+                "time": "2023-01-06T02:23:45+00:00",
+                "transaction": "https://bscscan.com/tx/0xc83232c9411f3f721fa8c11bac4907285dfb1a3a6cdf04b4e103ab88b9f7a31a"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xf8fa0b4c39e7791ec71725894661fded09e72d1d",
+                "chain": "BSC",
+                "amount": "529.497341015268153586",
+                "asset": "BAT",
+                "time": "2024-07-09T07:22:05+00:00",
+                "transaction": "https://bscscan.com/tx/0xe2b74918beab7c2c69855000085385b10306000600cd55da1755f17080709883"
+              },
+              {
+                "label": "Exchange-labelled endpoint; account unknown",
+                "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+                "chain": "BSC",
+                "amount": "529.497341015268153586",
+                "asset": "BAT",
+                "time": "2024-07-09T07:30:02+00:00",
+                "transaction": "https://bscscan.com/tx/0x44256ee6dc23c56915205c5e34cdcfa6ff9a6305cc0e10c3d522dc0b1a5ad26e"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x81c819ecda92b1b0626a3ede9117bef1508af7d1dbd36ecb9f4dce37b2c7198b:25",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "153",
+        "chain": "BSC",
+        "date": "2023-02-12T19:10:18+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "41.612660327124024611 USDT returned to vault",
+        "explanation": "The successful receipt records 153 BAT leaving the vault and 41.612660327124024611 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "153",
+            "time": "2023-02-12T19:10:18+00:00",
+            "transaction": "https://bscscan.com/tx/0x81c819ecda92b1b0626a3ede9117bef1508af7d1dbd36ecb9f4dce37b2c7198b"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "153",
+            "time": "2023-02-12T19:10:18+00:00",
+            "transaction": "https://bscscan.com/tx/0x81c819ecda92b1b0626a3ede9117bef1508af7d1dbd36ecb9f4dce37b2c7198b"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "41.612660327124024611",
+                "asset": "Binance-Peg USDT",
+                "time": "2023-02-12T19:10:18+00:00",
+                "transaction": "https://bscscan.com/tx/0x81c819ecda92b1b0626a3ede9117bef1508af7d1dbd36ecb9f4dce37b2c7198b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x34c3937c7e325c597fcf1fcc4d0460793f2e39af1abacc8d7ec6386cc6acf7db:0",
+        "title": "Mixed BAT forwarded to exchange-labelled endpoint",
+        "amount": "1986.897389170329410722",
+        "chain": "BSC",
+        "date": "2023-02-21T00:28:57+00:00",
+        "status": "Unmatched",
+        "endpoint": "Mixed BAT forwarded to exchange-labelled endpoint",
+        "explanation": "The recipient forwards 1999.499448571922218778 BAT, including prior funds, to 0x19fc782689b17d2c7edd265cbf4330edb5883e8e. That exact larger amount reaches 0x8894e0a0c962cb723c1976a4421c95949be2d4e3, labelled Binance 51 by BscScan.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "1986.897389170329410722",
+            "time": "2023-02-21T00:28:57+00:00",
+            "transaction": "https://bscscan.com/tx/0x34c3937c7e325c597fcf1fcc4d0460793f2e39af1abacc8d7ec6386cc6acf7db"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0xf968569256b781bb4f68ecbda2109cbd9505df2b",
+            "chain": "BSC",
+            "amount": "1986.897389170329410722",
+            "time": "2023-02-21T00:28:57+00:00",
+            "transaction": "https://bscscan.com/tx/0x34c3937c7e325c597fcf1fcc4d0460793f2e39af1abacc8d7ec6386cc6acf7db"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x19fc782689b17d2c7edd265cbf4330edb5883e8e",
+                "chain": "BSC",
+                "amount": "1999.499448571922218778",
+                "asset": "BAT",
+                "time": "2023-02-21T00:29:27+00:00",
+                "transaction": "https://bscscan.com/tx/0x5561a09cd1b1b341bef3a399b388e4fb431db1e5c74c6095010ec3c23f0da617"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+                "chain": "BSC",
+                "amount": "1999.499448571922218778",
+                "asset": "BAT",
+                "time": "2023-02-21T05:24:29+00:00",
+                "transaction": "https://bscscan.com/tx/0xa0c575a78a66870b4354634f50f694215df7c7233a5817f82b98df5b88643c22"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x847644abd7507d221a9cd91f3059f262804e8ada03621d0f494ab82f222fd5f2:9",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "11.700779673983138212",
+        "chain": "BSC",
+        "date": "2023-02-26T14:41:21+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "3.446267489577082522 USDT returned to vault",
+        "explanation": "The successful receipt records 11.700779673983138212 BAT leaving the vault and 3.446267489577082522 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "11.700779673983138212",
+            "time": "2023-02-26T14:41:21+00:00",
+            "transaction": "https://bscscan.com/tx/0x847644abd7507d221a9cd91f3059f262804e8ada03621d0f494ab82f222fd5f2"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "11.700779673983138212",
+            "time": "2023-02-26T14:41:21+00:00",
+            "transaction": "https://bscscan.com/tx/0x847644abd7507d221a9cd91f3059f262804e8ada03621d0f494ab82f222fd5f2"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "3.446267489577082522",
+                "asset": "Binance-Peg USDT",
+                "time": "2023-02-26T14:41:21+00:00",
+                "transaction": "https://bscscan.com/tx/0x847644abd7507d221a9cd91f3059f262804e8ada03621d0f494ab82f222fd5f2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x5f4c05b9fd1170174e29849741b25a0d2d47f4288724a15f1f40065b6de38e59:5",
+        "title": "Recipient later swaps mixed BAT",
+        "amount": "198.466296866432420251",
+        "chain": "BSC",
+        "date": "2023-03-12T15:34:09+00:00",
+        "status": "Unmatched",
+        "endpoint": "Recipient later swaps mixed BAT",
+        "explanation": "The recipient sends 198.604604828766570401 BAT to 0x9229b8954f7cf8a8a325c304ba84b324c19d91c8 and receives the same amount back. It then swaps 107.836015048607388851 BAT for 22 Binance-Peg BUSD; a later 90.768589780159181550 BAT payment routes through 0x00000047bb99ea4d791bb749d970de71ee0b1a34. The latter receipt and successful trace show 0.074636195663480918 native BNB returned to the recipient. Prior funds prevent exact allocation. Nearby Fusion burns within ten minutes are investigation leads only: Fusion:0xbc6cfe6aaa1f8d8f3302d33fdef64856c2e494a45cee199a13a1ce1ed0ec2fd8:0 (198.910506666625928552 BAT). Their amounts differ; no authenticated fee or settlement relationship is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "198.466296866432420251",
+            "time": "2023-03-12T15:34:09+00:00",
+            "transaction": "https://bscscan.com/tx/0x5f4c05b9fd1170174e29849741b25a0d2d47f4288724a15f1f40065b6de38e59"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x400de928415ea395de59faaf43df5bb1cfadff2c",
+            "chain": "BSC",
+            "amount": "198.466296866432420251",
+            "time": "2023-03-12T15:34:09+00:00",
+            "transaction": "https://bscscan.com/tx/0x5f4c05b9fd1170174e29849741b25a0d2d47f4288724a15f1f40065b6de38e59"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x9229b8954f7cf8a8a325c304ba84b324c19d91c8",
+                "chain": "BSC",
+                "amount": "198.604604828766570401",
+                "asset": "BAT",
+                "time": "2023-03-12T15:34:30+00:00",
+                "transaction": "https://bscscan.com/tx/0x73a3330e4cee0dd488e59e3b380bcbab311ab22ff81e68b2c3978acdd70ef7ef"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x400de928415ea395de59faaf43df5bb1cfadff2c",
+                "chain": "BSC",
+                "amount": "198.604604828766570401",
+                "asset": "BAT",
+                "time": "2023-03-12T15:38:39+00:00",
+                "transaction": "https://bscscan.com/tx/0x7be79b8f0c84e1b2225c51dec7452e159764fe2c7d396c4bd471939cc7cf1944"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xd72ae03be5ce45bb6fdfe0aa0d81d7eef709dcc3",
+                "chain": "BSC",
+                "amount": "107.836015048607388851",
+                "asset": "BAT",
+                "time": "2023-03-12T15:40:03+00:00",
+                "transaction": "https://bscscan.com/tx/0x79e7ff0729da63d433d301e52165c623a9e972b5fdae3866e29e39c86a933f68"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x10ed43c718714eb63d5aa57b78b54704e256024e",
+                "chain": "BSC",
+                "amount": "115792089237316195423570985000000000000000000000000000000000",
+                "asset": "BAT",
+                "time": "2023-03-12T15:40:03+00:00",
+                "transaction": "https://bscscan.com/tx/0x79e7ff0729da63d433d301e52165c623a9e972b5fdae3866e29e39c86a933f68"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x00000047bb99ea4d791bb749d970de71ee0b1a34",
+                "chain": "BSC",
+                "amount": "90.76858978015918155",
+                "asset": "BAT",
+                "time": "2023-10-03T02:09:39+00:00",
+                "transaction": "https://bscscan.com/tx/0xe5a86dcc9e9c656e876c92c07ca6dae473f175235b7df018e3b9a055248f2139"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x00000047bb99ea4d791bb749d970de71ee0b1a34",
+                "chain": "BSC",
+                "amount": "115792089237316195423570985000000000000000000000000000000000",
+                "asset": "BAT",
+                "time": "2023-10-03T02:09:39+00:00",
+                "transaction": "https://bscscan.com/tx/0xe5a86dcc9e9c656e876c92c07ca6dae473f175235b7df018e3b9a055248f2139"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+                "chain": "BSC",
+                "amount": "90.496284010818704006",
+                "asset": "BAT",
+                "time": "2023-10-03T02:09:39+00:00",
+                "transaction": "https://bscscan.com/tx/0xe5a86dcc9e9c656e876c92c07ca6dae473f175235b7df018e3b9a055248f2139"
+              },
+              {
+                "label": "Native swap output verified by trace",
+                "address": "0x400de928415ea395de59faaf43df5bb1cfadff2c",
+                "chain": "BSC",
+                "amount": "0.074636195663480918",
+                "asset": "BNB",
+                "time": "2023-10-03T02:09:39+00:00",
+                "transaction": "https://bscscan.com/tx/0xe5a86dcc9e9c656e876c92c07ca6dae473f175235b7df018e3b9a055248f2139"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x76d1167f5093b93ae77ee774a43f67dd7121a9501f00644ac877d3f2a26db09e:0",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "51.710540859764035789",
+        "chain": "BSC",
+        "date": "2023-07-13T14:21:26+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "10.150819348083443776 USDT returned to vault",
+        "explanation": "The successful receipt records 51.710540859764035789 BAT leaving the vault and 10.150819348083443776 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "51.710540859764035789",
+            "time": "2023-07-13T14:21:26+00:00",
+            "transaction": "https://bscscan.com/tx/0x76d1167f5093b93ae77ee774a43f67dd7121a9501f00644ac877d3f2a26db09e"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+            "chain": "BSC",
+            "amount": "51.710540859764035789",
+            "time": "2023-07-13T14:21:26+00:00",
+            "transaction": "https://bscscan.com/tx/0x76d1167f5093b93ae77ee774a43f67dd7121a9501f00644ac877d3f2a26db09e"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+                "chain": "BSC",
+                "amount": "10.150819348083443776",
+                "asset": "Binance-Peg USDT",
+                "time": "2023-07-13T14:21:26+00:00",
+                "transaction": "https://bscscan.com/tx/0x76d1167f5093b93ae77ee774a43f67dd7121a9501f00644ac877d3f2a26db09e"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0xe1e8e955c430aac3069f987feb7706534ea8640502dce465631e4669a332ea49:36",
+        "title": "BAT combined with two nearby payments",
+        "amount": "1",
+        "chain": "BSC",
+        "date": "2024-01-14T09:03:38+00:00",
+        "status": "Unmatched",
+        "endpoint": "Combined onward transfer; mixed recipient balance",
+        "explanation": "The three January 14 vault payments (1, 11.41 and 0.830547614071919197 BAT) sum exactly to 13.240547614071919197 BAT, forwarded in transaction 0x05154ddb8a880ca1735920ec6a8a48ba2a0b91f489e88f0fa0c6c80d5c0617ae to 0xea5412ed90053a07054ddeba55f3ef4215ac4ba6. The later 87.510970592236726368 BAT balance at that address also includes the October payment and is not counted separately for each case. Nearby Fusion burns within ten minutes are investigation leads only: Fusion:0x35358570db9f7044faae14d3829c39a4e3750d47b7531790e307d3ddc30574af:0 (11.581956741258664564 BAT), Fusion:0x872be073add8a573e1d3b0ccdf7af7a938cce9869d917e56605237863ca4d07f:2 (1.166751741258664564 BAT), Fusion:0xf0149aa584c1e98e01e73693c7d6c71757b1bbc845c1b219fbb1e815a546f77a:2 (0.997255766661777193 BAT). Their amounts differ; no authenticated fee or settlement relationship is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "1",
+            "time": "2024-01-14T09:03:38+00:00",
+            "transaction": "https://bscscan.com/tx/0xe1e8e955c430aac3069f987feb7706534ea8640502dce465631e4669a332ea49"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "amount": "1",
+            "time": "2024-01-14T09:03:38+00:00",
+            "transaction": "https://bscscan.com/tx/0xe1e8e955c430aac3069f987feb7706534ea8640502dce465631e4669a332ea49"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xea5412ed90053a07054ddeba55f3ef4215ac4ba6",
+                "chain": "BSC",
+                "amount": "13.240547614071919197",
+                "asset": "BAT",
+                "time": "2024-01-14T09:08:25+00:00",
+                "transaction": "https://bscscan.com/tx/0x05154ddb8a880ca1735920ec6a8a48ba2a0b91f489e88f0fa0c6c80d5c0617ae"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x9beb5c42682a847753a8f8ae7fb9e18448b255a38746bccaa7d7f0856850824a:14",
+        "title": "BAT combined with two nearby payments",
+        "amount": "11.41",
+        "chain": "BSC",
+        "date": "2024-01-14T09:05:13+00:00",
+        "status": "Unmatched",
+        "endpoint": "Combined onward transfer; mixed recipient balance",
+        "explanation": "The three January 14 vault payments (1, 11.41 and 0.830547614071919197 BAT) sum exactly to 13.240547614071919197 BAT, forwarded in transaction 0x05154ddb8a880ca1735920ec6a8a48ba2a0b91f489e88f0fa0c6c80d5c0617ae to 0xea5412ed90053a07054ddeba55f3ef4215ac4ba6. The later 87.510970592236726368 BAT balance at that address also includes the October payment and is not counted separately for each case. Nearby Fusion burns within ten minutes are investigation leads only: Fusion:0x35358570db9f7044faae14d3829c39a4e3750d47b7531790e307d3ddc30574af:0 (11.581956741258664564 BAT), Fusion:0x872be073add8a573e1d3b0ccdf7af7a938cce9869d917e56605237863ca4d07f:2 (1.166751741258664564 BAT), Fusion:0xf0149aa584c1e98e01e73693c7d6c71757b1bbc845c1b219fbb1e815a546f77a:2 (0.997255766661777193 BAT). Their amounts differ; no authenticated fee or settlement relationship is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "11.41",
+            "time": "2024-01-14T09:05:13+00:00",
+            "transaction": "https://bscscan.com/tx/0x9beb5c42682a847753a8f8ae7fb9e18448b255a38746bccaa7d7f0856850824a"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "amount": "11.41",
+            "time": "2024-01-14T09:05:13+00:00",
+            "transaction": "https://bscscan.com/tx/0x9beb5c42682a847753a8f8ae7fb9e18448b255a38746bccaa7d7f0856850824a"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xea5412ed90053a07054ddeba55f3ef4215ac4ba6",
+                "chain": "BSC",
+                "amount": "13.240547614071919197",
+                "asset": "BAT",
+                "time": "2024-01-14T09:08:25+00:00",
+                "transaction": "https://bscscan.com/tx/0x05154ddb8a880ca1735920ec6a8a48ba2a0b91f489e88f0fa0c6c80d5c0617ae"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0xdfd5fae3240af39c904f3cfd35de3d8d6c175031ff067e52aff586f90132d672:37",
+        "title": "BAT combined with two nearby payments",
+        "amount": "0.830547614071919197",
+        "chain": "BSC",
+        "date": "2024-01-14T09:07:22+00:00",
+        "status": "Unmatched",
+        "endpoint": "Combined onward transfer; mixed recipient balance",
+        "explanation": "The three January 14 vault payments (1, 11.41 and 0.830547614071919197 BAT) sum exactly to 13.240547614071919197 BAT, forwarded in transaction 0x05154ddb8a880ca1735920ec6a8a48ba2a0b91f489e88f0fa0c6c80d5c0617ae to 0xea5412ed90053a07054ddeba55f3ef4215ac4ba6. The later 87.510970592236726368 BAT balance at that address also includes the October payment and is not counted separately for each case. Nearby Fusion burns within ten minutes are investigation leads only: Fusion:0x35358570db9f7044faae14d3829c39a4e3750d47b7531790e307d3ddc30574af:0 (11.581956741258664564 BAT), Fusion:0x872be073add8a573e1d3b0ccdf7af7a938cce9869d917e56605237863ca4d07f:2 (1.166751741258664564 BAT), Fusion:0xf0149aa584c1e98e01e73693c7d6c71757b1bbc845c1b219fbb1e815a546f77a:2 (0.997255766661777193 BAT). Their amounts differ; no authenticated fee or settlement relationship is established.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "0.830547614071919197",
+            "time": "2024-01-14T09:07:22+00:00",
+            "transaction": "https://bscscan.com/tx/0xdfd5fae3240af39c904f3cfd35de3d8d6c175031ff067e52aff586f90132d672"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0x6a01dd8e6384fe7835cb5cf124201bbd8a670056",
+            "chain": "BSC",
+            "amount": "0.830547614071919197",
+            "time": "2024-01-14T09:07:22+00:00",
+            "transaction": "https://bscscan.com/tx/0xdfd5fae3240af39c904f3cfd35de3d8d6c175031ff067e52aff586f90132d672"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xea5412ed90053a07054ddeba55f3ef4215ac4ba6",
+                "chain": "BSC",
+                "amount": "13.240547614071919197",
+                "asset": "BAT",
+                "time": "2024-01-14T09:08:25+00:00",
+                "transaction": "https://bscscan.com/tx/0x05154ddb8a880ca1735920ec6a8a48ba2a0b91f489e88f0fa0c6c80d5c0617ae"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x286ce06897032106046c0e104495f6ce7752c579a0b02a87a5e2eba334206883:198",
+        "title": "BAT swap returns USDT to vault",
+        "amount": "152.966019882420034894",
+        "chain": "BSC",
+        "date": "2024-03-10T15:53:06+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "53.761907704645053505 USDT returned to vault",
+        "explanation": "The successful receipt records 152.966019882420034894 BAT leaving the vault and 53.761907704645053505 Binance-Peg USDT returning to that same vault through the swap route.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "BSC",
+            "amount": "152.966019882420034894",
+            "time": "2024-03-10T15:53:06+00:00",
+            "transaction": "https://bscscan.com/tx/0x286ce06897032106046c0e104495f6ce7752c579a0b02a87a5e2eba334206883"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0xa74d49d38df7092688686973c468c94a542294b3",
+            "chain": "BSC",
+            "amount": "152.966019882420034894",
+            "time": "2024-03-10T15:53:06+00:00",
+            "transaction": "https://bscscan.com/tx/0x286ce06897032106046c0e104495f6ce7752c579a0b02a87a5e2eba334206883"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Vault receives swap output",
+                "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+                "chain": "BSC",
+                "amount": "53.761907704645053505",
+                "asset": "Binance-Peg USDT",
+                "time": "2024-03-10T15:53:06+00:00",
+                "transaction": "https://bscscan.com/tx/0x286ce06897032106046c0e104495f6ce7752c579a0b02a87a5e2eba334206883"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x6343be5267edaff5b9462843438eecf358c8c5bfb3fd530204b6fc35fb2988f3:99",
+        "title": "BAT swapped to BNB for another recipient",
+        "amount": "535.512619206112929011",
+        "chain": "BSC",
+        "date": "2024-03-17T09:31:58+00:00",
+        "status": "Observed asset exchange",
+        "endpoint": "0.285098816006027525 BNB delivered",
+        "explanation": "The receipt records BAT routed through the relay and pool. A successful call trace follows WBNB unwrapping and 0.285098816006027525 native BNB delivered to 0x998b73d9780f3d2f18354d39a77179310f9ec4ab. One wei less is forwarded than the 0.285098816006027526 WBNB output.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "BSC",
+            "amount": "535.512619206112929011",
+            "time": "2024-03-17T09:31:58+00:00",
+            "transaction": "https://bscscan.com/tx/0x6343be5267edaff5b9462843438eecf358c8c5bfb3fd530204b6fc35fb2988f3"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0xa74d49d38df7092688686973c468c94a542294b3",
+            "chain": "BSC",
+            "amount": "535.512619206112929011",
+            "time": "2024-03-17T09:31:58+00:00",
+            "transaction": "https://bscscan.com/tx/0x6343be5267edaff5b9462843438eecf358c8c5bfb3fd530204b6fc35fb2988f3"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Native swap output verified by trace",
+                "address": "0x998b73d9780f3d2f18354d39a77179310f9ec4ab",
+                "chain": "BSC",
+                "amount": "0.285098816006027525",
+                "asset": "BNB",
+                "time": "2024-03-17T09:31:58+00:00",
+                "transaction": "https://bscscan.com/tx/0x6343be5267edaff5b9462843438eecf358c8c5bfb3fd530204b6fc35fb2988f3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "BSC:0xd348b5fc00b26fc1457b70d02f9cb5e5a66a564cc4eba2136a473866a47dac08:201",
+        "title": "BAT recipient swaps the full payment to BNB",
+        "amount": "3348.801071337764116072",
+        "chain": "BSC",
+        "date": "2024-04-15T12:33:59+00:00",
+        "status": "Unmatched",
+        "endpoint": "1.501186295073880652 BNB returned to recipient",
+        "explanation": "The original receipt transfers multiple assets from the vault to 0xacdbe7b770a14ca3bc34865ac3986c0ce771fd68. A later BAT-only swap spends exactly 3348.801071337764116072 BAT. Its receipt and successful call trace show 1.501186295073880652 native BNB returned to that recipient. Its BAT balance is zero at block 63769742. This establishes conversion, not later native spending or Fusion settlement.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+        "limitation": "Observed routing is not proof of beneficial ownership or accepted Fusion settlement. No amount/time tolerance was widened. Indexed histories are not independently complete; mixed balances are not reserve additions. Reopen on authenticated settlement records, verified destination attribution or new history. Later native-asset spending is outside this bounded BAT-token trace.",
+        "steps": [
+          {
+            "label": "Vault sends BAT",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "BSC",
+            "amount": "3348.801071337764116072",
+            "time": "2024-04-15T12:33:59+00:00",
+            "transaction": "https://bscscan.com/tx/0xd348b5fc00b26fc1457b70d02f9cb5e5a66a564cc4eba2136a473866a47dac08"
+          },
+          {
+            "label": "BAT recipient",
+            "address": "0xacdbe7b770a14ca3bc34865ac3986c0ce771fd68",
+            "chain": "BSC",
+            "amount": "3348.801071337764116072",
+            "time": "2024-04-15T12:33:59+00:00",
+            "transaction": "https://bscscan.com/tx/0xd348b5fc00b26fc1457b70d02f9cb5e5a66a564cc4eba2136a473866a47dac08"
+          }
+        ],
+        "branches": [
+          {
+            "title": "Observed onward path",
+            "explanation": "Downstream amounts may contain prior funds. These are not additional vault outflows or balances.",
+            "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/bat-closeout.json",
+            "steps": [
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xa099f0d90eb17283ae7d302d0a6ebb0cacab39df",
+                "chain": "BSC",
+                "amount": "3348.801071337764116072",
+                "asset": "BAT",
+                "time": "2024-04-15T14:03:08+00:00",
+                "transaction": "https://bscscan.com/tx/0xe013d489e3899f27a7a82b826b88c6844c0578982ee427e88d45947f871d151b"
+              },
+              {
+                "label": "Later BAT transfer (may include other funds)",
+                "address": "0xb099ed146fad4d0daa31e3810591fc0554af62bb",
+                "chain": "BSC",
+                "amount": "115792089237316195423570985000000000000000000000000000000000",
+                "asset": "BAT",
+                "time": "2024-04-15T14:03:08+00:00",
+                "transaction": "https://bscscan.com/tx/0xe013d489e3899f27a7a82b826b88c6844c0578982ee427e88d45947f871d151b"
+              },
+              {
+                "label": "Native swap output verified by trace",
+                "address": "0xacdbe7b770a14ca3bc34865ac3986c0ce771fd68",
+                "chain": "BSC",
+                "amount": "1.501186295073880652",
+                "asset": "BNB",
+                "time": "2024-04-15T14:03:08+00:00",
+                "transaction": "https://bscscan.com/tx/0xe013d489e3899f27a7a82b826b88c6844c0578982ee427e88d45947f871d151b"
+              }
+            ]
           }
         ]
       }

@@ -1,0 +1,20 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "balance.capture.json": "a0cf1d289fa3d6d055d91a13f02408729624f776247cdf1e59d71f0054899521",
+    "balance.request.json": "b1c1005b457c03c1c2e4333b9f3ab2908ef87dc753100db36fce4c072d954112",
+    "balance.response.json": "b945ca79ddc1a1034abd20d139f475580ddf021d28cdafe2aa33acf950dde7c2",
+    "chain.capture.json": "140ae99b4afd17fcfebdff35147a749ab206f97b0facf6824a817001a34d04a9",
+    "chain.request.json": "e42a10d0c61d289e8642444799793d47ffd06beeb114ae0498fdc235e02a5765",
+    "chain.response.json": "8f6a78edd4dea16746b6c2ea170d13f5d9f48dd04ac8b1361ed42b5d945b3dbd",
+    "header.capture.json": "25653a4782d96b0faedb93ac2598acfe59bad970add86bfb0e03fee28269f7c2",
+    "header.request.json": "792bea571042f9e7c9974720b41c8f937f49f4ff74245b1034c4e79cc4c3ad4e",
+    "header.response.json": "26af1f106af9c51b8fe1a598cff5b050a9c363c6c38a721d76b51fa6a404b0ed",
+    "mixed-swap-trace.capture.json": "e8a66fee2dcdb12c683965aea6f641957ac2e3bc7672d44088e29c5f72dab72e",
+    "mixed-swap-trace.request.json": "3b29fb2639136e9b4e28dbb60d6d54343c2aba1653ec77cd58132441cac02f83",
+    "mixed-swap-trace.response.json": "5f7699652cd1e53469392337224c64a53edb8ce796f37528ee015941dd636dd5",
+    "receipt.capture.json": "f2e84ce3f87e6d093c1e8f3002e284b02d59f000ec50afd8b9ac8da08b8d4d60",
+    "receipt.request.json": "b4c5e702388715072037fc0d4c88cc4dfa84ffc9bc3a272d252cc860340240b0",
+    "receipt.response.json": "fd01188208c31af30d2c73412227c4209f147b5aec9f63eaf3ae1f29ada09128"
+  }
+}

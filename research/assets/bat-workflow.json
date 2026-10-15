@@ -120,13 +120,17 @@
     },
     {
       "id": "outflow-disposition",
-      "status": "pending",
-      "finding": "The original selected 19 outflows retain documented assessments. Indexed BSC history adds 17 older external vault outflows which are visible in the full ledger and need a separate disposition review.",
-      "nextAction": "Review the newly indexed older BSC outflows and their routing/settlement candidates; keep unresolved ownership and destination limits explicit.",
+      "status": "evidence-boundary",
+      "finding": "All 36 retained external vault outflows assessed, including all 17 newly indexed BSC cases. Exact receipts, headers, recipient indexes, pinned balances and native traces establish swaps, mixed onward paths and exchange-labelled endpoints; no automatic settlement acceptance.",
+      "nextAction": "Reopen on authenticated settlement identifiers, verified ownership, exchange-account records, new vaults or discrepant history.",
       "references": [
         "research/assets/bat.md",
         "research/assets/bat-closeout.json",
-        "evidence/2026-10-15-bat-bsc-recipient-followup/manifest.json"
+        "evidence/2026-10-15-bat-bsc-recipient-followup/manifest.json",
+        "evidence/2026-10-15-bat-new-recipients-verified/manifest.json",
+        "evidence/2026-10-15-bat-new-native-traces/manifest.json",
+        "evidence/2026-10-15-bat-downstream-verified/manifest.json",
+        "evidence/2026-10-15-bat-final-recipient-verified/manifest.json"
       ],
       "attemptedMethods": [
         "Recipient histories and pinned balances",
@@ -134,7 +138,7 @@
         "Anonymous native call trace",
         "Fusion counterpart and routing memo review"
       ],
-      "boundaryReason": "Mixed funds, unidentified owners and incomplete BSC history prevent full value attribution; reviewed does not mean settled."
+      "boundaryReason": "Index limits cannot exclude omitted cancelling flows. Ownership, exchange-internal activity, later native spending and accepted Fusion settlement cannot be inferred from token transfers or address labels."
     },
     {
       "id": "announcements",
@@ -149,7 +153,7 @@
     {
       "id": "publication",
       "status": "verified",
-      "finding": "Build has zero warnings/errors; 310 tests pass. All asset report/snapshot checks passed. The shared UI check was corrected to accept genuinely zero blocked balances and now passes, as do workflow negative regressions.",
+      "finding": "Full verify.ps1 passed: build has zero warnings/errors, all 323 tests pass, all three asset reports reproduce and shared UI checks pass. Staged privacy pattern review found zero matches; 4602 BAT evidence files match manifests and staged bytes.",
       "nextAction": "Rerun verification and privacy review whenever evidence, policy, assessment or UI changes.",
       "references": [
         "research/assets/bat.md"

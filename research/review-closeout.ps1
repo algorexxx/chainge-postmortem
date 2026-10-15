@@ -12,6 +12,8 @@ try {
     $report = Get-Content "$ReportDirectory/site-movements.json" -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
     if (-not $ReviewPath) { $ReviewPath = "research/assets/$Asset-closeout.json" }
     $review = Get-Content $ReviewPath -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
+    $selection = if ($review.selection) { $review.selection } else { 'terminal-unmatched' }
+    if ($selection -notin @('terminal-unmatched','all-outflows')) { throw 'Unknown closeout selection.' }
     if ($review.windowDays -le 0) { throw 'A positive terminal review window is required.' }
     $decisions = @{}
     foreach ($decision in $review.decisions) {
@@ -32,7 +34,9 @@ try {
     }
     $selected = @{}
     foreach ($case in $report.cases) {
-        if ($case.review.direction -ne 'outgoing' -or $case.review.classification -ne 'unmatched') { continue }
+        if ($case.review.direction -ne 'outgoing') { continue }
+        if ($selection -eq 'all-outflows') { $selected[$case.id] = $case; continue }
+        if ($case.review.classification -ne 'unmatched') { continue }
         $scaledAmount = [bigint]::Parse($case.rawAmount) * [bigint]::Pow(10, $report.terminalPolicy.decimals)
         $scaledThreshold = [bigint]::Parse($report.terminalPolicy.largeOutflowRaw) * [bigint]::Pow(10, $case.decimals)
         if ($scaledAmount -lt $scaledThreshold) { continue }
@@ -61,12 +65,13 @@ try {
     [ordered]@{
         asset = $Asset
         scope = $review.scope
+        selection = $selection
         windowDays = $review.windowDays
         reportSha256 = (Get-FileHash "$ReportDirectory/site-movements.json" -Algorithm SHA256).Hash.ToLowerInvariant()
         selectedCount = $results.Count
         pendingCount = $pending.Count
         cases = $results
-        limitation = 'Reviewed does not mean settled. The selection is bounded by retained vaults, histories, the stated window and the configured amount threshold. Missing dates retain material cases for review.'
+        limitation = 'Reviewed does not mean settled. All-outflows includes every retained external vault outflow regardless of date, amount or matching class. Terminal-unmatched uses the configured window and amount threshold plus explicit additions. Neither selection proves exhaustive vault discovery or history.'
     } | ConvertTo-Json -Depth 40 | Set-Content "$OutputDirectory/$Asset.json" -Encoding utf8
     Write-Output "$Asset closeout: $($results.Count) material/additional outflows; $($pending.Count) lack an assessment."
     if ($RequireReviewed -and $pending.Count) { throw 'Material outflows still need documented review.' }

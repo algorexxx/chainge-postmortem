@@ -1,12 +1,13 @@
 param(
     [Parameter(Mandatory)][ValidatePattern('^[a-z0-9-]+$')][string]$Asset,
     [Parameter(Mandatory)][ValidatePattern('^0x[0-9a-fA-F]{40}$')][string]$Token,
-    [Parameter(Mandatory)][string]$OutputDirectory
+    [Parameter(Mandatory)][string]$OutputDirectory,
+    [string[]]$Addresses
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $configuration = Get-Content (Join-Path $root "reconciliation/$Asset.json") -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
-$holders = @($configuration.policy.operatingAddresses.BSC)
+$holders = if ($Addresses) { @($Addresses | ForEach-Object { $_.ToLowerInvariant() } | Sort-Object -Unique) } else { @($configuration.policy.operatingAddresses.BSC) }
 if ($holders.Count -eq 0) { throw 'No configured BSC vault addresses.' }
 $output = [IO.Path]::GetFullPath($OutputDirectory)
 if (Test-Path -LiteralPath $output) { throw 'Choose a new evidence directory; existing captures are immutable.' }

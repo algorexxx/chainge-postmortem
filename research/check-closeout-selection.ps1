@@ -34,6 +34,17 @@ try {
     try { & ./research/review-closeout.ps1 -Asset fixture -ReportDirectory $root -ReviewPath "$root/review.json" -OutputDirectory $root }
     catch { $rejected = $_.Exception.Message -eq 'Duplicate closeout decision.' }
     if (-not $rejected) { throw 'Duplicate closeout decisions were accepted.' }
+    $review.selection = 'all-outflows'
+    $review.decisions = @()
+    $review | ConvertTo-Json -Depth 12 | Set-Content "$root/review.json" -Encoding utf8
+    & ./research/review-closeout.ps1 -Asset fixture -ReportDirectory $root -ReviewPath "$root/review.json" -OutputDirectory $root
+    $result = Get-Content "$root/fixture.json" -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
+    $ids = @($result.cases.event.id | Sort-Object)
+    if (($ids -join ',') -ne 'below,boundary,candidate,last,too-old,undated' -or $result.pendingCount -ne 6) { throw 'All-outflows omitted a small, old or matched outgoing case, or included an incoming case.' }
+    $rejected = $false
+    try { & ./research/review-closeout.ps1 -Asset fixture -ReportDirectory $root -ReviewPath "$root/review.json" -OutputDirectory $root -RequireReviewed }
+    catch { $rejected = $_.Exception.Message -eq 'Material outflows still need documented review.' }
+    if (-not $rejected) { throw 'All-outflows accepted unreviewed cases.' }
     Write-Output 'Closeout selection checks passed: exact amount/date boundary, missing dates, explicit exceptions and review enforcement.'
 }
 finally { Pop-Location }

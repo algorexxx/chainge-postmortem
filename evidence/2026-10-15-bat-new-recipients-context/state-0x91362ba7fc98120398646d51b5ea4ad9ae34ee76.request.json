@@ -1,0 +1,1 @@
+[{"jsonrpc": "2.0", "id": "balance", "method": "eth_call", "params": [{"to": "0x101d82428437127bf1608f699cd651e6abf9766e", "data": "0x70a0823100000000000000000000000091362ba7fc98120398646d51b5ea4ad9ae34ee76"}, "0x3cd0c8e"]}, {"jsonrpc": "2.0", "id": "code", "method": "eth_getCode", "params": ["0x91362ba7fc98120398646d51b5ea4ad9ae34ee76", "0x3cd0c8e"]}]
