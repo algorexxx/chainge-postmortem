@@ -30,6 +30,8 @@ The last Rollux-to-Fusion leg has a matching identifier and memo naming the Fusi
 
 ## Accounting implications and limits
 
+Follow-up: [the 50,000 recipient and earlier vault balances](usdc-rollux-distribution.md) now have pinned histories and balance checks. Most units remain at the 50,000 recipient; the other large vault deposit came from a mixed balance in a preceding vault.
+
 This route is **not evidence of a fresh independent USDC deposit**. Its traced input was an existing Fusion token position. The standard bridge locks Syscoin parent units for the Rollux representation, consistent with [Rollux's standard bridge documentation](https://docs.rollux.com/docs/developers/bridge/standard-bridge/); this does not establish the parent token's independent USDC backing.
 
 The starting Fusion tokens were transferred, not burned in that transaction. That does not prove they remained untouched afterward, or that vault inventory represents a separate customer claim. Later movements and fungible mixing prevent assigning particular surviving units to this deposit. No supply deduction, additional customer liability, or missing-dollar total is inferred from this route.
