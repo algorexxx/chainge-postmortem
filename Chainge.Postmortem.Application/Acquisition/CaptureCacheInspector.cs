@@ -15,9 +15,9 @@ public static class CaptureCacheInspector
         var parameters = request.GetProperty("params");
         return request.GetProperty("method").GetString() switch
         {
-            "eth_getTransactionReceipt" or "eth_getTransactionByHash" or "eth_getBlockByHash" => parameters.GetArrayLength() > 0 && IsHex(parameters[0]),
+            "eth_getTransactionReceipt" or "eth_getTransactionByHash" or "eth_getBlockByHash" or "debug_traceTransaction" => parameters.GetArrayLength() > 0 && IsHex(parameters[0]),
             "eth_getBlockByNumber" => parameters.GetArrayLength() > 0 && IsHex(parameters[0]),
-            "eth_call" or "eth_getCode" => parameters.GetArrayLength() > 1 && IsHex(parameters[1]),
+            "eth_call" or "eth_getCode" or "eth_getBalance" => parameters.GetArrayLength() > 1 && IsHex(parameters[1]),
             "eth_getLogs" => parameters.GetArrayLength() > 0 && HasPinnedRange(parameters[0]),
             _ => false
         };

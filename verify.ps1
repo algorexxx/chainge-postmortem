@@ -43,6 +43,8 @@ try {
     }
     & ./research/check-workflow-review.ps1
     & ./research/check-indexed-receipts.ps1
+    & ./research/check-arbitrum-withdrawals.ps1
+    & ./research/review-holder-funding.ps1 -Asset comp -LedgerToken 0x072ae77d8519de9aca47725a21e418e0d694eaad -ReportDirectory archives/workflow-check/comp
     dotnet run --project Chainge.Postmortem.Site --configuration Release --no-build -- evidence/2026-10-11-token-catalogue/tokens.csv registry/studies.json dist
     if ($LASTEXITCODE -ne 0) { throw 'Site generation failed.' }
     node registry/check-ui.cjs

@@ -1,0 +1,1327 @@
+{
+  "scope": "Every retained external vault outflow, including old, small and reported-swap events. Reviewed does not mean resolved or exhaustive history.",
+  "selection": "all-outflows",
+  "windowDays": 90,
+  "extraEventIds": [],
+  "decisions": [
+    {
+      "eventId": "Arbitrum:0x0b51ed75d25b2f0e3e74ba3ff6093bfc3f3a613a78d927a16be2b9eff4de8592:0",
+      "finding": "Successful receipt records 0.493152030258300447 COMP sent from the configured vault to 0x93131efee501d5721737c32576238f619548edda. The same receipt contains a reported swap: destination token 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 30756549. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-0-0001.response.json",
+        "evidence/2026-10-15-comp-arbitrum-context/context-150-0001.response.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x0bcba5a4e71b59743f653572f81115655ccd26bd5028f4e72abc5001345415f3:0",
+      "finding": "Successful receipt records 0.454649054973189990 COMP sent from the configured vault to 0x93131efee501d5721737c32576238f619548edda. The same receipt contains a reported swap: destination token 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 30631123. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-150-0001.response.json",
+        "evidence/2026-10-15-comp-arbitrum-context/context-5-0001.response.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x5519f4d4f2182d4b75db105eaac0f46e8f87c7a76b5593e4ad6cddee3a43e363:0",
+      "finding": "Successful receipt records 0.021262800141439587 COMP sent from the configured vault to 0x521709b3cd7f07e29722be0ba28a8ce0e806dbc3. The same receipt contains a reported swap: destination token 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 780411. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-205-0001.response.json",
+        "evidence/2026-10-15-comp-arbitrum-context/context-55-0001.response.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x22a60cebb60b7f469c8e7d81aab789394cd39ce02ef1378b14bd9c78bebb6fb4:0",
+      "finding": "Successful receipt records 5.467587027535061131 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The recipient forwarded the amount to 0x5596d991bf7753f0f14e1c5b59abbea626725401, which routed the same amount into a subsequent swap. Both recipient COMP balances are zero at the cutoff; broader account mixing and ownership remain unresolved. Same-holder Fusion burn candidate 0xd3ec06c58d6e2551d6285ae0fd6b6bacaf9aafda2925a73305e9fc728afa0c33 destroyed 5.474186963119570738 COMP 14 seconds earlier (difference 0.006599935584509607). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-15-0001.response.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0xd3ec06c58d6e2551d6285ae0fd6b6bacaf9aafda2925a73305e9fc728afa0c33.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-0.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-24.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json",
+        "evidence/2026-10-15-comp-remaining-arbitrum-routes/manifest.json",
+        "evidence/2026-10-15-comp-second-recipient-discovery/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xfa64598102010830758e6d9c169ddf5b5ab05b45b1b4ba79b4a41b7b99252b16:0",
+      "finding": "Successful receipt records 0.050605783626048724 COMP sent from the configured vault to 0x521709b3cd7f07e29722be0ba28a8ce0e806dbc3. The same receipt contains a reported swap: destination token 0xff970a61a04b1ca14834a43f5de4533ebddb5cc8, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 2541945. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-140-0001.response.json",
+        "evidence/2026-10-15-comp-arbitrum-context/context-290-0001.response.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0xa89ac05f5ac7b4e746a2666033aaf8279bebd1e6f4596a1e1702916659baadcb:1",
+      "finding": "Successful receipt records 30.000000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The recipient forwarded 30 COMP, which was withdrawn to Ethereum with a matching complete bridge message and returned to this recipient there. Its Ethereum history then records 30 COMP paid back to a configured vault. Cross-chain routing/return is a competing explanation, not accepted settlement. Same-holder Fusion burn candidate 0x0002127c739b93cc117abbf4ed30eca25a12046ad216d7a435d0b77846c0f639 destroyed 30.019056190589835661 COMP 32 seconds earlier (difference 0.019056190589835661). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-95-0001.response.json",
+        "evidence/2026-10-15-comp-arbitrum-return-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0x0002127c739b93cc117abbf4ed30eca25a12046ad216d7a435d0b77846c0f639.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-16.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-40.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json",
+        "evidence/2026-10-15-comp-remaining-arbitrum-routes/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x3fa2b13f28c140bc5d68ee26f3c498e208876b7f7860d9901f156de016b481a3:0",
+      "finding": "Successful receipt records 10.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0xec64495cfeedf980a6eb344444e43fdc613472a6b200c14b1d82ec45d8d284a3. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-45-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-32.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-8.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x5c0faa190d63eff7095f9037d3a056abd844ff03d5a6d9d3a445f1ce373f89a4:15",
+      "finding": "Successful receipt records 40.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x3424f4d917098fdcdb66c6c5264628d358365d6adcc68dc02bdc6172ad46693f. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-60-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-36.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-8.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x275562a139e61ba864c2149b946d86460ec233b37327080ca3c9d750dd4c17ab:5",
+      "finding": "Successful receipt records 70.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x642cbc29b39fdd4293b12e14ffce7ef82c19b3e35c7c89b8ce5799ddb8671207. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-20-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-28.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-4.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x2804975a2501e82cfe2e0720124a4e4db9fb344836c864902b9b4aa1caf97658:6",
+      "finding": "Successful receipt records 50.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x55c3cb4d845aafa1ef81e8885ac459d449a7c3b51bbdceeea9a2406a6e20502d. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-25-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-28.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-4.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x2a561010e4ad52c555efd4d5f88aec3d126fdfcc7bc7bdaa06e1df548aec5a2c:33",
+      "finding": "Successful receipt records 60.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x321928a7eed57b7f2212151a575ffb784dd4f19892e5d319f8a21aace3a338fe. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-25-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-28.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-4.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Arbitrum:0x4d16eba830bc7cfa46c2462e989e04019a712aa1995a7608c160492e55586b17:0",
+      "finding": "Successful receipt records 84.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0xe67d503e6cb067e79264dbc5fe7e2e65979995e16de2465309b0ee0a73e2d469. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-arbitrum-context/context-55-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/Arbitrum-out.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-32.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Arbitrum-8.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x5e8e1f1016864f553053cecc8d8ef02d04b692347bee69ca1aa8af47c7900aaf:0",
+      "finding": "Successful receipt records 0.004342040040357571 COMP sent from the configured vault to 0x62ef5c4f5cf0597d06860116644b2181ec1b4f13. Public recipient history and pinned state show partial onward transfers and a residual balance. Recipient funds are not included as vault backing; ownership and accepted settlement remain unproven.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-avalanche-context/context-2-0001.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Avalanche-0.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Avalanche-8.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-targeted-source-retry/Avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0xa2046ec232cb81e3825984a0aa79d62e44bc82b7ed8bb019f79beff94c27914e:1",
+      "finding": "Successful receipt records 0.003797803417443789 COMP sent from the configured vault to 0xd377cffcc52c16bf6e9840e77f78f42ddb946568. Public recipient history and pinned state show partial onward transfers and a residual balance. Recipient funds are not included as vault backing; ownership and accepted settlement remain unproven.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-avalanche-context/context-5-0001.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Avalanche-4.response.json",
+        "evidence/2026-10-15-comp-recipient-context/Avalanche-8.response.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-targeted-source-retry/Avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Avalanche:0x5a6ea9286cc1045d8f7a20b2a6225faf71b66e5be6fd24fe224865d32f01331b:2",
+      "finding": "Successful receipt records 0.013942586350090824 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0xc7198437980c041c805a1edcba50c1ce5db95118, recipient 0x74b651eff97871ea99fcc14423e611d85eb0ea93, reported raw output 2759048. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-avalanche-context/context-1-0001.response.json",
+        "evidence/2026-10-15-comp-avalanche-context/context-9-0001.response.json",
+        "evidence/2026-10-15-comp-targeted-source-retry/Avalanche-out.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xf85e2b7a1425a5907e85d9b1f8503bda577f5300193cbe35a868326615548a28:2",
+      "finding": "Successful receipt records 6.550969449380024251 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The retained recipient route leads into swaps, directly or through 0x5596d991bf7753f0f14e1c5b59abbea626725401; receipt quantities supersede rounded index amounts. Same-holder Fusion burn candidate 0x62ebb4395c6e53efec8d704dcfde68969bd80487ed82e3618e81829cde3cc50d destroyed 6.552940000000000000 COMP 19 seconds earlier (difference 0.001970550619975749). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-150.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-f85e2b7a1425a5907e85d9b1f8503bda577f5300193cbe35a868326615548a28-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/manifest.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/receipt-f85e2b7a1425a5907e85d9b1f8503bda577f5300193cbe35a868326615548a28-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-second-receipts/manifest.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0x62ebb4395c6e53efec8d704dcfde68969bd80487ed82e3618e81829cde3cc50d.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-second-recipient-discovery/manifest.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xf4f3ebb9d63d648c7b9b217771a563760b66d598aaa159afe59c37826515fc04:24",
+      "finding": "Successful receipt records 8.926041821711024582 COMP sent from the configured vault to 0xbbb2fa6e6f8d2b04d1d462edbc81aa38ce3493a6. Exact onward receipts and zero intermediate COMP balances are retained. The public route reaches a further address whose beneficial owner is not established for this chain; no exchange credit or settlement is inferred. Same-holder Fusion burn candidate 0xffdacd85e05cfe7ae4df493a0a6cda0b5747ed1e1e3ccfa56333a74ae612eaf3 destroyed 8.928370065012189068 COMP 7225 seconds earlier (difference 0.002328243301164486). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-150.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-f4f3ebb9d63d648c7b9b217771a563760b66d598aaa159afe59c37826515fc04-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/manifest.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/receipt-f4f3ebb9d63d648c7b9b217771a563760b66d598aaa159afe59c37826515fc04-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-second-receipts/manifest.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0xffdacd85e05cfe7ae4df493a0a6cda0b5747ed1e1e3ccfa56333a74ae612eaf3.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-second-recipient-discovery/manifest.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x02bdb901c0188972f14026af1cfdc55a1abd9b5d40115e0f0377ca47ff1b2a23:12",
+      "finding": "Successful receipt records 0.817159615332263200 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x09cb618bf5ef305fadfd2c8fc0c26eecf8c6d5fd, reported raw output 140418420231783721. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-0.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-02bdb901c0188972f14026af1cfdc55a1abd9b5d40115e0f0377ca47ff1b2a23-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xc308ffadf0fa4bee5f25e75a62d51b5fec9e958bcacc69218895f76c9fbb9a3b:17",
+      "finding": "Successful receipt records 0.964106927988186112 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x20bcc3b8a0091ddac2d0bc30f68e6cbb97de59cd, reported raw output 164816375671461487. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-105.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-c308ffadf0fa4bee5f25e75a62d51b5fec9e958bcacc69218895f76c9fbb9a3b-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x17c93b94ae58a9a717db0643c1b3097f2a04c464cf91c78c045deda30eddb351:18",
+      "finding": "Successful receipt records 1.095105310164967371 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xea26b78255df2bbc31c1ebf60010d78670185bd0, reported raw output 37183114502751926. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-15.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-17c93b94ae58a9a717db0643c1b3097f2a04c464cf91c78c045deda30eddb351-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x777abe44a59fbe2bcfe476618ce87aa72bc514b7aa0c73c408dbddc02c865ecc:17",
+      "finding": "Successful receipt records 0.644348013102662308 COMP sent from the configured vault to 0x37908620def1491dd591b5a2d16022a33cdda415. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x0fb881c078434b1c0e4d0b64d8c64d12078b7ce2, reported raw output 21762672695556818. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-60.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-777abe44a59fbe2bcfe476618ce87aa72bc514b7aa0c73c408dbddc02c865ecc-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x3f3102db1e998cdb05e30d85459057d4a8d347a7107ff91cbd0f39f35113a4e3:0",
+      "finding": "Successful receipt records 0.594106914195238317 COMP sent from the configured vault to 0x37908620def1491dd591b5a2d16022a33cdda415. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 21082575528498050. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-35.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-3f3102db1e998cdb05e30d85459057d4a8d347a7107ff91cbd0f39f35113a4e3-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x905d75424e42f82a3426170efebd627246bf0344cd7fe73360a62a0d364f5660:2",
+      "finding": "Successful receipt records 0.599106914195238317 COMP sent from the configured vault to 0x37908620def1491dd591b5a2d16022a33cdda415. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x0fb881c078434b1c0e4d0b64d8c64d12078b7ce2, reported raw output 21184567640825856. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-80.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-905d75424e42f82a3426170efebd627246bf0344cd7fe73360a62a0d364f5660-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x7f9b656c3beeb230a8920fb51bf190913483f9255ec9547c387db06f162ae632:26",
+      "finding": "Successful receipt records 2.174651932158018528 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x09cb618bf5ef305fadfd2c8fc0c26eecf8c6d5fd, reported raw output 368600376059557688. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-70.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-7f9b656c3beeb230a8920fb51bf190913483f9255ec9547c387db06f162ae632-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x4cfe07bb12c3e8f612e0b9bea92d53447c8602465659a700281e46e1e5751c01:11",
+      "finding": "Successful receipt records 0.892329859779861519 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x1111111254fb6c44bac0bed2854e76f90643097d, reported raw output 13908162939367761. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-40.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-4cfe07bb12c3e8f612e0b9bea92d53447c8602465659a700281e46e1e5751c01-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd8d83f3867eccafc3fd0899280d67bd6280535b738f02f39a16fc3ccbca106ee:4",
+      "finding": "Successful receipt records 1.631082576274075451 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 27003151970659735. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-130.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d8d83f3867eccafc3fd0899280d67bd6280535b738f02f39a16fc3ccbca106ee-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x3e45a9629c60c0cc9ea78cd9d292998140d40aa249e75df2130aa9f304ed5eaa:10",
+      "finding": "Successful receipt records 0.298862125291698211 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 4733124583944566. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-30.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-3e45a9629c60c0cc9ea78cd9d292998140d40aa249e75df2130aa9f304ed5eaa-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x7a3a6f1960a8861dea55bbf8dfcee4f6b9bf8b20249af6bcae3f8dd6c498dce3:6",
+      "finding": "Successful receipt records 0.452110153514515165 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 9686080660681518. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-65.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-7a3a6f1960a8861dea55bbf8dfcee4f6b9bf8b20249af6bcae3f8dd6c498dce3-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5c0475b702eeac42e26c429f5f43758cf00fafbf4e457f9c277d83a811f33226:5",
+      "finding": "Successful receipt records 0.257441331391336539 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x170d2ed0b2a5d9f450652be814784f964749ffa4, reported raw output 58665760951590498. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-50.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5c0475b702eeac42e26c429f5f43758cf00fafbf4e457f9c277d83a811f33226-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xff8e15ec215ba53d585a2274225c5996bf8a2abf0623d4af8d027aee69972dae:8",
+      "finding": "Successful receipt records 5.033282846011131634 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 135884653637899758. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-155.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ff8e15ec215ba53d585a2274225c5996bf8a2abf0623d4af8d027aee69972dae-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xccd902f403b67e5d87992951323afdbf866794a40d9468938de559f3e4cc89f8:3",
+      "finding": "Successful receipt records 0.104248756720803443 COMP sent from the configured vault to 0x37908620def1491dd591b5a2d16022a33cdda415. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 3708193292764894. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-115.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ccd902f403b67e5d87992951323afdbf866794a40d9468938de559f3e4cc89f8-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x0ee2b5f88d1d1c99799240320a423c9b134de988bda473766e90e2c4cb60f9ea:1",
+      "finding": "Successful receipt records 5.031581608827575908 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x170d2ed0b2a5d9f450652be814784f964749ffa4, reported raw output 156044835193734549. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-5.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-0ee2b5f88d1d1c99799240320a423c9b134de988bda473766e90e2c4cb60f9ea-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x2d71f89bf47cd4069f39751ad6b5d59479347f42148fa935c26ebc6162cc9727:0",
+      "finding": "Successful receipt records 0.267221547335814468 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x170d2ed0b2a5d9f450652be814784f964749ffa4, reported raw output 84626271676679680. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-25.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-2d71f89bf47cd4069f39751ad6b5d59479347f42148fa935c26ebc6162cc9727-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x81018e5efbfa8b2dbed1f6073d0339cf80139d79c1c5daee32f8bb4d07aebfb3:0",
+      "finding": "Successful receipt records 1.274871058702004580 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x170d2ed0b2a5d9f450652be814784f964749ffa4, reported raw output 53303040759907363. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-70.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-81018e5efbfa8b2dbed1f6073d0339cf80139d79c1c5daee32f8bb4d07aebfb3-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x82a2af70e5833daaba821b4b240669f55639a8aa7f3eeec58a4e91fbe3e490ac:0",
+      "finding": "Successful receipt records 1.299298018231376751 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x170d2ed0b2a5d9f450652be814784f964749ffa4, reported raw output 54063981454217882. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-75.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-82a2af70e5833daaba821b4b240669f55639a8aa7f3eeec58a4e91fbe3e490ac-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xb8f6fdd9f546de3a2393019dfef6b1d7315788fa770233c220e935e1ff7c1fa4:0",
+      "finding": "Successful receipt records 0.269111480108225544 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x170d2ed0b2a5d9f450652be814784f964749ffa4, reported raw output 61982606810163543. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-100.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-b8f6fdd9f546de3a2393019dfef6b1d7315788fa770233c220e935e1ff7c1fa4-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x82805025e3bdc55328c4f1a6cb09ec0899de31453bce075b394bbfc747c445e1:2",
+      "finding": "Successful receipt records 0.459419110218627772 COMP sent from the configured vault to 0x37908620def1491dd591b5a2d16022a33cdda415. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 13589532109035202. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-70.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-82805025e3bdc55328c4f1a6cb09ec0899de31453bce075b394bbfc747c445e1-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x8e5ae459336acb0738056a7b044c9c4c35b70bdac74a25c0b59a941732f045a9:0",
+      "finding": "Successful receipt records 0.696770234384807289 COMP sent from the configured vault to 0x37908620def1491dd591b5a2d16022a33cdda415. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xea26b78255df2bbc31c1ebf60010d78670185bd0, reported raw output 17680609099231653. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-80.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-8e5ae459336acb0738056a7b044c9c4c35b70bdac74a25c0b59a941732f045a9-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd2e3b3c7dfbff74306bc93888b819872949dac17893644bb4aa1136bbd21f9d3:0",
+      "finding": "Successful receipt records 1.917526159546432415 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf8a1527325bb62d6d0320eb2312748d590f1ce27, reported raw output 49351974606949125. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-125.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d2e3b3c7dfbff74306bc93888b819872949dac17893644bb4aa1136bbd21f9d3-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x03c69e420522adda3f3e727d7e04839d2543213d476c25dfd48344ed4fdac5eb:14",
+      "finding": "Successful receipt records 1.973632617845760662 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf8a1527325bb62d6d0320eb2312748d590f1ce27, reported raw output 50722685448622495. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-0.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-03c69e420522adda3f3e727d7e04839d2543213d476c25dfd48344ed4fdac5eb-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5eeabf2ca82e615c61ce49de122c9d9e4fb3f0e51be698d6f5ae26dcc5150534:18",
+      "finding": "Successful receipt records 1.650800238979594413 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf8a1527325bb62d6d0320eb2312748d590f1ce27, reported raw output 42536515526192162. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-50.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5eeabf2ca82e615c61ce49de122c9d9e4fb3f0e51be698d6f5ae26dcc5150534-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xf0c114b7d5aa8c5f27e74b8c2bcdbba7738fb486dd7846fbe978c4be4bba9373:1",
+      "finding": "Successful receipt records 2.093281034308835974 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 52938558677492321. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-145.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-f0c114b7d5aa8c5f27e74b8c2bcdbba7738fb486dd7846fbe978c4be4bba9373-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x6fc8003a7c09e09050884575f0cc3b3d6138082f32105d1750adffd8b8d88f66:1",
+      "finding": "Successful receipt records 9.240751914073363897 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 236776745258066017. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-55.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-6fc8003a7c09e09050884575f0cc3b3d6138082f32105d1750adffd8b8d88f66-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xcc8da0aef3664debf669fe7a93aa963dc4af746d2ddc3df049a64b6987963325:1",
+      "finding": "Successful receipt records 11.669031851294295807 COMP sent from the configured vault to 0xe37e799d5077682fa0a244d46e5649f71457bd09. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 319393279516067509. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-115.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-cc8da0aef3664debf669fe7a93aa963dc4af746d2ddc3df049a64b6987963325-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x7f735d99d281f051eed821b9273722f6cb94bce0ce248abf7a6d12a06f3c6183:7",
+      "finding": "Successful receipt records 12.898800036933182445 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 323115800211412967. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-70.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-7f735d99d281f051eed821b9273722f6cb94bce0ce248abf7a6d12a06f3c6183-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x700374de10eb45e33b4bf4e1e3ec6629e3273ea71487ff38e0f345a0a1a5fd1b:13",
+      "finding": "Successful receipt records 5.245838829887139826 COMP sent from the configured vault to 0x0392957571f28037607c14832d16f8b653edd472. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x456325f2ac7067234dd71e01bebe032b0255e039, reported raw output 145299742777902025. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-55.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-700374de10eb45e33b4bf4e1e3ec6629e3273ea71487ff38e0f345a0a1a5fd1b-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x2e8cf7d021ce420ec78aa1435ddd4ac8db02b0193e00f443b0e4971e4e2d1265:37",
+      "finding": "Successful receipt records 0.594450897265479672 COMP sent from the configured vault to 0xb4c0c621b2edfe6c22585ebac56b0e634907b8a7. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0x3b09e13ca9189fbd6a196cfe5fbd477c885afbf3, reported raw output 133180388124580451. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-25.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-2e8cf7d021ce420ec78aa1435ddd4ac8db02b0193e00f443b0e4971e4e2d1265-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x236910d76512d9328f73670afd851bcbd481d1eb09ed373e3999304ba84bf074:78",
+      "finding": "Successful receipt records 4.518091823053062768 COMP sent from the configured vault to 0x91362ba7fc98120398646d51b5ea4ad9ae34ee76. Exact onward receipts and zero intermediate COMP balances are retained. The public route reaches a further address whose beneficial owner is not established for this chain; no exchange credit or settlement is inferred. Same-holder Fusion burn candidate 0x34844e62351f806b43312ce7134a83eeecaf81c0c9bbccece2af70a5467e008c destroyed 4.521081291046637136 COMP 25834 seconds earlier (difference 0.002989467993574368). The fee/settlement interpretation is unverified. Same-holder Fusion burn candidate 0x3f89a4b76929d5219ce8a0941eec3935b8878fe53c3d2b3f5c5431b831c38b3c destroyed 4.521081291046637136 COMP 52027 seconds earlier (difference 0.002989467993574368). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-20.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-236910d76512d9328f73670afd851bcbd481d1eb09ed373e3999304ba84bf074-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/manifest.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/receipt-236910d76512d9328f73670afd851bcbd481d1eb09ed373e3999304ba84bf074-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-second-receipts/manifest.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0x34844e62351f806b43312ce7134a83eeecaf81c0c9bbccece2af70a5467e008c.response.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0x3f89a4b76929d5219ce8a0941eec3935b8878fe53c3d2b3f5c5431b831c38b3c.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0xd19aaf97e2d2d92c0c920c902005eae77b53269f-logs-1.response.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-second-recipient-discovery/manifest.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x0fc6cedcb448e5c98e1bd132fe995eedcdd3263ea368353fa611a949ab9d3ebe:220",
+      "finding": "Successful receipt records 4.362508356678326384 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The retained recipient route leads into swaps, directly or through 0x5596d991bf7753f0f14e1c5b59abbea626725401; receipt quantities supersede rounded index amounts.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/manifest.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/receipt-0fc6cedcb448e5c98e1bd132fe995eedcdd3263ea368353fa611a949ab9d3ebe-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-second-receipts/manifest.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-second-recipient-discovery/manifest.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xaacdf4b3923f1c432797815ca608db879b6784e2e3ba98a869b062332c70be8f:171",
+      "finding": "Successful receipt records 2.788161085230682026 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 58687972868030180. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-95.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-aacdf4b3923f1c432797815ca608db879b6784e2e3ba98a869b062332c70be8f-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xc1073c1bceb295b550f16900d929b503a5af753195e2dbaad967d8f39022d482:78",
+      "finding": "Successful receipt records 2.828151243372228253 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 59935825860478867. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-105.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-c1073c1bceb295b550f16900d929b503a5af753195e2dbaad967d8f39022d482-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xcefc1c9322dd06598b9f1c333e069f1f98a96001fcfb52aa927629ec5ceea455:198",
+      "finding": "Successful receipt records 3.202795359570494522 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 67950849658905279. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-120.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-cefc1c9322dd06598b9f1c333e069f1f98a96001fcfb52aa927629ec5ceea455-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xcf34a313a0cd346d4feb44fe69abeceaa89d15cc13857bcaa9c305fa1b2958d7:189",
+      "finding": "Successful receipt records 3.298607891563069295 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 71685369056971793. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-120.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-cf34a313a0cd346d4feb44fe69abeceaa89d15cc13857bcaa9c305fa1b2958d7-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x2135f555d81f649b341426354d932348e348ecf0670cf28b9ca9788547fd60ef:140",
+      "finding": "Successful receipt records 2.455630941625316142 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 50523850689696456. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-15.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-2135f555d81f649b341426354d932348e348ecf0670cf28b9ca9788547fd60ef-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x35bed7e58407a6d6914803ed7cec0e44dcf45ef94a2be3b4512b3768f699e0ff:119",
+      "finding": "Successful receipt records 2.493343271052530778 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 51412556770696370. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-25.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-35bed7e58407a6d6914803ed7cec0e44dcf45ef94a2be3b4512b3768f699e0ff-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xcc9f5977bd54df1aca1c758d8e74afea86733fa8b2efdf29889cfa0422e5bd76:75",
+      "finding": "Successful receipt records 2.515333224590717431 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 52181200203089437. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-115.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-cc9f5977bd54df1aca1c758d8e74afea86733fa8b2efdf29889cfa0422e5bd76-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x60edc44361ecfc7fb41441bb7946b71c86e8923ec688adbea7b4830fd3eda186:81",
+      "finding": "Successful receipt records 1.393740341199167582 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xea26b78255df2bbc31c1ebf60010d78670185bd0, reported raw output 28779606012639303. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-55.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-60edc44361ecfc7fb41441bb7946b71c86e8923ec688adbea7b4830fd3eda186-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x1300c13d86898328043b39fdf5790e43f4978b418f7bbededd099974038b1b18:35",
+      "finding": "Successful receipt records 1.412888579819559573 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 28460491225780993. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-10.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-1300c13d86898328043b39fdf5790e43f4978b418f7bbededd099974038b1b18-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5516385720e244e15c12bbabfae430d88ce273076927185875ba5c2fba424b21:155",
+      "finding": "Successful receipt records 2.705192649980100555 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 54273917821717993. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-45.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5516385720e244e15c12bbabfae430d88ce273076927185875ba5c2fba424b21-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xc11100b2026fc0efbe0caa23960c473ef6a0b9f60d95ec03a36d3b760bbe5cfe:161",
+      "finding": "Successful receipt records 2.712913354816499197 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 54735282753899330. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-105.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-c11100b2026fc0efbe0caa23960c473ef6a0b9f60d95ec03a36d3b760bbe5cfe-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5253cf513e80a3cd1abd16bb3e2c34d246e4e6a6ac5c2027785ff543a0fc513a:94",
+      "finding": "Successful receipt records 2.685668721643306866 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 53788464734433911. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-40.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5253cf513e80a3cd1abd16bb3e2c34d246e4e6a6ac5c2027785ff543a0fc513a-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x743bb3e1c7e038322f9a1c07a37d0212481159c866eae58dd54f70ce3303145d:114",
+      "finding": "Successful receipt records 1.302331036633439567 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 25961933446788397. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-60.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-743bb3e1c7e038322f9a1c07a37d0212481159c866eae58dd54f70ce3303145d-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x91b9ffa46b0830835d04704bdd82aa24fdc27e468381b95af26550106f91dc02:74",
+      "finding": "Successful receipt records 1.331969286912797055 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 26423210343813777. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-80.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-91b9ffa46b0830835d04704bdd82aa24fdc27e468381b95af26550106f91dc02-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xc1fe7acdba9cfe7e3d237db05cc7cd52d195b467841c22efda48fb7e6f3b09a8:90",
+      "finding": "Successful receipt records 1.352681008576813281 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 26915995177155184. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-105.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-c1fe7acdba9cfe7e3d237db05cc7cd52d195b467841c22efda48fb7e6f3b09a8-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xee5ac6436db2788cf326866ca68472d2f050c7e4f28966ddeb68461dc3faf190:51",
+      "finding": "Successful receipt records 1.716159881511799680 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 31619889132907512. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-145.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ee5ac6436db2788cf326866ca68472d2f050c7e4f28966ddeb68461dc3faf190-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x04342a0bf08cf701c47190520e39810f0ed0887bf5ace1a9e5ed1e1e29958c1d:99",
+      "finding": "Successful receipt records 1.389789957058839740 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 25487209071195732. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-0.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-04342a0bf08cf701c47190520e39810f0ed0887bf5ace1a9e5ed1e1e29958c1d-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd673ef9a224780fd8722f68330045244f460440e3821c9c5d77a1ba4fcd0869f:106",
+      "finding": "Successful receipt records 1.906586726301157255 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 33280055115476283. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-130.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d673ef9a224780fd8722f68330045244f460440e3821c9c5d77a1ba4fcd0869f-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xbc03fe25dbb2dd30df05703e39163e13c94e778afbee3bf279b8f209ebe37251:121",
+      "finding": "Successful receipt records 2.863259340505038048 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 50146181717057962. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-100.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-bc03fe25dbb2dd30df05703e39163e13c94e778afbee3bf279b8f209ebe37251-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xf52c7d4dd99cf921b97de4a8636be9a22ab859be9c6e334673a53c1a422e9f3f:107",
+      "finding": "Successful receipt records 2.911537537532290852 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 50928892429101824. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-150.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-f52c7d4dd99cf921b97de4a8636be9a22ab859be9c6e334673a53c1a422e9f3f-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x0ed8b8b3a3b6b44cb13df48a96d16ae415aeda225faf880eefc6abfba7a7839a:39",
+      "finding": "Successful receipt records 2.926742334701449069 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 51234437604459311. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-5.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-0ed8b8b3a3b6b44cb13df48a96d16ae415aeda225faf880eefc6abfba7a7839a-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x79db569e443f1846991ab3e7383311ca7b65e4c12d22a34d69043f2ad5c2fc65:135",
+      "finding": "Successful receipt records 3.185457289984804386 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 55368789461109411. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-65.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-79db569e443f1846991ab3e7383311ca7b65e4c12d22a34d69043f2ad5c2fc65-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x162242a3630386e66755000dd0489af39525c5d2e1bd47cd4c9bf915657c6cfe:96",
+      "finding": "Successful receipt records 3.021222165454166775 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 52034050809513959. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-10.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-162242a3630386e66755000dd0489af39525c5d2e1bd47cd4c9bf915657c6cfe-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x47749c63ee08799b166f9fe1da35f00b3c3ff5aab0b4cb43037e5c3288405822:102",
+      "finding": "Successful receipt records 3.350409188045156159 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 57283603855515841. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-40.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-47749c63ee08799b166f9fe1da35f00b3c3ff5aab0b4cb43037e5c3288405822-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x15def95412789001665c3aa51cfded38db3ac70815108db1462a47c8336d0e24:65",
+      "finding": "Successful receipt records 3.401147886179118056 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 58873842284483913. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-10.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-15def95412789001665c3aa51cfded38db3ac70815108db1462a47c8336d0e24-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x3e7a00105aa8ddedb2ef2eb702bf72acac605f185a13dfed602ef2e56d477df5:78",
+      "finding": "Successful receipt records 1.705212222460749538 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 31994223748187649. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-35.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-3e7a00105aa8ddedb2ef2eb702bf72acac605f185a13dfed602ef2e56d477df5-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xb5d4463021ce6e18caa93d3e7f170b88daae65b417ff09fd6de6020c452c0896:31",
+      "finding": "Successful receipt records 1.727585490571574832 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 32318562313001571. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-95.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-b5d4463021ce6e18caa93d3e7f170b88daae65b417ff09fd6de6020c452c0896-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x7c7cd1bfd79f63e55b4fad021bb3c0db9a72484a20ec797bc719dd8166aabf8a:77",
+      "finding": "Successful receipt records 1.845410973703975587 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 33447610339632349. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-65.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-7c7cd1bfd79f63e55b4fad021bb3c0db9a72484a20ec797bc719dd8166aabf8a-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x96ee49849fcd1833a1362d8d170fadd9db90f6e9d843dd0c476e39b48ad7d3f6:132",
+      "finding": "Successful receipt records 3.682182954126505359 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 65741182948791808. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-85.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-96ee49849fcd1833a1362d8d170fadd9db90f6e9d843dd0c476e39b48ad7d3f6-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x77fd93333e8141eca6ed3801360014f231f2b56b6ea892e2d86d719ca4ba07f1:131",
+      "finding": "Successful receipt records 3.618152017476549651 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 64457542640840948. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-65.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-77fd93333e8141eca6ed3801360014f231f2b56b6ea892e2d86d719ca4ba07f1-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xff4ac45e28de3d11fd254544a3bbb3fae8317175410f326fe5128161bdfc321f:83",
+      "finding": "Successful receipt records 3.763226298106733376 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 67066054938903755. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-155.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ff4ac45e28de3d11fd254544a3bbb3fae8317175410f326fe5128161bdfc321f-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xaab4be4c2d1ad02087a296fe16e32a1c20abb6487824dcd1766c38d7238153c5:5",
+      "finding": "Successful receipt records 3.881659074208123148 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 69007425124553957. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-90.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-aab4be4c2d1ad02087a296fe16e32a1c20abb6487824dcd1766c38d7238153c5-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x159e06cccdd253dd937707c7227363c7e3965c5d5eb72f805992e3fb3b2beae6:124",
+      "finding": "Successful receipt records 4.212240030278628253 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 74613291563426531. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-10.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-159e06cccdd253dd937707c7227363c7e3965c5d5eb72f805992e3fb3b2beae6-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xcb2b551e1776dffa43814e8f5b8ab08ee8ccfd45a50bdf5f584ba1537b925cab:60",
+      "finding": "Successful receipt records 4.298186635472393396 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 76148660477243250. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-115.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-cb2b551e1776dffa43814e8f5b8ab08ee8ccfd45a50bdf5f584ba1537b925cab-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x324975b9fd829401c47e5832c35b458ff8e0507832c018dfbd0bdcfa87dbbad7:142",
+      "finding": "Successful receipt records 4.291985937022528892 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 76003404410987537. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-25.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-324975b9fd829401c47e5832c35b458ff8e0507832c018dfbd0bdcfa87dbbad7-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd14a597fa8e83c3384af9c9dc347964a9b852d714138ad161ff6724a002e44b2:65",
+      "finding": "Successful receipt records 4.388518371013331892 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 77521536579931255. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-125.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d14a597fa8e83c3384af9c9dc347964a9b852d714138ad161ff6724a002e44b2-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x7a5f3187ff70936a3b791f06a82fd6d93bc23c5b3cc1f8bfe410bf072690809a:57",
+      "finding": "Successful receipt records 4.462073276422458399 COMP sent from the configured vault to 0x157164fdba23ec654fb600b14752a22afc3eb83a. The amount was forwarded through 0xd97f994f71e0d4b2f4cb0e39184476dc10a63c2f to BscScan-labelled Binance 51.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-65.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-7a5f3187ff70936a3b791f06a82fd6d93bc23c5b3cc1f8bfe410bf072690809a-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/manifest.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/receipt-7a5f3187ff70936a3b791f06a82fd6d93bc23c5b3cc1f8bfe410bf072690809a-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-second-receipts/manifest.json",
+        "evidence/2026-10-15-comp-recipient-discovery/manifest.json",
+        "evidence/2026-10-15-comp-second-recipient-discovery/manifest.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xde1e9bb2f040dbe4011f57e504d6a309f5ce6cd9bc66acf3aa8f6e8bf8f7a6cd:5",
+      "finding": "Successful receipt records 4.534381093838348304 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xe37e799d5077682fa0a244d46e5649f71457bd09, reported raw output 80220771124804858. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-135.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-de1e9bb2f040dbe4011f57e504d6a309f5ce6cd9bc66acf3aa8f6e8bf8f7a6cd-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xb771f93e4bc16101ba08e1e7bb2e9bc96d0d1c121111871c1e52c71b361d1d7a:5",
+      "finding": "Successful receipt records 4.422559347002964780 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 78376422459125638. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-95.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-b771f93e4bc16101ba08e1e7bb2e9bc96d0d1c121111871c1e52c71b361d1d7a-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xf32ac01552ea53c89f3d1a7a278b3c5dd472be00d59abff217041b125126ae53:63",
+      "finding": "Successful receipt records 4.329698463686106528 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xa74d49d38df7092688686973c468c94a542294b3, reported raw output 76940868344827573. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-150.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-f32ac01552ea53c89f3d1a7a278b3c5dd472be00d59abff217041b125126ae53-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5350640dce14407fcdd8b3f69bda8a5d7977e4af3524371f4e5ef9f73cab5240:87",
+      "finding": "Successful receipt records 4.415789474148106767 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 78602032705197984. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-45.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5350640dce14407fcdd8b3f69bda8a5d7977e4af3524371f4e5ef9f73cab5240-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x8b60a68bcb353d7ce6c33e7693c48bef248a195de339e6a9d453d02717cfcb87:134",
+      "finding": "Successful receipt records 4.438309123080533355 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 79487829800189936. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-75.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-8b60a68bcb353d7ce6c33e7693c48bef248a195de339e6a9d453d02717cfcb87-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xa46defcfaef3408e83be509ec41512d55eb7108f5a62a68c0f58817886b0949f:145",
+      "finding": "Successful receipt records 4.547156368745865311 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 80851969978545159. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-90.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-a46defcfaef3408e83be509ec41512d55eb7108f5a62a68c0f58817886b0949f-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x3887c2ba63e251c0e3a4c0c3448722661bc06add201c49744345bf4f0a34801b:85",
+      "finding": "Successful receipt records 4.549116245850275125 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 80652901327461448. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-30.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-3887c2ba63e251c0e3a4c0c3448722661bc06add201c49744345bf4f0a34801b-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x36752f0fc435a0c55b031709c793f3ffca708b43b69af8789fe2c46b06b27150:21",
+      "finding": "Successful receipt records 4.516953028150478043 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 79184874222713461. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-30.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-36752f0fc435a0c55b031709c793f3ffca708b43b69af8789fe2c46b06b27150-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd280847cd2bbb3c3472284bdd45c6bd43e210740c4b05b13235a6277beadb99c:5",
+      "finding": "Successful receipt records 4.489731366507486203 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 77741191362272151. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-125.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d280847cd2bbb3c3472284bdd45c6bd43e210740c4b05b13235a6277beadb99c-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd2d5f456e947b1bde1cc6bca07ad5ce2cc2e32e113fcc08095bcaa8d6a083b7c:32",
+      "finding": "Successful receipt records 3.938349848433854166 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 67300161382418490. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-125.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d2d5f456e947b1bde1cc6bca07ad5ce2cc2e32e113fcc08095bcaa8d6a083b7c-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x9790a27df108a3199e6dbc39670635fddacff14515525a4bc4cc4c9b56801d66:58",
+      "finding": "Successful receipt records 4.025929808128691175 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 68878553536185686. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-85.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-9790a27df108a3199e6dbc39670635fddacff14515525a4bc4cc4c9b56801d66-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x69c2fc42e0a22e37548f1a976bac0792a0b681de936e78bb37dbb3b632fd945f:5",
+      "finding": "Successful receipt records 4.107369644129154183 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 70495193508590421. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-55.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-69c2fc42e0a22e37548f1a976bac0792a0b681de936e78bb37dbb3b632fd945f-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xef322a552673a8972a593c48f9249da1b1ecbe7d92995ead476b16da031e9e01:58",
+      "finding": "Successful receipt records 4.028351499951017052 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xa74d49d38df7092688686973c468c94a542294b3, reported raw output 69087312233682642. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-145.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ef322a552673a8972a593c48f9249da1b1ecbe7d92995ead476b16da031e9e01-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xfd6a1a76a061b71868f7b029c8755ee7df9baa511b5176c6ca445de9818baaf4:52",
+      "finding": "Successful receipt records 4.039767047680527721 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 69777372435954161. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-155.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-fd6a1a76a061b71868f7b029c8755ee7df9baa511b5176c6ca445de9818baaf4-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xb915bc9792f3933d8bb57cf67bef079f401c82bb9e0309ce28f7b7c38b62b174:110",
+      "finding": "Successful receipt records 1.945089417368150239 COMP sent from the configured vault to 0xa74d49d38df7092688686973c468c94a542294b3. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 34204493866622108. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-100.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-b915bc9792f3933d8bb57cf67bef079f401c82bb9e0309ce28f7b7c38b62b174-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xef9c0873c7e2bb97f4b8ea0c6d10398c2647ca9801725a171293823a79785bf8:26",
+      "finding": "Successful receipt records 1.865095736968729476 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 35678970283230622. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-145.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ef9c0873c7e2bb97f4b8ea0c6d10398c2647ca9801725a171293823a79785bf8-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x435d88a4d37a015e1f2d31f10b99076a153063ef24c88b13ac9a37ce36613a72:82",
+      "finding": "Successful receipt records 1.935703960553988652 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 36789216061209816. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-40.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-435d88a4d37a015e1f2d31f10b99076a153063ef24c88b13ac9a37ce36613a72-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x25c95d2a8ff32cc786133f94680257c373583943d9f51117108c93e4fe361eee:42",
+      "finding": "Successful receipt records 1.992093559864813924 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 37543752631401353. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-20.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-25c95d2a8ff32cc786133f94680257c373583943d9f51117108c93e4fe361eee-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xc8ae41fdacc4c63998eb0db5f4466aa4b6bf72f7de7ef4b2b4b8dde69a245e10:120",
+      "finding": "Successful receipt records 1.961249513107034513 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 36646084882874214. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-110.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-c8ae41fdacc4c63998eb0db5f4466aa4b6bf72f7de7ef4b2b4b8dde69a245e10-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x27774a65f15c0a8a7abcccb5889a213c6b5ff8285c9f8b12ef33b12b0f9aaf20:155",
+      "finding": "Successful receipt records 2.027600474229809724 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 37835639104295346. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-20.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-27774a65f15c0a8a7abcccb5889a213c6b5ff8285c9f8b12ef33b12b0f9aaf20-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xc87ed4380b108237341f4290f43cd92bfde88d1e7b67a94bd38735c32a173e14:42",
+      "finding": "Successful receipt records 2.071199755084688192 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 38603844069549757. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-110.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-c87ed4380b108237341f4290f43cd92bfde88d1e7b67a94bd38735c32a173e14-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x414aee1bfc360e8f58a36e6835e72381003d5635af02edc3d8364ece112426ac:73",
+      "finding": "Successful receipt records 0.776101819029101840 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 75555219354251504. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-35.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-414aee1bfc360e8f58a36e6835e72381003d5635af02edc3d8364ece112426ac-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xcef7a5cc9809776234825dc4bc231d43882658db5500eafe13a593aa15b7f052:42",
+      "finding": "Successful receipt records 1.971982245431001373 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 36463945124980701. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-120.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-cef7a5cc9809776234825dc4bc231d43882658db5500eafe13a593aa15b7f052-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xe078d35da77e199a201620683c9c31312a5df4c708d3fe329e28738dc16345dc:31",
+      "finding": "Successful receipt records 2.684225438947767158 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 49272340133344547. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-135.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-e078d35da77e199a201620683c9c31312a5df4c708d3fe329e28738dc16345dc-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xebd9197105a5121cdd73854d47710fde8f2f79ffc2a8733f5e5d6f537240aba4:82",
+      "finding": "Successful receipt records 2.686060021679791051 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 49171691735814291. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-140.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ebd9197105a5121cdd73854d47710fde8f2f79ffc2a8733f5e5d6f537240aba4-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x90e392b4fd40cb1c663b96bff8295d7ea173429d8a3a5578bbaf0e125181ec99:74",
+      "finding": "Successful receipt records 2.735436759513431952 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 50074079830230076. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-80.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-90e392b4fd40cb1c663b96bff8295d7ea173429d8a3a5578bbaf0e125181ec99-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xa7bde16b9fff830060eea7b01848f2f359ff1d73715758f6060a0f29b85c5396:118",
+      "finding": "Successful receipt records 2.738744413404025677 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 50589253465357187. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-90.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-a7bde16b9fff830060eea7b01848f2f359ff1d73715758f6060a0f29b85c5396-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x98bf10f240c47de7d6d629bc41d7140745a2f1982ade61edb355f36c9b359deb:64",
+      "finding": "Successful receipt records 2.741200793971352810 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 50923378844369530. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-85.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-98bf10f240c47de7d6d629bc41d7140745a2f1982ade61edb355f36c9b359deb-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x9cc2703f1e45f7315f4229373289a0a4b78363f7f74fb9d603a577c036bea6ee:4",
+      "finding": "Successful receipt records 2.772225036096941217 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 51425067126305668. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-90.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-9cc2703f1e45f7315f4229373289a0a4b78363f7f74fb9d603a577c036bea6ee-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xbd35401d4e9f0305731f43047829e8e5ba31a3ac2b96680c5dfce8ddb0c84b30:18",
+      "finding": "Successful receipt records 2.781609808037011382 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 51950719843405590. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-100.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-bd35401d4e9f0305731f43047829e8e5ba31a3ac2b96680c5dfce8ddb0c84b30-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xd63caa9a69f887141709a08fe41f8c35e6c0c988e0bc67733ccf7a87f8cacf81:82",
+      "finding": "Successful receipt records 2.833885426628198445 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 52633159185565179. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-130.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-d63caa9a69f887141709a08fe41f8c35e6c0c988e0bc67733ccf7a87f8cacf81-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xe7287a34421a6ebdafb9efe1c4f04a6a03956bb52f4074a6e2da3c7166d80310:52",
+      "finding": "Successful receipt records 2.877668262387783728 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 53353665759700164. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-135.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-e7287a34421a6ebdafb9efe1c4f04a6a03956bb52f4074a6e2da3c7166d80310-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5c178b3654461dc55aa49ac117d184e7945691a2f7cb832ff9a4efe8d6f9647d:67",
+      "finding": "Successful receipt records 2.898764901602637059 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 53743761854885120. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-50.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5c178b3654461dc55aa49ac117d184e7945691a2f7cb832ff9a4efe8d6f9647d-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x401beb162d370372d586f73a63f42884c86fc48ab2d95a82405cfd0cd2cef938:8",
+      "finding": "Successful receipt records 2.966751551728919308 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 54597011496881600. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-35.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-401beb162d370372d586f73a63f42884c86fc48ab2d95a82405cfd0cd2cef938-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xac569159ece5fe6fe49fcfd77511ad264b14c793953ed9fbe75ee3eb0c9d480b:24",
+      "finding": "Successful receipt records 3.018922946745562857 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 55472807113781375. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-95.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-ac569159ece5fe6fe49fcfd77511ad264b14c793953ed9fbe75ee3eb0c9d480b-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x09e6661f89d774668fb33f3c10a708275ff42b2bc9f5770e8b400b2b92693622:214",
+      "finding": "Successful receipt records 3.030161986552630822 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 55802397888142878. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-5.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-09e6661f89d774668fb33f3c10a708275ff42b2bc9f5770e8b400b2b92693622-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xa3fbc3ebb6bf242edd00ad89bedc2ae9f88803c59501d7388349f4aa63f61895:20",
+      "finding": "Successful receipt records 3.049956325137775602 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 56396517164592934. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-90.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-a3fbc3ebb6bf242edd00ad89bedc2ae9f88803c59501d7388349f4aa63f61895-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x5b2fa0a5d6266b8680a2b16edd2855bb1434e233e2a6fcd9839783f482389e35:65",
+      "finding": "Successful receipt records 3.000213826870233659 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0x531febfeb9a61d948c384acfbe6dcc51057aea7e, reported raw output 56516129398839528. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-45.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-5b2fa0a5d6266b8680a2b16edd2855bb1434e233e2a6fcd9839783f482389e35-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0xe8826126987a91e4b22ed82ecf69f0c82ae43a50e16e76111cad5a1af6d731a4:25",
+      "finding": "Successful receipt records 3.071529044556274193 COMP sent from the configured vault to 0x99a57ac044e6ce44b7e161a07af0d3e693a75b54. The same receipt contains a reported swap: destination token 0x2170ed0880ac9a755fd29b2688956bd959f933f8, recipient 0xf081470f5c6fbccf48cc4e5b82dd926409dcdd67, reported raw output 58052248489714952. This establishes a reported conversion route, not equivalent COMP backing or Fusion settlement.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-140.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-e8826126987a91e4b22ed82ecf69f0c82ae43a50e16e76111cad5a1af6d731a4-0001.response.json"
+      ]
+    },
+    {
+      "eventId": "BSC:0x00441e737b7e64e6d78828d1058d2b2bc7f34acd3885b1ed616a6def61f9e835:45",
+      "finding": "Successful receipt records 82.000000000000000000 COMP sent from the configured vault to 0xbac20528aceee277cdd02600f06e767f7094fc8e. Five subsequent receipt-confirmed swaps spend exactly 82 COMP (41 + 11 + 10 + 10 + 10). Successful public call traces return a total of 7.102579790256389462 BNB to this recipient. Later native payments are mixed with other funds and cannot all be attributed to COMP.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-bsc-context/transactions-0.response.json",
+        "evidence/2026-10-15-comp-bsc-receipts/receipt-00441e737b7e64e6d78828d1058d2b2bc7f34acd3885b1ed616a6def61f9e835-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/manifest.json",
+        "evidence/2026-10-15-comp-bsc-recipient-receipts/receipt-00441e737b7e64e6d78828d1058d2b2bc7f34acd3885b1ed616a6def61f9e835-0001.response.json",
+        "evidence/2026-10-15-comp-bsc-trace-retry/manifest.json",
+        "evidence/2026-10-15-comp-native-recipient-history/manifest.json",
+        "evidence/2026-10-15-comp-terminal-context/manifest.json",
+        "evidence/2026-10-15-comp-terminal-traces/manifest.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xc674c28857b76280b0d78cc5e504dc9e381f91032968488d51b832a8f724ad7d:8",
+      "finding": "Successful receipt records 4.968430215682205293 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The amount was forwarded to 0x5596d991bf7753f0f14e1c5b59abbea626725401, then into a swap with additional funds. The original amount cannot be assigned to every later pool payment. Same-holder Fusion burn candidate 0x32e1a9f46f0d87d622514abac414843d7f4e572c84d19cd64d07f09825fc5ee5 destroyed 4.983280000000000000 COMP 26 seconds earlier (difference 0.014849784317794707). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/receipt-c674c28857b76280b0d78cc5e504dc9e381f91032968488d51b832a8f724ad7d-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-ethereum/context-1.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-2.response.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0x32e1a9f46f0d87d622514abac414843d7f4e572c84d19cd64d07f09825fc5ee5.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-next-token-vault-screen/comp-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xde0debe13f250e5309196b054d913e02ef6acb01ce7c6392d3bd66b0c709679e:29",
+      "finding": "Successful receipt records 1.500000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The amount was forwarded to 0x51c7876adafecbf46b5d618ee8461cfdecf25dd0. Its pinned balance is 4 COMP from two separate receipts (1.5 and 2.5); that combined balance is not an additional vault and is not counted twice.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/receipt-de0debe13f250e5309196b054d913e02ef6acb01ce7c6392d3bd66b0c709679e-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-ethereum/context-1.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-2.response.json",
+        "evidence/2026-10-15-comp-terminal-context/manifest.json",
+        "evidence/2026-10-15-next-token-vault-screen/comp-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xa522a644b6afbb8643cd362a5e02ea74d4bd7743bca3b564cb11983b6a1d7a8d:18",
+      "finding": "Successful receipt records 2.500000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The amount was forwarded to 0x51c7876adafecbf46b5d618ee8461cfdecf25dd0. Its pinned balance is 4 COMP from two separate receipts (1.5 and 2.5); that combined balance is not an additional vault and is not counted twice. Same-holder Fusion burn candidate 0x42b4d11c8e6bed08680aaed4857f1f79b61affdadb588d9dd0667015a442ad06 destroyed 2.520738657515143069 COMP 17 seconds earlier (difference 0.020738657515143069). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/receipt-a522a644b6afbb8643cd362a5e02ea74d4bd7743bca3b564cb11983b6a1d7a8d-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-ethereum/context-1.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-2.response.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0x42b4d11c8e6bed08680aaed4857f1f79b61affdadb588d9dd0667015a442ad06.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-terminal-context/manifest.json",
+        "evidence/2026-10-15-next-token-vault-screen/comp-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xa4be76404d6761afb035f072168a770cf5647016e74a428725970d3bf9a3f063:100",
+      "finding": "Successful receipt records 10.000000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The amount passed through 0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f and was swept to a Binance-labelled address. Same-holder Fusion burn candidate 0xf332849678c60b2d047eec159dfb7206d227bedb30682bb4acc4a5206990f4da destroyed 10.025764903488289560 COMP 55 seconds earlier (difference 0.025764903488289560). The fee/settlement interpretation is unverified.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/receipt-a4be76404d6761afb035f072168a770cf5647016e74a428725970d3bf9a3f063-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-ethereum/context-1.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-2.response.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/0xf332849678c60b2d047eec159dfb7206d227bedb30682bb4acc4a5206990f4da.response.json",
+        "evidence/2026-10-15-comp-fusion-public/0x413aa2ba41a42e7936cdc80853a9239704dff3f2-logs-1.response.json",
+        "evidence/2026-10-15-comp-terminal-context/manifest.json",
+        "evidence/2026-10-15-next-token-vault-screen/comp-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xb485d9a115d32f6236bbb29c180379cd5c7aa3b701d82132f78e092c7fd8c8e6:313",
+      "finding": "Successful receipt records 23.605548887447649149 COMP sent from the configured vault to 0x5596d991bf7753f0f14e1c5b59abbea626725401. The identical amount passed through 0x955f732e7c7cb53c7cf0806cac70de0cf4c03562 and was swept to a Binance-labelled address.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/receipt-b485d9a115d32f6236bbb29c180379cd5c7aa3b701d82132f78e092c7fd8c8e6-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum-terminal-state/manifest.json",
+        "evidence/2026-10-15-comp-ethereum/context-1.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-3.response.json",
+        "evidence/2026-10-15-comp-terminal-context/manifest.json",
+        "evidence/2026-10-15-next-token-vault-screen/comp-out.response.json"
+      ]
+    },
+    {
+      "eventId": "Ethereum:0xbff4dd5a00f455e3172d06da0b5aa0b86eece8cc9f37d256c83ecdb3d2bb27d5:269",
+      "finding": "Successful receipt records 4.300000000000000000 COMP sent from the configured vault to 0xbac20528aceee277cdd02600f06e767f7094fc8e. The recipient swapped the full 4.3 COMP in 0xa7b183a9cfb6bd55b444574715850e0d1179fd34ea0d64a166290fc646e3c1e1. Receipt logs show WETH routing; final native delivery is not assumed from token logs alone. The recipient also handled other funds. The public native trace remained unavailable after four paced retries.",
+      "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+      "references": [
+        "evidence/2026-10-15-comp-ethereum-followup/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-followup/receipt-bff4dd5a00f455e3172d06da0b5aa0b86eece8cc9f37d256c83ecdb3d2bb27d5-0001.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-1.response.json",
+        "evidence/2026-10-15-comp-ethereum/context-3.response.json",
+        "evidence/2026-10-15-comp-native-recipient-history/manifest.json",
+        "evidence/2026-10-15-comp-terminal-traces/manifest.json",
+        "evidence/2026-10-15-next-token-vault-screen/comp-out.response.json",
+        "evidence/2026-10-15-comp-eth-trace-retry/manifest.json"
+      ]
+    }
+  ]
+}

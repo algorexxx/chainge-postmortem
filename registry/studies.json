@@ -12924,5 +12924,1428 @@
         "Address-one inventory, expired and remaining dated rights are separate. Overlapping representations are not summed into customer liabilities. No migration deduction is applied."
       ]
     }
+  },
+  "0x072ae77d8519de9aca47725a21e418e0d694eaad": {
+    "schemaVersion": 1,
+    "title": "COMP",
+    "status": "Partial investigation",
+    "reviewed": "2026-10-15",
+    "scope": "Public-only review of Fusion event ledgers and five candidate vaults on six chains. Earlier BSC history, Base history, pinned Fusion state and consolidated claims remain unresolved.",
+    "assessment": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+    "movementsFile": "comp-movements.json",
+    "vaults": [
+      {
+        "chain": "Ethereum",
+        "token": "COMP",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "COMP",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "COMP",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "COMP",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Ethereum",
+        "token": "COMP",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "0.056883082271416753",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 23524761",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Bridged COMP",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Bridged COMP",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Bridged COMP",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Bridged COMP",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Polygon",
+        "token": "Bridged COMP",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 77364542",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Bridged COMP",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Bridged COMP",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Bridged COMP",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Bridged COMP",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Avalanche",
+        "token": "Bridged COMP",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "0.405745724557318134",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 69908002",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Bridged COMP",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Bridged COMP",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Bridged COMP",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Bridged COMP",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "BSC",
+        "token": "Bridged COMP",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "1.23230135168288891",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 63769742",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "Bridged COMP",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 386963544",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "Bridged COMP",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 386963544",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "Bridged COMP",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 386963544",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "Bridged COMP",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 386963544",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Arbitrum",
+        "token": "Bridged COMP",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "0.306816921295621969",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 386963544",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Base",
+        "token": "Bridged COMP",
+        "address": "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 36518641",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Base",
+        "token": "Bridged COMP",
+        "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 36518641",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Base",
+        "token": "Bridged COMP",
+        "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 36518641",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Base",
+        "token": "Bridged COMP",
+        "address": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 36518641",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      },
+      {
+        "chain": "Base",
+        "token": "Bridged COMP",
+        "address": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+        "role": "Candidate vault address",
+        "balance": "0",
+        "cutoff": "2025-10-07 08:43:50 UTC reference; block 36518641",
+        "note": "Public pinned balance. Tested address, not proof of complete or segregated custody; coverage limits are in the assessment.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Ethereum:0xbff4dd5a00f455e3172d06da0b5aa0b86eece8cc9f37d256c83ecdb3d2bb27d5:269",
+        "title": "Swap; native delivery boundary",
+        "amount": "4.300000000000000000",
+        "chain": "Ethereum",
+        "date": "2024-08-23T19:00:47.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Swap; native delivery boundary",
+        "explanation": "Successful receipt records 4.300000000000000000 COMP sent from the configured vault to 0xbac20528aceee277cdd02600f06e767f7094fc8e. The recipient swapped the full 4.3 COMP in 0xa7b183a9cfb6bd55b444574715850e0d1179fd34ea0d64a166290fc646e3c1e1. Receipt logs show WETH routing; final native delivery is not assumed from token logs alone. The recipient also handled other funds. The public native trace remained unavailable after four paced retries.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Ethereum",
+            "amount": "4.300000000000000000",
+            "time": "2024-08-23T19:00:47.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xbff4dd5a00f455e3172d06da0b5aa0b86eece8cc9f37d256c83ecdb3d2bb27d5"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+            "chain": "Ethereum",
+            "amount": "4.300000000000000000",
+            "time": "2024-08-23T19:00:47.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xbff4dd5a00f455e3172d06da0b5aa0b86eece8cc9f37d256c83ecdb3d2bb27d5"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x00441e737b7e64e6d78828d1058d2b2bc7f34acd3885b1ed616a6def61f9e835:45",
+        "title": "Five swaps → BNB returned to recipient",
+        "amount": "82.000000000000000000",
+        "chain": "BSC",
+        "date": "2024-08-23T18:26:05.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Five swaps → BNB returned to recipient",
+        "explanation": "Successful receipt records 82.000000000000000000 COMP sent from the configured vault to 0xbac20528aceee277cdd02600f06e767f7094fc8e. Five subsequent receipt-confirmed swaps spend exactly 82 COMP (41 + 11 + 10 + 10 + 10). Successful public call traces return a total of 7.102579790256389462 BNB to this recipient. Later native payments are mixed with other funds and cannot all be attributed to COMP.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "BSC",
+            "amount": "82.000000000000000000",
+            "time": "2024-08-23T18:26:05.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x00441e737b7e64e6d78828d1058d2b2bc7f34acd3885b1ed616a6def61f9e835"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xbac20528aceee277cdd02600f06e767f7094fc8e",
+            "chain": "BSC",
+            "amount": "82.000000000000000000",
+            "time": "2024-08-23T18:26:05.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x00441e737b7e64e6d78828d1058d2b2bc7f34acd3885b1ed616a6def61f9e835"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x4d16eba830bc7cfa46c2462e989e04019a712aa1995a7608c160492e55586b17:0",
+        "title": "Ethereum → Binance-labelled addresses",
+        "amount": "84.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2024-05-09T05:03:26.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Ethereum → Binance-labelled addresses",
+        "explanation": "Successful receipt records 84.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0xe67d503e6cb067e79264dbc5fe7e2e65979995e16de2465309b0ee0a73e2d469. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Arbitrum",
+            "amount": "84.000000000000000000",
+            "time": "2024-05-09T05:03:26.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x4d16eba830bc7cfa46c2462e989e04019a712aa1995a7608c160492e55586b17"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Arbitrum",
+            "amount": "84.000000000000000000",
+            "time": "2024-05-09T05:03:26.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x4d16eba830bc7cfa46c2462e989e04019a712aa1995a7608c160492e55586b17"
+          },
+          {
+            "label": "Verified withdrawal to Ethereum",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Ethereum",
+            "amount": "84.000000000000000000",
+            "time": "2024-05-16T05:10:11+00:00",
+            "transaction": "https://etherscan.io/tx/0xe67d503e6cb067e79264dbc5fe7e2e65979995e16de2465309b0ee0a73e2d469"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "chain": "Ethereum",
+            "amount": "84.000000000000000000",
+            "time": "2024-05-16T05:11:59+00:00",
+            "transaction": "https://etherscan.io/tx/0xdd238292b5321faa891feec17541199e4fd3b3ddce1f4a369961d7a26d2aa9a5"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "84.000000000000000000",
+            "time": "2024-05-16T05:30:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x0aed077a996678cdf96f01b58504966b27d3184a32b2796b7629ac70953f1058"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x2a561010e4ad52c555efd4d5f88aec3d126fdfcc7bc7bdaa06e1df548aec5a2c:33",
+        "title": "Ethereum → Binance-labelled addresses",
+        "amount": "60.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2024-04-29T06:41:43.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Ethereum → Binance-labelled addresses",
+        "explanation": "Successful receipt records 60.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x321928a7eed57b7f2212151a575ffb784dd4f19892e5d319f8a21aace3a338fe. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Arbitrum",
+            "amount": "60.000000000000000000",
+            "time": "2024-04-29T06:41:43.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x2a561010e4ad52c555efd4d5f88aec3d126fdfcc7bc7bdaa06e1df548aec5a2c"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Arbitrum",
+            "amount": "60.000000000000000000",
+            "time": "2024-04-29T06:41:43.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x2a561010e4ad52c555efd4d5f88aec3d126fdfcc7bc7bdaa06e1df548aec5a2c"
+          },
+          {
+            "label": "Verified withdrawal to Ethereum",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Ethereum",
+            "amount": "60.000000000000000000",
+            "time": "2024-05-06T11:27:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x321928a7eed57b7f2212151a575ffb784dd4f19892e5d319f8a21aace3a338fe"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "chain": "Ethereum",
+            "amount": "60.000000000000000000",
+            "time": "2024-05-06T11:32:59+00:00",
+            "transaction": "https://etherscan.io/tx/0x944de3cb69e131098f54e0f305eb08a2cd36aa7cc47e377d729a44a86910f79a"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "60.000000000000000000",
+            "time": "2024-05-06T12:00:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x7a98644ae05bcb082b19446088be0e6c739ad4ab5a4b44ce88dbb03857e34563"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x2804975a2501e82cfe2e0720124a4e4db9fb344836c864902b9b4aa1caf97658:6",
+        "title": "Ethereum → Binance-labelled addresses",
+        "amount": "50.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2024-04-27T04:29:30.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Ethereum → Binance-labelled addresses",
+        "explanation": "Successful receipt records 50.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x55c3cb4d845aafa1ef81e8885ac459d449a7c3b51bbdceeea9a2406a6e20502d. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Arbitrum",
+            "amount": "50.000000000000000000",
+            "time": "2024-04-27T04:29:30.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x2804975a2501e82cfe2e0720124a4e4db9fb344836c864902b9b4aa1caf97658"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Arbitrum",
+            "amount": "50.000000000000000000",
+            "time": "2024-04-27T04:29:30.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x2804975a2501e82cfe2e0720124a4e4db9fb344836c864902b9b4aa1caf97658"
+          },
+          {
+            "label": "Verified withdrawal to Ethereum",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Ethereum",
+            "amount": "50.000000000000000000",
+            "time": "2024-05-04T07:35:59+00:00",
+            "transaction": "https://etherscan.io/tx/0x55c3cb4d845aafa1ef81e8885ac459d449a7c3b51bbdceeea9a2406a6e20502d"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "chain": "Ethereum",
+            "amount": "50.000000000000000000",
+            "time": "2024-05-04T07:37:47+00:00",
+            "transaction": "https://etherscan.io/tx/0x7fa029183a703dab4929b96e7896cd3cf293498d6df7d40bd9e93b208e35d70f"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "50.000000000000000000",
+            "time": "2024-05-04T08:00:11+00:00",
+            "transaction": "https://etherscan.io/tx/0xe1e1822c5e65c8bac7942fe8e2298d1380ae229f33f5a3e97f0443ccaf09c018"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x7a5f3187ff70936a3b791f06a82fd6d93bc23c5b3cc1f8bfe410bf072690809a:57",
+        "title": "Onward Binance-labelled address",
+        "amount": "4.462073276422458399",
+        "chain": "BSC",
+        "date": "2024-04-26T09:46:49.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward Binance-labelled address",
+        "explanation": "Successful receipt records 4.462073276422458399 COMP sent from the configured vault to 0x157164fdba23ec654fb600b14752a22afc3eb83a. The amount was forwarded through 0xd97f994f71e0d4b2f4cb0e39184476dc10a63c2f to BscScan-labelled Binance 51.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "BSC",
+            "amount": "4.462073276422458399",
+            "time": "2024-04-26T09:46:49.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x7a5f3187ff70936a3b791f06a82fd6d93bc23c5b3cc1f8bfe410bf072690809a"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x157164fdba23ec654fb600b14752a22afc3eb83a",
+            "chain": "BSC",
+            "amount": "4.462073276422458399",
+            "time": "2024-04-26T09:46:49.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x7a5f3187ff70936a3b791f06a82fd6d93bc23c5b3cc1f8bfe410bf072690809a"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x275562a139e61ba864c2149b946d86460ec233b37327080ca3c9d750dd4c17ab:5",
+        "title": "Ethereum → Binance-labelled addresses",
+        "amount": "70.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2024-04-13T13:53:22.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Ethereum → Binance-labelled addresses",
+        "explanation": "Successful receipt records 70.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x642cbc29b39fdd4293b12e14ffce7ef82c19b3e35c7c89b8ce5799ddb8671207. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Arbitrum",
+            "amount": "70.000000000000000000",
+            "time": "2024-04-13T13:53:22.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x275562a139e61ba864c2149b946d86460ec233b37327080ca3c9d750dd4c17ab"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Arbitrum",
+            "amount": "70.000000000000000000",
+            "time": "2024-04-13T13:53:22.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x275562a139e61ba864c2149b946d86460ec233b37327080ca3c9d750dd4c17ab"
+          },
+          {
+            "label": "Verified withdrawal to Ethereum",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Ethereum",
+            "amount": "70.000000000000000000",
+            "time": "2024-04-21T03:51:59+00:00",
+            "transaction": "https://etherscan.io/tx/0x642cbc29b39fdd4293b12e14ffce7ef82c19b3e35c7c89b8ce5799ddb8671207"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "chain": "Ethereum",
+            "amount": "70.000000000000000000",
+            "time": "2024-04-21T03:59:23+00:00",
+            "transaction": "https://etherscan.io/tx/0x9bc465b66a593746208398fd6aaa5d3ed629eb59bea85b247814dc3898f5d50a"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "70.000000000000000000",
+            "time": "2024-04-21T04:00:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x4e0892c8aa04e3624c89f338a5baac7a438e6d45e787366b59f86b368ab60481"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x5c0faa190d63eff7095f9037d3a056abd844ff03d5a6d9d3a445f1ce373f89a4:15",
+        "title": "Ethereum → Binance-labelled addresses",
+        "amount": "40.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2024-04-05T04:07:26.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Ethereum → Binance-labelled addresses",
+        "explanation": "Successful receipt records 40.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0x3424f4d917098fdcdb66c6c5264628d358365d6adcc68dc02bdc6172ad46693f. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Arbitrum",
+            "amount": "40.000000000000000000",
+            "time": "2024-04-05T04:07:26.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x5c0faa190d63eff7095f9037d3a056abd844ff03d5a6d9d3a445f1ce373f89a4"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Arbitrum",
+            "amount": "40.000000000000000000",
+            "time": "2024-04-05T04:07:26.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x5c0faa190d63eff7095f9037d3a056abd844ff03d5a6d9d3a445f1ce373f89a4"
+          },
+          {
+            "label": "Verified withdrawal to Ethereum",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Ethereum",
+            "amount": "40.000000000000000000",
+            "time": "2024-04-12T04:22:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x3424f4d917098fdcdb66c6c5264628d358365d6adcc68dc02bdc6172ad46693f"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "chain": "Ethereum",
+            "amount": "40.000000000000000000",
+            "time": "2024-04-12T04:23:35+00:00",
+            "transaction": "https://etherscan.io/tx/0xead9879d14762908720ee348770e01e7e0a2fc781f31656268a4bdfa6c418663"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "40.000000000000000000",
+            "time": "2024-04-12T04:30:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x0caa189e763ee56c480bddfc94d4506c3a686eb070fe2beeb7c458f5dc31b749"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x3fa2b13f28c140bc5d68ee26f3c498e208876b7f7860d9901f156de016b481a3:0",
+        "title": "Ethereum → Binance-labelled addresses",
+        "amount": "10.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2024-03-19T13:36:39.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Ethereum → Binance-labelled addresses",
+        "explanation": "Successful receipt records 10.000000000000000000 COMP sent from the configured vault to 0x440872cfddac749d9f201234395fc20ed5480a80. A complete Arbitrum withdrawal message matches Ethereum execution 0xec64495cfeedf980a6eb344444e43fdc613472a6b200c14b1d82ec45d8d284a3. The identical COMP amount then reached the Binance-labelled deposit address and was swept to a Binance-labelled address. Account ownership and credited balance are not public.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Arbitrum",
+            "amount": "10.000000000000000000",
+            "time": "2024-03-19T13:36:39.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x3fa2b13f28c140bc5d68ee26f3c498e208876b7f7860d9901f156de016b481a3"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Arbitrum",
+            "amount": "10.000000000000000000",
+            "time": "2024-03-19T13:36:39.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x3fa2b13f28c140bc5d68ee26f3c498e208876b7f7860d9901f156de016b481a3"
+          },
+          {
+            "label": "Verified withdrawal to Ethereum",
+            "address": "0x440872cfddac749d9f201234395fc20ed5480a80",
+            "chain": "Ethereum",
+            "amount": "10.000000000000000000",
+            "time": "2024-03-26T02:17:35+00:00",
+            "transaction": "https://etherscan.io/tx/0xec64495cfeedf980a6eb344444e43fdc613472a6b200c14b1d82ec45d8d284a3"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x9b29937d3b1489e7142c6905bb3e61b3cd472763",
+            "chain": "Ethereum",
+            "amount": "10.000000000000000000",
+            "time": "2024-04-05T03:37:35+00:00",
+            "transaction": "https://etherscan.io/tx/0x6721352d81b20adf0a57b0e774472b4fb3e53e7d7b4508a9baff58fae3d6434d"
+          },
+          {
+            "label": "Binance-labelled address",
+            "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+            "chain": "Ethereum",
+            "amount": "10.000000000000000000",
+            "time": "2024-04-05T04:00:11+00:00",
+            "transaction": "https://etherscan.io/tx/0x5af0dfcb246da4334aec36cc18490db8e1f723a9dcef9ba097653ed0aea0f980"
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0xb485d9a115d32f6236bbb29c180379cd5c7aa3b701d82132f78e092c7fd8c8e6:313",
+        "title": "Onward exchange-labelled address",
+        "amount": "23.605548887447649149",
+        "chain": "Ethereum",
+        "date": "2024-03-12T20:59:23.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward exchange-labelled address",
+        "explanation": "Successful receipt records 23.605548887447649149 COMP sent from the configured vault to 0x5596d991bf7753f0f14e1c5b59abbea626725401. The identical amount passed through 0x955f732e7c7cb53c7cf0806cac70de0cf4c03562 and was swept to a Binance-labelled address.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "Ethereum",
+            "amount": "23.605548887447649149",
+            "time": "2024-03-12T20:59:23.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xb485d9a115d32f6236bbb29c180379cd5c7aa3b701d82132f78e092c7fd8c8e6"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x5596d991bf7753f0f14e1c5b59abbea626725401",
+            "chain": "Ethereum",
+            "amount": "23.605548887447649149",
+            "time": "2024-03-12T20:59:23.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xb485d9a115d32f6236bbb29c180379cd5c7aa3b701d82132f78e092c7fd8c8e6"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x0fc6cedcb448e5c98e1bd132fe995eedcdd3263ea368353fa611a949ab9d3ebe:220",
+        "title": "Onward swap",
+        "amount": "4.362508356678326384",
+        "chain": "BSC",
+        "date": "2024-03-06T00:31:48.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward swap",
+        "explanation": "Successful receipt records 4.362508356678326384 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The retained recipient route leads into swaps, directly or through 0x5596d991bf7753f0f14e1c5b59abbea626725401; receipt quantities supersede rounded index amounts.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+            "chain": "BSC",
+            "amount": "4.362508356678326384",
+            "time": "2024-03-06T00:31:48.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x0fc6cedcb448e5c98e1bd132fe995eedcdd3263ea368353fa611a949ab9d3ebe"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x895966bac4ae8356326d703a8b4cf6938072ccbd",
+            "chain": "BSC",
+            "amount": "4.362508356678326384",
+            "time": "2024-03-06T00:31:48.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x0fc6cedcb448e5c98e1bd132fe995eedcdd3263ea368353fa611a949ab9d3ebe"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0x236910d76512d9328f73670afd851bcbd481d1eb09ed373e3999304ba84bf074:78",
+        "title": "Onward address; ownership unverified",
+        "amount": "4.518091823053062768",
+        "chain": "BSC",
+        "date": "2024-01-01T16:12:21.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward address; ownership unverified",
+        "explanation": "Successful receipt records 4.518091823053062768 COMP sent from the configured vault to 0x91362ba7fc98120398646d51b5ea4ad9ae34ee76. Exact onward receipts and zero intermediate COMP balances are retained. The public route reaches a further address whose beneficial owner is not established for this chain; no exchange credit or settlement is inferred. Same-holder Fusion burn candidate 0x34844e62351f806b43312ce7134a83eeecaf81c0c9bbccece2af70a5467e008c destroyed 4.521081291046637136 COMP 25834 seconds earlier (difference 0.002989467993574368). The fee/settlement interpretation is unverified. Same-holder Fusion burn candidate 0x3f89a4b76929d5219ce8a0941eec3935b8878fe53c3d2b3f5c5431b831c38b3c destroyed 4.521081291046637136 COMP 52027 seconds earlier (difference 0.002989467993574368). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "4.518091823053062768",
+            "time": "2024-01-01T16:12:21.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x236910d76512d9328f73670afd851bcbd481d1eb09ed373e3999304ba84bf074"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x91362ba7fc98120398646d51b5ea4ad9ae34ee76",
+            "chain": "BSC",
+            "amount": "4.518091823053062768",
+            "time": "2024-01-01T16:12:21.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0x236910d76512d9328f73670afd851bcbd481d1eb09ed373e3999304ba84bf074"
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0xa4be76404d6761afb035f072168a770cf5647016e74a428725970d3bf9a3f063:100",
+        "title": "Onward exchange-labelled address",
+        "amount": "10.000000000000000000",
+        "chain": "Ethereum",
+        "date": "2024-01-01T15:54:23.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward exchange-labelled address",
+        "explanation": "Successful receipt records 10.000000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The amount passed through 0x35cba6ab1f851cdbf9accf17aa7fd98679bf3e3f and was swept to a Binance-labelled address. Same-holder Fusion burn candidate 0xf332849678c60b2d047eec159dfb7206d227bedb30682bb4acc4a5206990f4da destroyed 10.025764903488289560 COMP 55 seconds earlier (difference 0.025764903488289560). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Ethereum",
+            "amount": "10.000000000000000000",
+            "time": "2024-01-01T15:54:23.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xa4be76404d6761afb035f072168a770cf5647016e74a428725970d3bf9a3f063"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "chain": "Ethereum",
+            "amount": "10.000000000000000000",
+            "time": "2024-01-01T15:54:23.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xa4be76404d6761afb035f072168a770cf5647016e74a428725970d3bf9a3f063"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0xa89ac05f5ac7b4e746a2666033aaf8279bebd1e6f4596a1e1702916659baadcb:1",
+        "title": "Bridged to Ethereum; vault return observed",
+        "amount": "30.000000000000000000",
+        "chain": "Arbitrum",
+        "date": "2023-11-06T07:39:50.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Bridged to Ethereum; vault return observed",
+        "explanation": "Successful receipt records 30.000000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The recipient forwarded 30 COMP, which was withdrawn to Ethereum with a matching complete bridge message and returned to this recipient there. Its Ethereum history then records 30 COMP paid back to a configured vault. Cross-chain routing/return is a competing explanation, not accepted settlement. Same-holder Fusion burn candidate 0x0002127c739b93cc117abbf4ed30eca25a12046ad216d7a435d0b77846c0f639 destroyed 30.019056190589835661 COMP 32 seconds earlier (difference 0.019056190589835661). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Arbitrum",
+            "amount": "30.000000000000000000",
+            "time": "2023-11-06T07:39:50.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0xa89ac05f5ac7b4e746a2666033aaf8279bebd1e6f4596a1e1702916659baadcb"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "chain": "Arbitrum",
+            "amount": "30.000000000000000000",
+            "time": "2023-11-06T07:39:50.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0xa89ac05f5ac7b4e746a2666033aaf8279bebd1e6f4596a1e1702916659baadcb"
+          }
+        ]
+      },
+      {
+        "id": "Avalanche:0xa2046ec232cb81e3825984a0aa79d62e44bc82b7ed8bb019f79beff94c27914e:1",
+        "title": "Partly retained / partly forwarded",
+        "amount": "0.003797803417443789",
+        "chain": "Avalanche",
+        "date": "2023-05-07T20:09:23.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Partly retained / partly forwarded",
+        "explanation": "Successful receipt records 0.003797803417443789 COMP sent from the configured vault to 0xd377cffcc52c16bf6e9840e77f78f42ddb946568. Public recipient history and pinned state show partial onward transfers and a residual balance. Recipient funds are not included as vault backing; ownership and accepted settlement remain unproven.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Avalanche",
+            "amount": "0.003797803417443789",
+            "time": "2023-05-07T20:09:23.0000000+00:00",
+            "transaction": "https://snowtrace.io/tx/0xa2046ec232cb81e3825984a0aa79d62e44bc82b7ed8bb019f79beff94c27914e"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xd377cffcc52c16bf6e9840e77f78f42ddb946568",
+            "chain": "Avalanche",
+            "amount": "0.003797803417443789",
+            "time": "2023-05-07T20:09:23.0000000+00:00",
+            "transaction": "https://snowtrace.io/tx/0xa2046ec232cb81e3825984a0aa79d62e44bc82b7ed8bb019f79beff94c27914e"
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0xa522a644b6afbb8643cd362a5e02ea74d4bd7743bca3b564cb11983b6a1d7a8d:18",
+        "title": "Recipient holds combined 4 COMP",
+        "amount": "2.500000000000000000",
+        "chain": "Ethereum",
+        "date": "2023-01-14T11:49:47.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Recipient holds combined 4 COMP",
+        "explanation": "Successful receipt records 2.500000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The amount was forwarded to 0x51c7876adafecbf46b5d618ee8461cfdecf25dd0. Its pinned balance is 4 COMP from two separate receipts (1.5 and 2.5); that combined balance is not an additional vault and is not counted twice. Same-holder Fusion burn candidate 0x42b4d11c8e6bed08680aaed4857f1f79b61affdadb588d9dd0667015a442ad06 destroyed 2.520738657515143069 COMP 17 seconds earlier (difference 0.020738657515143069). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Ethereum",
+            "amount": "2.500000000000000000",
+            "time": "2023-01-14T11:49:47.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xa522a644b6afbb8643cd362a5e02ea74d4bd7743bca3b564cb11983b6a1d7a8d"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "chain": "Ethereum",
+            "amount": "2.500000000000000000",
+            "time": "2023-01-14T11:49:47.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xa522a644b6afbb8643cd362a5e02ea74d4bd7743bca3b564cb11983b6a1d7a8d"
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0xde0debe13f250e5309196b054d913e02ef6acb01ce7c6392d3bd66b0c709679e:29",
+        "title": "Recipient holds combined 4 COMP",
+        "amount": "1.500000000000000000",
+        "chain": "Ethereum",
+        "date": "2023-01-14T08:20:47.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Recipient holds combined 4 COMP",
+        "explanation": "Successful receipt records 1.500000000000000000 COMP sent from the configured vault to 0xda832772b9fa5610223d41b7c0f09eff9d21ca2c. The amount was forwarded to 0x51c7876adafecbf46b5d618ee8461cfdecf25dd0. Its pinned balance is 4 COMP from two separate receipts (1.5 and 2.5); that combined balance is not an additional vault and is not counted twice.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Ethereum",
+            "amount": "1.500000000000000000",
+            "time": "2023-01-14T08:20:47.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xde0debe13f250e5309196b054d913e02ef6acb01ce7c6392d3bd66b0c709679e"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xda832772b9fa5610223d41b7c0f09eff9d21ca2c",
+            "chain": "Ethereum",
+            "amount": "1.500000000000000000",
+            "time": "2023-01-14T08:20:47.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xde0debe13f250e5309196b054d913e02ef6acb01ce7c6392d3bd66b0c709679e"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0xf4f3ebb9d63d648c7b9b217771a563760b66d598aaa159afe59c37826515fc04:24",
+        "title": "Onward address; ownership unverified",
+        "amount": "8.926041821711024582",
+        "chain": "BSC",
+        "date": "2023-01-06T02:18:06.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward address; ownership unverified",
+        "explanation": "Successful receipt records 8.926041821711024582 COMP sent from the configured vault to 0xbbb2fa6e6f8d2b04d1d462edbc81aa38ce3493a6. Exact onward receipts and zero intermediate COMP balances are retained. The public route reaches a further address whose beneficial owner is not established for this chain; no exchange credit or settlement is inferred. Same-holder Fusion burn candidate 0xffdacd85e05cfe7ae4df493a0a6cda0b5747ed1e1e3ccfa56333a74ae612eaf3 destroyed 8.928370065012189068 COMP 7225 seconds earlier (difference 0.002328243301164486). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "8.926041821711024582",
+            "time": "2023-01-06T02:18:06.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0xf4f3ebb9d63d648c7b9b217771a563760b66d598aaa159afe59c37826515fc04"
+          },
+          {
+            "label": "Recipient",
+            "address": "0xbbb2fa6e6f8d2b04d1d462edbc81aa38ce3493a6",
+            "chain": "BSC",
+            "amount": "8.926041821711024582",
+            "time": "2023-01-06T02:18:06.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0xf4f3ebb9d63d648c7b9b217771a563760b66d598aaa159afe59c37826515fc04"
+          }
+        ]
+      },
+      {
+        "id": "Arbitrum:0x22a60cebb60b7f469c8e7d81aab789394cd39ce02ef1378b14bd9c78bebb6fb4:0",
+        "title": "Onward swap",
+        "amount": "5.467587027535061131",
+        "chain": "Arbitrum",
+        "date": "2022-12-21T15:15:54.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward swap",
+        "explanation": "Successful receipt records 5.467587027535061131 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The recipient forwarded the amount to 0x5596d991bf7753f0f14e1c5b59abbea626725401, which routed the same amount into a subsequent swap. Both recipient COMP balances are zero at the cutoff; broader account mixing and ownership remain unresolved. Same-holder Fusion burn candidate 0xd3ec06c58d6e2551d6285ae0fd6b6bacaf9aafda2925a73305e9fc728afa0c33 destroyed 5.474186963119570738 COMP 14 seconds earlier (difference 0.006599935584509607). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Arbitrum",
+            "amount": "5.467587027535061131",
+            "time": "2022-12-21T15:15:54.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x22a60cebb60b7f469c8e7d81aab789394cd39ce02ef1378b14bd9c78bebb6fb4"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x895966bac4ae8356326d703a8b4cf6938072ccbd",
+            "chain": "Arbitrum",
+            "amount": "5.467587027535061131",
+            "time": "2022-12-21T15:15:54.0000000+00:00",
+            "transaction": "https://arbiscan.io/tx/0x22a60cebb60b7f469c8e7d81aab789394cd39ce02ef1378b14bd9c78bebb6fb4"
+          }
+        ]
+      },
+      {
+        "id": "Avalanche:0x5e8e1f1016864f553053cecc8d8ef02d04b692347bee69ca1aa8af47c7900aaf:0",
+        "title": "Partly retained / partly forwarded",
+        "amount": "0.004342040040357571",
+        "chain": "Avalanche",
+        "date": "2022-12-20T16:25:27.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Partly retained / partly forwarded",
+        "explanation": "Successful receipt records 0.004342040040357571 COMP sent from the configured vault to 0x62ef5c4f5cf0597d06860116644b2181ec1b4f13. Public recipient history and pinned state show partial onward transfers and a residual balance. Recipient funds are not included as vault backing; ownership and accepted settlement remain unproven.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Avalanche",
+            "amount": "0.004342040040357571",
+            "time": "2022-12-20T16:25:27.0000000+00:00",
+            "transaction": "https://snowtrace.io/tx/0x5e8e1f1016864f553053cecc8d8ef02d04b692347bee69ca1aa8af47c7900aaf"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x62ef5c4f5cf0597d06860116644b2181ec1b4f13",
+            "chain": "Avalanche",
+            "amount": "0.004342040040357571",
+            "time": "2022-12-20T16:25:27.0000000+00:00",
+            "transaction": "https://snowtrace.io/tx/0x5e8e1f1016864f553053cecc8d8ef02d04b692347bee69ca1aa8af47c7900aaf"
+          }
+        ]
+      },
+      {
+        "id": "Ethereum:0xc674c28857b76280b0d78cc5e504dc9e381f91032968488d51b832a8f724ad7d:8",
+        "title": "Mixed funds → swap",
+        "amount": "4.968430215682205293",
+        "chain": "Ethereum",
+        "date": "2022-11-24T23:22:23.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Mixed funds → swap",
+        "explanation": "Successful receipt records 4.968430215682205293 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The amount was forwarded to 0x5596d991bf7753f0f14e1c5b59abbea626725401, then into a swap with additional funds. The original amount cannot be assigned to every later pool payment. Same-holder Fusion burn candidate 0x32e1a9f46f0d87d622514abac414843d7f4e572c84d19cd64d07f09825fc5ee5 destroyed 4.983280000000000000 COMP 26 seconds earlier (difference 0.014849784317794707). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "Ethereum",
+            "amount": "4.968430215682205293",
+            "time": "2022-11-24T23:22:23.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xc674c28857b76280b0d78cc5e504dc9e381f91032968488d51b832a8f724ad7d"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x895966bac4ae8356326d703a8b4cf6938072ccbd",
+            "chain": "Ethereum",
+            "amount": "4.968430215682205293",
+            "time": "2022-11-24T23:22:23.0000000+00:00",
+            "transaction": "https://etherscan.io/tx/0xc674c28857b76280b0d78cc5e504dc9e381f91032968488d51b832a8f724ad7d"
+          }
+        ]
+      },
+      {
+        "id": "BSC:0xf85e2b7a1425a5907e85d9b1f8503bda577f5300193cbe35a868326615548a28:2",
+        "title": "Onward swap",
+        "amount": "6.550969449380024251",
+        "chain": "BSC",
+        "date": "2022-11-15T17:08:40.0000000+00:00",
+        "status": "Unmatched",
+        "endpoint": "Onward swap",
+        "explanation": "Successful receipt records 6.550969449380024251 COMP sent from the configured vault to 0x895966bac4ae8356326d703a8b4cf6938072ccbd. The retained recipient route leads into swaps, directly or through 0x5596d991bf7753f0f14e1c5b59abbea626725401; receipt quantities supersede rounded index amounts. Same-holder Fusion burn candidate 0x62ebb4395c6e53efec8d704dcfde68969bd80487ed82e3618e81829cde3cc50d destroyed 6.552940000000000000 COMP 19 seconds earlier (difference 0.001970550619975749). The fee/settlement interpretation is unverified.",
+        "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+        "limitation": "Reviewed disposition, not accepted settlement. Public-only Fusion state and earlier BSC/Base history remain incomplete. Reopen on authenticated settlement/ownership records, complete histories, or contrary receipt/state evidence.",
+        "steps": [
+          {
+            "label": "Likely vault",
+            "address": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+            "chain": "BSC",
+            "amount": "6.550969449380024251",
+            "time": "2022-11-15T17:08:40.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0xf85e2b7a1425a5907e85d9b1f8503bda577f5300193cbe35a868326615548a28"
+          },
+          {
+            "label": "Recipient",
+            "address": "0x895966bac4ae8356326d703a8b4cf6938072ccbd",
+            "chain": "BSC",
+            "amount": "6.550969449380024251",
+            "time": "2022-11-15T17:08:40.0000000+00:00",
+            "transaction": "https://bscscan.com/tx/0xf85e2b7a1425a5907e85d9b1f8503bda577f5300193cbe35a868326615548a28"
+          }
+        ]
+      }
+    ],
+    "overviewLinks": [
+      {
+        "label": "Full assessment and evidence limits",
+        "url": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+      }
+    ],
+    "vaultComparison": {
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+      "snapshotNote": "Compact reviewed pinned public balances for the shared site; refresh from retained state and adjacent reference headers. Unknown custody is not assumed zero.",
+      "groups": [
+        {
+          "chain": "Ethereum",
+          "token": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+          "tokenLabel": "COMP",
+          "block": 23524761,
+          "decimals": 18,
+          "method": "Anonymous public historical balanceOf calls",
+          "treatment": "included",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-targeted-source-retry/Ethereum-5.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-targeted-source-retry/Ethereum-6.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-targeted-source-retry/Ethereum-7.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-targeted-source-retry/Ethereum-8.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "56883082271416753",
+              "source": "evidence/2026-10-15-comp-targeted-source-retry/Ethereum-9.request.json"
+            }
+          ]
+        },
+        {
+          "chain": "Polygon",
+          "token": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+          "tokenLabel": "Bridged COMP",
+          "block": 77364542,
+          "decimals": 18,
+          "method": "Anonymous public historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Polygon-5.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Polygon-6.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Polygon-7.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Polygon-8.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Polygon-9.request.json"
+            }
+          ],
+          "reason": "Bridge or peg backing and redeemability are not independently established."
+        },
+        {
+          "chain": "Avalanche",
+          "token": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437",
+          "tokenLabel": "Bridged COMP",
+          "block": 69908002,
+          "decimals": 18,
+          "method": "Anonymous public historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Avalanche-5.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Avalanche-6.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Avalanche-7.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Avalanche-8.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "405745724557318134",
+              "source": "evidence/2026-10-15-comp-source-state/Avalanche-9.request.json"
+            }
+          ],
+          "reason": "Bridge or peg backing and redeemability are not independently established."
+        },
+        {
+          "chain": "BSC",
+          "token": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+          "tokenLabel": "Bridged COMP",
+          "block": 63769742,
+          "decimals": 18,
+          "method": "Anonymous public historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-bsc-state-base-history/BSC-5.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-bsc-state-base-history/BSC-6.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-bsc-state-base-history/BSC-7.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-bsc-state-base-history/BSC-8.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "1232301351682888910",
+              "source": "evidence/2026-10-15-comp-bsc-state-base-history/BSC-9.request.json"
+            }
+          ],
+          "reason": "Bridge or peg backing and redeemability are not independently established."
+        },
+        {
+          "chain": "Arbitrum",
+          "token": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+          "tokenLabel": "Bridged COMP",
+          "block": 386963544,
+          "decimals": 18,
+          "method": "Anonymous public historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-l2-retry/Arbitrum-state-5.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-l2-retry/Arbitrum-state-6.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-l2-retry/Arbitrum-state-7.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-l2-retry/Arbitrum-state-8.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "306816921295621969",
+              "source": "evidence/2026-10-15-comp-l2-retry/Arbitrum-state-9.request.json"
+            }
+          ],
+          "reason": "Bridge or peg backing and redeemability are not independently established."
+        },
+        {
+          "chain": "Base",
+          "token": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+          "tokenLabel": "Bridged COMP",
+          "block": 36518641,
+          "decimals": 18,
+          "method": "Anonymous public historical balanceOf calls",
+          "treatment": "separate",
+          "positions": [
+            {
+              "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Base-5.request.json"
+            },
+            {
+              "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Base-6.request.json"
+            },
+            {
+              "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Base-7.request.json"
+            },
+            {
+              "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Base-8.request.json"
+            },
+            {
+              "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+              "rawAmount": "0",
+              "source": "evidence/2026-10-15-comp-source-state/Base-9.request.json"
+            }
+          ],
+          "reason": "Bridge or peg backing and redeemability are not independently established."
+        }
+      ]
+    },
+    "fusionStatistics": {
+      "referenceBlock": 15130080,
+      "referenceTime": "2025-10-07T08:43:50.000Z",
+      "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md",
+      "configurationSha256": "5b86ec49789f946bfe73810b76e604f79a131c9ce9908560fec2cbc7e1aa44ce",
+      "snapshotNote": "Compact reviewed event-ledger snapshot, not independently queried historical Fusion balances. Reproduce from the current reconciliation; do not sum overlapping representations as claims.",
+      "tokens": [
+        {
+          "address": "0x072ae77d8519de9aca47725a21e418e0d694eaad",
+          "decimals": 18,
+          "fullTime": true,
+          "eventCount": 189,
+          "mintedRaw": "202190579771197089724",
+          "burnedRaw": "127459771153144185987"
+        },
+        {
+          "address": "0x1e5f7162443a8489d0cb724b012e9d495350cfa6",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 104,
+          "mintedRaw": "1000012338927653039452209",
+          "burnedRaw": "57076709069447151901983"
+        },
+        {
+          "address": "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 17,
+          "mintedRaw": "1000012338927653039452209",
+          "burnedRaw": "0"
+        },
+        {
+          "address": "0x413aa2ba41a42e7936cdc80853a9239704dff3f2",
+          "decimals": 18,
+          "fullTime": true,
+          "eventCount": 611,
+          "mintedRaw": "2028292589134307156073694",
+          "burnedRaw": "1010266351236984409366585"
+        },
+        {
+          "address": "0xd19aaf97e2d2d92c0c920c902005eae77b53269f",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 16,
+          "mintedRaw": "8015785111728321834863",
+          "burnedRaw": "8015785111728321833829"
+        },
+        {
+          "address": "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192",
+          "decimals": 18,
+          "fullTime": false,
+          "eventCount": 4,
+          "mintedRaw": "8015785111728321834863",
+          "burnedRaw": "0"
+        }
+      ],
+      "checks": [
+        {
+          "text": "Newer event net issuance agrees with FSNEX reported supply; all retained events have public receipt/block context.",
+          "source": "https://github.com/algorexxx/chainge-postmortem/blob/main/research/assets/comp.md"
+        }
+      ],
+      "notes": [
+        "No private RPC was used. Fusion holder balances and restriction flags are unverified.",
+        "Legacy rights and the newer contract are not independently additive customer liabilities. Earlier FRC758 event models are excluded from these standard-ledger totals."
+      ]
+    },
+    "announcementIds": [
+      "2025-blacklisting",
+      "2025-suspension"
+    ],
+    "announcementScopeNote": "General announcements, not a verified COMP-specific incident date. Their publication dates do not establish when an issue began."
   }
 }

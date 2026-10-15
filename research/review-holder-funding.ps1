@@ -1,5 +1,7 @@
 param(
     [Parameter(Mandatory)][string]$Asset,
+    [ValidatePattern('^0x[0-9a-fA-F]{40}$')][string]$LedgerToken,
+    [string]$ReportDirectory,
     [ValidateRange(1,1000)][int]$TopCount = 3,
     [string]$OutputDirectory = 'archives/holder-funding'
 )
@@ -30,9 +32,24 @@ try {
     $assetName = $Asset.ToLowerInvariant()
     $config = Read-Json "reconciliation/$assetName.json"
     $matches = @((Read-Json 'registry/studies.json').GetEnumerator() | Where-Object { $_.Value.movementsFile -eq "$assetName-movements.json" })
-    if ($matches.Count -ne 1 -or -not $matches[0].Value.claimReview) { throw 'Exactly one published holder inventory is required.' }
-    $study = $matches[0].Value
-    $token = $matches[0].Key
+    $inventoryBasis = 'Published independently observed holder inventory.'
+    if ($LedgerToken) {
+        if (-not $ReportDirectory) { $ReportDirectory = "archives/reconciliation/$assetName" }
+        $ledger = Read-Json "$ReportDirectory/claim-positions.json"
+        $configurationHash = (Get-FileHash "reconciliation/$assetName.json" -Algorithm SHA256).Hash.ToLowerInvariant()
+        if ($ledger.configurationSha256 -cne $configurationHash) { throw 'Regenerate the stale claim ledger first.' }
+        if (-not $config.policy.claimIntervals.ContainsKey($LedgerToken)) { throw 'Token has no reviewed claim interval.' }
+        $positions = @($ledger.positions | Where-Object { $_.token -eq $LedgerToken -and [Numerics.BigInteger]::Parse($_.rawAmount) -gt 0 })
+        if (-not $positions.Count -or @($positions | Where-Object historyConsistent -NE $true).Count) { throw 'No consistent positive ledger inventory for this token.' }
+        $study = @{ title=$config.asset; claimReview=@{ referenceBlock=$ledger.claimCutoffBlock; positions=$positions } }
+        $token = $LedgerToken.ToLowerInvariant()
+        $inventoryBasis = 'Retained event replay only; balances and restrictions are NOT independently observed. Funding analysis does not verify the inventory.'
+    }
+    else {
+        if ($matches.Count -ne 1 -or -not $matches[0].Value.claimReview) { throw 'Exactly one published holder inventory is required, or explicitly use -LedgerToken for unverified event-replay analysis.' }
+        $study = $matches[0].Value
+        $token = $matches[0].Key
+    }
     $events = @{}
     $inputHashes = @{}
     foreach ($source in $config.sources | Where-Object chain -EQ Fusion) {
@@ -63,11 +80,11 @@ try {
         $sent = [System.Numerics.BigInteger]::Zero
         foreach ($event in $incoming) { $received += [System.Numerics.BigInteger]::Parse($event.rawAmount) }
         foreach ($event in $outgoing) { $sent += [System.Numerics.BigInteger]::Parse($event.rawAmount) }
-        if (($received - $sent).ToString() -ne $position.rawAmount) { throw "Funding history does not reconcile to published balance: $($position.holder)" }
+        if (($received - $sent).ToString() -ne $position.rawAmount) { throw "Funding history does not reconcile to selected inventory: $($position.holder)" }
         $holders += [ordered]@{ holder = $position.holder; decimals = $position.decimals; rawBalance = $position.rawAmount; rawReceived = $received.ToString(); rawSent = $sent.ToString(); incoming = $incoming; outgoing = $outgoing }
     }
     New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
-    $report = [ordered]@{ asset = $study.title; token = $token; referenceBlock = $study.claimReview.referenceBlock; scope = 'Observed Fusion transfers only. Minting is not proof of a source-chain deposit; equal amounts do not prove common ownership or replacement. Reconciled balances do not prove complete custody.'; inputHashes = $inputHashes; holders = $holders }
+    $report = [ordered]@{ asset = $study.title; token = $token; referenceBlock = $study.claimReview.referenceBlock; inventoryBasis = $inventoryBasis; scope = 'Observed Fusion transfers only. Minting is not proof of a source-chain deposit; equal amounts do not prove common ownership or replacement. Reconciled balances do not prove complete custody.'; inputHashes = $inputHashes; holders = $holders }
     $path = Join-Path $OutputDirectory "$assetName.json"
     $report | ConvertTo-Json -Depth 30 | Set-Content -LiteralPath $path -Encoding utf8
     Write-Output "Reconciled $($holders.Count) largest $($study.title) holders from $($events.Count) distinct Fusion transfers: $path"

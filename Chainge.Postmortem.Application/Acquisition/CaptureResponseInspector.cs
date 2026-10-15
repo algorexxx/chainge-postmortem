@@ -31,8 +31,8 @@ public static class CaptureResponseInspector
         return method switch
         {
             "eth_getLogs" => result.ValueKind == JsonValueKind.Array,
-            "eth_getBlockByHash" or "eth_getBlockByNumber" or "eth_getTransactionReceipt" or "eth_getTransactionByHash" => result.ValueKind == JsonValueKind.Object,
-            "eth_chainId" or "eth_call" or "eth_getCode" => result.ValueKind == JsonValueKind.String && result.GetString()!.StartsWith("0x", StringComparison.Ordinal),
+            "eth_getBlockByHash" or "eth_getBlockByNumber" or "eth_getTransactionReceipt" or "eth_getTransactionByHash" or "debug_traceTransaction" => result.ValueKind == JsonValueKind.Object,
+            "eth_chainId" or "eth_call" or "eth_getCode" or "eth_getBalance" => result.ValueKind == JsonValueKind.String && result.GetString()!.StartsWith("0x", StringComparison.Ordinal),
             _ => false
         };
     }

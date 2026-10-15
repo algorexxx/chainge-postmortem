@@ -1,0 +1,11 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "0xeecb04b-header",
+          "method": "eth_getBlockByNumber",
+          "params": [
+            "0xeecb04b",
+            false
+          ]
+        }
+      ]

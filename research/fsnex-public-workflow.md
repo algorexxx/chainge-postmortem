@@ -34,6 +34,16 @@ Add a `sources` entry with `chain: "Fusion"`, `format: "fsnex-transaction"`, the
 
 ## State and tracing limits
 
+Capture the unique block identities referenced by selected Fusion evidence with:
+
+```powershell
+./research/capture-fsnex-headers.ps1 -Asset comp -OutputDirectory evidence/YYYY-MM-DD-comp-fsnex-headers
+```
+
+This resumes hash-checked captures, checks each returned number and hash against the original logs, and seals the package only after every header succeeds. Select these responses as an ordinary Fusion source, without the `fsnex-transaction` format. For transaction sources use `0x*.response.json` so the network-range capture is not interpreted as a transaction.
+
+If pinned holder state is unavailable, `./research/review-holder-funding.ps1 -Asset comp -LedgerToken 0x072ae77d8519de9aca47725a21e418e0d694eaad` can inspect the largest event-replayed positions before publication. Its report explicitly labels the inventory unverified. Do not publish those positions as independently observed `claimReview` balances or mark the Fusion-state gate verified. The default mode still requires a published, independently checked holder inventory.
+
 FSNEX does not offer a general public JSON-RPC proxy. Its contract-read endpoint accepts ABI-declared read functions for verified contracts, currently at `latest`; it is not an arbitrary historical `eth_call` endpoint. The BAT newer contract's function lookup returned 404 during this check. Stored token supply/holder balances and contract code carry their own observation/projection limits and must not be mislabeled as fresh pinned RPC calls.
 
 For pinned holder balances, restrictions or unavailable traces, preserve contributed node evidence separately, or state the gap. A contributor can still reproduce the public history and receipt analysis without private access. Do not claim that all Fusion evidence is inaccessible merely because a local tunnel is closed.

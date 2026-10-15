@@ -6,6 +6,33 @@ namespace Chainge.Postmortem.Application.Tests.Acquisition;
 
 public sealed class CapturePlanInspectorTests
 {
+    [Fact]
+    public void ValidatePlan_BuiltInCallTracer_ShouldAcceptPinnedTransaction()
+    {
+        var query = CaptureFixture.Query() with { Request = JsonSerializer.SerializeToElement(new { id = "trace", method = "debug_traceTransaction", @params = new object[] { "0x1111111111111111111111111111111111111111111111111111111111111111", new { tracer = "callTracer" } } }) };
+        var plan = CaptureFixture.Plan(query);
+
+        var actual = Record.Exception(() => CapturePlanInspector.ValidatePlan(plan));
+
+        Assert.Null(actual);
+    }
+
+    [Theory]
+    [InlineData("[]")]
+    [InlineData("[\"latest\",{\"tracer\":\"callTracer\"}]")]
+    [InlineData("[\"0x1111111111111111111111111111111111111111111111111111111111111111\",{\"tracer\":\"function() { return 1; }\"}]")]
+    [InlineData("[\"0x1111111111111111111111111111111111111111111111111111111111111111\",{\"tracer\":\"prestateTracer\"}]")]
+    [InlineData("[\"0x1111111111111111111111111111111111111111111111111111111111111111\",{\"tracer\":\"callTracer\",\"tracerConfig\":{}}]")]
+    public void ValidatePlan_UnapprovedTraceParameters_ShouldReject(string parameters)
+    {
+        var query = CaptureFixture.Query() with { Request = JsonSerializer.SerializeToElement(new { id = "trace", method = "debug_traceTransaction", @params = JsonSerializer.Deserialize<JsonElement>(parameters) }) };
+        var plan = CaptureFixture.Plan(query);
+
+        var actual = Record.Exception(() => CapturePlanInspector.ValidatePlan(plan));
+
+        Assert.IsType<InvalidDataException>(actual);
+    }
+
     [Theory]
     [InlineData("http://example.invalid", "query", "eth_call", 2)]
     [InlineData("https://user:password@example.invalid", "query", "eth_call", 2)]

@@ -1,0 +1,1017 @@
+{
+  "asset": "COMP",
+  "policy": {
+    "fusionChain": "Fusion",
+    "operatingAddresses": {
+      "Ethereum": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Polygon": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Avalanche": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "BSC": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Arbitrum": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ],
+      "Base": [
+        "0x874de5761900ee526950d707d8cbd4b93092e290",
+        "0x456325f2ac7067234dd71e01bebe032b0255e039",
+        "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+        "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+        "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1"
+      ]
+    },
+    "maximumDelay": "1.00:00:00",
+    "clockTolerance": "00:02:00",
+    "redemptionFeeRawHypotheses": [
+      "0"
+    ],
+    "decimals": 18,
+    "largeOutflowRaw": "10000000000000000000",
+    "depletionBasisPoints": 9000,
+    "claimCutoffBlock": 15130080,
+    "claimCutoffUnixTime": 1759826630,
+    "claimIntervals": {
+      "0x1e5f7162443a8489d0cb724b012e9d495350cfa6": {
+        "start": 1672531199,
+        "end": 18446744073709551615
+      },
+      "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5": {
+        "start": 0,
+        "end": 1672531199
+      },
+      "0xd19aaf97e2d2d92c0c920c902005eae77b53269f": {
+        "start": 1704067199,
+        "end": 18446744073709551615
+      },
+      "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192": {
+        "start": 0,
+        "end": 1704067199
+      },
+      "0x072ae77d8519de9aca47725a21e418e0d694eaad": {
+        "start": 0,
+        "end": 18446744073709551615
+      },
+      "0x413aa2ba41a42e7936cdc80853a9239704dff3f2": {
+        "start": 0,
+        "end": 18446744073709551615
+      }
+    },
+    "issuanceCallTargets": {
+      "0x413aa2ba41a42e7936cdc80853a9239704dff3f2": [
+        "0xdb252989f94f9682720ff13e8c1fd258afbc7c03"
+      ]
+    },
+    "delayedReviewMaximumDelay": "7.00:00:00",
+    "routingCallTargets": [
+      "0x3668c219b1fa8fe8175158f6ce91ded36fde9152"
+    ],
+    "routingChainNames": {
+      "ETH": "Ethereum",
+      "BSC": "BSC",
+      "AVAX": "Avalanche",
+      "MATIC": "Polygon",
+      "BNB": "BSC",
+      "FSN": "Fusion",
+      "ARB": "Arbitrum",
+      "BASE": "Base"
+    },
+    "routingReviewMaximumDelay": "7.00:00:00",
+    "sliceCounterparts": {
+      "0x413aa2ba41a42e7936cdc80853a9239704dff3f2": [
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192",
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f",
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6",
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-comp-fusion-public",
+      "pattern": "*-logs-*.response.json",
+      "tokenDecimals": {
+        "0x072ae77d8519de9aca47725a21e418e0d694eaad": 18,
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6": 18,
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5": 18,
+        "0x26f5513bcaef67fefafaae02f385423185dda91f": 18,
+        "0x413aa2ba41a42e7936cdc80853a9239704dff3f2": 18,
+        "0x57f6bc2d614577a3020e9d7120b44dbd2f5a2ff8": 18,
+        "0x91113c59092071964422905a8f548e05d0863e33": 18,
+        "0x9aff250ad723fc85f01b6b38bf543a0ace7650c2": 18,
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f": 18,
+        "0xdb252989f94f9682720ff13e8c1fd258afbc7c03": 18,
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192": 18
+      },
+      "datedTokens": [
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6",
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5",
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f",
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192"
+      ]
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "comp-*.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-ethereum",
+      "pattern": "context-*.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-receipts",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-arbitrum-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-avalanche-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-ethereum-followup",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-targeted-source-retry",
+      "pattern": "Ethereum-*.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Polygon-*.response.json",
+      "tokenDecimals": {
+        "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Avalanche-*.response.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Arbitrum-state-*.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Base-*.response.json",
+      "tokenDecimals": {
+        "0x9e1028f5f1d5ede59748ffcee5532509976840e0": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-state-base-history",
+      "pattern": "BSC-*.response.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "comp-in.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "comp-out.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Polygon-in.response.json",
+      "tokenDecimals": {
+        "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Polygon-out.response.json",
+      "tokenDecimals": {
+        "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Arbitrum-in.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Arbitrum-out.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-targeted-source-retry",
+      "pattern": "Avalanche-in.response.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-targeted-source-retry",
+      "pattern": "Avalanche-out.response.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-15-comp-bsc-state-base-history",
+      "pattern": "Base-in.response.json",
+      "tokenDecimals": {
+        "0x9e1028f5f1d5ede59748ffcee5532509976840e0": 18
+      }
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-15-comp-bsc-state-base-history",
+      "pattern": "Base-out.response.json",
+      "tokenDecimals": {
+        "0x9e1028f5f1d5ede59748ffcee5532509976840e0": 18
+      }
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-comp-fsnex-receipts",
+      "pattern": "0x*.response.json",
+      "tokenDecimals": {
+        "0x072ae77d8519de9aca47725a21e418e0d694eaad": 18,
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6": 18,
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5": 18,
+        "0x26f5513bcaef67fefafaae02f385423185dda91f": 18,
+        "0x413aa2ba41a42e7936cdc80853a9239704dff3f2": 18,
+        "0x57f6bc2d614577a3020e9d7120b44dbd2f5a2ff8": 18,
+        "0x91113c59092071964422905a8f548e05d0863e33": 18,
+        "0x9aff250ad723fc85f01b6b38bf543a0ace7650c2": 18,
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f": 18,
+        "0xdb252989f94f9682720ff13e8c1fd258afbc7c03": 18,
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192": 18
+      },
+      "datedTokens": [
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6",
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5",
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f",
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192"
+      ],
+      "format": "fsnex-transaction"
+    },
+    {
+      "chain": "Fusion",
+      "directory": "evidence/2026-10-15-comp-fsnex-headers",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x072ae77d8519de9aca47725a21e418e0d694eaad": 18,
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6": 18,
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5": 18,
+        "0x26f5513bcaef67fefafaae02f385423185dda91f": 18,
+        "0x413aa2ba41a42e7936cdc80853a9239704dff3f2": 18,
+        "0x57f6bc2d614577a3020e9d7120b44dbd2f5a2ff8": 18,
+        "0x91113c59092071964422905a8f548e05d0863e33": 18,
+        "0x9aff250ad723fc85f01b6b38bf543a0ace7650c2": 18,
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f": 18,
+        "0xdb252989f94f9682720ff13e8c1fd258afbc7c03": 18,
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192": 18
+      },
+      "datedTokens": [
+        "0x1e5f7162443a8489d0cb724b012e9d495350cfa6",
+        "0x242d4488c8568dc9e6b7830fc0f6761cb73d21a5",
+        "0xd19aaf97e2d2d92c0c920c902005eae77b53269f",
+        "0xdb3142292f5f5ca4953f67a03a3ee374fbd01192"
+      ]
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-recipient-receipts",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-recipient-context",
+      "pattern": "Arbitrum-*.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-recipient-context",
+      "pattern": "Avalanche-*.response.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-ethereum-bridge-context",
+      "pattern": "context-*.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-gap-probes",
+      "pattern": "opening-header.response.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Ethereum-0.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Ethereum-1.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Ethereum-2.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Arbitrum-0.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Arbitrum-1.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Arbitrum-2.response.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-ethereum-gap-context",
+      "pattern": "*.response.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    }
+  ],
+  "balanceSources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-targeted-source-retry",
+      "pattern": "Ethereum-*.request.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Polygon-*.request.json",
+      "tokenDecimals": {
+        "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Avalanche-*.request.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Arbitrum-state-*.request.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-15-comp-source-state",
+      "pattern": "Base-*.request.json",
+      "tokenDecimals": {
+        "0x9e1028f5f1d5ede59748ffcee5532509976840e0": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-state-base-history",
+      "pattern": "BSC-*.request.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-bsc-gap-probes",
+      "pattern": "opening-*.request.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "BSC",
+      "directory": "evidence/2026-10-15-comp-terminal-traces",
+      "pattern": "BSC-balance-*.request.json",
+      "tokenDecimals": {
+        "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-comp-ethereum-bridge-context",
+      "pattern": "balance-*.request.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-recipient-discovery",
+      "pattern": "Arbitrum-balance-*.request.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-recipient-discovery",
+      "pattern": "Avalanche-balance-*.request.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    }
+  ],
+  "logQuerySources": [
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "comp-in.request.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "directory": "evidence/2026-10-15-next-token-vault-screen",
+      "pattern": "comp-out.request.json",
+      "tokenDecimals": {
+        "0xc00e94cb662c3520282e6f5717214004a7f26888": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Polygon-in.request.json",
+      "tokenDecimals": {
+        "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c": 18
+      }
+    },
+    {
+      "chain": "Polygon",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Polygon-out.request.json",
+      "tokenDecimals": {
+        "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Arbitrum-in.request.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "directory": "evidence/2026-10-15-comp-l2-retry",
+      "pattern": "Arbitrum-out.request.json",
+      "tokenDecimals": {
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-targeted-source-retry",
+      "pattern": "Avalanche-in.request.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "directory": "evidence/2026-10-15-comp-targeted-source-retry",
+      "pattern": "Avalanche-out.request.json",
+      "tokenDecimals": {
+        "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437": 18
+      }
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-15-comp-bsc-state-base-history",
+      "pattern": "Base-in.request.json",
+      "tokenDecimals": {
+        "0x9e1028f5f1d5ede59748ffcee5532509976840e0": 18
+      }
+    },
+    {
+      "chain": "Base",
+      "directory": "evidence/2026-10-15-comp-bsc-state-base-history",
+      "pattern": "Base-out.request.json",
+      "tokenDecimals": {
+        "0x9e1028f5f1d5ede59748ffcee5532509976840e0": 18
+      }
+    }
+  ],
+  "logHistoryTargets": [
+    {
+      "chain": "Ethereum",
+      "token": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "Ethereum",
+      "token": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 23524761
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "BSC",
+      "token": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 63769742
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Avalanche",
+      "token": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 69908002
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Polygon",
+      "token": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 77364542
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 386963544
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 386963544
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 386963544
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 386963544
+      }
+    },
+    {
+      "chain": "Arbitrum",
+      "token": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 386963544
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+      "holder": "0x874de5761900ee526950d707d8cbd4b93092e290",
+      "range": {
+        "from": 0,
+        "through": 36518641
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+      "holder": "0x456325f2ac7067234dd71e01bebe032b0255e039",
+      "range": {
+        "from": 0,
+        "through": 36518641
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+      "holder": "0x8a4aa176007196d48d39c89402d3753c39ae64c1",
+      "range": {
+        "from": 0,
+        "through": 36518641
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+      "holder": "0x3f0e40bc7e9cb5f46e906daed18651fb6212aa8e",
+      "range": {
+        "from": 0,
+        "through": 36518641
+      }
+    },
+    {
+      "chain": "Base",
+      "token": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+      "holder": "0x66ff2f0ac3214758d1e61b16b41e3d5e62caecf1",
+      "range": {
+        "from": 0,
+        "through": 36518641
+      }
+    }
+  ],
+  "sourceCutoffBlocks": {
+    "Ethereum": 23524761,
+    "Polygon": 77364542,
+    "Avalanche": 69908002,
+    "BSC": 63769742,
+    "Arbitrum": 386963544,
+    "Base": 36518641
+  },
+  "capturePolicies": {
+    "Ethereum": {
+      "template": {
+        "endpoint": "https://mainnet.gateway.tenderly.co",
+        "expectedChainId": "0x1",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:01:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 30000000,
+      "batchSize": 20,
+      "combineHolderFilters": true
+    },
+    "Polygon": {
+      "template": {
+        "endpoint": "https://polygon.gateway.tenderly.co",
+        "expectedChainId": "0x89",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:01:00",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 5000000,
+      "batchSize": 20,
+      "combineHolderFilters": true
+    },
+    "Avalanche": {
+      "template": {
+        "endpoint": "https://avalanche-c-chain-rpc.publicnode.com",
+        "expectedChainId": "0xa86a",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:02",
+        "timeout": "00:00:40",
+        "maximumConsecutiveFailures": 3,
+        "queries": []
+      },
+      "maximumLogBlocks": 5000000,
+      "batchSize": 3,
+      "combineHolderFilters": true
+    },
+    "BSC": {
+      "template": {
+        "endpoint": "https://rpc-bnb.blockmachine.io",
+        "expectedChainId": "0x38",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:04",
+        "timeout": "00:00:40",
+        "maximumConsecutiveFailures": 3,
+        "queries": [],
+        "maximumRetries": 8,
+        "retryDelay": "00:01:05"
+      },
+      "maximumLogBlocks": 1000,
+      "batchSize": 1,
+      "combineHolderFilters": true
+    },
+    "Arbitrum": {
+      "template": {
+        "endpoint": "https://arb1.arbitrum.io/rpc",
+        "expectedChainId": "0xa4b1",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:03",
+        "timeout": "00:01:00",
+        "maximumConsecutiveFailures": 1,
+        "queries": []
+      },
+      "maximumLogBlocks": 1000,
+      "batchSize": 1,
+      "combineHolderFilters": true
+    },
+    "Base": {
+      "template": {
+        "endpoint": "https://mainnet.base.org",
+        "expectedChainId": "0x2105",
+        "userAgent": "Chainge-public-research/1.0",
+        "requestDelay": "00:00:03",
+        "timeout": "00:01:00",
+        "maximumConsecutiveFailures": 1,
+        "queries": []
+      },
+      "maximumLogBlocks": 1000,
+      "batchSize": 1,
+      "combineHolderFilters": true
+    }
+  },
+  "limitations": [
+    "Partial investigation, using anonymous public sources only. Fusion event history is receipt-corroborated; arbitrary pinned Fusion balances and restrictions remain unavailable.",
+    "Five candidate vaults on six source chains do not establish exhaustive custody. NEAR, Harmony, Energi and Sora representations remain discovery leads.",
+    "The newer Fusion supply is an event ledger, not consolidated customer liabilities. Earlier FRC758 ledgers and overlapping parent/slice rights cannot be summed as independent claims.",
+    "The capped BSC index omits earlier history. Pinned opening/closing balances reconcile the retained later window but do not exclude cancelling omissions. Base history requests failed despite observed zero closing balances.",
+    "Swap reports, bridge links and exchange-labelled destinations describe disposition, not accepted Fusion settlement, ownership or reimbursement.",
+    "Exact amount/time matching is a hypothesis. No fee rule has been assumed to clear unmatched events."
+  ]
+}

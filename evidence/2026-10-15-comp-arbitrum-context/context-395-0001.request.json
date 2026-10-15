@@ -1,0 +1,47 @@
+[
+        {
+          "jsonrpc": "2.0",
+          "id": "0xc379747-header",
+          "method": "eth_getBlockByNumber",
+          "params": [
+            "0xc379747",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0xc379f28-header",
+          "method": "eth_getBlockByNumber",
+          "params": [
+            "0xc379f28",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0xc38986b-header",
+          "method": "eth_getBlockByNumber",
+          "params": [
+            "0xc38986b",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0xc389ef8-header",
+          "method": "eth_getBlockByNumber",
+          "params": [
+            "0xc389ef8",
+            false
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": "0xc39deb0-header",
+          "method": "eth_getBlockByNumber",
+          "params": [
+            "0xc39deb0",
+            false
+          ]
+        }
+      ]

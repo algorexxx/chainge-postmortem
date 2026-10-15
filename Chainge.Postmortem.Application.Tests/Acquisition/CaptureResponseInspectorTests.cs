@@ -56,6 +56,10 @@ public sealed class CaptureResponseInspectorTests
     [InlineData("eth_getLogs", "{}", false)]
     [InlineData("eth_getTransactionReceipt", "{}", true)]
     [InlineData("eth_getTransactionReceipt", "[]", false)]
+    [InlineData("debug_traceTransaction", "{}", true)]
+    [InlineData("debug_traceTransaction", "[]", false)]
+    [InlineData("eth_getBalance", "\"0x0\"", true)]
+    [InlineData("eth_getBalance", "null", false)]
     [InlineData("eth_call", "\"bad\"", false)]
     [InlineData("unknown", "[]", false)]
     public void IsSuccessful_ResultShape_ShouldMatchMethod(string method, string result, bool expected)

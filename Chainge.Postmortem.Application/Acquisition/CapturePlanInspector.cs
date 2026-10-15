@@ -18,8 +18,18 @@ public static class CapturePlanInspector
             foreach (var request in requests)
             {
                 var method = request.GetProperty("method").GetString();
-                if (method is not ("eth_chainId" or "eth_getLogs" or "eth_call" or "eth_getBlockByHash" or "eth_getBlockByNumber" or "eth_getTransactionReceipt" or "eth_getTransactionByHash" or "eth_getCode")) { throw new InvalidDataException("Only read-only acquisition methods are supported."); }
+                if (method is not ("eth_chainId" or "eth_getLogs" or "eth_call" or "eth_getBlockByHash" or "eth_getBlockByNumber" or "eth_getTransactionReceipt" or "eth_getTransactionByHash" or "eth_getCode" or "eth_getBalance" or "debug_traceTransaction")) { throw new InvalidDataException("Only read-only acquisition methods are supported."); }
+                if (method == "debug_traceTransaction") { ValidateCallTrace(request); }
             }
         }
+    }
+
+    private static void ValidateCallTrace(System.Text.Json.JsonElement request)
+    {
+        if (!request.TryGetProperty("params", out var parameters) || parameters.ValueKind != System.Text.Json.JsonValueKind.Array || parameters.GetArrayLength() != 2) { throw new InvalidDataException("A call trace requires a transaction hash and callTracer options."); }
+        var hash = parameters[0].ValueKind == System.Text.Json.JsonValueKind.String ? parameters[0].GetString() : null;
+        if (hash is null || hash.Length != 66 || !hash.StartsWith("0x", StringComparison.Ordinal) || !hash.Skip(2).All(char.IsAsciiHexDigit)) { throw new InvalidDataException("A call trace requires an exact transaction hash."); }
+        var options = parameters[1];
+        if (options.ValueKind != System.Text.Json.JsonValueKind.Object || options.EnumerateObject().Count() != 1 || !options.TryGetProperty("tracer", out var tracer) || tracer.ValueKind != System.Text.Json.JsonValueKind.String || tracer.GetString() != "callTracer") { throw new InvalidDataException("Only the built-in callTracer without custom options is supported."); }
     }
 }

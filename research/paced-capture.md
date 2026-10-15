@@ -28,3 +28,7 @@ Restart using the **same plan and output directory**. Successful pinned requests
 BAT's anonymous BSC test on 2026-10-15 completed six singleton requests, including a quota failure followed by a successful automatic retry. Its retained block range is 10,000 blocks per request. This is evidence that slower acquisition works, not proof that the entire historical endpoint is complete or that future ranges will succeed.
 
 After capture: register successful logs and paired coverage requests, reconcile, capture newly discovered receipts/headers, review newly selected outflows and refresh the workflow/closeout assessments. Run publication and privacy checks before committing. Finishing the network scan alone does not finish the asset investigation.
+
+## Native balances and transaction traces
+
+The capture runner supports pinned `eth_getBalance` and `debug_traceTransaction` with an exact transaction hash and `{ "tracer": "callTracer" }`. Custom JavaScript tracers and extra tracer options are rejected. Traces reuse the same checksummed cache, chain identity check, provider cooldown handling and bounded retries as receipts. A successful RPC response only establishes transport/result availability: inspect top-level and nested execution errors before using native transfers. Trace quotas may differ from ordinary RPC quotas. Stop at the recorded retry limit and preserve the boundary; do not rotate identities to evade limits.

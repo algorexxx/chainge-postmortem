@@ -1,0 +1,189 @@
+{
+  "gates": [
+    {
+      "id": "identity",
+      "status": "evidence-boundary",
+      "finding": "Eleven named Fusion representations, four additional child leads, original Ethereum COMP and five bridged source contracts reviewed. Active parent/five child runtime comparisons and public metadata support configured mappings.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-fusion-public/manifest.json",
+        "evidence/2026-10-15-comp-chain-discovery/manifest.json",
+        "evidence/2026-10-15-comp-public-state-probes/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Complete public catalogue screen",
+        "Public code and parent/slice metadata comparison",
+        "Original Compound source and public representation discovery"
+      ],
+      "boundaryReason": "Four child-address leads lack public code/token pages and public historical getters are unavailable."
+    },
+    {
+      "id": "vault-discovery",
+      "status": "evidence-boundary",
+      "finding": "Five tested candidate vault addresses on each of six chains; additional platforms remain discovery leads.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-chain-discovery/manifest.json",
+        "evidence/2026-10-15-comp-bsc-index/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Token-filtered histories",
+        "Cross-chain address reuse screening",
+        "Public representation catalogue"
+      ],
+      "boundaryReason": "Address reuse and activity do not establish exhaustive custody or beneficial ownership."
+    },
+    {
+      "id": "history",
+      "status": "evidence-boundary",
+      "finding": "Ethereum, Polygon, Avalanche and Arbitrum requested vault ranges are covered. BSC capped history and Base history remain incomplete; BSC later-window net changes reconcile.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-bsc-index/manifest.json",
+        "evidence/2026-10-15-comp-bsc-gap-probes/manifest.json",
+        "evidence/2026-10-15-comp-history-fallback/manifest.json",
+        "evidence/2026-10-15-comp-l2-retry/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Anonymous indexed vault and recipient histories",
+        "Exact receipts",
+        "Public log-query alternatives",
+        "Rejected pagination and page-size attempts",
+        "Opening/closing state comparison",
+        "Offline fallback request-count and duration estimate"
+      ],
+      "boundaryReason": "BSC old pagination was rejected and Base indexes/RPC range queries failed. Broad fallback scans require days and were not executed."
+    },
+    {
+      "id": "receipts",
+      "status": "verified",
+      "finding": "Retained ledger events have successful receipt and timestamp context. Public Fusion transaction and hash-bound block captures are complete for selected history.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-fsnex-receipts/manifest.json",
+        "evidence/2026-10-15-comp-fsnex-headers/manifest.json",
+        "evidence/2026-10-15-comp-arbitrum-context/manifest.json",
+        "evidence/2026-10-15-comp-bsc-receipts/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-gap-context/manifest.json"
+      ]
+    },
+    {
+      "id": "source-balances",
+      "status": "evidence-boundary",
+      "finding": "Thirty vault positions are pinned through anonymous public calls. Four covered chains agree with replay; five BSC opening-to-closing changes agree, but earlier BSC replay remains incomplete.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-source-state/manifest.json",
+        "evidence/2026-10-15-comp-targeted-source-retry/manifest.json",
+        "evidence/2026-10-15-comp-bsc-state-base-history/manifest.json",
+        "evidence/2026-10-15-comp-bsc-gap-probes/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Historical balanceOf calls",
+        "Adjacent cutoff headers and identity checks",
+        "Replay and interval comparison"
+      ],
+      "boundaryReason": "Pinned balances do not resolve missing earlier transactions, unknown custody or bridged-token backing."
+    },
+    {
+      "id": "fusion-state",
+      "status": "evidence-boundary",
+      "finding": "Public event net issuance agrees with FSNEX newer supply; historical holder balances and restriction flags are not independently queried.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-public-state-probes/manifest.json",
+        "evidence/2026-10-15-comp-fusion-public/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Public contract functions lookup",
+        "Public contract read attempts",
+        "Public indexed holder/supply comparison"
+      ],
+      "boundaryReason": "Public function/read endpoints returned missing-function/NotVerified results; no arbitrary public historical-state source was available. Private access is outside scope."
+    },
+    {
+      "id": "fusion-semantics",
+      "status": "evidence-boundary",
+      "finding": "Active parent and dated counterparts mapped with matching public runtime and indexed relationships; controller/routing context reviewed.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-fusion-public/manifest.json",
+        "evidence/2026-10-15-comp-fsnex-receipts/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Runtime comparison against retained compiled parent and Slice code",
+        "Receipt mint/burn purpose analysis",
+        "Controller identifier and routing review"
+      ],
+      "boundaryReason": "FRC758 semantics, overlapping rights, beneficial ownership and authenticated extinguishment remain unresolved."
+    },
+    {
+      "id": "holder-funding",
+      "status": "evidence-boundary",
+      "finding": "All positive newer event-replayed positions were traced through the public transfer ledger using explicit unverified-inventory mode.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "evidence/2026-10-15-comp-fsnex-receipts/manifest.json",
+        "research/review-holder-funding.ps1"
+      ],
+      "attemptedMethods": [
+        "Full public transaction capture",
+        "Event-only holder-funding review",
+        "Controller/source identifier correlations"
+      ],
+      "boundaryReason": "These are event-replayed balances; no independent pinned holder or restriction calls were available. Funding does not prove customer ownership."
+    },
+    {
+      "id": "outflow-disposition",
+      "status": "evidence-boundary",
+      "finding": "Every retained external vault outflow has an assessment. Six withdrawals totalling 314 COMP have complete Arbitrum/Ethereum message matches and exchange-labelled onward transfers; the separate 30-COMP route returns through Ethereum. The 82-COMP BSC payment is traced through five swaps.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "research/assets/comp-closeout.json",
+        "evidence/2026-10-15-comp-recipient-context/manifest.json",
+        "evidence/2026-10-15-comp-ethereum-bridge-context/manifest.json",
+        "evidence/2026-10-15-comp-bsc-trace-retry/manifest.json",
+        "evidence/2026-10-15-comp-terminal-traces/manifest.json"
+      ],
+      "attemptedMethods": [
+        "Complete all-outflows case register",
+        "Recipient histories and exact receipts",
+        "Native call traces with paced retries",
+        "Pinned recipient balances",
+        "Full-message Arbitrum withdrawal matching",
+        "Nearby same-holder burn review preserving competing candidates"
+      ],
+      "boundaryReason": "Exchange account attribution, accepted Fusion settlement, mixed native funds and some onward ownership cannot be established from these captures. Failed Ethereum native trace attempts remain explicit."
+    },
+    {
+      "id": "announcements",
+      "status": "verified",
+      "finding": "General reviewed blacklisting and suspension statements are linked with explicit non-COMP-specific scope. Publication dates are not incident-onset evidence.",
+      "nextAction": "Reopen on new public evidence resolving the stated limitation; rerun downstream reconciliation and all-outflows review.",
+      "references": [
+        "research/assets/comp.md",
+        "registry/timeline.json"
+      ]
+    },
+    {
+      "id": "publication",
+      "status": "verified",
+      "finding": "Shared COMP page and complete retained movement ledger validated locally. Release build has zero warnings/errors; all 336 tests and full reproducibility/UI checks passed. User controls pushing.",
+      "nextAction": "Rebuild and verify after any evidence or UI update; publish only the reviewed local commit.",
+      "references": [
+        "research/assets/comp.md",
+        "registry/studies.json",
+        "registry/comp-movements.json"
+      ]
+    }
+  ]
+}
